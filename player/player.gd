@@ -1,0 +1,58 @@
+extends CharacterBody2D
+class_name Player
+
+const BULLET = preload("uid://k308fsvc3jvh")
+
+const MAX_SPEED: float = 200.0
+const ACCELERATION: float = 900.0
+const DECELERATION: float = 1500.0
+
+const JUMP_FORCE: float = 500.0
+const MAX_FALL_SPEED: float = 400.0
+const GRAVITY: float = 700
+
+@export var accel_curve: Curve
+@export var decel_curve: Curve
+
+@export var grav_curve_asc: Curve
+@export var grav_curve_dec: Curve
+
+func _ready():
+	GameState.player = self
+
+func _physics_process(delta):
+	# gravity & jumping
+	if not is_on_floor():
+		var grav_mult: float = 1.0
+		if velocity.y < 0:
+			grav_mult = grav_curve_asc.sample(abs(velocity.y/JUMP_FORCE))
+		else:
+			grav_mult = grav_curve_dec.sample(velocity.y/MAX_FALL_SPEED)
+		velocity.y += GRAVITY * grav_mult * delta
+	else:
+		$CoyoteTime.start()
+	if Input.is_action_just_pressed("jump"):
+		$JumpBuffer.start()
+	elif Input.is_action_just_released("jump"):
+		velocity.y /= 1.7
+	if not $CoyoteTime.is_stopped() and not $JumpBuffer.is_stopped():
+		$CoyoteTime.stop()
+		$JumpBuffer.stop()
+		velocity.y -= JUMP_FORCE
+	
+	# left right movement
+	var dir: float = Input.get_axis("left", "right")
+	if dir:
+		velocity.x += dir * ACCELERATION * accel_curve.sample(abs(velocity.x/MAX_SPEED)) * delta
+	if dir * velocity.x <= 0:
+		velocity.x = move_toward(velocity.x, 0, DECELERATION * decel_curve.sample(abs(velocity.x/MAX_SPEED)) * delta)
+	velocity.x = clampf(velocity.x, -MAX_SPEED, MAX_SPEED)
+	
+	# shooting
+	if Input.is_action_just_pressed("shoot"):
+		var bullet = BULLET.instantiate()
+		bullet.resource = load("uid://cllwws72eb4kk")
+		bullet.direction = global_position.direction_to(get_global_mouse_position())
+		get_parent().add_child(bullet)
+	
+	move_and_slide()

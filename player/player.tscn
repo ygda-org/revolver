@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://dhebim0i23kwq"]
+
+[ext_resource type="Texture2D" uid="uid://dlbb2kg1nkspe" path="res://assets/icon.svg" id="1_oul6g"]
+[ext_resource type="Script" uid="uid://gjb3c0xiol2a" path="res://player/player.gd" id="1_rkbax"]
+
+[sub_resource type="Curve" id="Curve_rkbax"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.5371901), -0.6620358, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_g1dw6"]
+_data = [Vector2(0, 0.7355372), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_yw30f"]
+_data = [Vector2(0, 0.2727273), 0.0, 0.91070354, 0, 0, Vector2(1, 0.5206612), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_qjkh3"]
+_data = [Vector2(0, 0.71900827), 0.0, 0.52876365, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5kg8m"]
+size = Vector2(108, 88)
+
+[node name="Player" type="CharacterBody2D" unique_id=1304598780]
+collision_layer = 0
+collision_mask = 3
+script = ExtResource("1_rkbax")
+accel_curve = SubResource("Curve_rkbax")
+decel_curve = SubResource("Curve_g1dw6")
+grav_curve_asc = SubResource("Curve_yw30f")
+grav_curve_dec = SubResource("Curve_qjkh3")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=285447514]
+texture = ExtResource("1_oul6g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1183259583]
+position = Vector2(5, -6)
+shape = SubResource("RectangleShape2D_5kg8m")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=760305562]
+
+[node name="JumpBuffer" type="Timer" parent="." unique_id=1886932304]
+wait_time = 0.1
+one_shot = true
+
+[node name="CoyoteTime" type="Timer" parent="." unique_id=901113100]
+wait_time = 0.11
+one_shot = true
