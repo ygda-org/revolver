@@ -49,10 +49,17 @@ func _physics_process(delta):
 	velocity.x = clampf(velocity.x, -MAX_SPEED, MAX_SPEED)
 	
 	# shooting
+	if Input.is_action_just_pressed("cycle_left"):
+		GameState.bullet_cycle(-1)
+	if Input.is_action_just_pressed("cycle_right"):
+		GameState.bullet_cycle(1)
+	if Input.is_action_just_pressed("reload"):
+		GameState.reload()
 	if Input.is_action_just_pressed("shoot"):
 		var bullet = BULLET.instantiate()
-		bullet.resource = load("uid://cllwws72eb4kk")
+		bullet.resource = GameState.get_current_bullet()
 		bullet.direction = global_position.direction_to(get_global_mouse_position())
+		bullet.global_position = global_position
 		get_parent().add_child(bullet)
 	
 	move_and_slide()
