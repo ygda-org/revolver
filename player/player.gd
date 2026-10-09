@@ -57,7 +57,7 @@ func _physics_process(delta):
 		GameState.reload()
 	if Input.is_action_just_pressed("shoot"):
 		var bullet = BULLET.instantiate()
-		bullet.resource = GameState.get_current_bullet()
+		bullet.resource = GameState.get_bullet()
 		bullet.direction = global_position.direction_to(get_global_mouse_position())
 		bullet.global_position = global_position
 		get_parent().add_child(bullet)

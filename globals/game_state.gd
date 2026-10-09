@@ -21,7 +21,8 @@ func reload():
 	for i in range(6):
 		barrel.append(load("uid://cllwws72eb4kk"))
 
-func get_current_bullet():
+## for use with shooting. Returns current bullet and cycles the barrel
+func get_bullet():
 	var bullet: BulletResource = barrel[barrel_index]
 	barrel[barrel_index] = load("uid://c7kvyedwvgnr0")
 	bullet_cycle(1)
