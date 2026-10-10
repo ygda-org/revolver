@@ -1,15 +1,11 @@
 [gd_scene format=3 uid="uid://cnoahdbn2sxq3"]
 
 [ext_resource type="PackedScene" uid="uid://dhebim0i23kwq" path="res://player/player.tscn" id="2_pjrb6"]
-[ext_resource type="PackedScene" uid="uid://dnoe8amuqmu6q" path="res://levels/tunnel.tscn" id="2_xwkvk"]
-[ext_resource type="PackedScene" uid="uid://dbj21rwlxkyql" path="res://enemies/dash_enemy/dash_enemy.tscn" id="3_xwkvk"]
+[ext_resource type="PackedScene" uid="uid://cm26taotlekif" path="res://levels/short_climb.tscn" id="2_xwkvk"]
 
 [node name="Main" type="Node2D" unique_id=1213057778]
 
 [node name="Player" parent="." unique_id=1304598780 instance=ExtResource("2_pjrb6")]
 position = Vector2(21, 73)
 
-[node name="Tunnel" parent="." unique_id=188045053 instance=ExtResource("2_xwkvk")]
-
-[node name="DashEnemy" parent="." unique_id=566794320 instance=ExtResource("3_xwkvk")]
-position = Vector2(224, 48)
+[node name="ShortClimb" parent="." unique_id=857788238 instance=ExtResource("2_xwkvk")]
