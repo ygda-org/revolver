@@ -49,9 +49,12 @@ func _physics_process(delta):
 	velocity.x = clampf(velocity.x, -MAX_SPEED, MAX_SPEED)
 	
 	# shooting
-	$Camera2D.offset = $Camera2D.offset.lerp((get_global_mouse_position() - global_position)/6, 20*delta)
+	var mouse_offset: Vector2 = (get_global_mouse_position() - global_position)/6
+	mouse_offset.y /= 2
+	$Camera2D.offset = $Camera2D.offset.lerp(mouse_offset, 20*delta)
 	$Camera2D.offset = $Camera2D.offset.limit_length(40)
-	if Input.is_action_just_pressed("shoot"):
+	if Input.is_action_just_pressed("shoot") and $ShotCD.is_stopped():
+		$ShotCD.start()
 		var resource: BulletResource = GameState.get_bullet()
 		var shot_dir: Vector2 = global_position.direction_to(get_global_mouse_position())
 		var bullet = BULLET.instantiate()

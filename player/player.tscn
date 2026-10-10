@@ -60,3 +60,7 @@ one_shot = true
 [node name="RecoilLock" type="Timer" parent="." unique_id=1274171054]
 wait_time = 0.2
 one_shot = true
+
+[node name="ShotCD" type="Timer" parent="." unique_id=2111399264]
+wait_time = 0.13
+one_shot = true
