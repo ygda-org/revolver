@@ -8,7 +8,9 @@ func hit(resource: BulletResource):
 	if health <= 0:
 		die()
 		return
-	
 
 func die():
+	get_parent().call_deferred("queue_free")
+
+func freeze(duration: float):
 	pass

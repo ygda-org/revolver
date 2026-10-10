@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://dbj21rwlxkyql"]
+
+[ext_resource type="Script" uid="uid://bh8exyhorpbtd" path="res://enemies/dash_enemy/dash_enemy.gd" id="1_5gxxa"]
+[ext_resource type="Texture2D" uid="uid://dlbb2kg1nkspe" path="res://assets/icon.svg" id="1_sesbg"]
+[ext_resource type="PackedScene" uid="uid://d3jnp7vef3gti" path="res://enemies/enemy_component.tscn" id="2_mbm62"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sesbg"]
+size = Vector2(16, 32)
+
+[node name="DashEnemy" type="CharacterBody2D" unique_id=566794320]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_5gxxa")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=504976120]
+scale = Vector2(0.125, 0.25)
+texture = ExtResource("1_sesbg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1821245678]
+shape = SubResource("RectangleShape2D_sesbg")
+
+[node name="EnemyComponent" parent="." unique_id=920270805 instance=ExtResource("2_mbm62")]
+
+[node name="RaycastPivot" type="Node2D" parent="." unique_id=988000452]
+
+[node name="WalkoffDetector" type="RayCast2D" parent="RaycastPivot" unique_id=1577733732]
+position = Vector2(8, 15)
+target_position = Vector2(0, 3)
+
+[node name="PlayerDetector" type="RayCast2D" parent="RaycastPivot" unique_id=1610823434]
+target_position = Vector2(150, 0)
+collision_mask = 4

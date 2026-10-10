@@ -6,4 +6,6 @@
 script = ExtResource("1_t32a5")
 damage = 5
 speed = 200.0
+effect = 1
+effect_strength = 1.0
 metadata/_custom_type_script = "uid://cmear8uu7c65f"
