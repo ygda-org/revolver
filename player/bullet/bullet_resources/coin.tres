@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_yel5m")
-damage = 0
+damage = 2
 speed = 200.0
 effect = 4
 effect_strength = 2.5

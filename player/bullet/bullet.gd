@@ -10,11 +10,14 @@ var player: Player
 
 var damage: int
 
+var pierces: int = 1
+
 var effect_methods = {
 	BulletResource.effects.FREEZE: Callable(freeze),
 	BulletResource.effects.DASH: Callable(dash),
 	BulletResource.effects.FIRE: Callable(fire),
-	BulletResource.effects.COIN: Callable(coin_gravity)
+	BulletResource.effects.COIN: Callable(coin_gravity),
+	BulletResource.effects.RICOPIERCE: Callable(ricopierce_setup)
 }
 
 var thing_i_hit: EnemyComponent
@@ -33,15 +36,23 @@ func _process(delta):
 		effect_methods[resource.effect].call()
 
 func _on_body_entered(body: Object):
+	pierces -= 1
 	var enemy_component: EnemyComponent = body.find_child("EnemyComponent")
 	if not enemy_component:
-		call_deferred("queue_free")
+		if pierces <= 0:
+			call_deferred("queue_free")
+			return
+		# ricochet
+		var maxis: int = global_position.direction_to(body.global_position).max_axis_index()
+		direction = direction.bounce([Vector2(1,0), Vector2(0,1)][maxis])
+		vel = direction * resource.speed
 		return
 	enemy_component.hit(damage)
 	thing_i_hit = enemy_component
 	if not resource.effect_on_shot and resource.effect in effect_methods:
 		effect_methods[resource.effect].call()
-	call_deferred("queue_free")
+	if pierces <= 0:
+		call_deferred("queue_free")
 
 func _on_visible_on_screen_notifier_2d_screen_exited():
 	queue_free()
@@ -69,4 +80,8 @@ func _on_area_entered(area: PlayerBullet):
 		if not closest_enemy:
 			return
 		direction = global_position.direction_to(closest_enemy.global_position)
-		vel = resource.speed * direction * area.resource.effect_strength
+		vel = 1.5*resource.speed * direction * area.resource.effect_strength
+		area.vel = 300 * Vector2(1, 0).rotated(randf_range(PI/3, 2*PI/3))
+
+func ricopierce_setup():
+	pierces = int(resource.effect_strength)

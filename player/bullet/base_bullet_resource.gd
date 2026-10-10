@@ -15,5 +15,6 @@ enum effects {
 	FREEZE,
 	DASH,
 	FIRE,
-	COIN
+	COIN,
+	RICOPIERCE
 }
