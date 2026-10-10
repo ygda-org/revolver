@@ -83,8 +83,8 @@ func coin_gravity():
 	vel.y += 100 * delta_time_save
 
 # entered another bullet
-func _on_area_entered(area: PlayerBullet):
-	if area.resource.effect == BulletResource.effects.COIN:
+func _on_area_entered(area):
+	if area is PlayerBullet and area.resource.effect == BulletResource.effects.COIN:
 		damage *= area.resource.effect_strength
 		var closest_enemy = GameState.get_closest_enemy_to_position(global_position)
 		if not closest_enemy:
@@ -92,6 +92,8 @@ func _on_area_entered(area: PlayerBullet):
 		direction = global_position.direction_to(closest_enemy.global_position)
 		vel = 1.5*resource.speed * direction * area.resource.effect_strength
 		area.vel = 300 * Vector2(1, 0).rotated(randf_range(PI/3, 2*PI/3))
+	else:
+		call_deferred("queue_free")
 
 func ricopierce_setup():
 	pierces = int(resource.effect_strength)

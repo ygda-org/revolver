@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://cqkgsr8jgrndt"]
+
+[ext_resource type="Script" uid="uid://dpwxvwdsbvg7h" path="res://enemies/wall_enemy/wall_enemy.gd" id="1_5vqqi"]
+[ext_resource type="Texture2D" uid="uid://dlbb2kg1nkspe" path="res://assets/icon.svg" id="1_6erdp"]
+[ext_resource type="PackedScene" uid="uid://d3jnp7vef3gti" path="res://enemies/enemy_component.tscn" id="3_sgxws"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sgxws"]
+size = Vector2(26, 44)
+
+[node name="WallEnemy" type="CharacterBody2D" unique_id=967547360]
+script = ExtResource("1_5vqqi")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=68681920]
+scale = Vector2(0.2, 0.35)
+texture = ExtResource("1_6erdp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=415863249]
+shape = SubResource("RectangleShape2D_sgxws")
+
+[node name="EnemyComponent" parent="." unique_id=920270805 instance=ExtResource("3_sgxws")]
+
+[node name="WallTimer" type="Timer" parent="." unique_id=394727107]
+wait_time = 4.0
+one_shot = true
+
+[node name="RayCastPivot" type="Node2D" parent="." unique_id=125983907]
+
+[node name="WalkoffDetector" type="RayCast2D" parent="RayCastPivot" unique_id=651601387]
+position = Vector2(13, 22)
+target_position = Vector2(0, 3)
+
+[connection signal="timeout" from="WallTimer" to="." method="_on_wall_timer_timeout"]

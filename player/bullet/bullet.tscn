@@ -53,7 +53,6 @@ sprite_frames = SubResource("SpriteFrames_k2a0t")
 autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1498002629]
-visible = false
 shape = SubResource("CircleShape2D_5kg8m")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=175631859]

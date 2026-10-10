@@ -18,7 +18,7 @@ position = Vector2(0, 48)
 position = Vector2(400, 47)
 
 [node name="EnemySpawner" parent="." unique_id=903597499 instance=ExtResource("3_b413a")]
-position = Vector2(199, -63)
+position = Vector2(200, -87)
 
 [node name="EnemySpawner2" parent="." unique_id=668041144 instance=ExtResource("3_b413a")]
 position = Vector2(198, 28)

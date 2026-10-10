@@ -6,7 +6,8 @@ extends Node2D
 const FLYING = [preload("uid://bjxissut13r5b"), 
 preload("uid://1qekgha414yp")]
 
-const GROUNDED = [preload("uid://dbj21rwlxkyql")]
+const GROUNDED = [preload("uid://dbj21rwlxkyql"),
+preload("uid://cqkgsr8jgrndt")]
 
 var active_array
 
