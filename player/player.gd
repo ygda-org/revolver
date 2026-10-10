@@ -26,6 +26,7 @@ var health: int = 2
 
 var hit_stun_velocity
 var slam_velocity: Vector2
+var next_bullet_twice: bool = false
 
 func _ready():
 	GameState.player = self
@@ -80,6 +81,18 @@ func _physics_process(delta):
 		bullet.global_position = global_position
 		bullet.player = self
 		get_parent().add_child(bullet)
+		if next_bullet_twice:
+			next_bullet_twice = false
+			var bullet2 = bullet.duplicate()
+			bullet2.resource = resource
+			bullet2.direction = shot_dir
+			bullet2.global_position = global_position
+			bullet2.player = self
+			get_tree().create_timer(0.1).timeout.connect(get_parent().add_child.bind(bullet2))
+			if resource.recoil:
+				velocity.y /= 3
+				velocity += resource.recoil * -shot_dir
+				$RecoilLock.start()
 		if resource.recoil:
 			velocity.y /= 3
 			velocity += resource.recoil * -shot_dir

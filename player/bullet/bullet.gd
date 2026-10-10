@@ -21,7 +21,8 @@ var effect_methods = {
 	BulletResource.effects.SHOTGUN: Callable(shotgun_setup),
 	BulletResource.effects.SHIFT: Callable(shift),
 	BulletResource.effects.SLAM: Callable(slam),
-	BulletResource.effects.TP_SHOT: Callable(tp_shot)
+	BulletResource.effects.TP_SHOT: Callable(tp_shot),
+	BulletResource.effects.REVOLVER: Callable(revolver)
 }
 
 var thing_i_hit: EnemyComponent
@@ -131,3 +132,7 @@ func slam():
 
 func tp_shot():
 	player.global_position = global_position
+
+func revolver():
+	GameState.player.next_bullet_twice = true
+	queue_free()

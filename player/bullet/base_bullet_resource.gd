@@ -28,5 +28,6 @@ enum effects {
 	PARRY,
 	SHIFT,
 	SLAM,
-	TP_SHOT
+	TP_SHOT,
+	REVOLVER
 }

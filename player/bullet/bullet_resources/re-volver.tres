@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="BulletResource" format=3 uid="uid://cwxsvraxetjx4"]
+
+[ext_resource type="Script" uid="uid://cmear8uu7c65f" path="res://player/bullet/base_bullet_resource.gd" id="1_ju4b2"]
+
+[resource]
+script = ExtResource("1_ju4b2")
+effect = 11
+effect_on_shot = true
+outline_color = Color(1, 1, 1, 1)
+metadata/_custom_type_script = "uid://cmear8uu7c65f"
