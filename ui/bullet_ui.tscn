@@ -61,36 +61,30 @@ position = Vector2(29, 29)
 
 [node name="Bullet1" type="Sprite2D" parent="SubViewportContainer/SubViewport/Pivot" unique_id=2000432786]
 material = SubResource("ShaderMaterial_6nevi")
-use_parent_material = true
 position = Vector2(0, -17)
 texture = ExtResource("1_6nevi")
 
 [node name="Bullet2" type="Sprite2D" parent="SubViewportContainer/SubViewport/Pivot" unique_id=1561992544]
 material = SubResource("ShaderMaterial_6nevi")
-use_parent_material = true
 position = Vector2(14, -8)
 texture = ExtResource("1_6nevi")
 
 [node name="Bullet3" type="Sprite2D" parent="SubViewportContainer/SubViewport/Pivot" unique_id=109845135]
 material = SubResource("ShaderMaterial_6nevi")
-use_parent_material = true
 position = Vector2(14, 8)
 texture = ExtResource("1_6nevi")
 
 [node name="Bullet4" type="Sprite2D" parent="SubViewportContainer/SubViewport/Pivot" unique_id=1099403583]
 material = SubResource("ShaderMaterial_6nevi")
-use_parent_material = true
 position = Vector2(0, 17)
 texture = ExtResource("1_6nevi")
 
 [node name="Bullet5" type="Sprite2D" parent="SubViewportContainer/SubViewport/Pivot" unique_id=1262944111]
 material = SubResource("ShaderMaterial_6nevi")
-use_parent_material = true
 position = Vector2(-14, 8)
 texture = ExtResource("1_6nevi")
 
 [node name="Bullet6" type="Sprite2D" parent="SubViewportContainer/SubViewport/Pivot" unique_id=450291601]
 material = SubResource("ShaderMaterial_6nevi")
-use_parent_material = true
 position = Vector2(-14, -8)
 texture = ExtResource("1_6nevi")
