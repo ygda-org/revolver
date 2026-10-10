@@ -24,5 +24,4 @@ func _on_start_reload():
 
 func _on_stop_reload():
 	$RevolverAnim.stop()
-	$BulletUi.render_bullets()
 	$RevolverAnim.play("default")

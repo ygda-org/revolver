@@ -142,6 +142,7 @@ position = Vector2(83, 466)
 rotation = -1.5707964
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_55d6i")
+animation = &"reload"
 autoplay = "default"
 
 [node name="BulletUi" parent="." unique_id=1005910988 instance=ExtResource("4_en2x2")]
