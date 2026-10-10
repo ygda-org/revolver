@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="BulletResource" format=3 uid="uid://bedu6kp64vsoa"]
+
+[ext_resource type="Script" uid="uid://cmear8uu7c65f" path="res://player/bullet/base_bullet_resource.gd" id="1_mprcq"]
+
+[resource]
+script = ExtResource("1_mprcq")
+speed = 250.0
+recoil = 150.0
+metadata/_custom_type_script = "uid://cmear8uu7c65f"

@@ -12,11 +12,11 @@ _data = [Vector2(0, 0.7355372), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="Curve" id="Curve_yw30f"]
-_data = [Vector2(0, 0.3860759), 0.0, 0.40687162, 0, 0, Vector2(1, 0.68750006), 0.0, 0.0, 0, 0]
+_data = [Vector2(0, 0.58677685), 0.0, 0.40687162, 0, 0, Vector2(1, 0.8512397), 0.0, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="Curve" id="Curve_qjkh3"]
-_data = [Vector2(0, 0.71900827), 0.0, 0.52876365, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+_data = [Vector2(0, 0.8842975), 0.0, 0.52876365, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5kg8m"]
@@ -41,8 +41,13 @@ shape = SubResource("RectangleShape2D_5kg8m")
 [node name="Camera2D" type="Camera2D" parent="." unique_id=760305562]
 zoom = Vector2(2, 2)
 process_callback = 0
-position_smoothing_enabled = true
-position_smoothing_speed = 10.0
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_left_margin = 0.15
+drag_top_margin = 0.4
+drag_right_margin = 0.15
+drag_bottom_margin = 0.15
+editor_draw_drag_margin = true
 
 [node name="JumpBuffer" type="Timer" parent="." unique_id=1886932304]
 wait_time = 0.1
@@ -50,4 +55,8 @@ one_shot = true
 
 [node name="CoyoteTime" type="Timer" parent="." unique_id=901113100]
 wait_time = 0.11
+one_shot = true
+
+[node name="RecoilLock" type="Timer" parent="." unique_id=1274171054]
+wait_time = 0.2
 one_shot = true

@@ -3,13 +3,13 @@ class_name Player
 
 const BULLET = preload("uid://k308fsvc3jvh")
 
-const MAX_SPEED: float = 200.0
+const MAX_SPEED: float = 170.0
 const ACCELERATION: float = 900.0
 const DECELERATION: float = 1500.0
 
-const JUMP_FORCE: float = 500.0
+const JUMP_FORCE: float = 400.0
 const MAX_FALL_SPEED: float = 400.0
-const GRAVITY: float = 900
+const GRAVITY: float = 300
 
 @export var accel_curve: Curve
 @export var decel_curve: Curve
@@ -44,17 +44,23 @@ func _physics_process(delta):
 	var dir: float = Input.get_axis("left", "right")
 	if dir:
 		velocity.x += dir * ACCELERATION * accel_curve.sample(abs(velocity.x/MAX_SPEED)) * delta
-	if dir * velocity.x <= 0:
+	if dir * velocity.x <= 0 and $RecoilLock.is_stopped():
 		velocity.x = move_toward(velocity.x, 0, DECELERATION * decel_curve.sample(abs(velocity.x/MAX_SPEED)) * delta)
 	velocity.x = clampf(velocity.x, -MAX_SPEED, MAX_SPEED)
 	
 	# shooting
-	$Camera2D.position = (get_global_mouse_position() - global_position)/5
+	$Camera2D.offset = $Camera2D.offset.lerp((get_global_mouse_position() - global_position)/5, 20*delta)
 	if Input.is_action_just_pressed("shoot"):
+		var resource: BulletResource = GameState.get_bullet()
+		var shot_dir: Vector2 = global_position.direction_to(get_global_mouse_position())
 		var bullet = BULLET.instantiate()
-		bullet.resource = GameState.get_bullet()
-		bullet.direction = global_position.direction_to(get_global_mouse_position())
+		bullet.resource = resource
+		bullet.direction = shot_dir
 		bullet.global_position = global_position
 		get_parent().add_child(bullet)
+		if resource.recoil:
+			velocity.y /= 3
+			velocity += resource.recoil * -shot_dir
+			$RecoilLock.start()
 	
 	move_and_slide()
