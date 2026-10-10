@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cco8tgle33jhk" path="res://levels/room.gd" id="1_0tf2e"]
 [ext_resource type="TileSet" uid="uid://dikhrktubmn1u" path="res://assets/tileset.tres" id="1_mu41l"]
+[ext_resource type="PackedScene" uid="uid://cktjmif3stw61" path="res://enemies/enemy_spawner.tscn" id="3_fa3b6"]
 
 [node name="SmallJumpUp" type="Node2D" unique_id=893360166]
 script = ExtResource("1_0tf2e")
@@ -14,3 +15,10 @@ tile_set = ExtResource("1_mu41l")
 
 [node name="RightGate" type="Marker2D" parent="." unique_id=1021275462]
 position = Vector2(258, -67)
+
+[node name="EnemySpawner" parent="." unique_id=903597499 instance=ExtResource("3_fa3b6")]
+position = Vector2(186, -81)
+
+[node name="EnemySpawner2" parent="." unique_id=1530945479 instance=ExtResource("3_fa3b6")]
+position = Vector2(52, -142)
+flying = true

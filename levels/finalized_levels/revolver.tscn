@@ -2,6 +2,7 @@
 
 [ext_resource type="TileSet" uid="uid://dikhrktubmn1u" path="res://assets/tileset.tres" id="1_rqxvc"]
 [ext_resource type="Script" uid="uid://cco8tgle33jhk" path="res://levels/room.gd" id="1_uvwb7"]
+[ext_resource type="PackedScene" uid="uid://cktjmif3stw61" path="res://enemies/enemy_spawner.tscn" id="3_43tiq"]
 
 [node name="Revolver" type="Node2D" unique_id=811598274]
 script = ExtResource("1_uvwb7")
@@ -15,3 +16,42 @@ position = Vector2(0, 16)
 
 [node name="RightGate" type="Marker2D" parent="." unique_id=236153212]
 position = Vector2(768, 321)
+
+[node name="EnemySpawner" parent="." unique_id=903597499 instance=ExtResource("3_43tiq")]
+position = Vector2(133, -71)
+flying = true
+
+[node name="EnemySpawner2" parent="." unique_id=853328194 instance=ExtResource("3_43tiq")]
+position = Vector2(306, -202)
+
+[node name="EnemySpawner3" parent="." unique_id=521663568 instance=ExtResource("3_43tiq")]
+position = Vector2(518, -205)
+
+[node name="EnemySpawner4" parent="." unique_id=1844066900 instance=ExtResource("3_43tiq")]
+position = Vector2(406, -309)
+flying = true
+
+[node name="EnemySpawner5" parent="." unique_id=1404509163 instance=ExtResource("3_43tiq")]
+position = Vector2(702, -19)
+flying = true
+
+[node name="EnemySpawner6" parent="." unique_id=2120827982 instance=ExtResource("3_43tiq")]
+position = Vector2(580, 207)
+flying = true
+
+[node name="EnemySpawner7" parent="." unique_id=1193042140 instance=ExtResource("3_43tiq")]
+position = Vector2(408, 230)
+flying = true
+
+[node name="EnemySpawner8" parent="." unique_id=131715540 instance=ExtResource("3_43tiq")]
+position = Vector2(138, 114)
+
+[node name="EnemySpawner9" parent="." unique_id=1068949359 instance=ExtResource("3_43tiq")]
+position = Vector2(271, 453)
+
+[node name="EnemySpawner10" parent="." unique_id=39079453 instance=ExtResource("3_43tiq")]
+position = Vector2(636, 455)
+
+[node name="EnemySpawner11" parent="." unique_id=1680979611 instance=ExtResource("3_43tiq")]
+position = Vector2(413, 356)
+flying = true

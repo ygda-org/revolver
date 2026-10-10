@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cco8tgle33jhk" path="res://levels/room.gd" id="1_l1hc5"]
 [ext_resource type="TileSet" uid="uid://dikhrktubmn1u" path="res://assets/tileset.tres" id="1_xymot"]
+[ext_resource type="PackedScene" uid="uid://cktjmif3stw61" path="res://enemies/enemy_spawner.tscn" id="3_tndgu"]
 
 [node name="Winder" type="Node2D" unique_id=1835849230]
 script = ExtResource("1_l1hc5")
@@ -14,3 +15,28 @@ tile_set = ExtResource("1_xymot")
 
 [node name="RightGate" type="Marker2D" parent="." unique_id=616260780]
 position = Vector2(673, -82)
+
+[node name="EnemySpawner" parent="." unique_id=903597499 instance=ExtResource("3_tndgu")]
+position = Vector2(145, 95)
+flying = true
+
+[node name="EnemySpawner2" parent="." unique_id=1789722270 instance=ExtResource("3_tndgu")]
+position = Vector2(140, 233)
+
+[node name="EnemySpawner3" parent="." unique_id=1494210565 instance=ExtResource("3_tndgu")]
+position = Vector2(360, 302)
+
+[node name="EnemySpawner4" parent="." unique_id=1260970979 instance=ExtResource("3_tndgu")]
+position = Vector2(340, 181)
+flying = true
+
+[node name="EnemySpawner5" parent="." unique_id=481971867 instance=ExtResource("3_tndgu")]
+position = Vector2(387, 71)
+
+[node name="EnemySpawner6" parent="." unique_id=814883020 instance=ExtResource("3_tndgu")]
+position = Vector2(415, -7)
+flying = true
+
+[node name="EnemySpawner7" parent="." unique_id=1018646964 instance=ExtResource("3_tndgu")]
+position = Vector2(541, -124)
+flying = true
