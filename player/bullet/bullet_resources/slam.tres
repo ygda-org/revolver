@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_xls4b")
-damage = 0
+damage = 15
 effect = 9
 effect_on_shot = true
 metadata/_custom_type_script = "uid://cmear8uu7c65f"

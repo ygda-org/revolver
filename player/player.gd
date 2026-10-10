@@ -149,3 +149,15 @@ func shift(dir, dist):
 
 func slam():
 	slam_velocity = Vector2(0, 350)
+
+
+func _on_slam_hitbox_body_entered(body):
+	var comp = body.find_child("EnemyComponent")
+	if comp:
+		comp.hit(load("uid://dof6lvg6wev5k").damage)
+		$InvicibilityFrames.start()
+		if comp.health > 0:
+			slam_velocity = Vector2.ZERO
+	else:
+		slam_velocity = Vector2.ZERO
+		$InvicibilityFrames.start()

@@ -108,6 +108,7 @@ shape = SubResource("CircleShape2D_g1dw6")
 
 [node name="SlamHitbox" type="Area2D" parent="." unique_id=1423150895]
 collision_layer = 2
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SlamHitbox" unique_id=1486328518]
 position = Vector2(0, 16)
@@ -116,3 +117,4 @@ shape = SubResource("RectangleShape2D_jyp3o")
 [connection signal="timeout" from="ReloadTimer" to="." method="_on_reload_timer_timeout"]
 [connection signal="area_entered" from="ParryHitbox" to="." method="_on_parry_hitbox_area_entered"]
 [connection signal="body_entered" from="ParryHitbox" to="." method="_on_parry_hitbox_body_entered"]
+[connection signal="body_entered" from="SlamHitbox" to="." method="_on_slam_hitbox_body_entered"]
