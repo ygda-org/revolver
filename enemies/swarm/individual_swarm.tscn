@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://doix6lipbsgnr" path="res://enemies/swarm/individual_swarm.gd" id="1_2dm32"]
 [ext_resource type="PackedScene" uid="uid://d3jnp7vef3gti" path="res://enemies/enemy_component.tscn" id="1_20i6f"]
-[ext_resource type="Texture2D" uid="uid://dlbb2kg1nkspe" path="res://assets/icon.svg" id="2_cx6fh"]
+[ext_resource type="SpriteFrames" uid="uid://dnofs8ub7au7f" path="res://assets/enemies/swarm/swarm1.tres" id="3_2dm32"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cx6fh"]
 radius = 4.0
@@ -15,9 +15,10 @@ script = ExtResource("1_2dm32")
 [node name="EnemyComponent" parent="." unique_id=920270805 instance=ExtResource("1_20i6f")]
 health = 10
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=541970059]
-scale = Vector2(0.05, 0.05)
-texture = ExtResource("2_cx6fh")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=381293878]
 shape = SubResource("CircleShape2D_cx6fh")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=549829870]
+sprite_frames = ExtResource("3_2dm32")
+animation = &"fly"
+autoplay = "fly"

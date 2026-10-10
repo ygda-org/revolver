@@ -8,6 +8,8 @@ var targeting = false
 var delta_since_set: float = 0.0
 
 func _ready():
+	$AnimatedSprite2D.sprite_frames = load(["uid://dnofs8ub7au7f", "uid://ud41rkxo0p5u"][randi_range(0,1)])
+	$AnimatedSprite2D.play("fly")
 	velocity = Vector2.ZERO
 
 func set_target_position(new_pos):
@@ -19,6 +21,7 @@ func _physics_process(delta):
 	if targeting:
 		velocity = global_position.direction_to(target_position) * SPEED
 		velocity += velocity.orthogonal() * WAVE_AMPLITUDE * sin(delta_since_set)
+		$AnimatedSprite2D.flip_h = bool(clampf(velocity.x, 0, 1))
 	else:
 		velocity += (-position.normalized() * SPEED/30) + Vector2(randf_range(-5, 5), randf_range(-5,5))
 	move_and_slide()

@@ -1,0 +1,39 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://ud41rkxo0p5u"]
+
+[ext_resource type="Texture2D" uid="uid://74ug0elxkshd" path="res://assets/enemies/swarm/swarm variant 2.png" id="1_d8jp7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mvlkh"]
+atlas = ExtResource("1_d8jp7")
+region = Rect2(0, 0, 6, 6)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ubfy"]
+atlas = ExtResource("1_d8jp7")
+region = Rect2(6, 0, 6, 6)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cevfl"]
+atlas = ExtResource("1_d8jp7")
+region = Rect2(12, 0, 6, 6)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pls1s"]
+atlas = ExtResource("1_d8jp7")
+region = Rect2(18, 0, 6, 6)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mvlkh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ubfy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cevfl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pls1s")
+}],
+"loop": 1,
+"name": &"fly",
+"speed": 15.0
+}]
