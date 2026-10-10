@@ -13,6 +13,6 @@ func _process(delta):
 
 func _on_body_entered(body):
 	if body is Player:
-		body.hit()
+		body.hit(self)
 	elif body is TileMapLayer:
 		direction = 0

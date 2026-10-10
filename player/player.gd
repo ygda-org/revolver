@@ -19,6 +19,8 @@ const GRAVITY: float = 700
 
 var health: int = 2
 
+var hit_stun_velocity
+
 func _ready():
 	GameState.player = self
 
@@ -76,15 +78,18 @@ func _physics_process(delta):
 			velocity.y /= 3
 			velocity += resource.recoil * -shot_dir
 			$RecoilLock.start()
-	
+	if not $HitStun.is_stopped():
+		velocity = hit_stun_velocity
 	move_and_slide()
 
-func hit():
+func hit(hitter: Node2D):
 	if $InvicibilityFrames.is_stopped():
 		$InvicibilityFrames.start()
 	else:
 		return
 	health -= 1
+	$HitStun.start()
+	hit_stun_velocity = 55 * hitter.global_position.direction_to(global_position)
 	if health <= 0:
 		die()
 
