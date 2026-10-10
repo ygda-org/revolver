@@ -6,13 +6,23 @@ class_name BulletUI
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	render_bullets()
 
 func spin():
+	render_bullets()
 	var tween := get_tree().create_tween()
 	tween.tween_property(pivot, "rotation_degrees", -60, (5.0/32))
 	tween.tween_property(pivot, "rotation_degrees", 0, 0)
+	await tween.finished
+	render_bullets()
 
 func render_bullets():
-	for i : BulletResource in GameState.active_barrel:
-		i.outline_color
+	for i in range(len(GameState.active_barrel)):
+		var b_res : BulletResource = GameState.active_barrel[posmod(i + GameState.barrel_index, len(GameState.active_barrel))]
+		print(posmod(i + GameState.barrel_index, len(GameState.active_barrel)))
+		var sprite : Sprite2D = pivot.get_child(i)
+		if b_res.effect == BulletResource.effects.PARRY:
+			sprite.visible = false
+			continue
+		sprite.visible = true
+		sprite.material.set_shader_parameter("outline_color", b_res.outline_color)

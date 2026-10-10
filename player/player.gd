@@ -115,8 +115,8 @@ func dash(dir, speed):
 
 
 func _on_reload_timer_timeout() -> void:
-	GameState.stop_reload.emit()
 	GameState.reload()
+	GameState.stop_reload.emit()
 
 # hit enemy
 func _on_parry_hitbox_body_entered(body):
