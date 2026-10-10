@@ -4,6 +4,9 @@ signal level_started
 
 var player: Player
 
+## array of all active enemy components
+var active_enemies: Array[EnemyComponent]
+
 var chosen_barrel: Array[BulletResource] = []
 var active_barrel: Array[BulletResource] = []
 var barrel_index: int = 0
@@ -11,7 +14,8 @@ var barrel_size: int = 6
 
 func _ready():
 	for i in range(barrel_size):
-		active_barrel.append(load("uid://buewsi61jgls0"))
+		active_barrel.append(load("uid://cllwws72eb4kk"))
+	active_barrel[0] = (load("uid://croa2j6asmrij"))
 
 ## cycle bullet by dir, then mod by barrel size
 func bullet_cycle(dir: int):
@@ -28,3 +32,16 @@ func get_bullet():
 	active_barrel[barrel_index] = load("uid://c7kvyedwvgnr0") # empty slot
 	bullet_cycle(1)
 	return bullet
+
+## pass in global position, get enemy component of nearest enemy
+func get_closest_enemy_to_position(pos: Vector2):
+	if not active_enemies:
+		return null
+	var closest: EnemyComponent = active_enemies[0]
+	for enemy in active_enemies:
+		if not enemy:
+			continue
+		if pos.distance_squared_to(enemy.global_position) < pos.distance_squared_to(closest.global_position):
+			closest = enemy
+	return closest
+	

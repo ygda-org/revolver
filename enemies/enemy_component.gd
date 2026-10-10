@@ -3,8 +3,13 @@ class_name EnemyComponent
 
 @export var health: int = 50
 
-func hit(resource: BulletResource):
-	health -= resource.damage
+var burn_dur: int = 0
+
+func _ready():
+	GameState.active_enemies.append(self)
+
+func hit(dmg: int):
+	health -= dmg
 	if health <= 0:
 		die()
 		return
@@ -19,3 +24,13 @@ func freeze(duration: float):
 
 func _on_freeze_timer_timeout():
 	pass # Replace with function body.
+
+func burn(amount):
+	burn_dur += amount
+	$BurnTimer.start()
+
+func _on_burn_timer_timeout():
+	health -= 1
+	burn_dur -= 1
+	if burn_dur:
+		$BurnTimer.start()

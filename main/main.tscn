@@ -12,4 +12,4 @@ position = Vector2(21, 73)
 [node name="Tunnel" parent="." unique_id=188045053 instance=ExtResource("3_c651c")]
 
 [node name="Trishot" parent="." unique_id=884423335 instance=ExtResource("3_xwkvk")]
-position = Vector2(369, 43)
+position = Vector2(279, 42)
