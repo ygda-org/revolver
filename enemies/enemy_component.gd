@@ -13,4 +13,9 @@ func die():
 	get_parent().call_deferred("queue_free")
 
 func freeze(duration: float):
-	pass
+	$FreezeTimer.wait_time = duration
+	$FreezeTimer.start()
+	# need to reduce speed
+
+func _on_freeze_timer_timeout():
+	pass # Replace with function body.
