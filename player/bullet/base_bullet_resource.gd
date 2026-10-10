@@ -24,5 +24,7 @@ enum effects {
 	COIN,
 	RICOPIERCE,
 	SHOTGUN,
-	PARRY
+	PARRY,
+	SHIFT,
+	SLAM
 }
