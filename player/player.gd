@@ -3,13 +3,13 @@ class_name Player
 
 const BULLET = preload("uid://k308fsvc3jvh")
 
-const MAX_SPEED: float = 170.0
+const MAX_SPEED: float = 130.0
 const ACCELERATION: float = 900.0
 const DECELERATION: float = 1500.0
 
-const JUMP_FORCE: float = 400.0
-const MAX_FALL_SPEED: float = 400.0
-const GRAVITY: float = 300
+const JUMP_FORCE: float = 280.0
+const MAX_FALL_SPEED: float = 250.0
+const GRAVITY: float = 700
 
 @export var accel_curve: Curve
 @export var decel_curve: Curve
