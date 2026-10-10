@@ -80,6 +80,10 @@ func _physics_process(delta):
 	move_and_slide()
 
 func hit():
+	if $InvicibilityFrames.is_stopped():
+		$InvicibilityFrames.start()
+	else:
+		return
 	health -= 1
 	if health <= 0:
 		die()
