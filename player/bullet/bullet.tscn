@@ -20,6 +20,21 @@ shader = ExtResource("2_e8pb5")
 shader_parameter/outline_color = Vector4(1, 0, 0, 1)
 shader_parameter/fill_color = Vector4(0, 0, 0, 1)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_e8pb5"]
+atlas = ExtResource("2_k2a0t")
+region = Rect2(0, 0, 10, 10)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k2a0t"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e8pb5")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 0.0
+}]
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_5kg8m"]
 radius = 6.0
 
@@ -31,9 +46,10 @@ script = ExtResource("1_k2a0t")
 [node name="Light" type="Sprite2D" parent="." unique_id=1996294037]
 texture = SubResource("GradientTexture2D_e8pb5")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1538211572]
+[node name="Anim" type="AnimatedSprite2D" parent="." unique_id=866038578]
 material = SubResource("ShaderMaterial_e8pb5")
-texture = ExtResource("2_k2a0t")
+sprite_frames = SubResource("SpriteFrames_k2a0t")
+autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1498002629]
 shape = SubResource("CircleShape2D_5kg8m")
