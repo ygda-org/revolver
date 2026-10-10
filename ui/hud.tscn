@@ -4,6 +4,18 @@
 [ext_resource type="Texture2D" uid="uid://b10ebsd2m16cn" path="res://assets/ui/revolver_rotate_empty.png" id="2_546lt"]
 [ext_resource type="Texture2D" uid="uid://dlsgg4ygkppf4" path="res://assets/ui/revolver_reload.png" id="3_7ihmi"]
 
+[sub_resource type="Gradient" id="Gradient_546lt"]
+offsets = PackedFloat32Array(0, 0.6960432, 1)
+colors = PackedColorArray(1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_546lt"]
+gradient = SubResource("Gradient_546lt")
+width = 960
+height = 540
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 1)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_en2x2"]
 atlas = ExtResource("2_546lt")
 region = Rect2(0, 0, 56, 57)
@@ -100,6 +112,23 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_rbyyf")
+
+[node name="Vignette" type="TextureRect" parent="." unique_id=873135303]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -480.0
+offset_top = -270.0
+offset_right = 480.0
+offset_bottom = 270.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+pivot_offset = Vector2(480, 270)
+texture = SubResource("GradientTexture2D_546lt")
 
 [node name="RepairBar" type="ProgressBar" parent="." unique_id=1034149605]
 layout_mode = 0
