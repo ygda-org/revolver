@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://bpd0hdgh8yjwm"]
+
+[ext_resource type="Script" uid="uid://dufmna485vpd1" path="res://levels/level.gd" id="1_80vhd"]
+
+[node name="Level" type="Node2D" unique_id=2114628824]
+script = ExtResource("1_80vhd")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1480910760]
+zoom = Vector2(0.2, 0.2)
