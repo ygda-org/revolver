@@ -7,3 +7,6 @@ class_name Room
 
 ##Right Gate Marker. Wll snap to a rooms left gate.
 @export var right_gate : Marker2D
+
+##Length of Room. Units arbitrary, approx proportional
+@export var length : int = 1
