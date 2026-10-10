@@ -20,6 +20,8 @@ func _physics_process(delta):
 			velocity = velocity.move_toward(direction*SPEED, ACCELERATION*delta)
 		else:
 			velocity = velocity.move_toward(-direction*SPEED, ACCELERATION*delta)
+		$Anim.flip_h = direction.x > 0
+		$Indicator.flip_h = direction.x > 0
 	else:
 		# wandering
 		$Anim.play("fly")
@@ -29,7 +31,7 @@ func _physics_process(delta):
 func _on_shot_timer_timeout():
 	if global_position.distance_to(GameState.player.global_position) > DETECTION_RANGE:
 		return
-	$Indicator.start()
+	$Indicator.play("default")
 
 
 func _on_indicator_animation_finished():
@@ -39,5 +41,5 @@ func _on_indicator_animation_finished():
 	for i in range(3):
 		shots[i].direction = global_position.direction_to(GameState.player.global_position)
 		shots[i].direction = shots[i].direction.rotated((PI/6)*(i-1))
-		shots[i].global_position = global_position
 		get_parent().add_child(shots[i])
+		shots[i].global_position = global_position

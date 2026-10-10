@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cco8tgle33jhk" path="res://levels/room.gd" id="1_71rvx"]
 [ext_resource type="TileSet" uid="uid://dikhrktubmn1u" path="res://assets/tileset.tres" id="1_p83dv"]
+[ext_resource type="PackedScene" uid="uid://cktjmif3stw61" path="res://enemies/enemy_spawner.tscn" id="3_d6lgq"]
 
 [node name="ShortClimb" type="Node2D" unique_id=857788238]
 script = ExtResource("1_71rvx")
@@ -15,3 +16,10 @@ position = Vector2(-1, 208)
 
 [node name="RightGate" type="Marker2D" parent="." unique_id=1825803577]
 position = Vector2(226, -34)
+
+[node name="EnemySpawner" parent="." unique_id=903597499 instance=ExtResource("3_d6lgq")]
+position = Vector2(35, 77)
+
+[node name="EnemySpawner2" parent="." unique_id=615799197 instance=ExtResource("3_d6lgq")]
+position = Vector2(144, 114)
+flying = true

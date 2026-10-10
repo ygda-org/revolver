@@ -1,8 +1,11 @@
 extends Area2D
 
-const SPEED = 55
+const SPEED = 80
 
 var direction: Vector2
+
+func _ready():
+	rotation = direction.angle()
 
 func _process(delta):
 	position += direction * SPEED * delta

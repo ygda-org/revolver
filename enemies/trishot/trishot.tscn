@@ -289,7 +289,6 @@ one_shot = true
 
 [node name="Indicator" type="AnimatedSprite2D" parent="." unique_id=1788836596]
 sprite_frames = SubResource("SpriteFrames_5kg8m")
-autoplay = "default"
 frame = 8
 frame_progress = 1.0
 

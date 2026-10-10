@@ -7,6 +7,8 @@ func _ready():
 	$RaycastPivot.scale.x = direction
 
 func _physics_process(delta):
+	if not is_on_floor():
+		velocity.y = 50
 	if is_on_wall() or not $RaycastPivot/WalkoffDetector.is_colliding():
 		direction *= -1
 	$RaycastPivot.scale.x = direction
