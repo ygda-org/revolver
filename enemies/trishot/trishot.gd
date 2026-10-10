@@ -11,6 +11,7 @@ const DESIRED_DISTANCE = 150
 func _physics_process(delta):
 	var dist: float = global_position.distance_to(GameState.player.global_position)
 	if dist < DETECTION_RANGE:
+		$Anim.play("locked")
 		# fighting
 		if $ShotTimer.is_stopped():
 			$ShotTimer.start()
@@ -21,10 +22,17 @@ func _physics_process(delta):
 			velocity = velocity.move_toward(-direction*SPEED, ACCELERATION*delta)
 	else:
 		# wandering
+		$Anim.play("fly")
 		velocity = velocity.move_toward(Vector2.ZERO, ACCELERATION*delta)
 	move_and_slide()
 
 func _on_shot_timer_timeout():
+	if global_position.distance_to(GameState.player.global_position) > DETECTION_RANGE:
+		return
+	$Indicator.start()
+
+
+func _on_indicator_animation_finished():
 	if global_position.distance_to(GameState.player.global_position) > DETECTION_RANGE:
 		return
 	var shots = [SHOT.instantiate(),SHOT.instantiate(),SHOT.instantiate()]
