@@ -5,7 +5,7 @@ const SHOT = preload("uid://cidxef737ydfs")
 const SPEED = 60
 const ACCELERATION = 80
 
-const DETECTION_RANGE = 300
+const DETECTION_RANGE = 200
 const DESIRED_DISTANCE = 150
 
 func _physics_process(delta):

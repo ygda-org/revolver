@@ -2,9 +2,9 @@ extends CharacterBody2D
 
 const WALL = preload("uid://dmr8fval5mhwj")
 
-const DETECTION_RANGE = 300
+const DETECTION_RANGE = 180
 
-const SPEED = 90
+const SPEED = 40
 @onready var direction = randi_range(0,1) * 2 - 1
 
 func _physics_process(delta):
