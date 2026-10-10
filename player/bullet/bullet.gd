@@ -17,7 +17,8 @@ var effect_methods = {
 	BulletResource.effects.DASH: Callable(dash),
 	BulletResource.effects.FIRE: Callable(fire),
 	BulletResource.effects.COIN: Callable(coin_gravity),
-	BulletResource.effects.RICOPIERCE: Callable(ricopierce_setup)
+	BulletResource.effects.RICOPIERCE: Callable(ricopierce_setup),
+	BulletResource.effects.SHOTGUN: Callable(shotgun_setup)
 }
 
 var thing_i_hit: EnemyComponent
@@ -27,6 +28,8 @@ func _ready():
 	vel = direction * resource.speed
 	if resource.effect_on_shot:
 		effect_methods[resource.effect].call()
+	$LifeTime.wait_time = resource.life_duration
+	$LifeTime.start()
 
 func _process(delta):
 	delta_time_save = delta
@@ -85,3 +88,19 @@ func _on_area_entered(area: PlayerBullet):
 
 func ricopierce_setup():
 	pierces = int(resource.effect_strength)
+
+
+func _on_life_time_timeout():
+	#var tween = get_tree().create_tween()
+	#tween.tween_property()
+	queue_free()
+
+func shotgun_setup():
+	self_modulate = Color(1.0, 1.0, 1.0, 0.0)
+	for i in range(5):
+		var bullet = load("uid://k308fsvc3jvh").instantiate()
+		bullet.resource = load("uid://cllwws72eb4kk")
+		bullet.direction = direction.rotated((i-2)*PI/9)
+		bullet.player = player
+		add_child(bullet)
+		bullet.vel *= 3

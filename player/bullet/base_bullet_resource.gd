@@ -9,6 +9,7 @@ class_name BulletResource
 ## if true, then runs the bullet effect when you shoot, as opposed to when you hit an enemy
 @export var effect_on_shot: bool = false
 @export var called_in_process: bool = false
+@export var life_duration: float = 10.0
 
 enum effects {
 	NONE,
@@ -16,5 +17,6 @@ enum effects {
 	DASH,
 	FIRE,
 	COIN,
-	RICOPIERCE
+	RICOPIERCE,
+	SHOTGUN
 }
