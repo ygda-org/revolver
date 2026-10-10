@@ -9,7 +9,7 @@ const DECELERATION: float = 1500.0
 
 const JUMP_FORCE: float = 500.0
 const MAX_FALL_SPEED: float = 400.0
-const GRAVITY: float = 700
+const GRAVITY: float = 900
 
 @export var accel_curve: Curve
 @export var decel_curve: Curve
@@ -49,12 +49,7 @@ func _physics_process(delta):
 	velocity.x = clampf(velocity.x, -MAX_SPEED, MAX_SPEED)
 	
 	# shooting
-	if Input.is_action_just_pressed("cycle_left"):
-		GameState.bullet_cycle(-1)
-	if Input.is_action_just_pressed("cycle_right"):
-		GameState.bullet_cycle(1)
-	if Input.is_action_just_pressed("reload"):
-		GameState.reload()
+	$Camera2D.position = (get_global_mouse_position() - global_position)/5
 	if Input.is_action_just_pressed("shoot"):
 		var bullet = BULLET.instantiate()
 		bullet.resource = GameState.get_bullet()
