@@ -9,4 +9,5 @@ speed = 0.0
 effect = 6
 effect_on_shot = true
 life_duration = 0.2
+shake_trauma = 0.9
 metadata/_custom_type_script = "uid://cmear8uu7c65f"

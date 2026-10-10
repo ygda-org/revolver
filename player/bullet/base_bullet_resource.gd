@@ -10,6 +10,7 @@ class_name BulletResource
 @export var effect_on_shot: bool = false
 @export var called_in_process: bool = false
 @export var life_duration: float = 10.0
+@export var shake_trauma: float = 0.5
 
 enum effects {
 	NONE,

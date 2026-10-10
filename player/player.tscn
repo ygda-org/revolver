@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dlbb2kg1nkspe" path="res://assets/icon.svg" id="1_oul6g"]
 [ext_resource type="Script" uid="uid://gjb3c0xiol2a" path="res://player/player.gd" id="1_rkbax"]
+[ext_resource type="Script" uid="uid://bjhjk6cxhvbry" path="res://player/camera_2d.gd" id="3_g1dw6"]
 
 [sub_resource type="Curve" id="Curve_rkbax"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.5371901), -0.6620358, 0.0, 0, 0]
@@ -21,6 +22,9 @@ point_count = 2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5kg8m"]
 size = Vector2(16, 32)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_g1dw6"]
+noise_type = 3
 
 [node name="Player" type="CharacterBody2D" unique_id=1304598780]
 collision_layer = 4
@@ -48,6 +52,8 @@ drag_top_margin = 0.4
 drag_right_margin = 0.15
 drag_bottom_margin = 0.15
 editor_draw_drag_margin = true
+script = ExtResource("3_g1dw6")
+noise = SubResource("FastNoiseLite_g1dw6")
 
 [node name="JumpBuffer" type="Timer" parent="." unique_id=1886932304]
 wait_time = 0.1
