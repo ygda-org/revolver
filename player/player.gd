@@ -17,7 +17,7 @@ const GRAVITY: float = 700
 @export var grav_curve_asc: Curve
 @export var grav_curve_dec: Curve
 
-var health: int = 50
+var health: int = 2
 
 func _ready():
 	GameState.player = self
@@ -74,8 +74,8 @@ func _physics_process(delta):
 	
 	move_and_slide()
 
-func hit(dmg):
-	health -= dmg
+func hit():
+	health -= 1
 	if health <= 0:
 		die()
 

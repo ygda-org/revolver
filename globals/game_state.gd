@@ -2,6 +2,8 @@ extends Node
 
 signal level_started
 
+const REPAIR_DISTANCE_THRESHOLD = 200
+
 var player: Player
 
 ## array of all active enemy components
@@ -11,6 +13,9 @@ var chosen_barrel: Array[BulletResource] = []
 var active_barrel: Array[BulletResource] = []
 var barrel_index: int = 0
 var barrel_size: int = 6
+
+## player heals when it reaches 1. Only fills when the player is in critical and gets filled when you kill enemies from close range
+var repair_amount: float = 0.0
 
 func _ready():
 	for i in range(barrel_size):
@@ -44,4 +49,13 @@ func get_closest_enemy_to_position(pos: Vector2):
 		if pos.distance_squared_to(enemy.global_position) < pos.distance_squared_to(closest.global_position):
 			closest = enemy
 	return closest
-	
+
+## for the purposes of the repair bar
+func enemy_death(enemy: EnemyComponent):
+	if player.health != 1:
+		return
+	if enemy.global_position.distance_to(player.global_position) < REPAIR_DISTANCE_THRESHOLD:
+		repair_amount += enemy.repair_add_amount
+	if repair_amount >= 1.0 and player.health == 1:
+		repair_amount = 0.0
+		player.health = 2

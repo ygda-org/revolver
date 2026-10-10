@@ -2,6 +2,7 @@ extends Node2D
 class_name EnemyComponent
 
 @export var health: int = 50
+@export var repair_add_amount: float = 0.2
 
 var burn_dur: int = 0
 
@@ -15,6 +16,8 @@ func hit(dmg: int):
 		return
 
 func die():
+	# repair
+	GameState.enemy_death(self)
 	get_parent().call_deferred("queue_free")
 
 func freeze(duration: float):
