@@ -6,4 +6,5 @@
 script = ExtResource("1_jdyli")
 speed = 0.0
 effect = 7
+outline_color = Color(0.7088167, 0.08880582, 0.33167523, 1)
 metadata/_custom_type_script = "uid://cmear8uu7c65f"

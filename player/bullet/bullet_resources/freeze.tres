@@ -8,4 +8,5 @@ damage = 5
 speed = 200.0
 effect = 1
 effect_strength = 1.0
+outline_color = Color(0.20695207, 0.42152634, 0.53370726, 1)
 metadata/_custom_type_script = "uid://cmear8uu7c65f"

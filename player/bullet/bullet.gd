@@ -20,7 +20,8 @@ var effect_methods = {
 	BulletResource.effects.RICOPIERCE: Callable(ricopierce_setup),
 	BulletResource.effects.SHOTGUN: Callable(shotgun_setup),
 	BulletResource.effects.SHIFT: Callable(shift),
-	BulletResource.effects.SLAM: Callable(slam)
+	BulletResource.effects.SLAM: Callable(slam),
+	BulletResource.effects.TP_SHOT: Callable(tp_shot)
 }
 
 var thing_i_hit: EnemyComponent
@@ -53,6 +54,8 @@ func _on_body_entered(body: Object):
 	pierces -= 1
 	var enemy_component: EnemyComponent = body.find_child("EnemyComponent")
 	if not enemy_component:
+		if resource.can_call_on_walls and not resource.effect_on_shot and resource.effect in effect_methods:
+			effect_methods[resource.effect].call()
 		if pierces <= 0:
 			call_deferred("queue_free")
 			return
@@ -125,3 +128,6 @@ func shift():
 func slam():
 	player.slam()
 	queue_free()
+
+func tp_shot():
+	player.global_position = global_position

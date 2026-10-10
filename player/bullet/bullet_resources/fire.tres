@@ -7,4 +7,5 @@ script = ExtResource("1_pau6k")
 speed = 200.0
 effect = 3
 effect_strength = 4.0
+outline_color = Color(0.65319884, 0.14642501, 0, 1)
 metadata/_custom_type_script = "uid://cmear8uu7c65f"
