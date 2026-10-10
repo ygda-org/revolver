@@ -15,4 +15,10 @@ func _physics_process(delta):
 	velocity.x = direction * speed
 	if $RaycastPivot/PlayerDetector.is_colliding():
 		velocity.x *= 2
+	
+	for i in range(get_slide_collision_count()):
+		var col = get_slide_collision(i).get_collider()
+		if col is Player:
+			col.hit()
+	
 	move_and_slide()
