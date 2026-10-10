@@ -1,19 +1,39 @@
 [gd_scene format=3 uid="uid://k308fsvc3jvh"]
 
 [ext_resource type="Script" uid="uid://bodwdj5njk1nb" path="res://player/bullet/bullet.gd" id="1_k2a0t"]
-[ext_resource type="Texture2D" uid="uid://dlbb2kg1nkspe" path="res://assets/icon.svg" id="1_txs3d"]
+[ext_resource type="Shader" uid="uid://b4pewokr7fm1b" path="res://player/bullet/bullet.gdshader" id="2_e8pb5"]
+[ext_resource type="Texture2D" uid="uid://sojeg33qj6xm" path="res://assets/temp_art/New Piskel-1.png.png" id="2_k2a0t"]
+
+[sub_resource type="Gradient" id="Gradient_e8pb5"]
+offsets = PackedFloat32Array(0, 0.7436306)
+colors = PackedColorArray(1, 1, 1, 0.7137255, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_e8pb5"]
+gradient = SubResource("Gradient_e8pb5")
+width = 40
+height = 40
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_e8pb5"]
+shader = ExtResource("2_e8pb5")
+shader_parameter/outline_color = Vector4(1, 0, 0, 1)
+shader_parameter/fill_color = Vector4(0, 0, 0, 1)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5kg8m"]
-radius = 7.0
+radius = 6.0
 
 [node name="Bullet" type="Area2D" unique_id=487243789]
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_k2a0t")
 
+[node name="Light" type="Sprite2D" parent="." unique_id=1996294037]
+texture = SubResource("GradientTexture2D_e8pb5")
+
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1538211572]
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_txs3d")
+material = SubResource("ShaderMaterial_e8pb5")
+texture = ExtResource("2_k2a0t")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1498002629]
 shape = SubResource("CircleShape2D_5kg8m")

@@ -24,6 +24,9 @@ var effect_methods = {
 var thing_i_hit: EnemyComponent
 
 func _ready():
+	$Sprite2D.material.set_shader_parameter("outline_color", resource.outline_color)
+	$Sprite2D.material.set_shader_parameter("fill_color", resource.fill_color)
+	$Light.texture.gradient.set_color(0, Color(resource.fill_color.r, resource.fill_color.g, resource.fill_color.b, 0.3))
 	damage = resource.damage
 	vel = direction * resource.speed
 	if resource.effect_on_shot:
