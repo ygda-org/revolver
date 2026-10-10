@@ -16,6 +16,7 @@ func _process(delta):
 		shake()
 	else:
 		offset = offset.lerp(target_offset, delta*20)
+	offset = offset.clamp(-max_shake, max_shake)
 
 func add_trauma(amount):
 	trauma += amount
