@@ -64,3 +64,7 @@ one_shot = true
 [node name="ShotCD" type="Timer" parent="." unique_id=2111399264]
 wait_time = 0.13
 one_shot = true
+
+[node name="DashDur" type="Timer" parent="." unique_id=597392993]
+wait_time = 0.14
+one_shot = true

@@ -17,6 +17,8 @@ const GRAVITY: float = 700
 @export var grav_curve_asc: Curve
 @export var grav_curve_dec: Curve
 
+var health: int = 50
+
 func _ready():
 	GameState.player = self
 
@@ -41,12 +43,13 @@ func _physics_process(delta):
 		velocity.y -= JUMP_FORCE
 	
 	# left right movement
-	var dir: float = Input.get_axis("left", "right")
-	if dir:
-		velocity.x += dir * ACCELERATION * accel_curve.sample(abs(velocity.x/MAX_SPEED)) * delta
-	if dir * velocity.x <= 0 and $RecoilLock.is_stopped():
-		velocity.x = move_toward(velocity.x, 0, DECELERATION * decel_curve.sample(abs(velocity.x/MAX_SPEED)) * delta)
-	velocity.x = clampf(velocity.x, -MAX_SPEED, MAX_SPEED)
+	if $DashDur.is_stopped():
+		var dir: float = Input.get_axis("left", "right")
+		if dir:
+			velocity.x += dir * ACCELERATION * accel_curve.sample(abs(velocity.x/MAX_SPEED)) * delta
+		if dir * velocity.x <= 0 and $RecoilLock.is_stopped():
+			velocity.x = move_toward(velocity.x, 0, DECELERATION * decel_curve.sample(abs(velocity.x/MAX_SPEED)) * delta)
+		velocity.x = clampf(velocity.x, -MAX_SPEED, MAX_SPEED)
 	
 	# shooting
 	var mouse_offset: Vector2 = (get_global_mouse_position() - global_position)/6
@@ -61,6 +64,7 @@ func _physics_process(delta):
 		bullet.resource = resource
 		bullet.direction = shot_dir
 		bullet.global_position = global_position
+		bullet.player = self
 		get_parent().add_child(bullet)
 		if resource.recoil:
 			velocity.y /= 3
@@ -70,4 +74,14 @@ func _physics_process(delta):
 	move_and_slide()
 
 func hit(dmg):
-	pass
+	health -= dmg
+	if health <= 0:
+		die()
+
+func die():
+	print("I'm dead!")
+
+func dash(dir, speed):
+	velocity = dir * speed
+	$DashDur.start()
+	# still need to add dash invincibility

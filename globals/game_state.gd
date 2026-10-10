@@ -11,7 +11,7 @@ var barrel_size: int = 6
 
 func _ready():
 	for i in range(barrel_size):
-		active_barrel.append(load("uid://bedu6kp64vsoa"))
+		active_barrel.append(load("uid://buewsi61jgls0"))
 
 ## cycle bullet by dir, then mod by barrel size
 func bullet_cycle(dir: int):
