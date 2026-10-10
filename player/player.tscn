@@ -74,3 +74,9 @@ one_shot = true
 [node name="DashDur" type="Timer" parent="." unique_id=597392993]
 wait_time = 0.14
 one_shot = true
+
+[node name="ReloadTimer" type="Timer" parent="." unique_id=1772749220]
+wait_time = 3.0
+one_shot = true
+
+[connection signal="timeout" from="ReloadTimer" to="." method="_on_reload_timer_timeout"]

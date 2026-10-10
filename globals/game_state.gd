@@ -3,6 +3,9 @@ extends Node
 signal level_started
 signal bullet_is_cycled
 
+signal start_reload
+signal stop_reload
+
 const REPAIR_DISTANCE_THRESHOLD = 200
 
 var player: Player

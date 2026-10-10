@@ -24,8 +24,9 @@ func _ready():
 
 func _physics_process(delta):
 	
-	if Input.is_action_just_pressed("reload"):
-		GameState.reload()
+	if Input.is_action_just_pressed("reload") and $ReloadTimer.is_stopped():
+		GameState.start_reload.emit()
+		$ReloadTimer.start()
 	
 	# gravity & jumping
 	if not is_on_floor():
@@ -60,7 +61,7 @@ func _physics_process(delta):
 	mouse_offset.y /= 2
 	$Camera2D.target_offset = mouse_offset
 	$Camera2D.target_offset = $Camera2D.target_offset.limit_length(40)
-	if Input.is_action_just_pressed("shoot") and $ShotCD.is_stopped():
+	if Input.is_action_just_pressed("shoot") and $ShotCD.is_stopped() and $ReloadTimer.is_stopped():
 		$ShotCD.start()
 		var resource: BulletResource = GameState.get_bullet()
 		$Camera2D.add_trauma(resource.shake_trauma)
@@ -90,3 +91,8 @@ func dash(dir, speed):
 	velocity = dir * speed
 	$DashDur.start()
 	# still need to add dash invincibility
+
+
+func _on_reload_timer_timeout() -> void:
+	GameState.stop_reload.emit()
+	GameState.reload()
