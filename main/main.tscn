@@ -1,16 +1,16 @@
 [gd_scene format=3 uid="uid://cnoahdbn2sxq3"]
 
 [ext_resource type="PackedScene" uid="uid://dhebim0i23kwq" path="res://player/player.tscn" id="2_pjrb6"]
-[ext_resource type="PackedScene" uid="uid://tdmtpaas2xmi" path="res://levels/finalized_levels/gap.tscn" id="3_xwkvk"]
+[ext_resource type="PackedScene" uid="uid://bpd0hdgh8yjwm" path="res://levels/level.tscn" id="3_xwkvk"]
 [ext_resource type="PackedScene" uid="uid://rcq8go31l55x" path="res://ui/hud.tscn" id="4_c651c"]
 
 [node name="Main" type="Node2D" unique_id=1213057778]
-
-[node name="Player" parent="." unique_id=1304598780 instance=ExtResource("2_pjrb6")]
-position = Vector2(11, -22)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=338208126]
 
 [node name="Hud" parent="CanvasLayer" unique_id=1107756674 instance=ExtResource("4_c651c")]
 
-[node name="Gap" parent="." unique_id=1217900044 instance=ExtResource("3_xwkvk")]
+[node name="Player" parent="." unique_id=1304598780 instance=ExtResource("2_pjrb6")]
+position = Vector2(223, 187)
+
+[node name="Level" parent="." unique_id=2114628824 instance=ExtResource("3_xwkvk")]

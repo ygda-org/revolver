@@ -7,29 +7,31 @@ var end_room : PackedScene = preload("res://levels/start_end_rooms/t_room_end.ts
 
 var level_length : int = 20
 
+const ROOMS_PATH : String = "res://levels/finalized_levels/"
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	for room_file in ResourceLoader.list_directory("res://levels/test_rooms/"):# DirAccess.get_files_at("res://level/rooms/room_for_real/"):
-		pool.append(load("res://levels/test_rooms/" + room_file))
+	for room_file in ResourceLoader.list_directory(ROOMS_PATH):
+		pool.append(load(ROOMS_PATH + room_file))
 	#pool.sort_custom(func(a,b): return a.length > b.length)
 	generate()
 
-func _process(delta: float) -> void:
-	
-	if Input.is_action_just_pressed("ui_accept"):
-		for i in range(1, get_child_count()):
-			get_child(i).queue_free()
-		generate()
-	
-	if Input.is_action_pressed("ui_up"):
-		$Camera2D.zoom += Vector2(1,1) * delta
-	if Input.is_action_pressed("ui_down"):
-		$Camera2D.zoom += -Vector2(1,1) * delta
-	
-	var mouse_vector = get_viewport().get_mouse_position() - Vector2(960/2, 540/2)
-	if mouse_vector.length_squared() < 10000:
-		return
-	$Camera2D.position += mouse_vector * delta
+#func _process(delta: float) -> void:
+	#
+	#if Input.is_action_just_pressed("ui_accept"):
+		#for i in range(1, get_child_count()):
+			#get_child(i).queue_free()
+		#generate()
+	#
+	#if Input.is_action_pressed("ui_up"):
+		#$Camera2D.zoom += Vector2(1,1) * delta
+	#if Input.is_action_pressed("ui_down"):
+		#$Camera2D.zoom += -Vector2(1,1) * delta
+	#
+	#var mouse_vector = get_viewport().get_mouse_position() - Vector2(960/2, 540/2)
+	#if mouse_vector.length_squared() < 10000:
+		#return
+	#$Camera2D.position += mouse_vector * delta
 
 func generate() -> void:
 	var queue : Array[Room] = []
