@@ -27,7 +27,6 @@ func spin():
 func render_bullets():
 	for i in range(len(GameState.active_barrel)):
 		var b_res : BulletResource = GameState.active_barrel[posmod(i + GameState.barrel_index, len(GameState.active_barrel))]
-		print(posmod(i + GameState.barrel_index, len(GameState.active_barrel)))
 		var sprite : Sprite2D = pivot.get_child(i)
 		if b_res.effect == BulletResource.effects.PARRY:
 			sprite.visible = false
@@ -37,6 +36,7 @@ func render_bullets():
 
 func _on_start_reload():
 	hold_spin = true
+
 func _on_stop_reload():
 	hold_spin = false
 	pivot.rotation = 0
