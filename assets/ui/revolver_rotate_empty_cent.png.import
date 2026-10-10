@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b10ebsd2m16cn"
-path="res://.godot/imported/revolver_rotate_empty.png-ad54e146113bb6b382e4e8c2e2ce95c2.ctex"
+uid="uid://cdcmmbxqcr51w"
+path="res://.godot/imported/revolver_rotate_empty_cent.png-d6a938b78351dac7eb0bdbaf2848e6e7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/revolver_rotate_empty.png"
-dest_files=["res://.godot/imported/revolver_rotate_empty.png-ad54e146113bb6b382e4e8c2e2ce95c2.ctex"]
+source_file="res://assets/ui/revolver_rotate_empty_cent.png"
+dest_files=["res://.godot/imported/revolver_rotate_empty_cent.png-d6a938b78351dac7eb0bdbaf2848e6e7.ctex"]
 
 [params]
 

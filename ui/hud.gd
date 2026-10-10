@@ -16,6 +16,8 @@ func _process(delta):
 
 func _on_bullet_is_cycled():
 	$RevolverAnim.play("switch")
+	$BulletUi.spin()
+	
 
 func _on_start_reload():
 	$RevolverAnim.play("reload")

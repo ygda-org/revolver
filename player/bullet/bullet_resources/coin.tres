@@ -355,6 +355,5 @@ effect = 4
 effect_strength = 2.5
 called_in_process = true
 outline_color = Color(0.17914641, 0.29443833, 0.66664076, 1)
-fill_color = Color(0.18039216, 0.29411766, 0.6666667, 1)
 sprite_frames_ovveride = SubResource("SpriteFrames_yel5m")
 metadata/_custom_type_script = "uid://cmear8uu7c65f"

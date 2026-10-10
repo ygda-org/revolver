@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://rcq8go31l55x"]
 
 [ext_resource type="Script" uid="uid://bt6yv7042srx6" path="res://ui/hud.gd" id="1_rbyyf"]
-[ext_resource type="Texture2D" uid="uid://b10ebsd2m16cn" path="res://assets/ui/revolver_rotate_empty.png" id="2_546lt"]
-[ext_resource type="Texture2D" uid="uid://dlsgg4ygkppf4" path="res://assets/ui/revolver_reload.png" id="3_7ihmi"]
+[ext_resource type="Texture2D" uid="uid://bxdw17ba22i57" path="res://assets/ui/revolver_reload_cent.png" id="3_7ihmi"]
+[ext_resource type="Texture2D" uid="uid://cdcmmbxqcr51w" path="res://assets/ui/revolver_rotate_empty_cent.png" id="4_7ihmi"]
+[ext_resource type="PackedScene" uid="uid://dutwhqupk2lem" path="res://ui/bullet_ui.tscn" id="4_en2x2"]
 
 [sub_resource type="Gradient" id="Gradient_546lt"]
 offsets = PackedFloat32Array(0, 0.6960432, 1)
@@ -16,51 +17,51 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(1, 1)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_en2x2"]
-atlas = ExtResource("2_546lt")
-region = Rect2(0, 0, 56, 57)
+[sub_resource type="AtlasTexture" id="AtlasTexture_546lt"]
+atlas = ExtResource("4_7ihmi")
+region = Rect2(0, 0, 58, 58)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1v5rv"]
 atlas = ExtResource("3_7ihmi")
-region = Rect2(0, 0, 56, 57)
+region = Rect2(0, 0, 58, 58)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q43x7"]
 atlas = ExtResource("3_7ihmi")
-region = Rect2(56, 0, 56, 57)
+region = Rect2(58, 0, 58, 58)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_srpbi"]
 atlas = ExtResource("3_7ihmi")
-region = Rect2(0, 57, 56, 57)
+region = Rect2(0, 58, 58, 58)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_spcu4"]
 atlas = ExtResource("3_7ihmi")
-region = Rect2(56, 57, 56, 57)
+region = Rect2(58, 58, 58, 58)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ff8ar"]
-atlas = ExtResource("2_546lt")
-region = Rect2(0, 0, 56, 57)
+atlas = ExtResource("4_7ihmi")
+region = Rect2(0, 0, 58, 58)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m0eg6"]
-atlas = ExtResource("2_546lt")
-region = Rect2(56, 0, 56, 57)
+atlas = ExtResource("4_7ihmi")
+region = Rect2(58, 0, 58, 58)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b00kl"]
-atlas = ExtResource("2_546lt")
-region = Rect2(0, 57, 56, 57)
+atlas = ExtResource("4_7ihmi")
+region = Rect2(0, 58, 58, 58)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_so1yu"]
-atlas = ExtResource("2_546lt")
-region = Rect2(56, 57, 56, 57)
+atlas = ExtResource("4_7ihmi")
+region = Rect2(58, 58, 58, 58)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_65xic"]
-atlas = ExtResource("2_546lt")
-region = Rect2(0, 0, 56, 57)
+atlas = ExtResource("4_7ihmi")
+region = Rect2(0, 0, 58, 58)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_55d6i"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_en2x2")
+"texture": SubResource("AtlasTexture_546lt")
 }],
 "loop": 0,
 "name": &"default",
@@ -141,7 +142,8 @@ position = Vector2(83, 466)
 rotation = -1.5707964
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_55d6i")
-animation = &"switch"
 autoplay = "default"
-frame = 4
-frame_progress = 1.0
+
+[node name="BulletUi" parent="." unique_id=1005910988 instance=ExtResource("4_en2x2")]
+position = Vector2(83, 466)
+scale = Vector2(2, 2)
