@@ -29,6 +29,9 @@ noise_type = 3
 [sub_resource type="CircleShape2D" id="CircleShape2D_g1dw6"]
 radius = 8.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jyp3o"]
+size = Vector2(16, 4)
+
 [node name="Player" type="CharacterBody2D" unique_id=1304598780]
 collision_layer = 4
 collision_mask = 3
@@ -48,6 +51,7 @@ shape = SubResource("RectangleShape2D_5kg8m")
 [node name="Camera2D" type="Camera2D" parent="." unique_id=760305562]
 zoom = Vector2(2, 2)
 process_callback = 0
+position_smoothing_speed = 15.0
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
 drag_left_margin = 0.15
@@ -99,6 +103,15 @@ monitorable = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ParryHitbox" unique_id=613055736]
 position = Vector2(13, 0)
 shape = SubResource("CircleShape2D_g1dw6")
+
+[node name="ShiftDetector" type="RayCast2D" parent="." unique_id=720827930]
+
+[node name="SlamHitbox" type="Area2D" parent="." unique_id=1423150895]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SlamHitbox" unique_id=1486328518]
+position = Vector2(0, 16)
+shape = SubResource("RectangleShape2D_jyp3o")
 
 [connection signal="timeout" from="ReloadTimer" to="." method="_on_reload_timer_timeout"]
 [connection signal="area_entered" from="ParryHitbox" to="." method="_on_parry_hitbox_area_entered"]

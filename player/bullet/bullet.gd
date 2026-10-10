@@ -18,7 +18,9 @@ var effect_methods = {
 	BulletResource.effects.FIRE: Callable(fire),
 	BulletResource.effects.COIN: Callable(coin_gravity),
 	BulletResource.effects.RICOPIERCE: Callable(ricopierce_setup),
-	BulletResource.effects.SHOTGUN: Callable(shotgun_setup)
+	BulletResource.effects.SHOTGUN: Callable(shotgun_setup),
+	BulletResource.effects.SHIFT: Callable(shift),
+	BulletResource.effects.SLAM: Callable(slam)
 }
 
 var thing_i_hit: EnemyComponent
@@ -115,3 +117,11 @@ func shotgun_setup():
 		bullet.player = player
 		add_child(bullet)
 		bullet.vel *= 3
+
+func shift():
+	player.shift(direction, resource.effect_strength)
+	queue_free()
+
+func slam():
+	player.slam()
+	queue_free()

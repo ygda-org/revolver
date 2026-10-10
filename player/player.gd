@@ -25,6 +25,7 @@ const PARRY_DAMAGE = 20
 var health: int = 2
 
 var hit_stun_velocity
+var slam_velocity: Vector2
 
 func _ready():
 	GameState.player = self
@@ -89,6 +90,8 @@ func _physics_process(delta):
 			get_tree().create_timer(PARRY_WINDOW).timeout.connect(disable_parry)
 	if not $HitStun.is_stopped():
 		velocity = hit_stun_velocity
+	if slam_velocity:
+		velocity = slam_velocity
 	move_and_slide()
 
 func disable_parry():
@@ -134,3 +137,15 @@ func _on_parry_hitbox_area_entered(area):
 		return
 	area.parried = true
 	area.set_collision_mask_value(2, true)
+
+func shift(dir, dist):
+	var target: Vector2 = dir*dist
+	$ShiftDetector.target_position = target
+	$ShiftDetector.force_raycast_update()
+	if $ShiftDetector.is_colliding():
+		global_position = $ShiftDetector.get_collision_point()
+	else:
+		global_position += target
+
+func slam():
+	slam_velocity = Vector2(0, 350)
