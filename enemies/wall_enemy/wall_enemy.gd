@@ -28,7 +28,8 @@ func _physics_process(delta):
 func _on_wall_timer_timeout():
 	var dir: float =(GameState.player.global_position - global_position).x
 	dir /= abs(dir)
+	$SpawnPivot.scale.x = dir
 	var wall = WALL.instantiate()
 	wall.direction = dir
 	get_parent().add_child(wall)
-	wall.global_position = global_position + Vector2(0, -10)
+	wall.global_position = $SpawnPivot/SpawnPos.global_position

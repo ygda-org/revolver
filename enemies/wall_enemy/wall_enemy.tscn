@@ -29,4 +29,9 @@ one_shot = true
 position = Vector2(13, 22)
 target_position = Vector2(0, 3)
 
+[node name="SpawnPivot" type="Node2D" parent="." unique_id=864838023]
+
+[node name="SpawnPos" type="Marker2D" parent="SpawnPivot" unique_id=688154613]
+position = Vector2(13, -10)
+
 [connection signal="timeout" from="WallTimer" to="." method="_on_wall_timer_timeout"]
