@@ -13,8 +13,7 @@ class_name BulletResource
 @export var shake_trauma: float = 0.5
 
 @export_category("Colors")
-@export var outline_color: Color = Color(0.541, 0.243, 0.0, 1.0)
-@export var fill_color: Color = Color(0.772, 0.437, 0.0, 1.0)
+@export var outline_color: Color = Color(0.6, 0.3, 0.0, 1.0)
 @export var sprite_frames_ovveride: SpriteFrames
 
 enum effects {
