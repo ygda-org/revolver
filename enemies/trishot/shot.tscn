@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://cidxef737ydfs"]
+
+[ext_resource type="Script" uid="uid://bgwkcmqw8xd37" path="res://enemies/trishot/shot.gd" id="1_3rqhh"]
+[ext_resource type="Texture2D" uid="uid://dlbb2kg1nkspe" path="res://assets/icon.svg" id="1_cajmt"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5kg8m"]
+radius = 5.0
+
+[node name="Shot" type="Area2D" unique_id=1647453385]
+collision_layer = 0
+collision_mask = 20
+script = ExtResource("1_3rqhh")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=442947805]
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("1_cajmt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2131778264]
+shape = SubResource("CircleShape2D_5kg8m")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=2042549042]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

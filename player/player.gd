@@ -68,3 +68,6 @@ func _physics_process(delta):
 			$RecoilLock.start()
 	
 	move_and_slide()
+
+func hit(dmg):
+	pass

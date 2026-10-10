@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://bjxissut13r5b"]
+
+[ext_resource type="Script" uid="uid://c6va2crrhqppx" path="res://enemies/trishot/trishot.gd" id="1_x23fc"]
+[ext_resource type="Texture2D" uid="uid://dlbb2kg1nkspe" path="res://assets/icon.svg" id="2_3v7li"]
+[ext_resource type="PackedScene" uid="uid://d3jnp7vef3gti" path="res://enemies/enemy_component.tscn" id="3_gicyq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3v7li"]
+radius = 13.038404
+
+[node name="Trishot" type="CharacterBody2D" unique_id=884423335]
+collision_layer = 3
+script = ExtResource("1_x23fc")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=47451947]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_3v7li")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1446767536]
+shape = SubResource("CircleShape2D_3v7li")
+
+[node name="EnemyComponent" parent="." unique_id=920270805 instance=ExtResource("3_gicyq")]
+
+[node name="ShotTimer" type="Timer" parent="." unique_id=1129894387]
+wait_time = 3.0
+one_shot = true
+
+[connection signal="timeout" from="ShotTimer" to="." method="_on_shot_timer_timeout"]
