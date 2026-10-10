@@ -21,7 +21,9 @@ var repair_amount: float = 0.0
 func _ready():
 	for i in range(barrel_size):
 		active_barrel.append(load("uid://cllwws72eb4kk"))
+		chosen_barrel.append(load("uid://cllwws72eb4kk"))
 	active_barrel[0] = (load("uid://croa2j6asmrij"))
+	chosen_barrel[0] = (load("uid://croa2j6asmrij"))
 
 ## cycle bullet by dir, then mod by barrel size
 func bullet_cycle(dir: int):
@@ -31,7 +33,8 @@ func bullet_cycle(dir: int):
 
 func reload():
 	for i in range(barrel_size):
-		active_barrel.append(chosen_barrel[i].duplicate())
+		active_barrel[i] = chosen_barrel[i].duplicate()
+	barrel_index = 0
 
 ## for use with shooting. Returns current bullet and cycles the barrel
 func get_bullet():

@@ -23,6 +23,10 @@ func _ready():
 	GameState.player = self
 
 func _physics_process(delta):
+	
+	if Input.is_action_just_pressed("reload"):
+		GameState.reload()
+	
 	# gravity & jumping
 	if not is_on_floor():
 		var grav_mult: float = 1.0
