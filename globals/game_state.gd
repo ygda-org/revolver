@@ -6,7 +6,7 @@ signal bullet_is_cycled
 signal start_reload
 signal stop_reload
 
-const REPAIR_DISTANCE_THRESHOLD = 200
+const REPAIR_DISTANCE_THRESHOLD = 100
 
 var player: Player
 
@@ -50,10 +50,12 @@ func get_bullet():
 func get_closest_enemy_to_position(pos: Vector2):
 	if not active_enemies:
 		return null
-	var closest: EnemyComponent = active_enemies[0]
+	var closest: EnemyComponent
 	for enemy in active_enemies:
 		if not enemy:
 			continue
+		if not closest:
+			closest = enemy
 		if pos.distance_squared_to(enemy.global_position) < pos.distance_squared_to(closest.global_position):
 			closest = enemy
 	return closest

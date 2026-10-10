@@ -8,6 +8,7 @@
 size = Vector2(26, 44)
 
 [node name="WallEnemy" type="CharacterBody2D" unique_id=967547360]
+collision_mask = 5
 script = ExtResource("1_5vqqi")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=68681920]
