@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://dhebim0i23kwq" path="res://player/player.tscn" id="2_pjrb6"]
 [ext_resource type="PackedScene" uid="uid://bjxissut13r5b" path="res://enemies/trishot/trishot.tscn" id="4_3wy1v"]
 [ext_resource type="PackedScene" uid="uid://rcq8go31l55x" path="res://ui/hud.tscn" id="4_c651c"]
-[ext_resource type="PackedScene" uid="uid://bdocv0lkp4a2j" path="res://levels/final_levels/winder.tscn" id="4_kfbq2"]
+[ext_resource type="PackedScene" uid="uid://bdocv0lkp4a2j" path="res://levels/finalized_levels/winder.tscn" id="4_kfbq2"]
 
 [node name="Main" type="Node2D" unique_id=1213057778]
 
