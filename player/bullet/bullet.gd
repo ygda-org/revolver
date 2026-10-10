@@ -24,6 +24,8 @@ var effect_methods = {
 var thing_i_hit: EnemyComponent
 
 func _ready():
+	if resource.effect == BulletResource.effects.PARRY:
+		queue_free()
 	$Anim.material.set_shader_parameter("outline_color", resource.outline_color)
 	$Light.texture.gradient.set_color(0, Color(resource.outline_color.r, resource.outline_color.g, resource.outline_color.b, 0.3))
 	$Light.texture.gradient.set_color(1, Color(resource.outline_color.r, resource.outline_color.g, resource.outline_color.b, 0.0))

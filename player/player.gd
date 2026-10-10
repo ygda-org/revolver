@@ -11,11 +11,16 @@ const JUMP_FORCE: float = 280.0
 const MAX_FALL_SPEED: float = 250.0
 const GRAVITY: float = 700
 
+const PARRY_WINDOW = 0.15
+const PARRY_DAMAGE = 20
+
 @export var accel_curve: Curve
 @export var decel_curve: Curve
 
 @export var grav_curve_asc: Curve
 @export var grav_curve_dec: Curve
+
+@onready var parry_hitbox = $ParryHitbox
 
 var health: int = 2
 
@@ -78,9 +83,16 @@ func _physics_process(delta):
 			velocity.y /= 3
 			velocity += resource.recoil * -shot_dir
 			$RecoilLock.start()
+		# PARRY IT - Maelle
+		if resource.effect == BulletResource.effects.PARRY:
+			parry_hitbox.monitoring = true
+			get_tree().create_timer(PARRY_WINDOW).timeout.connect(disable_parry)
 	if not $HitStun.is_stopped():
 		velocity = hit_stun_velocity
 	move_and_slide()
+
+func disable_parry():
+	parry_hitbox.monitoring = false
 
 func hit(hitter: Node2D):
 	if $InvicibilityFrames.is_stopped():
@@ -105,3 +117,20 @@ func dash(dir, speed):
 func _on_reload_timer_timeout() -> void:
 	GameState.stop_reload.emit()
 	GameState.reload()
+
+# hit enemy
+func _on_parry_hitbox_body_entered(body):
+	var enemy_component = body.find_child("EnemyComponent")
+	if not enemy_component:
+		return
+	enemy_component.hit(PARRY_DAMAGE)
+
+# hit enemy bullet
+func _on_parry_hitbox_area_entered(area):
+	if not "direction" in area:
+		return
+	area.direction = global_position.direction_to(GameState.get_closest_enemy_to_position(global_position).global_position)
+	if not "parried" in area:
+		return
+	area.parried = true
+	area.set_collision_mask_value(2, true)

@@ -23,5 +23,6 @@ enum effects {
 	FIRE,
 	COIN,
 	RICOPIERCE,
-	SHOTGUN
+	SHOTGUN,
+	PARRY
 }

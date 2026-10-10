@@ -61,7 +61,7 @@ reload={
 2d_physics/layer_2="Bullet Collisions"
 2d_physics/layer_3="Player Exclusive"
 2d_physics/layer_4="Walls2 (swarm)"
-2d_physics/layer_5="Walls3 (enemy bullets)"
+2d_physics/layer_5="Enemy Bullets (walls & enemy bullet detection)"
 
 [physics]
 

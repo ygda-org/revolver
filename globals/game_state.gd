@@ -7,6 +7,7 @@ signal start_reload
 signal stop_reload
 
 const REPAIR_DISTANCE_THRESHOLD = 100
+const BULLET_PARRY_DAMAGE = 25
 
 var player: Player
 
