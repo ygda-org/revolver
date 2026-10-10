@@ -4,36 +4,31 @@
 [ext_resource type="Script" uid="uid://dr6gvj2mtu8a5" path="res://ui/bullet_ui.gd" id="1_necxf"]
 [ext_resource type="Shader" uid="uid://b4pewokr7fm1b" path="res://player/bullet/bullet.gdshader" id="2_jmbu5"]
 
-[sub_resource type="Shader" id="Shader_6nevi"]
-code = "shader_type canvas_item;
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mpp0r"]
+shader = ExtResource("2_jmbu5")
+shader_parameter/outline_color = Vector4(0, 0, 0, 0)
 
-uniform float resolution = 14.0;
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_j5s4h"]
+shader = ExtResource("2_jmbu5")
+shader_parameter/outline_color = Vector4(0, 0, 0, 0)
 
-void vertex() {
-	// Called for every vertex the material is visible on.
-}
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_necxf"]
+shader = ExtResource("2_jmbu5")
+shader_parameter/outline_color = Vector4(0, 0, 0, 0)
 
-void fragment() {
-	COLOR = texture(TEXTURE, floor(UV * resolution)/resolution);
-}
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jmbu5"]
+shader = ExtResource("2_jmbu5")
+shader_parameter/outline_color = Vector4(0, 0, 0, 0)
 
-//void light() {
-//	// Called for every pixel for every light affecting the CanvasItem.
-//	// Uncomment to replace the default light processing function with this one.
-//}
-"
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6w750"]
+shader = ExtResource("2_jmbu5")
+shader_parameter/outline_color = Vector4(0, 0, 0, 0)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_7ihmi"]
-shader = SubResource("Shader_6nevi")
-shader_parameter/resolution = 14.0
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_6nevi"]
-resource_local_to_scene = true
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wyyrm"]
 shader = ExtResource("2_jmbu5")
 shader_parameter/outline_color = Vector4(0, 0, 0, 0)
 
 [node name="BulletUi" type="Node2D" unique_id=1005910988]
-material = SubResource("ShaderMaterial_7ihmi")
 script = ExtResource("1_necxf")
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=834778793]
@@ -60,31 +55,31 @@ render_target_update_mode = 4
 position = Vector2(29, 29)
 
 [node name="Bullet1" type="Sprite2D" parent="SubViewportContainer/SubViewport/Pivot" unique_id=2000432786]
-material = SubResource("ShaderMaterial_6nevi")
+material = SubResource("ShaderMaterial_mpp0r")
 position = Vector2(0, -17)
 texture = ExtResource("1_6nevi")
 
 [node name="Bullet2" type="Sprite2D" parent="SubViewportContainer/SubViewport/Pivot" unique_id=1561992544]
-material = SubResource("ShaderMaterial_6nevi")
+material = SubResource("ShaderMaterial_j5s4h")
 position = Vector2(14, -8)
 texture = ExtResource("1_6nevi")
 
 [node name="Bullet3" type="Sprite2D" parent="SubViewportContainer/SubViewport/Pivot" unique_id=109845135]
-material = SubResource("ShaderMaterial_6nevi")
+material = SubResource("ShaderMaterial_necxf")
 position = Vector2(14, 8)
 texture = ExtResource("1_6nevi")
 
 [node name="Bullet4" type="Sprite2D" parent="SubViewportContainer/SubViewport/Pivot" unique_id=1099403583]
-material = SubResource("ShaderMaterial_6nevi")
+material = SubResource("ShaderMaterial_jmbu5")
 position = Vector2(0, 17)
 texture = ExtResource("1_6nevi")
 
 [node name="Bullet5" type="Sprite2D" parent="SubViewportContainer/SubViewport/Pivot" unique_id=1262944111]
-material = SubResource("ShaderMaterial_6nevi")
+material = SubResource("ShaderMaterial_6w750")
 position = Vector2(-14, 8)
 texture = ExtResource("1_6nevi")
 
 [node name="Bullet6" type="Sprite2D" parent="SubViewportContainer/SubViewport/Pivot" unique_id=450291601]
-material = SubResource("ShaderMaterial_6nevi")
+material = SubResource("ShaderMaterial_wyyrm")
 position = Vector2(-14, -8)
 texture = ExtResource("1_6nevi")
