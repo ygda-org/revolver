@@ -26,6 +26,11 @@ func _physics_process(delta):
 		# wandering
 		$Anim.play("fly")
 		velocity = velocity.move_toward(Vector2.ZERO, ACCELERATION*delta)
+	
+	for i in range(get_slide_collision_count()):
+		var col = get_slide_collision(i).get_collider()
+		if col is Player:
+			col.hit()
 	move_and_slide()
 
 func _on_shot_timer_timeout():

@@ -24,4 +24,10 @@ func _physics_process(delta):
 		$AnimatedSprite2D.flip_h = bool(clampf(velocity.x, 0, 1))
 	else:
 		velocity += (-position.normalized() * SPEED/30) + Vector2(randf_range(-5, 5), randf_range(-5,5))
+	
+	for i in range(get_slide_collision_count()):
+		var col = get_slide_collision(i).get_collider()
+		if col is Player:
+			col.hit()
+
 	move_and_slide()
