@@ -1,20 +1,16 @@
 [gd_scene format=3 uid="uid://cnoahdbn2sxq3"]
 
 [ext_resource type="PackedScene" uid="uid://dhebim0i23kwq" path="res://player/player.tscn" id="2_pjrb6"]
-[ext_resource type="PackedScene" uid="uid://bjxissut13r5b" path="res://enemies/trishot/trishot.tscn" id="4_3wy1v"]
+[ext_resource type="PackedScene" uid="uid://dh5gt3gmdypcy" path="res://levels/finalized_levels/arena.tscn" id="3_xwkvk"]
 [ext_resource type="PackedScene" uid="uid://rcq8go31l55x" path="res://ui/hud.tscn" id="4_c651c"]
-[ext_resource type="PackedScene" uid="uid://bdocv0lkp4a2j" path="res://levels/finalized_levels/winder.tscn" id="4_kfbq2"]
 
 [node name="Main" type="Node2D" unique_id=1213057778]
 
 [node name="Player" parent="." unique_id=1304598780 instance=ExtResource("2_pjrb6")]
-position = Vector2(24, -19)
+position = Vector2(21, 26)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=338208126]
 
 [node name="Hud" parent="CanvasLayer" unique_id=1107756674 instance=ExtResource("4_c651c")]
 
-[node name="Trishot" parent="." unique_id=884423335 instance=ExtResource("4_3wy1v")]
-position = Vector2(270, 51)
-
-[node name="Winder" parent="." unique_id=1835849230 instance=ExtResource("4_kfbq2")]
+[node name="Arena" parent="." unique_id=305474640 instance=ExtResource("3_xwkvk")]
