@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://ct6eu3ndhd4ml"]
+
+[ext_resource type="Script" uid="uid://d0u3kgpkc5kdd" path="res://ui/inventory/drag_bullet.gd" id="1_5eyxt"]
+[ext_resource type="Shader" uid="uid://b4pewokr7fm1b" path="res://player/bullet/bullet.gdshader" id="1_gvt8v"]
+[ext_resource type="Texture2D" uid="uid://biykde71lpl4w" path="res://assets/temp_art/bullet_icon.png" id="2_5eyxt"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_j4wu1"]
+resource_local_to_scene = true
+shader = ExtResource("1_gvt8v")
+shader_parameter/outline_color = Color(0.7335034, 0.43671218, 0.09143841, 1)
+
+[node name="DragBullet" type="Node2D" unique_id=872890370]
+script = ExtResource("1_5eyxt")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1844091508]
+material = SubResource("ShaderMaterial_j4wu1")
+texture = ExtResource("2_5eyxt")

@@ -1,6 +1,6 @@
 shader_type canvas_item;
 
-uniform vec4 outline_color;
+uniform vec4 outline_color : source_color;
 
 void fragment() {
 	vec4 color_diff = vec4(1.0) - outline_color;
