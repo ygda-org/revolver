@@ -4,3 +4,11 @@
 
 [node name="Level" type="Node2D" unique_id=2114628824]
 script = ExtResource("1_80vhd")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2133948050]
+z_index = -1000
+offset_left = -9406.0
+offset_top = -8760.0
+offset_right = 15661.0
+offset_bottom = 6786.0
+color = Color(0.09411765, 0.11764706, 0.1882353, 1)
