@@ -13,7 +13,7 @@ config_version=5
 config/name="revolver"
 run/main_scene="uid://cnoahdbn2sxq3"
 config/features=PackedStringArray("4.7", "GL Compatibility")
-config/icon="uid://be5yiou05pkov"
+config/icon="uid://cvqcx4b2q2k21"
 
 [autoload]
 

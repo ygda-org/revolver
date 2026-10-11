@@ -6,6 +6,18 @@
 _data = [Vector2(0, 0), 0.0, 0.9380877, 0, 0, Vector2(1, 1), 0.9172405, 0.9380877, 0, 0]
 point_count = 2
 
+[sub_resource type="Curve" id="Curve_tq4nu"]
+_data = [Vector2(0, 0.28467155), 0.0, 0.6066159, 0, 0, Vector2(0.99283147, 0.89051104), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_dp4o3"]
+offsets = PackedFloat32Array(0, 0.48642534, 1)
+colors = PackedColorArray(0.6784314, 0.4392157, 0.16862746, 0, 0.6784314, 0.4392157, 0.16862746, 0.19607843, 0.6784314, 0.4392157, 0.16862746, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_tq4nu"]
+gradient = SubResource("Gradient_dp4o3")
+fill_to = Vector2(0, 1)
+
 [node name="Trail" type="Line2D" unique_id=786189251]
 top_level = true
 z_index = -1
@@ -14,3 +26,11 @@ width_curve = SubResource("Curve_dp4o3")
 joint_mode = 2
 begin_cap_mode = 2
 script = ExtResource("1_dp4o3")
+
+[node name="Lighting" type="Line2D" parent="." unique_id=1707063473]
+width = 35.0
+width_curve = SubResource("Curve_tq4nu")
+texture = SubResource("GradientTexture2D_tq4nu")
+texture_mode = 1
+joint_mode = 2
+end_cap_mode = 2
