@@ -43,6 +43,7 @@ func _physics_process(delta):
 	
 	if Input.is_action_just_pressed("reload") and $ReloadTimer.is_stopped():
 		Sfx.play(Sfx.Labels.RELOAD)
+		get_tree().create_timer($ReloadTimer.wait_time/7).timeout.connect(single_reload_bullets_sfx.bind(0))
 		GameState.start_reload.emit()
 		$ReloadTimer.start()
 	
@@ -174,6 +175,12 @@ func dash(dir, speed):
 func _on_reload_timer_timeout() -> void:
 	GameState.reload()
 	GameState.stop_reload.emit()
+
+func single_reload_bullets_sfx(num):
+	if num == 6 - GameState.chosen_barrel.count(load("uid://c7kvyedwvgnr0")):
+		return
+	Sfx.play(Sfx.Labels.SINGLE_RELOAD)
+	get_tree().create_timer($ReloadTimer.wait_time/7).timeout.connect(single_reload_bullets_sfx.bind(num+1))
 
 # hit enemy
 func _on_parry_hitbox_body_entered(body):
