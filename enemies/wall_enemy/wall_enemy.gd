@@ -13,6 +13,7 @@ func _physics_process(delta):
 		velocity = Vector2.ZERO
 		# fighting
 		if $WallWindown.is_stopped():
+			$Anim.play("attack")
 			$WallWindown.start()
 			$WallTimer.start()
 		if (global_position - GameState.player.global_position).x > 0:
@@ -37,7 +38,7 @@ func _physics_process(delta):
 		if col is Player:
 			col.hit(self)
 	
-	if $WallWindown.is_stopped():
+	if $WallWindown.is_stopped() and not ($Anim.is_playing() and $Anim.animation == "attack"):
 		if velocity.x:
 			$Anim.play("walk")
 		else:
