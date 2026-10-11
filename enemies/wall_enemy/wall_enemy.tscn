@@ -2,7 +2,36 @@
 
 [ext_resource type="Script" uid="uid://dpwxvwdsbvg7h" path="res://enemies/wall_enemy/wall_enemy.gd" id="1_5vqqi"]
 [ext_resource type="Texture2D" uid="uid://dd6f7n1vquq3l" path="res://assets/enemies/wall/evil_go_dot_walk.png" id="2_sgxws"]
+[ext_resource type="Texture2D" uid="uid://2xxh7uipe24l" path="res://assets/enemies/wall/evil_go_dot_attack_8fps.png" id="3_62xip"]
 [ext_resource type="PackedScene" uid="uid://d3jnp7vef3gti" path="res://enemies/enemy_component.tscn" id="3_sgxws"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h4jjm"]
+atlas = ExtResource("3_62xip")
+region = Rect2(0, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s2ouo"]
+atlas = ExtResource("3_62xip")
+region = Rect2(32, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bm5vl"]
+atlas = ExtResource("3_62xip")
+region = Rect2(64, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1mkb6"]
+atlas = ExtResource("3_62xip")
+region = Rect2(0, 48, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1t4ps"]
+atlas = ExtResource("3_62xip")
+region = Rect2(32, 48, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_amjbr"]
+atlas = ExtResource("3_62xip")
+region = Rect2(64, 48, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_06c1u"]
+atlas = ExtResource("3_62xip")
+region = Rect2(0, 96, 32, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sgxws"]
 atlas = ExtResource("2_sgxws")
@@ -26,6 +55,32 @@ region = Rect2(32, 48, 32, 48)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_5vqqi"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h4jjm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s2ouo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bm5vl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1mkb6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1t4ps")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_amjbr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_06c1u")
+}],
+"loop": 0,
+"name": &"attack",
+"speed": 8.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_sgxws")
@@ -62,7 +117,8 @@ script = ExtResource("1_5vqqi")
 
 [node name="Anim" type="AnimatedSprite2D" parent="." unique_id=612185197]
 sprite_frames = SubResource("SpriteFrames_5vqqi")
-animation = &"walk"
+animation = &"attack"
+autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=415863249]
 position = Vector2(1, 0)
@@ -72,6 +128,10 @@ shape = SubResource("RectangleShape2D_sgxws")
 repair_add_amount = 0.4
 
 [node name="WallTimer" type="Timer" parent="." unique_id=394727107]
+wait_time = 0.5
+one_shot = true
+
+[node name="WallWindown" type="Timer" parent="." unique_id=2120308232]
 wait_time = 4.0
 one_shot = true
 
@@ -85,6 +145,10 @@ collision_mask = 33
 [node name="SpawnPivot" type="Node2D" parent="." unique_id=864838023]
 
 [node name="SpawnPos" type="Marker2D" parent="SpawnPivot" unique_id=688154613]
-position = Vector2(14, -10)
+position = Vector2(22, -10)
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="." unique_id=640171960]
+offset_right = 40.0
+offset_bottom = 40.0
 
 [connection signal="timeout" from="WallTimer" to="." method="_on_wall_timer_timeout"]

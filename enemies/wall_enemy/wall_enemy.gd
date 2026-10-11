@@ -12,7 +12,8 @@ func _physics_process(delta):
 	if dist < DETECTION_RANGE:
 		velocity = Vector2.ZERO
 		# fighting
-		if $WallTimer.is_stopped():
+		if $WallWindown.is_stopped():
+			$WallWindown.start()
 			$WallTimer.start()
 		if (global_position - GameState.player.global_position).x > 0:
 			$Anim.flip_h = false
@@ -36,16 +37,17 @@ func _physics_process(delta):
 		if col is Player:
 			col.hit(self)
 	
-	if velocity.x:
-		$Anim.play("walk")
-	else:
-		$Anim.play("idle")
+	if $WallWindown.is_stopped():
+		if velocity.x:
+			$Anim.play("walk")
+		else:
+			$Anim.play("idle")
 	
 	move_and_slide()
 
 
 func _on_wall_timer_timeout():
-	var dir: float =(GameState.player.global_position - global_position).x
+	var dir: float = (GameState.player.global_position - global_position).x
 	dir /= abs(dir)
 	$SpawnPivot.scale.x = dir
 	var wall = WALL.instantiate()
