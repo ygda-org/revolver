@@ -103,7 +103,11 @@ func _physics_process(delta):
 			parry_hitbox.monitoring = true
 			get_tree().create_timer(PARRY_WINDOW).timeout.connect(disable_parry)
 	if not $HitStun.is_stopped():
+		print(hit_stun_velocity)
 		velocity = hit_stun_velocity
+		hit_stun_velocity -= hit_stun_velocity * 10 * delta
+		if hit_stun_velocity.length_squared() < 100:
+			hit_stun_velocity = hit_stun_velocity.normalized() * 10
 	if slam_velocity:
 		velocity = slam_velocity
 	move_and_slide()
@@ -119,7 +123,7 @@ func hit(hitter: Node2D):
 		return
 	health -= 1
 	$HitStun.start()
-	hit_stun_velocity = 55 * hitter.global_position.direction_to(global_position)
+	hit_stun_velocity = 150 * hitter.global_position.direction_to(global_position)
 	if health <= 0:
 		die()
 
