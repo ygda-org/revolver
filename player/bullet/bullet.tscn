@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://k308fsvc3jvh"]
 
 [ext_resource type="Script" uid="uid://bodwdj5njk1nb" path="res://player/bullet/bullet.gd" id="1_k2a0t"]
+[ext_resource type="Shader" uid="uid://b4pewokr7fm1b" path="res://player/bullet/bullet.gdshader" id="2_3vq7f"]
 [ext_resource type="PackedScene" uid="uid://b0jky4c7011ds" path="res://player/bullet/trail.tscn" id="3_3vq7f"]
 [ext_resource type="Texture2D" uid="uid://c6y6sbjdjobcg" path="res://assets/bullet/bullet.png" id="3_e8pb5"]
 
@@ -17,22 +18,11 @@ height = 40
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 
-[sub_resource type="Shader" id="Shader_k2a0t"]
-code = "shader_type canvas_item;
-
-uniform vec4 outline_color;
-
-void fragment() {
-	vec4 color_diff = vec4(1.0) - outline_color;
-	COLOR.rgb = ((color_diff.rgb) * (COLOR.r));
-	COLOR.rgb = COLOR.rgb + outline_color.rgb;
-}
-"
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_e8pb5"]
 resource_local_to_scene = true
-shader = SubResource("Shader_k2a0t")
-shader_parameter/outline_color = Vector4(0.6, 0.3, 0, 1)
+shader = ExtResource("2_3vq7f")
+shader_parameter/outline_color = Color(0, 0, 0, 1)
+shader_parameter/invisible = false
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3vq7f"]
 atlas = ExtResource("3_e8pb5")

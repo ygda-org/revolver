@@ -106,7 +106,6 @@ func _physics_process(delta):
 		bullet.direction = shot_dir
 		bullet.global_position = shot_position.global_position
 		bullet.player = self
-		get_parent().add_child(bullet)
 		if next_bullet_twice:
 			next_bullet_twice = false
 			var bullet2 = bullet.duplicate()
@@ -119,6 +118,7 @@ func _physics_process(delta):
 				velocity.y /= 3
 				velocity += resource.recoil * -shot_dir
 				$RecoilLock.start()
+		get_parent().add_child(bullet)
 		if resource.recoil:
 			velocity.y /= 3
 			velocity += resource.recoil * -shot_dir
