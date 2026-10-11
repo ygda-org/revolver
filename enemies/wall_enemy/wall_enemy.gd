@@ -14,12 +14,20 @@ func _physics_process(delta):
 		# fighting
 		if $WallTimer.is_stopped():
 			$WallTimer.start()
+		if (global_position - GameState.player.global_position).x > 0:
+			$Anim.flip_h = true
+		else:
+			$Anim.flip_h = false
 	else:
 		# wandering
 		if is_on_wall() or not $RayCastPivot/WalkoffDetector.is_colliding():
 			direction *= -1
 		$RayCastPivot.scale.x = direction
 		velocity.x = direction * SPEED
+		if velocity.x > 0:
+			$Anim.flip_h = true
+		elif velocity.y < 0:
+			$Anim.flip_h = false
 	if not is_on_floor():
 		velocity.y = 50
 	
@@ -27,6 +35,11 @@ func _physics_process(delta):
 		var col = get_slide_collision(i).get_collider()
 		if col is Player:
 			col.hit(self)
+	
+	if velocity.x:
+		$Anim.play("walk")
+	else:
+		$Anim.play("idle")
 	
 	move_and_slide()
 
