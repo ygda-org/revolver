@@ -24,6 +24,7 @@ shape = SubResource("RectangleShape2D_5kg8m")
 [node name="GroundCast" type="RayCast2D" parent="RaycastPivot" unique_id=1835691898]
 position = Vector2(6, 31)
 target_position = Vector2(0, 5)
+collision_mask = 33
 
 [node name="WallCast" type="RayCast2D" parent="RaycastPivot" unique_id=1005177157]
 target_position = Vector2(8, 0)

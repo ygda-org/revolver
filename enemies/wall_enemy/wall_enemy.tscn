@@ -30,6 +30,7 @@ one_shot = true
 [node name="WalkoffDetector" type="RayCast2D" parent="RayCastPivot" unique_id=651601387]
 position = Vector2(13, 22)
 target_position = Vector2(0, 3)
+collision_mask = 33
 
 [node name="SpawnPivot" type="Node2D" parent="." unique_id=864838023]
 

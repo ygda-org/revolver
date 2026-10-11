@@ -26,6 +26,7 @@ shape = SubResource("RectangleShape2D_sesbg")
 [node name="WalkoffDetector" type="RayCast2D" parent="RaycastPivot" unique_id=1577733732]
 position = Vector2(8, 15)
 target_position = Vector2(0, 3)
+collision_mask = 33
 
 [node name="PlayerDetector" type="RayCast2D" parent="RaycastPivot" unique_id=1610823434]
 target_position = Vector2(150, 0)

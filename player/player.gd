@@ -203,6 +203,7 @@ func slam():
 func _on_slam_hitbox_body_entered(body):
 	
 	var comp = body.find_child("EnemyComponent")
+	$Camera2D.add_trauma(0.6)
 	if comp:
 		comp.hit(load("uid://dof6lvg6wev5k").damage)
 		$InvicibilityFrames.start()

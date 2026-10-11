@@ -24,7 +24,8 @@ var effect_methods = {
 	BulletResource.effects.TP_SHOT: Callable(tp_shot),
 	BulletResource.effects.REVOLVER: Callable(revolver),
 	BulletResource.effects.HELIX: Callable(helix),
-	BulletResource.effects.HELIX_HELPER: Callable(helix_helper)
+	BulletResource.effects.HELIX_HELPER: Callable(helix_helper),
+	BulletResource.effects.HOMING: Callable(homing)
 }
 
 var thing_i_hit: EnemyComponent
@@ -158,3 +159,12 @@ func helix_helper():
 	var rot_pos: Vector2 = global_position - get_parent().global_position
 	get_parent().rotation = 0
 	position = rot_pos
+
+func homing():
+	var enemy: EnemyComponent = GameState.get_closest_enemy_to_position(global_position)
+	if not enemy:
+		return
+	var target_pos: Vector2 = enemy.global_position
+	var perp: Vector2 = vel.orthogonal().normalized()
+	perp = perp if (global_position + perp).distance_to(target_pos) < (global_position - perp).distance_to(target_pos) else -perp
+	vel += perp * resource.effect_strength * delta_time_save

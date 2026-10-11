@@ -6,5 +6,6 @@
 script = ExtResource("1_ju4b2")
 effect = 11
 effect_on_shot = true
+shake_trauma = 0.1
 outline_color = Color(1, 1, 1, 1)
 metadata/_custom_type_script = "uid://cmear8uu7c65f"

@@ -32,5 +32,6 @@ enum effects {
 	TP_SHOT,
 	REVOLVER,
 	HELIX,
-	HELIX_HELPER
+	HELIX_HELPER,
+	HOMING
 }
