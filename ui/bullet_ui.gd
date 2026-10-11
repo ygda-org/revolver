@@ -22,6 +22,7 @@ func spin():
 	render_bullets()
 
 func render_bullets():
+	pivot.rotation = 0
 	for i in range(len(GameState.active_barrel)):
 		var b_res : BulletResource = GameState.active_barrel[posmod(i + GameState.barrel_index, len(GameState.active_barrel))]
 		var sprite : Sprite2D = pivot.get_child(i)
