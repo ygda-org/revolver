@@ -8,7 +8,8 @@ preload("uid://1qekgha414yp"),
 preload("uid://c1c7vo31sm74l")]
 
 const GROUNDED = [preload("uid://dbj21rwlxkyql"),
-preload("uid://cqkgsr8jgrndt")]
+preload("uid://cqkgsr8jgrndt"),
+preload("uid://cx5ec1o3ypbvs")]
 
 var active_array
 

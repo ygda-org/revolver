@@ -1,0 +1,39 @@
+extends CharacterBody2D
+class_name BounceEnemy
+
+@export var speed: float = 80.0
+
+@export var gravity_curve: Curve
+
+var direction: float = 0.0
+
+const GRAVITY = 700
+const JUMP_FORCE = 300
+const MAX_FALL_SPEED = 300
+
+const DETECTION_RANGE = 200
+
+func _physics_process(delta):
+	if not is_on_floor():
+		velocity.y = move_toward(velocity.y, MAX_FALL_SPEED, GRAVITY * delta * gravity_curve.sample(abs(velocity.y/MAX_FALL_SPEED)))
+		velocity.x = speed * direction
+	else:
+		velocity.x = 0.0
+		if global_position.distance_to(GameState.player.global_position) < DETECTION_RANGE:
+			direction = sign(global_position.direction_to(GameState.player.global_position).x)
+		else:
+			direction = 0.0
+		if $JumpWindupTimer.is_stopped():
+			$JumpWindupTimer.start()
+	
+	for i in range(get_slide_collision_count()):
+		var col = get_slide_collision(i).get_collider()
+		if col is Player:
+			col.hit(self)
+	
+	move_and_slide()
+
+func _on_jump_windup_timer_timeout():
+	if not is_on_floor():
+		return
+	velocity.y -= JUMP_FORCE
