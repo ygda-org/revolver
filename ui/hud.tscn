@@ -8,8 +8,8 @@
 [ext_resource type="Shader" uid="uid://c8yaabuks5t8i" path="res://ui/hud.gdshader" id="6_1v5rv"]
 
 [sub_resource type="Gradient" id="Gradient_546lt"]
-offsets = PackedFloat32Array(0, 0.53654486, 0.91528237)
-colors = PackedColorArray(1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1)
+offsets = PackedFloat32Array(0, 0.21906355, 0.67391306, 0.78762543)
+colors = PackedColorArray(1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_546lt"]
 gradient = SubResource("Gradient_546lt")
