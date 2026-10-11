@@ -22,12 +22,24 @@ var barrel_size: int = 6
 ## player heals when it reaches 1. Only fills when the player is in critical and gets filled when you kill enemies from close range
 var repair_amount: float = 0.0
 
+const EMPTY_RES : BulletResource = preload("uid://c7kvyedwvgnr0")
+
+var inventory : Dictionary[BulletResource, int] = {
+	
+}
+
+const NORMAL_RES : BulletResource = preload("res://player/bullet/bullet_resources/normal.tres")
+
 func _ready():
 	for i in range(barrel_size):
-		active_barrel.append(load("uid://cllwws72eb4kk"))
-		chosen_barrel.append(load("uid://cllwws72eb4kk"))
-	active_barrel[0] = (load("uid://ie206v7wty7v"))
-	chosen_barrel[0] = (load("uid://croa2j6asmrij"))
+		active_barrel.append(EMPTY_RES)
+		chosen_barrel.append(EMPTY_RES)
+	chosen_barrel[0] = NORMAL_RES
+	chosen_barrel[1] = NORMAL_RES
+	active_barrel[0] = NORMAL_RES
+	active_barrel[1] = NORMAL_RES
+	
+	inventory[NORMAL_RES] = 2
 
 ## cycle bullet by dir, then mod by barrel size
 func bullet_cycle(dir: int):

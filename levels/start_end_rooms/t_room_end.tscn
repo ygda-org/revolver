@@ -1,15 +1,146 @@
 [gd_scene format=4 uid="uid://b7m0hu2dgngpa"]
 
-[ext_resource type="Script" uid="uid://cco8tgle33jhk" path="res://levels/room.gd" id="1_c12uk"]
+[ext_resource type="Script" uid="uid://wbh48b0jb4p6" path="res://levels/start_end_rooms/shop_room.gd" id="1_ujw0c"]
 [ext_resource type="TileSet" uid="uid://dikhrktubmn1u" path="res://assets/tileset.tres" id="2_xr8nl"]
+[ext_resource type="PackedScene" uid="uid://bp107wqu8a62j" path="res://levels/end_door.tscn" id="3_xr8nl"]
+[ext_resource type="Shader" uid="uid://b4pewokr7fm1b" path="res://player/bullet/bullet.gdshader" id="4_j30cm"]
+[ext_resource type="Texture2D" uid="uid://cmybf5a4eu7xx" path="res://assets/temp_art/shell_back.png" id="4_wwl7g"]
+[ext_resource type="Texture2D" uid="uid://c5ruog6cmcd75" path="res://ui/light_grad.tres" id="5_ujw0c"]
 
-[node name="TRoomEnd" type="Node2D" unique_id=850289066 node_paths=PackedStringArray("left_gate")]
-script = ExtResource("1_c12uk")
-left_gate = NodePath("Marker2D")
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kn6rb"]
+shader = ExtResource("4_j30cm")
+shader_parameter/outline_color = Vector4(0, 0, 0, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_w04jx"]
+shader = ExtResource("4_j30cm")
+shader_parameter/outline_color = Vector4(0, 0, 0, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_b5hk6"]
+shader = ExtResource("4_j30cm")
+shader_parameter/outline_color = Vector4(0, 0, 0, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_806uc"]
+shader = ExtResource("4_j30cm")
+shader_parameter/outline_color = Vector4(0, 0, 0, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6pexp"]
+shader = ExtResource("4_j30cm")
+shader_parameter/outline_color = Vector4(0, 0, 0, 0)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_5fofi"]
+a = Vector2(1.5, -15.5)
+b = Vector2(1.5, 16.5)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_377x3"]
+a = Vector2(56, -39)
+b = Vector2(56, -8)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_vluf6"]
+a = Vector2(104, -39)
+b = Vector2(104, -8)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_p5txo"]
+a = Vector2(152, -39)
+b = Vector2(152, -7)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_lq1ig"]
+a = Vector2(200, -39)
+b = Vector2(200, -8)
+
+[node name="TRoomEnd" type="Node2D" unique_id=850289066]
+script = ExtResource("1_ujw0c")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1033563836]
-tile_map_data = PackedByteArray("AAAAAAAAAQABAAIAAAAAAAEAAQABAAIAAAAAAAIAAQABAAIAAAAAAAMAAQABAAIAAAAAAAQAAQABAAIAAAAAAAUAAQABAAIAAAAAAAYAAQABAAIAAAAAAAcAAQABAAIAAAAAAAgAAQABAAIAAAAAAAkAAQABAAIAAAAAAA8AAQABAAIAAAABAAAAAQABAAIAAAABAA8AAQABAAIAAAACAAAAAQABAAIAAAACAA8AAQABAAIAAAADAAAAAQABAAIAAAADAA8AAQABAAIAAAAEAAAAAQABAAIAAAAEAA8AAQABAAIAAAAFAAAAAQABAAIAAAAFAA8AAQABAAIAAAAGAAAAAQABAAIAAAAGAA8AAQABAAIAAAAHAAAAAQABAAIAAAAHAA8AAQABAAIAAAAIAAAAAQABAAIAAAAIAA8AAQABAAIAAAAJAAAAAQABAAIAAAAJAA8AAQABAAIAAAAKAAAAAQABAAIAAAAKAA8AAQABAAIAAAALAAAAAQABAAIAAAALAA8AAQABAAIAAAAMAAAAAQABAAIAAAAMAA8AAQABAAIAAAANAAAAAQABAAIAAAANAA8AAQABAAIAAAAOAAAAAQABAAIAAAAOAA8AAQABAAIAAAAPAAAAAQABAAIAAAAPAAEAAQABAAIAAAAPAA8AAQABAAIAAAAPAAIAAQABAAIAAAAPAAMAAQABAAIAAAAPAAQAAQABAAIAAAAPAAUAAQABAAIAAAAPAAYAAQABAAIAAAAPAAcAAQABAAIAAAAPAAgAAQABAAIAAAAPAAkAAQABAAIAAAAPAAoAAQABAAIAAAAPAAsAAQABAAIAAAAPAAwAAQABAAIAAAAPAA0AAQABAAIAAAAPAA4AAQABAAIAAAADAAQAAQABAAIAAAADAAUAAQABAAIAAAADAAYAAQABAAIAAAADAAcAAQABAAIAAAAEAAcAAQABAAIAAAAEAAUAAQABAAIAAAADAAMAAQABAAIAAAAEAAMAAQABAAIAAAAGAAMAAQABAAIAAAAGAAQAAQABAAIAAAAGAAUAAQABAAIAAAAGAAYAAQABAAIAAAAGAAcAAQABAAIAAAAHAAQAAQABAAIAAAAHAAUAAQABAAIAAAAIAAMAAQABAAIAAAAIAAQAAQABAAIAAAAIAAUAAQABAAIAAAAIAAYAAQABAAIAAAAIAAcAAQABAAIAAAAKAAMAAQABAAIAAAAKAAQAAQABAAIAAAAKAAUAAQABAAIAAAAKAAYAAQABAAIAAAAKAAcAAQABAAIAAAALAAcAAQABAAIAAAAMAAYAAQABAAIAAAAMAAUAAQABAAIAAAAMAAQAAQABAAIAAAALAAMAAQABAAIAAAA=")
+tile_map_data = PackedByteArray("AAAAAA8AAQABAAIAAAABAA8AAQABAAIAAAACAAAAAQABAAIAADACAA8AAQABAAIAAAADAAAAAQABAAIAADADAA8AAQABAAIAAAAEAAAAAQABAAIAADAEAA8AAQABAAIAAAAFAAAAAQABAAIAADAFAA8AAQABAAIAAAAGAAAAAQABAAIAADAGAA8AAQABAAIAAAAHAAAAAQABAAIAADAHAA8AAQABAAIAAAAIAAAAAQABAAIAADAIAA8AAQABAAIAAAAJAAAAAQABAAIAADAJAA8AAQABAAIAAAAKAAAAAQABAAIAADAKAA8AAQABAAIAAAALAAAAAQABAAIAADALAA8AAQABAAIAAAAMAAAAAQABAAIAADAMAA8AAQABAAIAAAANAAAAAQABAAIAADANAA8AAQABAAIAAAAOAAAAAQABAAIAADAOAA8AAQABAAIAAAAAAAsAAQABAAIAADABAAsAAQACAAAAADABAAoAAQACAAEAADABAAkAAQACAAEAADABAAgAAQACAAEAADABAAcAAQACAAEAADABAAYAAQACAAEAADABAAUAAQACAAEAADABAAQAAQACAAEAADABAAMAAQACAAEAADABAAIAAQACAAEAADABAAEAAQACAAEAADABAAAAAQACAAIAADAPAAAAAQABAAIAADAPAA8AAQABAAIAAAAQAAAAAQABAAIAADAQAA8AAQABAAIAAAARAAAAAQABAAIAADARAA8AAQABAAIAAAASAAAAAQABAAIAADASAA8AAQABAAIAAAATAAAAAQABAAIAADATAA8AAQABAAIAAAAUAAAAAQABAAIAADAUAA8AAQABAAIAAAAVAAAAAQABAAIAADAVAA8AAQABAAIAAAAWAAAAAQABAAIAADAWAA8AAQABAAIAAAAXAAAAAQABAAIAADAXAA8AAQABAAIAAAAYAAAAAQABAAIAADAYAA8AAQABAAIAAAAZAAAAAQABAAIAADAZAA8AAQABAAIAAAAaAAAAAQABAAIAADAaAA8AAQABAAIAAAAbAAAAAQABAAIAADAbAA8AAQABAAIAAAAcAAAAAQABAAIAADAcAA8AAQABAAIAAAAdAAAAAQABAAIAADAdAA8AAQABAAIAAAAeAAAAAQABAAIAADAeAA8AAQABAAIAAAAfAAAAAQABAAIAADAfAA8AAQABAAIAAAAgAAAAAQABAAIAADAgAA8AAQABAAIAAAAhAAAAAQACAAIAAGAhAA8AAQACAAIAAAAhAAEAAQACAAEAAAAhAAIAAQACAAEAAAAhAAMAAQACAAEAAAAhAAQAAQACAAEAAAAhAAUAAQACAAEAAAAhAAYAAQACAAEAAAAhAAcAAQACAAEAAAAhAAgAAQACAAEAAAAhAAkAAQACAAEAAAAhAAoAAQACAAEAAAAhAAsAAQACAAEAAAAhAAwAAQACAAEAAAAhAA0AAQACAAEAAAAhAA4AAQACAAEAAAALAAwAAQABAAAAAAAOAAwAAQABAAAAAAARAAwAAQABAAAAAAAUAAwAAQABAAAAAAAXAAwAAQABAAAAAAA=")
 tile_set = ExtResource("2_xr8nl")
 
-[node name="Marker2D" type="Marker2D" parent="." unique_id=121254526]
+[node name="LeftGate" type="Marker2D" parent="." unique_id=121254526]
 position = Vector2(-1, 240)
+
+[node name="EndDoor" parent="." unique_id=119359161 instance=ExtResource("3_xr8nl")]
+position = Vector2(496, 224)
+
+[node name="BulletOps" type="Node2D" parent="." unique_id=1045073519]
+position = Vector2(176, 177)
+
+[node name="BulletOp1" type="Sprite2D" parent="BulletOps" unique_id=677634425]
+material = SubResource("ShaderMaterial_kn6rb")
+position = Vector2(8, 0)
+texture = ExtResource("4_wwl7g")
+
+[node name="BulletOp2" type="Sprite2D" parent="BulletOps" unique_id=890356295]
+material = SubResource("ShaderMaterial_w04jx")
+position = Vector2(56, 0)
+texture = ExtResource("4_wwl7g")
+
+[node name="BulletOp3" type="Sprite2D" parent="BulletOps" unique_id=1808715494]
+material = SubResource("ShaderMaterial_b5hk6")
+position = Vector2(104, 0)
+texture = ExtResource("4_wwl7g")
+
+[node name="BulletOp4" type="Sprite2D" parent="BulletOps" unique_id=2145440235]
+material = SubResource("ShaderMaterial_806uc")
+position = Vector2(152, 0)
+texture = ExtResource("4_wwl7g")
+
+[node name="BulletOp5" type="Sprite2D" parent="BulletOps" unique_id=81631617]
+material = SubResource("ShaderMaterial_6pexp")
+position = Vector2(200, 0)
+texture = ExtResource("4_wwl7g")
+
+[node name="Lights" type="Node2D" parent="." unique_id=1832063963]
+position = Vector2(176, 192)
+
+[node name="Light1" type="Sprite2D" parent="Lights" unique_id=296167829]
+position = Vector2(8, -16)
+texture = ExtResource("5_ujw0c")
+
+[node name="Light2" type="Sprite2D" parent="Lights" unique_id=2079129086]
+position = Vector2(56, -16)
+texture = ExtResource("5_ujw0c")
+
+[node name="Light3" type="Sprite2D" parent="Lights" unique_id=875461338]
+position = Vector2(104, -16)
+texture = ExtResource("5_ujw0c")
+
+[node name="Light4" type="Sprite2D" parent="Lights" unique_id=1555029033]
+position = Vector2(152, -15)
+texture = ExtResource("5_ujw0c")
+
+[node name="Light5" type="Sprite2D" parent="Lights" unique_id=1140368675]
+position = Vector2(200, -16)
+texture = ExtResource("5_ujw0c")
+
+[node name="Areas" type="Node2D" parent="." unique_id=82468741]
+position = Vector2(176, 200)
+
+[node name="Area2D" type="Area2D" parent="Areas" unique_id=1866999524]
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Area2D" unique_id=1348763036]
+position = Vector2(6.5, -24.5)
+shape = SubResource("SegmentShape2D_5fofi")
+
+[node name="Area2D2" type="Area2D" parent="Areas" unique_id=1304170584]
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Area2D2" unique_id=528101264]
+shape = SubResource("SegmentShape2D_377x3")
+
+[node name="Area2D3" type="Area2D" parent="Areas" unique_id=410962631]
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Area2D3" unique_id=552026080]
+shape = SubResource("SegmentShape2D_vluf6")
+
+[node name="Area2D4" type="Area2D" parent="Areas" unique_id=952039194]
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Area2D4" unique_id=1598899052]
+shape = SubResource("SegmentShape2D_p5txo")
+
+[node name="Area2D5" type="Area2D" parent="Areas" unique_id=877431790]
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Area2D5" unique_id=1525609739]
+shape = SubResource("SegmentShape2D_lq1ig")

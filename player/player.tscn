@@ -83,7 +83,7 @@ wait_time = 0.14
 one_shot = true
 
 [node name="ReloadTimer" type="Timer" parent="." unique_id=1772749220]
-wait_time = 3.0
+wait_time = 1.5
 one_shot = true
 
 [node name="InvicibilityFrames" type="Timer" parent="." unique_id=1166738307]
