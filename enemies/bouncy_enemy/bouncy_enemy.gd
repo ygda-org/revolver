@@ -12,15 +12,18 @@ const JUMP_FORCE = 300
 const MAX_FALL_SPEED = 300
 
 const DETECTION_RANGE = 200
+var saw_player_from_air: bool = false
 
 func _physics_process(delta):
 	$LineOfSight.target_position = GameState.player.global_position - global_position
 	if not is_on_floor():
+		if not saw_player_from_air:
+			saw_player_from_air = not $LineOfSight.is_colliding()
 		velocity.y = move_toward(velocity.y, MAX_FALL_SPEED, GRAVITY * delta * gravity_curve.sample(abs(velocity.y/MAX_FALL_SPEED)))
 		velocity.x = speed * direction
 	else:
 		velocity.x = 0.0
-		if global_position.distance_to(GameState.player.global_position) < DETECTION_RANGE and not $LineOfSight.is_colliding():
+		if global_position.distance_to(GameState.player.global_position) < DETECTION_RANGE and (not $LineOfSight.is_colliding() or saw_player_from_air):
 			direction = sign(global_position.direction_to(GameState.player.global_position).x)
 		else:
 			direction = 0.0

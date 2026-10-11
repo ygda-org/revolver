@@ -28,6 +28,8 @@ func _physics_process(delta):
 		var col = get_slide_collision(i).get_collider()
 		if col is Player:
 			col.hit(self)
+	if $CeilingCheck.is_colliding():
+		velocity.y = abs(velocity.y)
 	move_and_slide()
 
 
