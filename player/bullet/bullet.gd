@@ -27,7 +27,8 @@ var effect_methods = {
 	BulletResource.effects.HELIX_HELPER: Callable(helix_helper),
 	BulletResource.effects.HOMING: Callable(homing),
 	BulletResource.effects.BLACKHOLE: Callable(blackhole),
-	BulletResource.effects.BACKWARDS: Callable(backwards)
+	BulletResource.effects.BACKWARDS: Callable(backwards),
+	BulletResource.effects.TRISHOT: Callable(tri_shot_setup)
 }
 
 var thing_i_hit: EnemyComponent
@@ -181,3 +182,15 @@ func blackhole():
 func backwards():
 	direction *= -1
 	vel *= -1
+
+func tri_shot_setup():
+	var bullet1 = load("uid://k308fsvc3jvh").instantiate()
+	bullet1.resource = load("uid://cllwws72eb4kk")
+	bullet1.direction = direction.rotated(PI/6)
+	get_parent().add_child(bullet1)
+	bullet1.global_position = global_position
+	var bullet2 = load("uid://k308fsvc3jvh").instantiate()
+	bullet2.resource = load("uid://cllwws72eb4kk")
+	bullet2.direction = direction.rotated(-PI/6)
+	get_parent().add_child(bullet2)
+	bullet2.global_position = global_position

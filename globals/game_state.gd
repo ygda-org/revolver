@@ -42,7 +42,7 @@ func _ready():
 	inventory[NORMAL_RES] = 2
 	
 	# for testing
-	active_barrel[1] = load("uid://c1x5cgu5232mg")
+	active_barrel[1] = load("uid://b4ndosinu1lue")
 
 ## cycle bullet by dir, then mod by barrel size
 func bullet_cycle(dir: int):
