@@ -14,6 +14,10 @@ class_name BulletResource
 @export var can_call_on_walls: bool = false
 @export var invisible_and_no_collision: bool = false
 
+@export_category("SFX")
+@export var override_shot_sfx: bool = false
+@export var shot_sfx_override: Sfx.Labels
+
 @export_category("Colors")
 @export var outline_color: Color = Color(0.6, 0.3, 0.0, 1.0)
 @export var sprite_frames_ovveride: SpriteFrames
