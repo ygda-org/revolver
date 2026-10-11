@@ -5,7 +5,8 @@ const GRAVITY = 300
 var parried: bool = false
 
 func _process(delta):
-	velocity.y += GRAVITY * delta
+	if not parried:
+		velocity.y += GRAVITY * delta
 	position += velocity * delta
 
 

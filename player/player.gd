@@ -11,7 +11,9 @@ const JUMP_FORCE: float = 280.0
 const MAX_FALL_SPEED: float = 250.0
 const GRAVITY: float = 700
 
-const PARRY_WINDOW = 0.15
+const PREPARRY_WINDOW = 0.18
+## actualy window is this minus preparry window
+const PARRY_WINDOW = 0.25
 const PARRY_DAMAGE = 20
 
 @export var accel_curve: Curve
@@ -71,11 +73,13 @@ func _physics_process(delta):
 	# shooting
 	var mouse_offset: Vector2 = (get_global_mouse_position() - global_position)/6
 	mouse_offset.y /= 2
+	
 	$Camera2D.target_offset = mouse_offset
 	$Camera2D.target_offset = $Camera2D.target_offset.limit_length(40)
-	arm.look_at(get_global_mouse_position())
-	arm.rotation -= PI/2
-	if Input.is_action_just_pressed("shoot") and $ShotCD.is_stopped() and $ReloadTimer.is_stopped():
+	if $ParryAnimDur.is_stopped():
+		arm.look_at(get_global_mouse_position())
+		arm.rotation -= PI/2
+	if Input.is_action_just_pressed("shoot") and $ShotCD.is_stopped() and $ReloadTimer.is_stopped() and $ParryAnimDur.is_stopped():
 		$ShotCD.start()
 		var resource: BulletResource = GameState.get_bullet()
 		$Camera2D.add_trauma(resource.shake_trauma)
@@ -104,8 +108,12 @@ func _physics_process(delta):
 			$RecoilLock.start()
 		# PARRY IT - Maelle
 		if resource.effect == BulletResource.effects.PARRY:
-			parry_hitbox.monitoring = true
-			get_tree().create_timer(PARRY_WINDOW).timeout.connect(disable_parry)
+			get_tree().create_timer(PREPARRY_WINDOW).timeout.connect(toggle_parry.bind(true))
+			get_tree().create_timer(PARRY_WINDOW).timeout.connect(toggle_parry.bind(false))
+			var tween = get_tree().create_tween()
+			tween.tween_property(arm, "rotation", arm.rotation - PI/6, PREPARRY_WINDOW)
+			tween.tween_property(arm, "rotation", arm.rotation + PI/3, PARRY_WINDOW-PREPARRY_WINDOW)
+			$ParryAnimDur.start()
 	if not $HitStun.is_stopped():
 		print(hit_stun_velocity)
 		velocity = hit_stun_velocity
@@ -116,17 +124,18 @@ func _physics_process(delta):
 		velocity = slam_velocity
 	
 	# animations
-	if velocity.x > 0:
-		$Anim.flip_h = false
-		$CenterArmPivot.scale.x = 1
-	elif velocity.x < 0:
-		$Anim.flip_h = true
-		$CenterArmPivot.scale.x = -1
+	if $ParryAnimDur.is_stopped():
+		if velocity.x > 0:
+			$Anim.flip_h = false
+			$CenterArmPivot.scale.x = 1
+		elif velocity.x < 0:
+			$Anim.flip_h = true
+			$CenterArmPivot.scale.x = -1
 	
 	move_and_slide()
 
-func disable_parry():
-	parry_hitbox.monitoring = false
+func toggle_parry(b: bool):
+	parry_hitbox.monitoring = b
 
 func hit(hitter: Node2D):
 	print('hit!')
@@ -157,11 +166,14 @@ func _on_reload_timer_timeout() -> void:
 func _on_parry_hitbox_body_entered(body):
 	var enemy_component = body.find_child("EnemyComponent")
 	if not enemy_component:
+		$Camera2D.add_trauma(0.7)
 		return
+	$Camera2D.add_trauma(1.0)
 	enemy_component.hit(PARRY_DAMAGE)
 
 # hit enemy bullet
 func _on_parry_hitbox_area_entered(area):
+	$Camera2D.add_trauma(1.2)
 	if "velocity" in area:
 		area.parried = true
 		area.set_collision_mask_value(2, true)
