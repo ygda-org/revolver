@@ -27,6 +27,9 @@ metadata/_custom_type_script = "uid://ceepfr3v8cnmq"
 [sub_resource type="Resource" id="Resource_4xqb4"]
 script = ExtResource("2_0skdd")
 stream = ExtResource("5_nor0l")
+volume = -6.0
+volume_variance = 1.0
+pitch_variance = 0.05
 metadata/_custom_type_script = "uid://ceepfr3v8cnmq"
 
 [sub_resource type="Resource" id="Resource_o2cuk"]
@@ -46,6 +49,10 @@ metadata/_custom_type_script = "uid://ceepfr3v8cnmq"
 [sub_resource type="Resource" id="Resource_u7dhd"]
 script = ExtResource("2_0skdd")
 stream = ExtResource("8_kfcue")
+volume = -12.0
+volume_variance = 1.0
+pitch = 0.9
+pitch_variance = 0.05
 metadata/_custom_type_script = "uid://ceepfr3v8cnmq"
 
 [sub_resource type="Resource" id="Resource_fwjlu"]
