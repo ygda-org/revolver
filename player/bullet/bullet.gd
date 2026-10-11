@@ -127,6 +127,11 @@ func _on_area_entered(area):
 			vel = 1.5*resource.speed * direction * area.resource.effect_strength
 			area.vel = 300 * Vector2(1, 0).rotated(randf_range(PI/3, 2*PI/3))
 	else:
+		var particles = load("uid://coy8q1pbe5txe").instantiate()
+		particles.direction = -vel.normalized()
+		particles.color = Color(0.185, 0.603, 0.794, 1.0)
+		particles.global_position = global_position
+		get_parent().add_child(particles)
 		call_deferred("queue_free")
 
 func ricopierce_setup():
