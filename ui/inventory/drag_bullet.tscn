@@ -3,15 +3,55 @@
 [ext_resource type="Script" uid="uid://d0u3kgpkc5kdd" path="res://ui/inventory/drag_bullet.gd" id="1_5eyxt"]
 [ext_resource type="Shader" uid="uid://b4pewokr7fm1b" path="res://player/bullet/bullet.gdshader" id="1_gvt8v"]
 [ext_resource type="Texture2D" uid="uid://biykde71lpl4w" path="res://assets/temp_art/bullet_icon.png" id="2_5eyxt"]
+[ext_resource type="Texture2D" uid="uid://cmybf5a4eu7xx" path="res://assets/temp_art/shell_back.png" id="4_v42oq"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_j4wu1"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_55d6i"]
 resource_local_to_scene = true
 shader = ExtResource("1_gvt8v")
-shader_parameter/outline_color = Color(0.7335034, 0.43671218, 0.09143841, 1)
+shader_parameter/outline_color = Color(0.59744895, 0.07244576, 0.07244576, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kn6rb"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ffydu"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sy3ur"]
+bg_color = Color(1, 1, 1, 0)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_v42oq"]
+radius = 21.0
 
 [node name="DragBullet" type="Node2D" unique_id=872890370]
+material = SubResource("ShaderMaterial_55d6i")
 script = ExtResource("1_5eyxt")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1844091508]
-material = SubResource("ShaderMaterial_j4wu1")
+[node name="Full" type="Sprite2D" parent="." unique_id=1844091508]
+use_parent_material = true
+scale = Vector2(3, 3)
 texture = ExtResource("2_5eyxt")
+
+[node name="Back" type="Sprite2D" parent="." unique_id=404308363]
+visible = false
+use_parent_material = true
+scale = Vector2(3, 3)
+texture = ExtResource("4_v42oq")
+
+[node name="Button" type="Button" parent="." unique_id=1874478614]
+offset_left = -14.0
+offset_top = -40.0
+offset_right = 14.0
+offset_bottom = 40.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_kn6rb")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ffydu")
+theme_override_styles/hover = SubResource("StyleBoxFlat_sy3ur")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=594713964]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=130808251]
+shape = SubResource("CircleShape2D_v42oq")
+
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
+[connection signal="button_up" from="Button" to="." method="_on_button_button_up"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
