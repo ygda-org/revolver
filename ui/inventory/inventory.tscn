@@ -1,6 +1,25 @@
 [gd_scene format=3 uid="uid://cslcpc6nu7gag"]
 
+[ext_resource type="Script" uid="uid://ea2dg67f42j8" path="res://ui/inventory/inventory.gd" id="1_qrt2q"]
 [ext_resource type="Texture2D" uid="uid://bl8jxwdbu3isr" path="res://assets/ui/revolver_single.png" id="1_t68fq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_55d6i"]
+radius = 21.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5fofi"]
+radius = 21.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_377x3"]
+radius = 21.023796
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vluf6"]
+radius = 21.095022
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_p5txo"]
+radius = 21.095022
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lq1ig"]
+radius = 21.213203
 
 [node name="Inventory" type="Control" unique_id=1702912330]
 layout_mode = 3
@@ -9,8 +28,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_qrt2q")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=96254163]
+[node name="Background" type="ColorRect" parent="." unique_id=96254163]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -21,13 +41,92 @@ color = Color(0.053756446, 0.0074838256, 0.12465984, 1)
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1420442281]
 layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -87.0
-offset_top = 63.0
-offset_right = -29.0
-offset_bottom = 121.0
-grow_horizontal = 2
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -285.0
+offset_top = -86.0
+offset_right = -227.0
+offset_bottom = -28.0
+grow_horizontal = 0
+grow_vertical = 2
 scale = Vector2(3, 3)
 texture = ExtResource("1_t68fq")
+
+[node name="ChosenBullets" type="Node2D" parent="." unique_id=274189240]
+position = Vector2(762, 271)
+
+[node name="Chosen1" type="Marker2D" parent="ChosenBullets" unique_id=1904209454]
+position = Vector2(0, -51)
+
+[node name="Chosen2" type="Marker2D" parent="ChosenBullets" unique_id=235403841]
+position = Vector2(42, -24)
+
+[node name="Chosen3" type="Marker2D" parent="ChosenBullets" unique_id=1175462994]
+position = Vector2(42, 24)
+
+[node name="Chosen4" type="Marker2D" parent="ChosenBullets" unique_id=710979540]
+position = Vector2(0, 51)
+
+[node name="Chosen5" type="Marker2D" parent="ChosenBullets" unique_id=1520769680]
+position = Vector2(-42, 24)
+
+[node name="Chosen6" type="Marker2D" parent="ChosenBullets" unique_id=1813163923]
+position = Vector2(-42, -24)
+
+[node name="BArea1" type="Area2D" parent="ChosenBullets" unique_id=366155369]
+position = Vector2(0, 2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ChosenBullets/BArea1" unique_id=597375440]
+position = Vector2(0, -53)
+shape = SubResource("CircleShape2D_55d6i")
+
+[node name="BArea2" type="Area2D" parent="ChosenBullets" unique_id=1868856981]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ChosenBullets/BArea2" unique_id=1684833325]
+position = Vector2(42, -24)
+shape = SubResource("CircleShape2D_5fofi")
+
+[node name="BArea3" type="Area2D" parent="ChosenBullets" unique_id=1368321370]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ChosenBullets/BArea3" unique_id=163168981]
+position = Vector2(42, 24)
+shape = SubResource("CircleShape2D_377x3")
+
+[node name="BArea4" type="Area2D" parent="ChosenBullets" unique_id=1375003693]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ChosenBullets/BArea4" unique_id=1410816449]
+position = Vector2(0, 51)
+shape = SubResource("CircleShape2D_vluf6")
+
+[node name="BArea5" type="Area2D" parent="ChosenBullets" unique_id=216152503]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ChosenBullets/BArea5" unique_id=1691013537]
+position = Vector2(-42, 24)
+shape = SubResource("CircleShape2D_p5txo")
+
+[node name="BArea6" type="Area2D" parent="ChosenBullets" unique_id=1503493895]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ChosenBullets/BArea6" unique_id=1781556313]
+position = Vector2(-42, -24)
+shape = SubResource("CircleShape2D_lq1ig")
+
+[node name="TopLeft" type="Marker2D" parent="." unique_id=146114555]
+position = Vector2(74, 100)
+
+[node name="BotRight" type="Marker2D" parent="." unique_id=1199118399]
+position = Vector2(546, 440)
+
+[node name="InvenMarkers" type="Node" parent="." unique_id=755174298]
+
+[node name="Exit" type="Button" parent="." unique_id=1055613957]
+layout_mode = 0
+offset_left = 679.0
+offset_top = 430.0
+offset_right = 847.0
+offset_bottom = 476.0
+text = "EXIT"
+
+[connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]
