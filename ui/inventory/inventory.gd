@@ -17,11 +17,22 @@ var bullet_to_home : Dictionary[DragBullet, Marker2D] = {}
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	generate_inven_markers(3, 10)
+	var total_bullets : float = GameState.inventory.values().reduce(func(accum, number): return accum + number, 0)
+	if total_bullets <= 10:
+		$TopLeft.position.y = 270
+		generate_inven_markers(3, total_bullets)
+	elif total_bullets <= 20:
+		$TopLeft.position.y += 75
+		$BotRight.position.y -= 75
+		generate_inven_markers(2, ceil(total_bullets/2))
+	else:
+		generate_inven_markers(3, ceil(total_bullets/3))
 	#The bullet in chosne bullet to check
 	var cur_chosen = 0
 	#Current marker
 	var cur_marker = 0
+	#Bullets to place in inven normally; unused bullets
+	var unused_bullets : Array[DragBullet] = []
 	for b_res : BulletResource in GameState.inventory.keys():
 		for i in range(GameState.inventory[b_res]):
 			var drag_bullet : DragBullet = DRAG_BULLET.instantiate()
@@ -39,8 +50,24 @@ func _ready() -> void:
 					cur_chosen += 1
 			#Else, lets move it to its spot
 			else:
-				drag_bullet.position = bullet_to_home[drag_bullet].global_position
+				drag_bullet.position = Vector2(-100,-100)
+				unused_bullets.append(drag_bullet)
 			add_child(drag_bullet)
+	#var tween : Tween = get_tree().create_tween()
+	#for drag_bullet : DragBullet in unused_bullets:
+		#var goal : Vector2 = bullet_to_home[drag_bullet].global_position
+		#tween.tween_property(drag_bullet, "global_position", goal, 0.1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUAD)
+	
+	var accume_offset : float = 0
+	var increment : float = 0.12
+	for drag_bullet : DragBullet in unused_bullets:
+		var goal : Vector2 = bullet_to_home[drag_bullet].global_position
+		var tween : Tween = get_tree().create_tween()
+		tween.tween_interval(accume_offset)
+		tween.tween_property(drag_bullet, "global_position", goal, 0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+		accume_offset += increment
+		if increment > 0.02:
+			increment *= 0.95
 
 func generate_inven_markers(rows : int, columns : int):
 	var x_vec : float = $BotRight.position.x - $TopLeft.position.x
