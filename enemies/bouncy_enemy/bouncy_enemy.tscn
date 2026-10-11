@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://cx5ec1o3ypbvs"]
+
+[ext_resource type="Texture2D" uid="uid://dlbb2kg1nkspe" path="res://assets/icon.svg" id="1_kegvi"]
+[ext_resource type="Script" uid="uid://blolgf5fr0hee" path="res://enemies/bouncy_enemy/bouncy_enemy.gd" id="1_l6h5x"]
+
+[sub_resource type="Curve" id="Curve_l6h5x"]
+_data = [Vector2(0, 0.41954023), 0.0, 1.8061508, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kegvi"]
+size = Vector2(12, 38)
+
+[node name="BouncyEnemy" type="CharacterBody2D" unique_id=1806752779]
+script = ExtResource("1_l6h5x")
+gravity_curve = SubResource("Curve_l6h5x")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=738989018]
+scale = Vector2(0.1, 0.3)
+texture = ExtResource("1_kegvi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1411210638]
+shape = SubResource("RectangleShape2D_kegvi")
+
+[node name="JumpWindupTimer" type="Timer" parent="." unique_id=1871435803]
+wait_time = 0.8
+one_shot = true
+
+[connection signal="timeout" from="JumpWindupTimer" to="." method="_on_jump_windup_timer_timeout"]
