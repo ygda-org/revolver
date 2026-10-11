@@ -283,6 +283,8 @@ frame_progress = 0.32589588
 shape = SubResource("CircleShape2D_3v7li")
 
 [node name="EnemyComponent" parent="." unique_id=920270805 instance=ExtResource("3_gicyq")]
+health = 25
+repair_add_amount = 0.25
 
 [node name="ShotTimer" type="Timer" parent="." unique_id=1129894387]
 wait_time = 3.0

@@ -20,6 +20,8 @@ texture = ExtResource("1_sesbg")
 shape = SubResource("RectangleShape2D_sesbg")
 
 [node name="EnemyComponent" parent="." unique_id=920270805 instance=ExtResource("2_mbm62")]
+health = 30
+repair_add_amount = 0.3
 
 [node name="RaycastPivot" type="Node2D" parent="." unique_id=988000452]
 

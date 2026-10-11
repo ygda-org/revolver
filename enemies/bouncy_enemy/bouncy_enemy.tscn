@@ -29,5 +29,7 @@ wait_time = 0.8
 one_shot = true
 
 [node name="EnemyComponent" parent="." unique_id=920270805 instance=ExtResource("3_yw5vr")]
+health = 30
+repair_add_amount = 0.3
 
 [connection signal="timeout" from="JumpWindupTimer" to="." method="_on_jump_windup_timer_timeout"]

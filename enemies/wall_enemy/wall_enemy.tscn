@@ -20,6 +20,7 @@ texture = ExtResource("1_6erdp")
 shape = SubResource("RectangleShape2D_sgxws")
 
 [node name="EnemyComponent" parent="." unique_id=920270805 instance=ExtResource("3_sgxws")]
+repair_add_amount = 0.4
 
 [node name="WallTimer" type="Timer" parent="." unique_id=394727107]
 wait_time = 4.0

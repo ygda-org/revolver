@@ -23,5 +23,7 @@ shape = SubResource("CircleShape2D_5kg8m")
 one_shot = true
 
 [node name="EnemyComponent" parent="." unique_id=920270805 instance=ExtResource("3_evcgt")]
+health = 35
+repair_add_amount = 0.3
 
 [connection signal="timeout" from="ShotTimer" to="." method="_on_shot_timer_timeout"]
