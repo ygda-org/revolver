@@ -24,6 +24,8 @@ func _physics_process(delta):
 				$Anim.flip_h = false
 			else:
 				$Anim.flip_h = true
+		else:
+			$Anim.play("idle")
 	else:
 		# wandering
 		if is_on_wall() or not $RayCastPivot/WalkoffDetector.is_colliding():

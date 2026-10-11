@@ -32,4 +32,4 @@ func _on_shot_timer_timeout():
 	var pellet = PELLET.instantiate()
 	pellet.velocity = shot_dir * 70
 	get_parent().add_child(pellet)
-	pellet.global_position = global_position
+	pellet.global_position = $Marker2D.global_position
