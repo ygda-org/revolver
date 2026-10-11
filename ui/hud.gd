@@ -8,7 +8,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	$RepairBar.value = GameState.repair_amount
+	$RepairBar.value = lerpf($RepairBar.value, GameState.repair_amount * 100, delta * 5)
 	if GameState.player.health == 1:
 		$Vignette.scale = $Vignette.scale.lerp(Vector2(1,1), delta*15)
 	else:

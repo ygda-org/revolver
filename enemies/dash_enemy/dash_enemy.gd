@@ -6,6 +6,7 @@ class_name DashEnemy
 
 func _ready():
 	$RaycastPivot.scale.x = direction
+	$EnemyComponent.got_hit.connect(hit)
 
 func _physics_process(delta):
 	if not is_on_floor():
@@ -31,3 +32,8 @@ func _physics_process(delta):
 			pass
 	
 	move_and_slide()
+
+func hit():
+	var particles: CPUParticles2D = load("uid://sxegonprvhwk").instantiate()
+	get_parent().add_child(particles)
+	particles.global_position = global_position + Vector2(0, -4)

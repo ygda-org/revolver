@@ -1,7 +1,9 @@
 [gd_scene format=3 uid="uid://rcq8go31l55x"]
 
 [ext_resource type="Script" uid="uid://bt6yv7042srx6" path="res://ui/hud.gd" id="1_rbyyf"]
+[ext_resource type="Texture2D" uid="uid://dctt6y6binqvi" path="res://assets/ui/healthbar_empty.png" id="2_srpbi"]
 [ext_resource type="Texture2D" uid="uid://bxdw17ba22i57" path="res://assets/ui/revolver_reload_cent.png" id="3_7ihmi"]
+[ext_resource type="Texture2D" uid="uid://cvqcx4b2q2k21" path="res://assets/ui/healthbar_full.png" id="3_spcu4"]
 [ext_resource type="Texture2D" uid="uid://cl5jn2ii3x16q" path="res://assets/ui/revolver_rotate_empty_fix.png" id="4_1v5rv"]
 [ext_resource type="PackedScene" uid="uid://dutwhqupk2lem" path="res://ui/bullet_ui.tscn" id="4_en2x2"]
 [ext_resource type="Texture2D" uid="uid://cgjv1euc42oxn" path="res://assets/temp_art/marker.png" id="5_en2x2"]
@@ -146,11 +148,15 @@ scale = Vector2(3, 3)
 pivot_offset = Vector2(480, 270)
 texture = SubResource("GradientTexture2D_546lt")
 
-[node name="RepairBar" type="ProgressBar" parent="." unique_id=1034149605]
+[node name="RepairBar" type="TextureProgressBar" parent="." unique_id=1082812012]
 layout_mode = 0
-offset_right = 100.0
-offset_bottom = 27.0
-max_value = 1.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 110.0
+offset_bottom = 40.0
+scale = Vector2(2, 2)
+texture_over = ExtResource("2_srpbi")
+texture_progress = ExtResource("3_spcu4")
 
 [node name="RevolverAnim" type="AnimatedSprite2D" parent="." unique_id=1872277743]
 position = Vector2(83, 466)
