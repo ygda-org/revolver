@@ -1,24 +1,37 @@
 [gd_scene format=3 uid="uid://coy8q1pbe5txe"]
 
+[ext_resource type="Shader" uid="uid://cqo3gqwt7vldn" path="res://player/bullet/bullet_hit_particles.gdshader" id="1_7cwk1"]
 [ext_resource type="Script" uid="uid://dsonmxefho0t" path="res://player/bullet/bullet_hit_particles.gd" id="1_c2wcr"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_c2wcr"]
+shader = ExtResource("1_7cwk1")
+
 [sub_resource type="Curve" id="Curve_c2wcr"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.25076452, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -2.18, 0.0, 0, 0]
-point_count = 3
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.097859316, 1), 0.0, 0.0, 0, 0, Vector2(0.2385321, 1), -2.1899682e-07, -2.1899682e-07, 0, 0, Vector2(1, 0), -2.18, 0.0, 0, 0]
+point_count = 4
 
 [sub_resource type="Gradient" id="Gradient_c2wcr"]
-colors = PackedColorArray(0.33213586, 0.3321359, 0.3321359, 1, 0.6452097, 0.6452098, 0.6452097, 1)
+colors = PackedColorArray(0.6550534, 0.6550533, 0.65505326, 1, 1, 1, 1, 1)
 
 [node name="BulletHitParticles" type="CPUParticles2D" unique_id=156017616]
-amount = 24
-lifetime = 0.4
+z_index = -1
+material = SubResource("ShaderMaterial_c2wcr")
+emitting = false
+amount = 14
+lifetime = 0.2
+one_shot = true
 explosiveness = 1.0
-spread = 55.0
+emission_shape = 1
+emission_sphere_radius = 1.0
+spread = 75.0
 gravity = Vector2(0, 45)
-initial_velocity_min = 20.0
-initial_velocity_max = 30.0
-scale_amount_min = 1.5
-scale_amount_max = 2.5
+initial_velocity_min = 125.0
+initial_velocity_max = 160.0
+angular_velocity_max = 50.0
+angle_max = 90.0
+scale_amount_min = 2.5
+scale_amount_max = 3.5
 scale_amount_curve = SubResource("Curve_c2wcr")
+color = Color(0.44705883, 0.50980395, 0.7254902, 1)
 color_initial_ramp = SubResource("Gradient_c2wcr")
 script = ExtResource("1_c2wcr")
