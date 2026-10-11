@@ -20,7 +20,9 @@ const PARRY_DAMAGE = 20
 @export var grav_curve_asc: Curve
 @export var grav_curve_dec: Curve
 
-@onready var parry_hitbox = $ParryHitbox
+@onready var parry_hitbox = $CenterArmPivot/Arm/ParryHitbox
+@onready var arm = $CenterArmPivot/Arm
+@onready var shot_position = $CenterArmPivot/Arm/BarrelPosition
 
 var health: int = 2
 
@@ -71,6 +73,8 @@ func _physics_process(delta):
 	mouse_offset.y /= 2
 	$Camera2D.target_offset = mouse_offset
 	$Camera2D.target_offset = $Camera2D.target_offset.limit_length(40)
+	arm.look_at(get_global_mouse_position())
+	arm.rotation -= PI/2
 	if Input.is_action_just_pressed("shoot") and $ShotCD.is_stopped() and $ReloadTimer.is_stopped():
 		$ShotCD.start()
 		var resource: BulletResource = GameState.get_bullet()
@@ -79,7 +83,7 @@ func _physics_process(delta):
 		var bullet = BULLET.instantiate()
 		bullet.resource = resource
 		bullet.direction = shot_dir
-		bullet.global_position = global_position
+		bullet.global_position = shot_position.global_position
 		bullet.player = self
 		get_parent().add_child(bullet)
 		if next_bullet_twice:
@@ -87,7 +91,7 @@ func _physics_process(delta):
 			var bullet2 = bullet.duplicate()
 			bullet2.resource = resource
 			bullet2.direction = shot_dir
-			bullet2.global_position = global_position
+			bullet2.global_position = shot_position.global_position
 			bullet2.player = self
 			get_tree().create_timer(0.1).timeout.connect(get_parent().add_child.bind(bullet2))
 			if resource.recoil:
@@ -110,6 +114,15 @@ func _physics_process(delta):
 			hit_stun_velocity = hit_stun_velocity.normalized() * 10
 	if slam_velocity:
 		velocity = slam_velocity
+	
+	# animations
+	if velocity.x > 0:
+		$Anim.flip_h = false
+		$CenterArmPivot.scale.x = 1
+	elif velocity.x < 0:
+		$Anim.flip_h = true
+		$CenterArmPivot.scale.x = -1
+	
 	move_and_slide()
 
 func disable_parry():

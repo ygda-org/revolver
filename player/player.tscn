@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://dhebim0i23kwq"]
 
-[ext_resource type="Texture2D" uid="uid://dlbb2kg1nkspe" path="res://assets/icon.svg" id="1_oul6g"]
 [ext_resource type="Script" uid="uid://gjb3c0xiol2a" path="res://player/player.gd" id="1_rkbax"]
+[ext_resource type="Texture2D" uid="uid://uqf1yheu0n3g" path="res://assets/player/astronaut body.png" id="2_g1dw6"]
 [ext_resource type="Script" uid="uid://bjhjk6cxhvbry" path="res://player/camera_2d.gd" id="3_g1dw6"]
+[ext_resource type="Texture2D" uid="uid://csmp37xwnpqoq" path="res://assets/player/astronaut arm.png" id="3_yw30f"]
 
 [sub_resource type="Curve" id="Curve_rkbax"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.5371901), -0.6620358, 0.0, 0, 0]
@@ -20,17 +21,28 @@ point_count = 2
 _data = [Vector2(0, 0.8842975), 0.0, 0.52876365, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5kg8m"]
-size = Vector2(16, 32)
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_g1dw6"]
-noise_type = 3
+[sub_resource type="SpriteFrames" id="SpriteFrames_5kg8m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_g1dw6")
+}],
+"loop": 0,
+"name": &"idle",
+"speed": 0.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g1dw6"]
 radius = 8.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5kg8m"]
+size = Vector2(8, 29)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_g1dw6"]
+noise_type = 3
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jyp3o"]
-size = Vector2(16, 4)
+size = Vector2(8, 4)
 
 [node name="Player" type="CharacterBody2D" unique_id=1304598780]
 collision_layer = 4
@@ -41,11 +53,36 @@ decel_curve = SubResource("Curve_g1dw6")
 grav_curve_asc = SubResource("Curve_yw30f")
 grav_curve_dec = SubResource("Curve_qjkh3")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=285447514]
-scale = Vector2(0.125, 0.25)
-texture = ExtResource("1_oul6g")
+[node name="Anim" type="AnimatedSprite2D" parent="." unique_id=1995355500]
+sprite_frames = SubResource("SpriteFrames_5kg8m")
+animation = &"idle"
+
+[node name="CenterArmPivot" type="Node2D" parent="." unique_id=187030314]
+
+[node name="Arm" type="Node2D" parent="CenterArmPivot" unique_id=568042280]
+position = Vector2(-3, -4)
+
+[node name="ParryHitbox" type="Area2D" parent="CenterArmPivot/Arm" unique_id=463376893]
+position = Vector2(3, 5)
+collision_layer = 0
+collision_mask = 18
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CenterArmPivot/Arm/ParryHitbox" unique_id=613055736]
+position = Vector2(-2, 10)
+shape = SubResource("CircleShape2D_g1dw6")
+
+[node name="ArmSprite" type="Sprite2D" parent="CenterArmPivot/Arm" unique_id=1393085159]
+position = Vector2(3, 4)
+texture = ExtResource("3_yw30f")
+
+[node name="BarrelPosition" type="Marker2D" parent="CenterArmPivot/Arm" unique_id=890426585]
+position = Vector2(1, 12)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1183259583]
+visible = false
+position = Vector2(0, 1.5)
 shape = SubResource("RectangleShape2D_5kg8m")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=760305562]
@@ -94,17 +131,8 @@ one_shot = true
 wait_time = 0.55
 one_shot = true
 
-[node name="ParryHitbox" type="Area2D" parent="." unique_id=463376893]
-collision_layer = 0
-collision_mask = 18
-monitoring = false
-monitorable = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ParryHitbox" unique_id=613055736]
-position = Vector2(13, 0)
-shape = SubResource("CircleShape2D_g1dw6")
-
 [node name="ShiftDetector" type="RayCast2D" parent="." unique_id=720827930]
+visible = false
 
 [node name="SlamHitbox" type="Area2D" parent="." unique_id=1423150895]
 collision_layer = 2
@@ -115,7 +143,7 @@ monitoring = false
 position = Vector2(0, 16)
 shape = SubResource("RectangleShape2D_jyp3o")
 
+[connection signal="area_entered" from="CenterArmPivot/Arm/ParryHitbox" to="." method="_on_parry_hitbox_area_entered"]
+[connection signal="body_entered" from="CenterArmPivot/Arm/ParryHitbox" to="." method="_on_parry_hitbox_body_entered"]
 [connection signal="timeout" from="ReloadTimer" to="." method="_on_reload_timer_timeout"]
-[connection signal="area_entered" from="ParryHitbox" to="." method="_on_parry_hitbox_area_entered"]
-[connection signal="body_entered" from="ParryHitbox" to="." method="_on_parry_hitbox_body_entered"]
 [connection signal="body_entered" from="SlamHitbox" to="." method="_on_slam_hitbox_body_entered"]
