@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="BulletResource" format=3 uid="uid://cgb2woylidoa5"]
+
+[ext_resource type="Script" uid="uid://cmear8uu7c65f" path="res://player/bullet/base_bullet_resource.gd" id="1_325ul"]
+
+[resource]
+script = ExtResource("1_325ul")
+speed = 500.0
+recoil = 500.0
+outline_color = Color(0.74723744, 0.97219664, 7.70092e-07, 1)
+metadata/_custom_type_script = "uid://cmear8uu7c65f"

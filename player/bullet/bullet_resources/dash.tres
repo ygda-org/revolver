@@ -9,4 +9,5 @@ effect = 2
 effect_strength = 600.0
 effect_on_shot = true
 shake_trauma = 0.6
+outline_color = Color(0.57743746, 0.3119106, 0.19743708, 1)
 metadata/_custom_type_script = "uid://cmear8uu7c65f"

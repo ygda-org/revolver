@@ -35,4 +35,5 @@ enum effects {
 	HELIX_HELPER,
 	HOMING,
 	BLACKHOLE,
+	BACKWARDS
 }

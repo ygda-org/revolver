@@ -27,6 +27,7 @@ var effect_methods = {
 	BulletResource.effects.HELIX_HELPER: Callable(helix_helper),
 	BulletResource.effects.HOMING: Callable(homing),
 	BulletResource.effects.BLACKHOLE: Callable(blackhole),
+	BulletResource.effects.BACKWARDS: Callable(backwards)
 }
 
 var thing_i_hit: EnemyComponent
@@ -176,3 +177,7 @@ func blackhole():
 		return
 	var dir = enemy.get_parent().global_position.direction_to(global_position)
 	enemy.get_parent().position += dir * resource.effect_strength * delta_time_save
+
+func backwards():
+	direction *= -1
+	vel *= -1

@@ -61,7 +61,7 @@ func _physics_process(delta):
 		velocity.y -= JUMP_FORCE
 	
 	# left right movement
-	if $DashDur.is_stopped():
+	if $DashDur.is_stopped() and $RecoilLock.is_stopped():
 		var dir: float = Input.get_axis("left", "right")
 		if dir:
 			velocity.x += dir * ACCELERATION * accel_curve.sample(abs(velocity.x/MAX_SPEED)) * delta
