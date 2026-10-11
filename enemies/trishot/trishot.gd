@@ -9,8 +9,9 @@ const DETECTION_RANGE = 200
 const DESIRED_DISTANCE = 150
 
 func _physics_process(delta):
+	$CanSeePlayer.target_position = GameState.player.global_position - global_position
 	var dist: float = global_position.distance_to(GameState.player.global_position)
-	if dist < DETECTION_RANGE:
+	if dist < DETECTION_RANGE and not $CanSeePlayer.is_colliding():
 		$Anim.play("locked")
 		# fighting
 		if $ShotTimer.is_stopped():

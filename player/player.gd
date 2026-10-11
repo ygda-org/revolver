@@ -67,8 +67,8 @@ func _physics_process(delta):
 			_on_footstep_timer_timeout()
 	if Input.is_action_just_pressed("jump"):
 		$JumpBuffer.start()
-	elif Input.is_action_just_released("jump"):
-		velocity.y /= 1.7
+	elif Input.is_action_just_released("jump") and velocity.y < 0:
+		velocity.y /= 2.15
 	if not $CoyoteTime.is_stopped() and not $JumpBuffer.is_stopped():
 		$CoyoteTime.stop()
 		$JumpBuffer.stop()

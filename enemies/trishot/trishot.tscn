@@ -277,9 +277,10 @@ script = ExtResource("1_x23fc")
 sprite_frames = SubResource("SpriteFrames_3v7li")
 animation = &"fly"
 autoplay = "fly"
-frame_progress = 0.32589588
+frame_progress = 0.96025395
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1446767536]
+visible = false
 shape = SubResource("CircleShape2D_3v7li")
 
 [node name="EnemyComponent" parent="." unique_id=920270805 instance=ExtResource("3_gicyq")]
@@ -294,6 +295,9 @@ one_shot = true
 sprite_frames = SubResource("SpriteFrames_5kg8m")
 frame = 8
 frame_progress = 1.0
+
+[node name="CanSeePlayer" type="RayCast2D" parent="." unique_id=671345433]
+collision_mask = 8
 
 [connection signal="timeout" from="ShotTimer" to="." method="_on_shot_timer_timeout"]
 [connection signal="animation_finished" from="Indicator" to="." method="_on_indicator_animation_finished"]

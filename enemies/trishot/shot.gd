@@ -1,6 +1,6 @@
 extends Area2D
 
-var SPEED = 80
+var SPEED = 115
 var parried: bool = false
 
 var direction: Vector2
