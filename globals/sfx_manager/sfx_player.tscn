@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cyasnjcuyhji6" path="res://globals/sfx_manager/sfx_player.gd" id="1_d6bbf"]
 [ext_resource type="Script" uid="uid://ceepfr3v8cnmq" path="res://globals/sfx_manager/sfx_settings.gd" id="2_0skdd"]
 [ext_resource type="AudioStream" uid="uid://psm0yvg2tlfy" path="res://assets/sfx/coin_bullet_throw.mp3" id="3_2juvr"]
+[ext_resource type="AudioStream" uid="uid://cyssnnf8bvai5" path="res://assets/sfx/bullet_dash.mp3" id="3_3s5uv"]
 [ext_resource type="AudioStream" uid="uid://ckqerf2wuko3k" path="res://assets/sfx/gun_placeholderiminpain.mp3" id="4_hdcr0"]
 [ext_resource type="AudioStream" uid="uid://dvsbcaxs68y8e" path="res://assets/sfx/jump_off_metal.mp3" id="5_nor0l"]
 [ext_resource type="AudioStream" uid="uid://lmwp6i6cb6qw" path="res://assets/sfx/load_into_level.mp3" id="6_uspyc"]
@@ -13,6 +14,16 @@
 [ext_resource type="AudioStream" uid="uid://bnc5wc8rypfka" path="res://assets/sfx/revolver_each_load_after_big_reload.mp3" id="11_jn1sc"]
 [ext_resource type="AudioStream" uid="uid://cqxrj6h5dpfqs" path="res://assets/sfx/revolver_single_shot_reload.mp3" id="12_h1dei"]
 [ext_resource type="AudioStream" uid="uid://pwo7m5ioeb2j" path="res://assets/sfx/room_clear_door_open.mp3" id="13_2juvr"]
+[ext_resource type="AudioStream" uid="uid://ckdvlhng4el0b" path="res://assets/sfx_round2/bullet_hits_wall.mp3" id="14_hdcr0"]
+[ext_resource type="AudioStream" uid="uid://dr0w8potxb1q2" path="res://assets/sfx_round2/dry_fire.mp3" id="15_kfcue"]
+[ext_resource type="AudioStream" uid="uid://b8lxjr5gfigk8" path="res://assets/sfx_round2/gun_fixed.mp3" id="16_3s5uv"]
+[ext_resource type="AudioStream" uid="uid://f6x3shq1hs2h" path="res://assets/sfx_round2/PARRYTHEBULLET.mp3" id="17_rdjfg"]
+[ext_resource type="AudioStream" uid="uid://bymhppakbexxm" path="res://assets/sfx_round2/power_shot.mp3" id="18_jn1sc"]
+
+[sub_resource type="Resource" id="Resource_kfcue"]
+script = ExtResource("2_0skdd")
+stream = ExtResource("3_3s5uv")
+metadata/_custom_type_script = "uid://ceepfr3v8cnmq"
 
 [sub_resource type="Resource" id="Resource_1hktf"]
 script = ExtResource("2_0skdd")
@@ -80,10 +91,38 @@ script = ExtResource("2_0skdd")
 stream = ExtResource("13_2juvr")
 metadata/_custom_type_script = "uid://ceepfr3v8cnmq"
 
+[sub_resource type="Resource" id="Resource_2juvr"]
+script = ExtResource("2_0skdd")
+stream = ExtResource("14_hdcr0")
+volume = -3.0
+volume_variance = 1.0
+pitch_variance = 0.07
+metadata/_custom_type_script = "uid://ceepfr3v8cnmq"
+
+[sub_resource type="Resource" id="Resource_nor0l"]
+script = ExtResource("2_0skdd")
+stream = ExtResource("15_kfcue")
+metadata/_custom_type_script = "uid://ceepfr3v8cnmq"
+
+[sub_resource type="Resource" id="Resource_uspyc"]
+script = ExtResource("2_0skdd")
+stream = ExtResource("16_3s5uv")
+metadata/_custom_type_script = "uid://ceepfr3v8cnmq"
+
+[sub_resource type="Resource" id="Resource_aju7b"]
+script = ExtResource("2_0skdd")
+stream = ExtResource("17_rdjfg")
+metadata/_custom_type_script = "uid://ceepfr3v8cnmq"
+
+[sub_resource type="Resource" id="Resource_rdjfg"]
+script = ExtResource("2_0skdd")
+stream = ExtResource("18_jn1sc")
+metadata/_custom_type_script = "uid://ceepfr3v8cnmq"
+
 [node name="SfxPlayer" type="Node" unique_id=1790965844]
 script = ExtResource("1_d6bbf")
 label_to_setting = Dictionary[int, ExtResource("2_0skdd")]({
-0: null,
+0: SubResource("Resource_kfcue"),
 1: SubResource("Resource_1hktf"),
 2: SubResource("Resource_xmiic"),
 3: SubResource("Resource_4xqb4"),
@@ -94,5 +133,10 @@ label_to_setting = Dictionary[int, ExtResource("2_0skdd")]({
 8: SubResource("Resource_j5isx"),
 9: SubResource("Resource_70uvm"),
 10: SubResource("Resource_iwkng"),
-11: SubResource("Resource_0skdd")
+11: SubResource("Resource_0skdd"),
+12: SubResource("Resource_2juvr"),
+13: SubResource("Resource_nor0l"),
+14: SubResource("Resource_uspyc"),
+15: SubResource("Resource_aju7b"),
+16: SubResource("Resource_rdjfg")
 })

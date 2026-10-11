@@ -42,7 +42,7 @@ func _ready():
 	if resource.override_shot_sfx != BulletResource.OverrideSettings.NONE:
 		Sfx.play(resource.shot_sfx_override)
 	if resource.override_shot_sfx != BulletResource.OverrideSettings.OVERRIDE:
-		Sfx.play(Sfx.Labels.GUN_PLACEHOLDER)
+		Sfx.play(Sfx.Labels.GUN)
 	if resource.effect == BulletResource.effects.PARRY:
 		queue_free()
 	if resource.invisible_and_no_collision:
@@ -75,6 +75,10 @@ func _on_body_entered(body: Object):
 	pierces -= 1
 	var enemy_component: EnemyComponent = body.find_child("EnemyComponent")
 	if not enemy_component:
+		if resource.override_hit_sfx:
+			Sfx.play(resource.hit_sfx_override)
+		if not resource.override_hit_sfx == BulletResource.OverrideSettings.OVERRIDE:
+			Sfx.play(Sfx.Labels.BULLET_HIT_WALL)
 		var particles = load("uid://coy8q1pbe5txe").instantiate()
 		particles.direction = -vel.normalized()
 		#particles.color = resource.outline_color

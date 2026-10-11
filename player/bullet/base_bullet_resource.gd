@@ -21,7 +21,9 @@ enum OverrideSettings {
 }
 @export_category("SFX")
 @export var override_shot_sfx: OverrideSettings
-@export var shot_sfx_override: Sfx.Labels
+@export var shot_sfx_override: SFX.Labels
+@export var override_hit_sfx: OverrideSettings
+@export var hit_sfx_override: SFX.Labels
 
 @export_category("Colors")
 @export var outline_color: Color = Color(0.6, 0.3, 0.0, 1.0)

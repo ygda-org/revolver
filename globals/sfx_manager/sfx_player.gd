@@ -1,4 +1,5 @@
 extends Node
+class_name SFX
 # this node to be added as a global named SFX
 
 enum Labels {
@@ -13,7 +14,12 @@ enum Labels {
 	RELOAD,
 	SINGLE_RELOAD,
 	NEXT_BULLET,
-	ROOM_CLEAR_DOOR
+	ROOM_CLEAR_DOOR,
+	BULLET_HIT_WALL,
+	DRY_FIRE,
+	GUN,
+	PARRY,
+	POWER_SHOT
 }
 
 @export var label_to_setting: Dictionary[Labels, SfxSettings]
