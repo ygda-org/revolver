@@ -32,7 +32,8 @@ var effect_methods = {
 	BulletResource.effects.OCTOSHOT: Callable(octo_shot_setup),
 	BulletResource.effects.RNGSHOT: Callable(rng_shot_setup),
 	BulletResource.effects.BURST_FIRE: Callable(burst_fire_setup),
-	BulletResource.effects.LEVITATION: Callable(levitate)
+	BulletResource.effects.LEVITATION: Callable(levitate),
+	BulletResource.effects.INSTALL: Callable(install)
 }
 
 var thing_i_hit: EnemyComponent
@@ -222,3 +223,51 @@ func burst_fire_setup():
 
 func levitate():
 	player.velocity.y -= resource.effect_strength * delta_time_save
+
+func install():
+	visible = false
+	dash()
+	await player.dash_ended
+	var new_resource: BulletResource = GameState.get_bullet()
+	GameState.camera.add_trauma(new_resource.shake_trauma)
+	var shot_dir: Vector2 = global_position.direction_to(get_global_mouse_position())
+	if new_resource.effect == BulletResource.effects.REVOLVER:
+		var next_resource: BulletResource = GameState.get_bullet()
+		GameState.camera.add_trauma(next_resource.shake_trauma)
+		for i in range(4):
+			var bullet = load("uid://k308fsvc3jvh").instantiate()
+			bullet.resource = next_resource
+			bullet.direction = shot_dir
+			bullet.global_position = player.shot_position.global_position
+			bullet.player = player
+			get_parent().add_child(bullet)
+			bullet.damage *= resource.damage
+			if next_resource.recoil:
+				player.velocity.y /= 3
+				player.velocity += new_resource.recoil * -shot_dir * resource.damage
+				player.get_node("$RecoilLock").start()
+			await get_tree().create_timer(0.1).timeout
+		queue_free()
+	var bullet = load("uid://k308fsvc3jvh").instantiate()
+	bullet.resource = new_resource
+	bullet.direction = shot_dir
+	bullet.global_position = player.shot_position.global_position
+	bullet.player = player
+	get_parent().add_child(bullet)
+	bullet.damage *= resource.damage
+	if player.next_bullet_twice:
+		player.next_bullet_twice = false
+		var bullet2 = bullet.duplicate()
+		bullet2.resource = new_resource
+		bullet2.direction = shot_dir
+		bullet2.global_position = player.shot_position.global_position
+		bullet2.player = player
+		get_tree().create_timer(0.1).timeout.connect(get_parent().add_child.bind(bullet2))
+		if new_resource.recoil:
+			player.velocity.y /= 3
+			player.velocity += new_resource.recoil * -shot_dir
+	if new_resource.recoil:
+		player.velocity.y /= 3
+		player.velocity += new_resource.recoil * -shot_dir * resource.damage
+		player.get_node("$RecoilLock").start()
+	queue_free()

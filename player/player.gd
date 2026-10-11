@@ -1,6 +1,8 @@
 extends CharacterBody2D
 class_name Player
 
+signal dash_ended
+
 const BULLET = preload("uid://k308fsvc3jvh")
 
 const MAX_SPEED: float = 130.0
@@ -155,7 +157,8 @@ func die():
 func dash(dir, speed):
 	velocity = dir * speed
 	$DashDur.start()
-	# still need to add dash invincibility
+	$InvicibilityFrames.start()
+	$DashDur.timeout.connect(dash_ended.emit)
 
 
 func _on_reload_timer_timeout() -> void:
