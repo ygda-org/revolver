@@ -28,6 +28,7 @@ const PARRY_DAMAGE = 20
 @onready var arm = $CenterArmPivot/Arm
 @onready var shot_position = $CenterArmPivot/Arm/BarrelPosition
 
+
 var health: int = 2
 
 var hit_stun_velocity
@@ -58,9 +59,10 @@ func _physics_process(delta):
 		velocity.y += GRAVITY * grav_mult * delta
 	else:
 		$CoyoteTime.start()
-		if was_in_air_last_frame:
+		if was_in_air_last_frame: # just hits ground
 			was_in_air_last_frame = false
 			Sfx.play(Sfx.Labels.LAND_METAL)
+			$GroundParticles.emitting = true;
 		if velocity.x and $FootstepTimer.is_stopped():
 			_on_footstep_timer_timeout()
 	if Input.is_action_just_pressed("jump"):
