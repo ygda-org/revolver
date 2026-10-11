@@ -11,6 +11,7 @@ func _ready():
 	$AnimatedSprite2D.sprite_frames = load(["uid://dnofs8ub7au7f", "uid://ud41rkxo0p5u"][randi_range(0,1)])
 	$AnimatedSprite2D.play("fly")
 	velocity = Vector2.ZERO
+	$EnemyComponent.got_hit.connect(hit)
 
 func set_target_position(new_pos):
 	target_position = new_pos
@@ -32,3 +33,8 @@ func _physics_process(delta):
 			col.hit(self)
 
 	move_and_slide()
+
+func hit():
+	var particles: CPUParticles2D = load("uid://cbl0vch65lqmr").instantiate()
+	get_parent().add_child(particles)
+	particles.global_position = global_position
