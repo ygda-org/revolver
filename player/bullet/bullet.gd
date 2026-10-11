@@ -47,6 +47,7 @@ func _ready():
 		queue_free()
 	if resource.invisible_and_no_collision:
 		self_modulate = Color(1.0, 1.0, 1.0, 0.0)
+	$Trail.default_color = resource.outline_color
 	$Anim.material.set_shader_parameter("outline_color", resource.outline_color)
 	$Light.texture.gradient.set_color(0, Color(resource.outline_color.r, resource.outline_color.g, resource.outline_color.b, 0.3))
 	$Light.texture.gradient.set_color(1, Color(resource.outline_color.r, resource.outline_color.g, resource.outline_color.b, 0.0))

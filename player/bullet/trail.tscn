@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://b0jky4c7011ds"]
+
+[ext_resource type="Script" uid="uid://j4oxe1vih04s" path="res://player/bullet/trail.gd" id="1_dp4o3"]
+
+[sub_resource type="Curve" id="Curve_dp4o3"]
+_data = [Vector2(0, 0), 0.0, 0.9380877, 0, 0, Vector2(1, 1), 0.9172405, 0.9380877, 0, 0]
+point_count = 2
+
+[node name="Trail" type="Line2D" unique_id=786189251]
+top_level = true
+z_index = -1
+width = 5.0
+width_curve = SubResource("Curve_dp4o3")
+joint_mode = 2
+begin_cap_mode = 2
+script = ExtResource("1_dp4o3")
