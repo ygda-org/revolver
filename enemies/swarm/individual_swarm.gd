@@ -36,5 +36,5 @@ func _physics_process(delta):
 
 func hit():
 	var particles: CPUParticles2D = load("uid://cbl0vch65lqmr").instantiate()
-	get_parent().add_child(particles)
+	get_parent().get_parent().add_child(particles)
 	particles.global_position = global_position

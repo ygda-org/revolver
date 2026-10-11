@@ -72,6 +72,11 @@ func _process(delta):
 func _on_body_entered(body: Object):
 	if resource.invisible_and_no_collision:
 		return
+	var particles = load("uid://coy8q1pbe5txe").instantiate()
+	particles.direction = -vel.normalized()
+	particles.color = resource.outline_color
+	particles.global_position = global_position
+	get_parent().add_child(particles)
 	pierces -= 1
 	var enemy_component: EnemyComponent = body.find_child("EnemyComponent")
 	if not enemy_component:
