@@ -3,6 +3,7 @@
 [ext_resource type="TileSet" uid="uid://dikhrktubmn1u" path="res://assets/tileset.tres" id="1_rqxvc"]
 [ext_resource type="Script" uid="uid://cco8tgle33jhk" path="res://levels/room.gd" id="1_uvwb7"]
 [ext_resource type="PackedScene" uid="uid://cktjmif3stw61" path="res://enemies/enemy_spawner.tscn" id="3_43tiq"]
+[ext_resource type="PackedScene" uid="uid://dq3rc0445wuup" path="res://levels/door.tscn" id="4_1fwar"]
 
 [node name="Revolver" type="Node2D" unique_id=811598274]
 script = ExtResource("1_uvwb7")
@@ -55,3 +56,6 @@ position = Vector2(636, 455)
 [node name="EnemySpawner11" parent="." unique_id=1680979611 instance=ExtResource("3_43tiq")]
 position = Vector2(413, 356)
 flying = true
+
+[node name="Door" parent="." unique_id=1751705257 instance=ExtResource("4_1fwar")]
+position = Vector2(760, 296)

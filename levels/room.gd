@@ -10,3 +10,17 @@ class_name Room
 
 ##Length of Room. Units arbitrary, approx proportional
 @export var length : int = 1
+
+@export var enemies = []
+
+var has_enemies : bool = true
+
+func _ready():
+	if len(enemies) == 0:
+		has_enemies = false
+
+func _process(delta: float) -> void:
+	if has_enemies and not enemies.any(func(a): return a != null):
+		has_enemies = false
+		if has_node("Door"):
+			$Door.open()

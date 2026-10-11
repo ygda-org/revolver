@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cco8tgle33jhk" path="res://levels/room.gd" id="1_l1hc5"]
 [ext_resource type="TileSet" uid="uid://dikhrktubmn1u" path="res://assets/tileset.tres" id="1_xymot"]
 [ext_resource type="PackedScene" uid="uid://cktjmif3stw61" path="res://enemies/enemy_spawner.tscn" id="3_tndgu"]
+[ext_resource type="PackedScene" uid="uid://dq3rc0445wuup" path="res://levels/door.tscn" id="4_k4twr"]
 
 [node name="Winder" type="Node2D" unique_id=1835849230]
 script = ExtResource("1_l1hc5")
@@ -40,3 +41,6 @@ flying = true
 [node name="EnemySpawner7" parent="." unique_id=1018646964 instance=ExtResource("3_tndgu")]
 position = Vector2(541, -124)
 flying = true
+
+[node name="Door" parent="." unique_id=1751705257 instance=ExtResource("4_k4twr")]
+position = Vector2(664, -104)

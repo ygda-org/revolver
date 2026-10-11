@@ -8,6 +8,10 @@ var burn_dur: int = 0
 
 func _ready():
 	GameState.active_enemies.append(self)
+	var room = get_parent()
+	while not room is Room:
+		room = room.get_parent()
+	room.enemies.append(self)
 
 func hit(dmg: int):
 	health -= dmg

@@ -3,6 +3,7 @@
 [ext_resource type="TileSet" uid="uid://dikhrktubmn1u" path="res://assets/tileset.tres" id="1_j7mk3"]
 [ext_resource type="Script" uid="uid://cco8tgle33jhk" path="res://levels/room.gd" id="1_u645g"]
 [ext_resource type="PackedScene" uid="uid://cktjmif3stw61" path="res://enemies/enemy_spawner.tscn" id="3_r5yls"]
+[ext_resource type="PackedScene" uid="uid://dq3rc0445wuup" path="res://levels/door.tscn" id="4_nxx1b"]
 
 [node name="Gap" type="Node2D" unique_id=1217900044]
 script = ExtResource("1_u645g")
@@ -24,3 +25,6 @@ position = Vector2(433, 105)
 
 [node name="EnemySpawner3" parent="." unique_id=270459999 instance=ExtResource("3_r5yls")]
 position = Vector2(214, 105)
+
+[node name="Door" parent="." unique_id=1751705257 instance=ExtResource("4_nxx1b")]
+position = Vector2(584, -24)
