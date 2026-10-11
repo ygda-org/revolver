@@ -8,9 +8,13 @@ const ACCELERATION = 60
 const DETECTION_RANGE = 200
 const DESIRED_HEIGHT = 100
 
+func _ready():
+	$EnemyComponent.got_hit.connect(hit)
+
 func _physics_process(delta):
+	$LineOfSight.target_position = GameState.player.global_position - global_position
 	var dist: float = global_position.distance_to(GameState.player.global_position)
-	if dist < DETECTION_RANGE:
+	if dist < DETECTION_RANGE and not $LineOfSight.is_colliding():
 		# fighting
 		if $ShotTimer.is_stopped():
 			$ShotTimer.start()
@@ -33,3 +37,8 @@ func _on_shot_timer_timeout():
 	pellet.velocity = shot_dir * 70
 	get_parent().add_child(pellet)
 	pellet.global_position = $Marker2D.global_position
+
+func hit():
+	var particles: CPUParticles2D = load("uid://bj2bmynw4swka").instantiate()
+	get_parent().add_child(particles)
+	particles.global_position = global_position

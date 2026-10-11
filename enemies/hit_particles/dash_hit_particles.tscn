@@ -11,8 +11,10 @@ colors = PackedColorArray(0.2382622, 0.2382622, 0.23826218, 1, 0.60933006, 0.609
 
 [node name="HitParticles" type="CPUParticles2D" unique_id=4053749]
 z_index = -1
+emitting = false
 amount = 32
 lifetime = 0.4
+one_shot = true
 explosiveness = 1.0
 emission_shape = 3
 emission_rect_extents = Vector2(15, 5)

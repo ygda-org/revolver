@@ -65,9 +65,10 @@ script = ExtResource("1_wpd0l")
 [node name="Anim" type="AnimatedSprite2D" parent="." unique_id=1054794283]
 sprite_frames = SubResource("SpriteFrames_wpd0l")
 autoplay = "default"
-frame_progress = 0.89609843
+frame_progress = 0.9286495
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=975602961]
+visible = false
 shape = SubResource("CircleShape2D_5kg8m")
 
 [node name="ShotTimer" type="Timer" parent="." unique_id=1249673974]
@@ -80,5 +81,8 @@ repair_add_amount = 0.3
 
 [node name="Marker2D" type="Marker2D" parent="." unique_id=1473949926]
 position = Vector2(0, -13)
+
+[node name="LineOfSight" type="RayCast2D" parent="." unique_id=1207473398]
+collision_mask = 8
 
 [connection signal="timeout" from="ShotTimer" to="." method="_on_shot_timer_timeout"]

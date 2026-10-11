@@ -34,6 +34,6 @@ func _physics_process(delta):
 	move_and_slide()
 
 func hit():
-	var particles: CPUParticles2D = load("uid://sxegonprvhwk").instantiate()
+	var particles: CPUParticles2D = load("uid://cjjrsuqk6dbgq").instantiate()
 	get_parent().add_child(particles)
-	particles.global_position = global_position + Vector2(0, -4)
+	particles.global_position = global_position + Vector2(0, 7)

@@ -288,7 +288,7 @@ health = 25
 repair_add_amount = 0.25
 
 [node name="ShotTimer" type="Timer" parent="." unique_id=1129894387]
-wait_time = 3.0
+wait_time = 2.0
 one_shot = true
 
 [node name="Indicator" type="AnimatedSprite2D" parent="." unique_id=1788836596]

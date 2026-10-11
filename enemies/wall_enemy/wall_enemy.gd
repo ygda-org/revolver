@@ -62,6 +62,6 @@ func _on_wall_timer_timeout():
 	wall.global_position = $SpawnPivot/SpawnPos.global_position
 
 func hit():
-	var particles: CPUParticles2D = load("uid://sxegonprvhwk").instantiate()
+	var particles: CPUParticles2D = load("uid://bytk0fxa7f4hw").instantiate()
 	get_parent().add_child(particles)
 	particles.global_position = global_position + Vector2(0, 8)
