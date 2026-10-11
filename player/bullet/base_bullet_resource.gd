@@ -18,6 +18,9 @@ class_name BulletResource
 @export var outline_color: Color = Color(0.6, 0.3, 0.0, 1.0)
 @export var sprite_frames_ovveride: SpriteFrames
 
+@export var bullet_name: String
+@export var description: String
+
 enum effects {
 	NONE,
 	FREEZE,

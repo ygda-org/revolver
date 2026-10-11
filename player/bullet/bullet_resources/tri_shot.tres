@@ -10,4 +10,6 @@ effect = 17
 effect_on_shot = true
 shake_trauma = 0.7
 outline_color = Color(0.16822606, 0.3719823, 0.747591, 1)
+bullet_name = "Triple"
+description = "Shoot 3 shots at once in a slight spread"
 metadata/_custom_type_script = "uid://cmear8uu7c65f"

@@ -8,4 +8,6 @@ speed = 250.0
 recoil = 150.0
 shake_trauma = 0.6
 outline_color = Color(0.39886096, 0.3650907, 0.5365969, 1)
+bullet_name = "Small recoil"
+description = "Just a bit of recoil"
 metadata/_custom_type_script = "uid://cmear8uu7c65f"

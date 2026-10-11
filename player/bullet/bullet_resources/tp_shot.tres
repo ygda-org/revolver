@@ -9,4 +9,6 @@ effect = 10
 shake_trauma = 0.3
 can_call_on_walls = true
 outline_color = Color(0.5448244, 0.14352274, 0.76347786, 1)
+bullet_name = "Teleport"
+description = "Teleport to where the shot lands"
 metadata/_custom_type_script = "uid://cmear8uu7c65f"

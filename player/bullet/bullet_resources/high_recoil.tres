@@ -7,4 +7,6 @@ script = ExtResource("1_4p8s3")
 speed = 400.0
 recoil = 300.0
 outline_color = Color(0.59131145, 0.63075346, 1.92523e-07, 1)
+bullet_name = "High recoil"
+description = "Handle with care!"
 metadata/_custom_type_script = "uid://cmear8uu7c65f"

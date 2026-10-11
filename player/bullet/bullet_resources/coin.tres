@@ -357,4 +357,6 @@ called_in_process = true
 shake_trauma = 0.2
 outline_color = Color(0.17914641, 0.29443833, 0.66664076, 1)
 sprite_frames_ovveride = SubResource("SpriteFrames_yel5m")
+bullet_name = "Coinshot"
+description = "Shoots a coin into the air. Hit the coin with another shot to redirect the shot and increase its damage"
 metadata/_custom_type_script = "uid://cmear8uu7c65f"

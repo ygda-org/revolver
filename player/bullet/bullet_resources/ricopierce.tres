@@ -9,4 +9,6 @@ effect_strength = 3.0
 effect_on_shot = true
 shake_trauma = 0.55
 outline_color = Color(9.866804e-07, 0.47770786, 0.17408678, 1)
+bullet_name = "Ricopierce"
+description = "Shots ricochet off walls and pierce enemies"
 metadata/_custom_type_script = "uid://cmear8uu7c65f"

@@ -5,4 +5,6 @@
 [resource]
 script = ExtResource("1_73q7b")
 speed = 200.0
+bullet_name = "Standard"
+description = "A normal bullet, good for anything!"
 metadata/_custom_type_script = "uid://cmear8uu7c65f"

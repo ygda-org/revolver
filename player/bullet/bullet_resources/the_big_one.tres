@@ -8,4 +8,6 @@ damage = 30
 speed = 150.0
 recoil = 1000.0
 outline_color = Color(0.102547236, 0.11817401, 0.1440812, 1)
+bullet_name = "The big one"
+description = "Mega shot!"
 metadata/_custom_type_script = "uid://cmear8uu7c65f"

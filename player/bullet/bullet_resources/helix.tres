@@ -13,4 +13,6 @@ shake_trauma = 0.7
 invisible_and_no_collision = true
 outline_color = Color(0.2079894, 0.22248787, 1, 1)
 sprite_frames_ovveride = SubResource("SpriteFrames_ulucf")
+bullet_name = "Helix"
+description = "Shoots two revolving shots at once"
 metadata/_custom_type_script = "uid://cmear8uu7c65f"

@@ -9,4 +9,6 @@ effect = 9
 effect_on_shot = true
 shake_trauma = 0.4
 outline_color = Color(4.933402e-07, 0.31377062, 0.16767508, 1)
+bullet_name = "Slam"
+description = "Dash straight down until you hit the floor or enemy, dealing damage. No bullet included"
 metadata/_custom_type_script = "uid://cmear8uu7c65f"

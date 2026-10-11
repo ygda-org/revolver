@@ -7,4 +7,6 @@ script = ExtResource("1_0gyg5")
 recoil = 225.0
 shake_trauma = 0.75
 outline_color = Color(0.36881962, 0.42337346, 0.16761163, 1)
+bullet_name = "Medium recoil"
+description = "A moderate amount"
 metadata/_custom_type_script = "uid://cmear8uu7c65f"

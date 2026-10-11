@@ -10,4 +10,6 @@ recoil = 10.0
 life_duration = 20.0
 shake_trauma = 0.4
 outline_color = Color(0.38769376, 0.3869871, 0.45106173, 1)
+bullet_name = "The heavy one"
+description = "Travels slowly"
 metadata/_custom_type_script = "uid://cmear8uu7c65f"

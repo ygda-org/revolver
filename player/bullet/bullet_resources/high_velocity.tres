@@ -7,4 +7,6 @@ script = ExtResource("1_0oaxy")
 damage = 8
 speed = 800.0
 outline_color = Color(0.7439224, 0.7040019, 0, 1)
+bullet_name = "High velocity"
+description = "Deals slightly less damage, but travels much faster"
 metadata/_custom_type_script = "uid://cmear8uu7c65f"

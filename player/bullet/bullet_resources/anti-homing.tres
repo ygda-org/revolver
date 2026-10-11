@@ -11,4 +11,6 @@ effect_strength = -200.0
 called_in_process = true
 shake_trauma = 0.8
 outline_color = Color(0.42819417, 0.39390987, 0.27084738, 1)
+bullet_name = "Anti-homing"
+description = "Homes away from the enemy"
 metadata/_custom_type_script = "uid://cmear8uu7c65f"

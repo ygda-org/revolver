@@ -10,4 +10,6 @@ effect = 21
 effect_strength = 730.0
 called_in_process = true
 outline_color = Color(0.5401423, 0.5852461, 0.7023143, 1)
+bullet_name = "Levitation"
+description = "Start floating until the bullet hits something"
 metadata/_custom_type_script = "uid://cmear8uu7c65f"

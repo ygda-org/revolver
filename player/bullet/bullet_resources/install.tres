@@ -12,4 +12,6 @@ effect_on_shot = true
 shake_trauma = 0.15
 invisible_and_no_collision = true
 outline_color = Color(0.6338268, 0.63640374, 0.63256407, 1)
+bullet_name = "Install"
+description = "Dash forward and automatically fire your next shot with its effects multiplied"
 metadata/_custom_type_script = "uid://cmear8uu7c65f"

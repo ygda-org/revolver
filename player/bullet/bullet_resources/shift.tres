@@ -10,4 +10,6 @@ effect_strength = 100.0
 effect_on_shot = true
 shake_trauma = 0.3
 outline_color = Color(0.67655545, 6.179988e-05, 0.5484194, 1)
+bullet_name = "Shift"
+description = "Teleport towards your aim, no bullet included"
 metadata/_custom_type_script = "uid://cmear8uu7c65f"

@@ -8,4 +8,6 @@ damage = 45
 effect = 19
 effect_on_shot = true
 outline_color = Color(0.696551, 0.0002192837, 0.65179604, 1)
+bullet_name = "RNG"
+description = "Shoots in a completely random direction"
 metadata/_custom_type_script = "uid://cmear8uu7c65f"

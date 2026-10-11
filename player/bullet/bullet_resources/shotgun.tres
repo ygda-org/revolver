@@ -12,4 +12,6 @@ life_duration = 0.2
 shake_trauma = 0.9
 invisible_and_no_collision = true
 outline_color = Color(0.5757729, 0.2992125, 0.31673178, 1)
+bullet_name = "Shotgun"
+description = "Shoot a wide spread of bullets at once"
 metadata/_custom_type_script = "uid://cmear8uu7c65f"

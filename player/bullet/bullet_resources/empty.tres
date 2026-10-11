@@ -8,4 +8,6 @@ speed = 0.0
 effect = 7
 shake_trauma = 0.0
 outline_color = Color(0.7088167, 0.08880582, 0.33167523, 1)
+bullet_name = "Empty slot"
+description = "No bullet here! Becomes a melee and parry attack"
 metadata/_custom_type_script = "uid://cmear8uu7c65f"
