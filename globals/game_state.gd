@@ -49,6 +49,7 @@ func _ready():
 
 ## cycle bullet by dir, then mod by barrel size
 func bullet_cycle(dir: int):
+	Sfx.play(Sfx.Labels.NEXT_BULLET)
 	bullet_is_cycled.emit()
 	barrel_index += dir
 	barrel_index = posmod(barrel_index, active_barrel.size())

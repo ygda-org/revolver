@@ -42,6 +42,7 @@ func _ready():
 func _physics_process(delta):
 	
 	if Input.is_action_just_pressed("reload") and $ReloadTimer.is_stopped():
+		Sfx.play(Sfx.Labels.RELOAD)
 		GameState.start_reload.emit()
 		$ReloadTimer.start()
 	
