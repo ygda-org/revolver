@@ -159,6 +159,7 @@ func hit(hitter: Node2D):
 	health -= 1
 	$HitStun.start()
 	hit_stun_velocity = 150 * hitter.global_position.direction_to(global_position)
+	GameState.player_hit.emit()
 	if health <= 0:
 		die()
 

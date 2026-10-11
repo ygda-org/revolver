@@ -5,9 +5,10 @@
 [ext_resource type="Texture2D" uid="uid://cl5jn2ii3x16q" path="res://assets/ui/revolver_rotate_empty_fix.png" id="4_1v5rv"]
 [ext_resource type="PackedScene" uid="uid://dutwhqupk2lem" path="res://ui/bullet_ui.tscn" id="4_en2x2"]
 [ext_resource type="Texture2D" uid="uid://cgjv1euc42oxn" path="res://assets/temp_art/marker.png" id="5_en2x2"]
+[ext_resource type="Shader" uid="uid://c8yaabuks5t8i" path="res://ui/hud.gdshader" id="6_1v5rv"]
 
 [sub_resource type="Gradient" id="Gradient_546lt"]
-offsets = PackedFloat32Array(0, 0.6960432, 1)
+offsets = PackedFloat32Array(0, 0.53654486, 0.91528237)
 colors = PackedColorArray(1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_546lt"]
@@ -106,6 +107,19 @@ animations = [{
 "speed": 32.0
 }]
 
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_q43x7"]
+frequency = 0.1
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_1v5rv"]
+noise = SubResource("FastNoiseLite_q43x7")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_en2x2"]
+shader = ExtResource("6_1v5rv")
+shader_parameter/noise = SubResource("NoiseTexture2D_1v5rv")
+shader_parameter/slow = 25.0
+shader_parameter/multiplier = 0.0
+shader_parameter/contrast = 2.0
+
 [node name="Hud" type="Control" unique_id=1107756674]
 layout_mode = 3
 anchors_preset = 15
@@ -153,3 +167,13 @@ scale = Vector2(2, 2)
 position = Vector2(83, 404)
 scale = Vector2(2, 2)
 texture = ExtResource("5_en2x2")
+
+[node name="HitStatic" type="ColorRect" parent="." unique_id=2142711295]
+material = SubResource("ShaderMaterial_en2x2")
+layout_mode = 0
+offset_right = 960.0
+offset_bottom = 540.0
+
+[node name="HitStaticTimer" type="Timer" parent="." unique_id=1334133080]
+wait_time = 0.6
+one_shot = true
