@@ -22,7 +22,9 @@ var effect_methods = {
 	BulletResource.effects.SHIFT: Callable(shift),
 	BulletResource.effects.SLAM: Callable(slam),
 	BulletResource.effects.TP_SHOT: Callable(tp_shot),
-	BulletResource.effects.REVOLVER: Callable(revolver)
+	BulletResource.effects.REVOLVER: Callable(revolver),
+	BulletResource.effects.HELIX: Callable(helix),
+	BulletResource.effects.HELIX_HELPER: Callable(helix_helper)
 }
 
 var thing_i_hit: EnemyComponent
@@ -30,6 +32,8 @@ var thing_i_hit: EnemyComponent
 func _ready():
 	if resource.effect == BulletResource.effects.PARRY:
 		queue_free()
+	if resource.invisible_and_no_collision:
+		self_modulate = Color(1.0, 1.0, 1.0, 0.0)
 	$Anim.material.set_shader_parameter("outline_color", resource.outline_color)
 	$Light.texture.gradient.set_color(0, Color(resource.outline_color.r, resource.outline_color.g, resource.outline_color.b, 0.3))
 	$Light.texture.gradient.set_color(1, Color(resource.outline_color.r, resource.outline_color.g, resource.outline_color.b, 0.0))
@@ -52,6 +56,8 @@ func _process(delta):
 		effect_methods[resource.effect].call()
 
 func _on_body_entered(body: Object):
+	if resource.invisible_and_no_collision:
+		return
 	pierces -= 1
 	var enemy_component: EnemyComponent = body.find_child("EnemyComponent")
 	if not enemy_component:
@@ -92,14 +98,15 @@ func coin_gravity():
 
 # entered another bullet
 func _on_area_entered(area):
-	if area is PlayerBullet and area.resource.effect == BulletResource.effects.COIN:
-		damage *= area.resource.effect_strength
-		var closest_enemy = GameState.get_closest_enemy_to_position(global_position)
-		if not closest_enemy:
-			return
-		direction = global_position.direction_to(closest_enemy.global_position)
-		vel = 1.5*resource.speed * direction * area.resource.effect_strength
-		area.vel = 300 * Vector2(1, 0).rotated(randf_range(PI/3, 2*PI/3))
+	if area is PlayerBullet:
+		if area.resource.effect == BulletResource.effects.COIN:
+			damage *= area.resource.effect_strength
+			var closest_enemy = GameState.get_closest_enemy_to_position(global_position)
+			if not closest_enemy:
+				return
+			direction = global_position.direction_to(closest_enemy.global_position)
+			vel = 1.5*resource.speed * direction * area.resource.effect_strength
+			area.vel = 300 * Vector2(1, 0).rotated(randf_range(PI/3, 2*PI/3))
 	else:
 		call_deferred("queue_free")
 
@@ -113,7 +120,6 @@ func _on_life_time_timeout():
 	queue_free()
 
 func shotgun_setup():
-	self_modulate = Color(1.0, 1.0, 1.0, 0.0)
 	for i in range(5):
 		var bullet = load("uid://k308fsvc3jvh").instantiate()
 		bullet.resource = load("uid://cllwws72eb4kk")
@@ -136,3 +142,19 @@ func tp_shot():
 func revolver():
 	GameState.player.next_bullet_twice = true
 	queue_free()
+
+func helix():
+	var top = load("uid://k308fsvc3jvh").instantiate()
+	var bot = load("uid://k308fsvc3jvh").instantiate()
+	top.resource = load("uid://dkowsl3jc0v57")
+	bot.resource = load("uid://dkowsl3jc0v57")
+	$Pivot.add_child(top)
+	$Pivot.add_child(bot)
+	top.position.y = -7
+	bot.position.y = 7
+
+func helix_helper():
+	get_parent().rotation += 4*PI*delta_time_save
+	var rot_pos: Vector2 = global_position - get_parent().global_position
+	get_parent().rotation = 0
+	position = rot_pos

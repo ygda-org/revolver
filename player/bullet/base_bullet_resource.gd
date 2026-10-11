@@ -12,6 +12,7 @@ class_name BulletResource
 @export var life_duration: float = 10.0
 @export var shake_trauma: float = 0.5
 @export var can_call_on_walls: bool = false
+@export var invisible_and_no_collision: bool = false
 
 @export_category("Colors")
 @export var outline_color: Color = Color(0.6, 0.3, 0.0, 1.0)
@@ -29,5 +30,7 @@ enum effects {
 	SHIFT,
 	SLAM,
 	TP_SHOT,
-	REVOLVER
+	REVOLVER,
+	HELIX,
+	HELIX_HELPER
 }
