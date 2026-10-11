@@ -34,7 +34,7 @@ size = Vector2(16, 4)
 
 [node name="Player" type="CharacterBody2D" unique_id=1304598780]
 collision_layer = 4
-collision_mask = 3
+collision_mask = 35
 script = ExtResource("1_rkbax")
 accel_curve = SubResource("Curve_rkbax")
 decel_curve = SubResource("Curve_g1dw6")
@@ -87,7 +87,7 @@ wait_time = 3.0
 one_shot = true
 
 [node name="InvicibilityFrames" type="Timer" parent="." unique_id=1166738307]
-wait_time = 2.3
+wait_time = 1.5999999999999999
 one_shot = true
 
 [node name="HitStun" type="Timer" parent="." unique_id=2018356157]
@@ -109,6 +109,7 @@ shape = SubResource("CircleShape2D_g1dw6")
 [node name="SlamHitbox" type="Area2D" parent="." unique_id=1423150895]
 collision_layer = 2
 collision_mask = 3
+monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SlamHitbox" unique_id=1486328518]
 position = Vector2(0, 16)

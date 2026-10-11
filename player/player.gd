@@ -64,7 +64,8 @@ func _physics_process(delta):
 		if dir * velocity.x <= 0 and $RecoilLock.is_stopped():
 			velocity.x = move_toward(velocity.x, 0, DECELERATION * decel_curve.sample(abs(velocity.x/MAX_SPEED)) * delta)
 		velocity.x = clampf(velocity.x, -MAX_SPEED, MAX_SPEED)
-	
+	set_collision_mask_value(6, not Input.is_action_pressed("drop"))
+		
 	# shooting
 	var mouse_offset: Vector2 = (get_global_mouse_position() - global_position)/6
 	mouse_offset.y /= 2
@@ -111,6 +112,7 @@ func disable_parry():
 	parry_hitbox.monitoring = false
 
 func hit(hitter: Node2D):
+	print('hit!')
 	if $InvicibilityFrames.is_stopped():
 		$InvicibilityFrames.start()
 	else:
@@ -162,15 +164,19 @@ func shift(dir, dist):
 
 func slam():
 	slam_velocity = Vector2(0, 350)
+	$SlamHitbox.monitoring = true
 
 
 func _on_slam_hitbox_body_entered(body):
+	
 	var comp = body.find_child("EnemyComponent")
 	if comp:
 		comp.hit(load("uid://dof6lvg6wev5k").damage)
 		$InvicibilityFrames.start()
 		if comp.health > 0:
 			slam_velocity = Vector2.ZERO
+			$SlamHitbox.monitoring = false
 	else:
 		slam_velocity = Vector2.ZERO
+		$SlamHitbox.monitoring = false
 		$InvicibilityFrames.start()

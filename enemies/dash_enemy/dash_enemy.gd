@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name DashEnemy
 
 @export var speed: float = 80.0
 @export var direction: int = -1
@@ -20,5 +21,7 @@ func _physics_process(delta):
 		var col = get_slide_collision(i).get_collider()
 		if col is Player:
 			col.hit(self)
+		if col is DashEnemy:
+			pass
 	
 	move_and_slide()
