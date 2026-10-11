@@ -33,5 +33,6 @@ enum effects {
 	REVOLVER,
 	HELIX,
 	HELIX_HELPER,
-	HOMING
+	HOMING,
+	BLACKHOLE,
 }

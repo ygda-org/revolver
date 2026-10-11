@@ -25,7 +25,8 @@ var effect_methods = {
 	BulletResource.effects.REVOLVER: Callable(revolver),
 	BulletResource.effects.HELIX: Callable(helix),
 	BulletResource.effects.HELIX_HELPER: Callable(helix_helper),
-	BulletResource.effects.HOMING: Callable(homing)
+	BulletResource.effects.HOMING: Callable(homing),
+	BulletResource.effects.BLACKHOLE: Callable(blackhole),
 }
 
 var thing_i_hit: EnemyComponent
@@ -168,3 +169,10 @@ func homing():
 	var perp: Vector2 = vel.orthogonal().normalized()
 	perp = perp if (global_position + perp).distance_to(target_pos) < (global_position - perp).distance_to(target_pos) else -perp
 	vel += perp * resource.effect_strength * delta_time_save
+
+func blackhole():
+	var enemy: EnemyComponent = GameState.get_closest_enemy_to_position(global_position)
+	if not enemy:
+		return
+	var dir = enemy.get_parent().global_position.direction_to(global_position)
+	enemy.get_parent().position += dir * resource.effect_strength * delta_time_save

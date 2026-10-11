@@ -174,6 +174,9 @@ func _on_parry_hitbox_body_entered(body):
 # hit enemy bullet
 func _on_parry_hitbox_area_entered(area):
 	$Camera2D.add_trauma(1.2)
+	if area is PlayerBullet:
+		area.vel = 400 * global_position.direction_to(GameState.get_closest_enemy_to_position(global_position).global_position)
+		area.damage *= 2.5
 	if "velocity" in area:
 		area.parried = true
 		area.set_collision_mask_value(2, true)
