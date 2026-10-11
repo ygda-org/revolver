@@ -1,22 +1,70 @@
 [gd_scene format=3 uid="uid://dbj21rwlxkyql"]
 
 [ext_resource type="Script" uid="uid://bh8exyhorpbtd" path="res://enemies/dash_enemy/dash_enemy.gd" id="1_5gxxa"]
-[ext_resource type="Texture2D" uid="uid://dlbb2kg1nkspe" path="res://assets/icon.svg" id="1_sesbg"]
+[ext_resource type="Texture2D" uid="uid://bpku74iw63wwo" path="res://assets/enemies/dash/scorpion.png" id="2_5gxxa"]
 [ext_resource type="PackedScene" uid="uid://d3jnp7vef3gti" path="res://enemies/enemy_component.tscn" id="2_mbm62"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_nkw6e"]
+atlas = ExtResource("2_5gxxa")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lt5em"]
+atlas = ExtResource("2_5gxxa")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_utod7"]
+atlas = ExtResource("2_5gxxa")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vcx1q"]
+atlas = ExtResource("2_5gxxa")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1r3if"]
+atlas = ExtResource("2_5gxxa")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mbm62"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nkw6e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lt5em")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_utod7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vcx1q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1r3if")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 10.0
+}]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sesbg"]
-size = Vector2(16, 32)
+size = Vector2(27, 9)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5gxxa"]
+size = Vector2(14, 12)
 
 [node name="DashEnemy" type="CharacterBody2D" unique_id=566794320]
 collision_layer = 3
 collision_mask = 39
 script = ExtResource("1_5gxxa")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=504976120]
-scale = Vector2(0.125, 0.25)
-texture = ExtResource("1_sesbg")
+[node name="Anim" type="AnimatedSprite2D" parent="." unique_id=365090220]
+sprite_frames = SubResource("SpriteFrames_mbm62")
+autoplay = "default"
+frame_progress = 0.9982028
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1821245678]
+position = Vector2(-0.5, 11.5)
 shape = SubResource("RectangleShape2D_sesbg")
 
 [node name="EnemyComponent" parent="." unique_id=920270805 instance=ExtResource("2_mbm62")]
@@ -31,5 +79,10 @@ target_position = Vector2(0, 3)
 collision_mask = 33
 
 [node name="PlayerDetector" type="RayCast2D" parent="RaycastPivot" unique_id=1610823434]
+position = Vector2(0, 9)
 target_position = Vector2(150, 0)
 collision_mask = 4
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=1900050380]
+position = Vector2(6, 1)
+shape = SubResource("RectangleShape2D_5gxxa")
