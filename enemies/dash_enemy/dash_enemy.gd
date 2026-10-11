@@ -15,7 +15,10 @@ func _physics_process(delta):
 	$RaycastPivot.scale.x = direction
 	velocity.x = direction * speed
 	if $RaycastPivot/PlayerDetector.is_colliding():
+		$Anim.play("run")
 		velocity.x *= 2
+	else:
+		$Anim.play("default")
 	if velocity.x > 0:
 		$Anim.flip_h = true
 	elif velocity.x < 0:
