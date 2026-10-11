@@ -8,6 +8,9 @@ const ACCELERATION = 80
 const DETECTION_RANGE = 200
 const DESIRED_DISTANCE = 150
 
+func _ready():
+	$EnemyComponent.got_hit.connect(hit)
+
 func _physics_process(delta):
 	$CanSeePlayer.target_position = GameState.player.global_position - global_position
 	var dist: float = global_position.distance_to(GameState.player.global_position)
@@ -49,3 +52,8 @@ func _on_indicator_animation_finished():
 		shots[i].direction = shots[i].direction.rotated((PI/6)*(i-1))
 		get_parent().add_child(shots[i])
 		shots[i].global_position = global_position
+
+func hit():
+	var particles: CPUParticles2D = load("uid://sxegonprvhwk").instantiate()
+	get_parent().add_child(particles)
+	particles.global_position = global_position
