@@ -9,6 +9,7 @@ var noise_height = 0
 
 func _ready():
 	noise.seed = 1042314
+	GameState.camera = self
 
 func _process(delta):
 	if trauma:

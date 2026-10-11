@@ -28,7 +28,11 @@ var effect_methods = {
 	BulletResource.effects.HOMING: Callable(homing),
 	BulletResource.effects.BLACKHOLE: Callable(blackhole),
 	BulletResource.effects.BACKWARDS: Callable(backwards),
-	BulletResource.effects.TRISHOT: Callable(tri_shot_setup)
+	BulletResource.effects.TRISHOT: Callable(tri_shot_setup),
+	BulletResource.effects.OCTOSHOT: Callable(octo_shot_setup),
+	BulletResource.effects.RNGSHOT: Callable(rng_shot_setup),
+	BulletResource.effects.BURST_FIRE: Callable(burst_fire_setup),
+	BulletResource.effects.LEVITATION: Callable(levitate)
 }
 
 var thing_i_hit: EnemyComponent
@@ -194,3 +198,27 @@ func tri_shot_setup():
 	bullet2.direction = direction.rotated(-PI/6)
 	get_parent().add_child(bullet2)
 	bullet2.global_position = global_position
+
+func octo_shot_setup():
+	for i in range(1,8):
+		var bullet1 = load("uid://k308fsvc3jvh").instantiate()
+		bullet1.resource = load("uid://cllwws72eb4kk")
+		bullet1.direction = direction.rotated(i*PI/4)
+		get_parent().add_child(bullet1)
+		bullet1.global_position = global_position
+
+func rng_shot_setup():
+	direction = Vector2(1,0).rotated(randf_range(0, 2*PI))
+	vel = direction * resource.speed
+
+func burst_fire_setup():
+	for i in range(int(resource.effect_strength)):
+		var bullet = load("uid://k308fsvc3jvh").instantiate()
+		bullet.resource = load("uid://dj3urqcujfedn")
+		bullet.direction = global_position.direction_to(get_global_mouse_position())
+		GameState.camera.add_trauma(bullet.resource.shake_trauma)
+		add_child(bullet)
+		await get_tree().create_timer(0.07).timeout
+
+func levitate():
+	player.velocity.y -= resource.effect_strength * delta_time_save

@@ -10,6 +10,7 @@ const REPAIR_DISTANCE_THRESHOLD = 100
 const BULLET_PARRY_DAMAGE = 25
 
 var player: Player
+var camera
 
 ## array of all active enemy components
 var active_enemies: Array[EnemyComponent]
@@ -42,7 +43,7 @@ func _ready():
 	inventory[NORMAL_RES] = 2
 	
 	# for testing
-	active_barrel[1] = load("uid://b4ndosinu1lue")
+	active_barrel[1] = load("uid://dlkqibmqobfen")
 
 ## cycle bullet by dir, then mod by barrel size
 func bullet_cycle(dir: int):

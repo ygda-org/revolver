@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="BulletResource" format=3 uid="uid://dlkqibmqobfen"]
+
+[ext_resource type="Script" uid="uid://cmear8uu7c65f" path="res://player/bullet/base_bullet_resource.gd" id="1_3xnah"]
+
+[resource]
+script = ExtResource("1_3xnah")
+damage = 5
+speed = 200.0
+effect = 21
+effect_strength = 730.0
+called_in_process = true
+outline_color = Color(0.5401423, 0.5852461, 0.7023143, 1)
+metadata/_custom_type_script = "uid://cmear8uu7c65f"
