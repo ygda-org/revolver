@@ -39,6 +39,10 @@ var effect_methods = {
 var thing_i_hit: EnemyComponent
 
 func _ready():
+	if resource.override_shot_sfx != BulletResource.OverrideSettings.NONE:
+		Sfx.play(resource.shot_sfx_override)
+	if resource.override_shot_sfx != BulletResource.OverrideSettings.OVERRIDE:
+		Sfx.play(Sfx.Labels.GUN_PLACEHOLDER)
 	if resource.effect == BulletResource.effects.PARRY:
 		queue_free()
 	if resource.invisible_and_no_collision:

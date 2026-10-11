@@ -34,6 +34,8 @@ var hit_stun_velocity
 var slam_velocity: Vector2
 var next_bullet_twice: bool = false
 
+var was_in_air_last_frame: bool = false
+
 func _ready():
 	GameState.player = self
 
@@ -45,6 +47,7 @@ func _physics_process(delta):
 	
 	# gravity & jumping
 	if not is_on_floor():
+		was_in_air_last_frame = true
 		var grav_mult: float = 1.0
 		if velocity.y < 0:
 			grav_mult = grav_curve_asc.sample(abs(velocity.y/JUMP_FORCE))
@@ -53,6 +56,11 @@ func _physics_process(delta):
 		velocity.y += GRAVITY * grav_mult * delta
 	else:
 		$CoyoteTime.start()
+		if was_in_air_last_frame:
+			was_in_air_last_frame = false
+			Sfx.play(Sfx.Labels.LAND_METAL)
+		if velocity.x and $FootstepTimer.is_stopped():
+			_on_footstep_timer_timeout()
 	if Input.is_action_just_pressed("jump"):
 		$JumpBuffer.start()
 	elif Input.is_action_just_released("jump"):
@@ -61,6 +69,7 @@ func _physics_process(delta):
 		$CoyoteTime.stop()
 		$JumpBuffer.stop()
 		velocity.y -= JUMP_FORCE
+		Sfx.play(Sfx.Labels.JUMP_METAL)
 	
 	# left right movement
 	if $DashDur.is_stopped() and $RecoilLock.is_stopped():
@@ -140,11 +149,11 @@ func toggle_parry(b: bool):
 	parry_hitbox.monitoring = b
 
 func hit(hitter: Node2D):
-	print('hit!')
 	if $InvicibilityFrames.is_stopped():
 		$InvicibilityFrames.start()
 	else:
 		return
+	Sfx.play(Sfx.Labels.PLAYER_DAMAGE)
 	health -= 1
 	$HitStun.start()
 	hit_stun_velocity = 150 * hitter.global_position.direction_to(global_position)
@@ -220,3 +229,9 @@ func _on_slam_hitbox_body_entered(body):
 		slam_velocity = Vector2.ZERO
 		$SlamHitbox.monitoring = false
 		$InvicibilityFrames.start()
+
+
+func _on_footstep_timer_timeout():
+	if velocity.x and is_on_floor():
+		Sfx.play(Sfx.Labels.FOOTSTEPS_METAL)
+		$FootstepTimer.start()

@@ -7,5 +7,6 @@ func _ready() -> void:
 
 
 func open():
+	Sfx.play(Sfx.Labels.ROOM_CLEAR_DOOR)
 	self.visible = false
 	$CollisionShape2D.disabled = true

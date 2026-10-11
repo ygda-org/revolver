@@ -14,8 +14,13 @@ class_name BulletResource
 @export var can_call_on_walls: bool = false
 @export var invisible_and_no_collision: bool = false
 
+enum OverrideSettings {
+	NONE,
+	PLAYBOTH,
+	OVERRIDE
+}
 @export_category("SFX")
-@export var override_shot_sfx: bool = false
+@export var override_shot_sfx: OverrideSettings
 @export var shot_sfx_override: Sfx.Labels
 
 @export_category("Colors")

@@ -37,6 +37,10 @@ metadata/_custom_type_script = "uid://ceepfr3v8cnmq"
 [sub_resource type="Resource" id="Resource_aso10"]
 script = ExtResource("2_0skdd")
 stream = ExtResource("7_aju7b")
+volume = -12.0
+volume_variance = 2.0
+pitch = 0.7
+pitch_variance = 0.1
 metadata/_custom_type_script = "uid://ceepfr3v8cnmq"
 
 [sub_resource type="Resource" id="Resource_u7dhd"]
