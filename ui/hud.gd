@@ -21,7 +21,9 @@ func _on_bullet_is_cycled():
 
 func _on_start_reload():
 	$RevolverAnim.play("reload")
+	$RevolverAnim.frame_changed.connect($BulletUi.tick_step)
 
 func _on_stop_reload():
 	$RevolverAnim.stop()
+	$RevolverAnim.frame_changed.disconnect($BulletUi.tick_step)
 	$RevolverAnim.play("default")

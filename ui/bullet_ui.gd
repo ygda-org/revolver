@@ -5,16 +5,13 @@ class_name BulletUI
 @onready var pivot : Node2D = $SubViewportContainer/SubViewport/Pivot
 
 var hold_spin : bool = false
+var accumulator : float = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	GameState.start_reload.connect(_on_start_reload)
 	GameState.stop_reload.connect(_on_stop_reload)
 	render_bullets()
-
-func _process(delta: float) -> void:
-	if hold_spin:
-		pivot.rotation_degrees -= 360 * 6 * delta
 
 func spin():
 	render_bullets()
@@ -34,10 +31,12 @@ func render_bullets():
 		sprite.visible = true
 		sprite.material.set_shader_parameter("outline_color", b_res.outline_color)
 
+func tick_step():
+	pivot.rotation_degrees -= 15
+
 func _on_start_reload():
-	hold_spin = true
+	pass
 
 func _on_stop_reload():
-	hold_spin = false
 	pivot.rotation = 0
 	render_bullets()
