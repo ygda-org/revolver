@@ -5,7 +5,7 @@
 [resource]
 script = ExtResource("1_oasx7")
 damage = 30
-speed = 150.0
+speed = 200.0
 recoil = 1000.0
 outline_color = Color(0.102547236, 0.11817401, 0.1440812, 1)
 bullet_name = "The big one"

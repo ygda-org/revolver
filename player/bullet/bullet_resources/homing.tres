@@ -5,9 +5,9 @@
 [resource]
 script = ExtResource("1_ncscl")
 damage = 8
-speed = 200.0
+speed = 250.0
 effect = 14
-effect_strength = 300.0
+effect_strength = 325.0
 called_in_process = true
 outline_color = Color(0.3582018, 0.38051307, 0.5403401, 1)
 bullet_name = "Homing"

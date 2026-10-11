@@ -2,7 +2,7 @@ extends Resource
 class_name BulletResource
 
 @export var damage: int = 10
-@export var speed: float = 350
+@export var speed: float = 450
 @export var recoil: float = 0.0
 @export var effect: effects
 @export var effect_strength: float = 0.0

@@ -277,7 +277,7 @@ script = ExtResource("1_x23fc")
 sprite_frames = SubResource("SpriteFrames_3v7li")
 animation = &"fly"
 autoplay = "fly"
-frame_progress = 0.96025395
+frame_progress = 0.6602085
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1446767536]
 visible = false

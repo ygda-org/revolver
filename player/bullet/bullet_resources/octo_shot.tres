@@ -5,7 +5,7 @@
 [resource]
 script = ExtResource("1_euihm")
 damage = 9
-speed = 300.0
+speed = 400.0
 effect = 18
 effect_on_shot = true
 shake_trauma = 0.75

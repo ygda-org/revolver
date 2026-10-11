@@ -5,7 +5,7 @@
 [resource]
 script = ExtResource("1_325ul")
 damage = 12
-speed = 500.0
+speed = 600.0
 recoil = 500.0
 outline_color = Color(0.74723744, 0.97219664, 7.70092e-07, 1)
 bullet_name = "MEGA recoil"
