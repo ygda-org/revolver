@@ -15,8 +15,8 @@
 [ext_resource type="AudioStream" uid="uid://cqxrj6h5dpfqs" path="res://assets/sfx/revolver_single_shot_reload.mp3" id="12_h1dei"]
 [ext_resource type="AudioStream" uid="uid://pwo7m5ioeb2j" path="res://assets/sfx/room_clear_door_open.mp3" id="13_2juvr"]
 [ext_resource type="AudioStream" uid="uid://ckdvlhng4el0b" path="res://assets/sfx_round2/bullet_hits_wall.mp3" id="14_hdcr0"]
-[ext_resource type="AudioStream" uid="uid://dr0w8potxb1q2" path="res://assets/sfx_round2/dry_fire.mp3" id="15_kfcue"]
 [ext_resource type="AudioStream" uid="uid://b8lxjr5gfigk8" path="res://assets/sfx_round2/gun_fixed.mp3" id="16_3s5uv"]
+[ext_resource type="AudioStream" uid="uid://c3bs751et686w" path="res://assets/sfx_round2/dry_fire_fixed.mp3" id="16_rdjfg"]
 [ext_resource type="AudioStream" uid="uid://f6x3shq1hs2h" path="res://assets/sfx_round2/PARRYTHEBULLET.mp3" id="17_rdjfg"]
 [ext_resource type="AudioStream" uid="uid://bymhppakbexxm" path="res://assets/sfx_round2/power_shot.mp3" id="18_jn1sc"]
 
@@ -101,7 +101,7 @@ metadata/_custom_type_script = "uid://ceepfr3v8cnmq"
 
 [sub_resource type="Resource" id="Resource_nor0l"]
 script = ExtResource("2_0skdd")
-stream = ExtResource("15_kfcue")
+stream = ExtResource("16_rdjfg")
 metadata/_custom_type_script = "uid://ceepfr3v8cnmq"
 
 [sub_resource type="Resource" id="Resource_uspyc"]
