@@ -43,7 +43,7 @@ func _ready():
 	chosen_barrel[2] = NORMAL_RES
 	active_barrel[2] = NORMAL_RES
 	
-	inventory[NORMAL_RES] = 100
+	inventory[NORMAL_RES] = 3
 	
 	# for testing
 	#active_barrel[1] = load("uid://buewsi61jgls0")
