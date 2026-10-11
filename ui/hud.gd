@@ -12,7 +12,7 @@ func _process(delta):
 	if GameState.player.health == 1:
 		$Vignette.scale = $Vignette.scale.lerp(Vector2(1,1), delta*15)
 	else:
-		$Vignette.scale = $Vignette.scale.lerp(Vector2(1.5, 1.5), delta*10)
+		$Vignette.scale = $Vignette.scale.lerp(Vector2(3, 3), delta*10)
 	if $HitStaticTimer.is_stopped():
 		$HitStatic.material.set_shader_parameter("multiplier", move_toward($HitStatic.material.get_shader_parameter("multiplier"), 0.0, delta * 2))
 	else:
