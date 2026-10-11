@@ -104,6 +104,7 @@ sprite_frames = SubResource("SpriteFrames_mbm62")
 autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1821245678]
+visible = false
 position = Vector2(-0.5, 11.5)
 shape = SubResource("RectangleShape2D_sesbg")
 
@@ -124,5 +125,6 @@ target_position = Vector2(150, 0)
 collision_mask = 4
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=1900050380]
+visible = false
 position = Vector2(6, 1)
 shape = SubResource("RectangleShape2D_5gxxa")

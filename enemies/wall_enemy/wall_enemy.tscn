@@ -121,6 +121,7 @@ animation = &"attack"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=415863249]
+visible = false
 position = Vector2(1, 0)
 shape = SubResource("RectangleShape2D_sgxws")
 
@@ -150,5 +151,8 @@ position = Vector2(22, -10)
 [node name="TextureProgressBar" type="TextureProgressBar" parent="." unique_id=640171960]
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="LineOfSight" type="RayCast2D" parent="." unique_id=46078149]
+collision_mask = 8
 
 [connection signal="timeout" from="WallTimer" to="." method="_on_wall_timer_timeout"]

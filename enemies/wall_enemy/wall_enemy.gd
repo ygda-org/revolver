@@ -7,19 +7,23 @@ const DETECTION_RANGE = 180
 const SPEED = 40
 @onready var direction = randi_range(0,1) * 2 - 1
 
+func _ready():
+	$EnemyComponent.got_hit.connect(hit)
+
 func _physics_process(delta):
+	$LineOfSight.target_position = GameState.player.global_position - global_position
 	var dist: float = global_position.distance_to(GameState.player.global_position)
-	if dist < DETECTION_RANGE:
+	if dist < DETECTION_RANGE and not $LineOfSight.is_colliding():
 		velocity = Vector2.ZERO
 		# fighting
 		if $WallWindown.is_stopped():
 			$Anim.play("attack")
 			$WallWindown.start()
 			$WallTimer.start()
-		if (global_position - GameState.player.global_position).x > 0:
-			$Anim.flip_h = false
-		else:
-			$Anim.flip_h = true
+			if (global_position - GameState.player.global_position).x > 0:
+				$Anim.flip_h = false
+			else:
+				$Anim.flip_h = true
 	else:
 		# wandering
 		if is_on_wall() or not $RayCastPivot/WalkoffDetector.is_colliding():
@@ -28,8 +32,12 @@ func _physics_process(delta):
 		velocity.x = direction * SPEED
 		if velocity.x > 0:
 			$Anim.flip_h = true
-		elif velocity.y < 0:
+		elif velocity.x < 0:
 			$Anim.flip_h = false
+		if velocity.x:
+			$Anim.play("walk")
+		else:
+			$Anim.play("idle")
 	if not is_on_floor():
 		velocity.y = 50
 	
@@ -37,12 +45,7 @@ func _physics_process(delta):
 		var col = get_slide_collision(i).get_collider()
 		if col is Player:
 			col.hit(self)
-	
-	if $WallWindown.is_stopped() and not ($Anim.is_playing() and $Anim.animation == "attack"):
-		if velocity.x:
-			$Anim.play("walk")
-		else:
-			$Anim.play("idle")
+
 	
 	move_and_slide()
 
@@ -55,3 +58,8 @@ func _on_wall_timer_timeout():
 	wall.direction = dir
 	get_parent().add_child(wall)
 	wall.global_position = $SpawnPivot/SpawnPos.global_position
+
+func hit():
+	var particles: CPUParticles2D = load("uid://sxegonprvhwk").instantiate()
+	get_parent().add_child(particles)
+	particles.global_position = global_position + Vector2(0, 8)
