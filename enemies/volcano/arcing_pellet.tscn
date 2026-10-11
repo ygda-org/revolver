@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://ddtan3gghk3bx"]
+
+[ext_resource type="Script" uid="uid://dlpi8ln7ga1y" path="res://enemies/volcano/arcing_pellet.gd" id="1_8serf"]
+[ext_resource type="Texture2D" uid="uid://dlbb2kg1nkspe" path="res://assets/icon.svg" id="1_el4uh"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5kg8m"]
+radius = 6.0
+
+[node name="ArcingPellet" type="Area2D" unique_id=207039771]
+collision_layer = 16
+collision_mask = 20
+script = ExtResource("1_8serf")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=345990980]
+modulate = Color(0.6591275, 0, 0.25698465, 1)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_el4uh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=110513532]
+shape = SubResource("CircleShape2D_5kg8m")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1045346820]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://c1c7vo31sm74l"]
+
+[ext_resource type="Texture2D" uid="uid://dlbb2kg1nkspe" path="res://assets/icon.svg" id="1_ig607"]
+[ext_resource type="Script" uid="uid://cqqk810pytc1i" path="res://enemies/volcano/volcano.gd" id="1_wpd0l"]
+[ext_resource type="PackedScene" uid="uid://d3jnp7vef3gti" path="res://enemies/enemy_component.tscn" id="3_evcgt"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5kg8m"]
+radius = 17.029387
+
+[node name="Volcano" type="CharacterBody2D" unique_id=1430583517]
+collision_layer = 3
+collision_mask = 5
+script = ExtResource("1_wpd0l")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=508936128]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_ig607")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=975602961]
+shape = SubResource("CircleShape2D_5kg8m")
+
+[node name="ShotTimer" type="Timer" parent="." unique_id=1249673974]
+one_shot = true
+
+[node name="EnemyComponent" parent="." unique_id=920270805 instance=ExtResource("3_evcgt")]
+
+[connection signal="timeout" from="ShotTimer" to="." method="_on_shot_timer_timeout"]

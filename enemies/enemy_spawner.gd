@@ -4,7 +4,8 @@ extends Node2D
 @export var flying: bool = false
 
 const FLYING = [preload("uid://bjxissut13r5b"), 
-preload("uid://1qekgha414yp")]
+preload("uid://1qekgha414yp"),
+preload("uid://c1c7vo31sm74l")]
 
 const GROUNDED = [preload("uid://dbj21rwlxkyql"),
 preload("uid://cqkgsr8jgrndt")]
