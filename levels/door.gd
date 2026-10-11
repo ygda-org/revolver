@@ -1,12 +1,7 @@
 extends Node2D
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
 func open():
 	Sfx.play(Sfx.Labels.ROOM_CLEAR_DOOR)
-	self.visible = false
+	$Anim.play("open")
 	$CollisionShape2D.disabled = true
