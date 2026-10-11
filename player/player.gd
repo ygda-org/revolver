@@ -95,6 +95,7 @@ func _physics_process(delta):
 		arm.look_at(get_global_mouse_position())
 		arm.rotation -= PI/2
 	if Input.is_action_just_pressed("shoot") and $ShotCD.is_stopped() and $ReloadTimer.is_stopped() and $ParryAnimDur.is_stopped():
+		$CenterArmPivot/Arm/BarrelPosition/FireParticles.emitting = true
 		$ShotCD.start()
 		var resource: BulletResource = GameState.get_bullet()
 		$Camera2D.add_trauma(resource.shake_trauma)
