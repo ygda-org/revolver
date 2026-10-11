@@ -16,3 +16,7 @@ func _on_body_entered(body):
 		body.hit(self)
 	elif body is TileMapLayer:
 		direction = 0
+
+
+func _on_timer_timeout():
+	queue_free()
