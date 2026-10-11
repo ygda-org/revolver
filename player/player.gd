@@ -98,6 +98,7 @@ func _physics_process(delta):
 		$ShotCD.start()
 		var resource: BulletResource = GameState.get_bullet()
 		$Camera2D.add_trauma(resource.shake_trauma)
+		$Camera2D.add_zoom_trauma(-0.07)
 		var shot_dir: Vector2 = global_position.direction_to(get_global_mouse_position())
 		var bullet = BULLET.instantiate()
 		bullet.resource = resource
