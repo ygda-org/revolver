@@ -15,9 +15,9 @@ func _physics_process(delta):
 		if $WallTimer.is_stopped():
 			$WallTimer.start()
 		if (global_position - GameState.player.global_position).x > 0:
-			$Anim.flip_h = true
-		else:
 			$Anim.flip_h = false
+		else:
+			$Anim.flip_h = true
 	else:
 		# wandering
 		if is_on_wall() or not $RayCastPivot/WalkoffDetector.is_colliding():
