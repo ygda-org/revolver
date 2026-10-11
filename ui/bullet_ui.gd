@@ -41,3 +41,6 @@ func _on_start_reload():
 func _on_stop_reload():
 	pivot.rotation = 0
 	render_bullets()
+
+func reset_rotation():
+	pivot.rotation = 0

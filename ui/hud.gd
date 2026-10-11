@@ -27,3 +27,4 @@ func _on_stop_reload():
 	$RevolverAnim.stop()
 	$RevolverAnim.frame_changed.disconnect($BulletUi.tick_step)
 	$RevolverAnim.play("default")
+	$BulletUi.reset_rotation()
