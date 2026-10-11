@@ -36,11 +36,13 @@ func _ready():
 		active_barrel.append(EMPTY_RES)
 		chosen_barrel.append(EMPTY_RES)
 	chosen_barrel[0] = NORMAL_RES
-	chosen_barrel[1] = NORMAL_RES
 	active_barrel[0] = NORMAL_RES
+	chosen_barrel[1] = NORMAL_RES
 	active_barrel[1] = NORMAL_RES
+	chosen_barrel[2] = NORMAL_RES
+	active_barrel[2] = NORMAL_RES
 	
-	inventory[NORMAL_RES] = 2
+	inventory[NORMAL_RES] = 3
 	
 	# for testing
 	#active_barrel[1] = load("uid://croa2j6asmrij")
