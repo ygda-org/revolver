@@ -95,11 +95,15 @@ metadata/_custom_type_script = "uid://ceepfr3v8cnmq"
 [sub_resource type="Resource" id="Resource_j5isx"]
 script = ExtResource("2_0skdd")
 stream = ExtResource("10_rdjfg")
+volume = -4.0
+pitch_variance = 0.05
 metadata/_custom_type_script = "uid://ceepfr3v8cnmq"
 
 [sub_resource type="Resource" id="Resource_70uvm"]
 script = ExtResource("2_0skdd")
 stream = ExtResource("11_jn1sc")
+volume = 2.0
+pitch_variance = 0.08
 metadata/_custom_type_script = "uid://ceepfr3v8cnmq"
 
 [sub_resource type="Resource" id="Resource_iwkng"]

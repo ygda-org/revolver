@@ -4,8 +4,8 @@
 
 [resource]
 script = ExtResource("1_fbuo7")
-damage = 3
-speed = 150.0
+damage = 5
+speed = 110.0
 effect = 15
 effect_strength = 125.0
 called_in_process = true

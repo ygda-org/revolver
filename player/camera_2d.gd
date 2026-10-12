@@ -4,14 +4,14 @@ var target_offset
 var trauma: float = 0.0
 var trauma_decay: float = 1.5
 @export var noise : FastNoiseLite
-var max_shake: Vector2 = Vector2(70, 50)
+var max_shake: Vector2 = Vector2(50, 30)
 var noise_height = 0
 
 var zoom_trauma: float = 1.0
 var zoom_trauma_decay: float = 1.5
 const MAX_ZOOM_TRAUMA_DIFF = 0.5
 
-const MULTIPLIER = 1.3
+const MULTIPLIER = 1.5
 
 func _ready():
 	noise.seed = 1042314
@@ -28,7 +28,10 @@ func _process(delta):
 	zoom = zoom.lerp(Vector2(2,2)*zoom_trauma, delta * 20)
 
 func add_trauma(amount):
-	trauma += amount
+	if trauma:
+		trauma += amount * (1/(1+amount)) * 0.8
+	else:
+		trauma += amount
 
 func shake():
 	var strength = pow(trauma, 2.5)
@@ -37,4 +40,7 @@ func shake():
 	offset.y = MULTIPLIER * target_offset.y + max_shake.y * strength * noise.get_noise_2d(noise.seed*3,noise_height)
 
 func add_zoom_trauma(amount):
-	zoom_trauma += amount
+	if zoom_trauma:
+		zoom_trauma += amount * (1/(1+abs(amount*5))) * 0.5
+	else:
+		zoom_trauma += amount
