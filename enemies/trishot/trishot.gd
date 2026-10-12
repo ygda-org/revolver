@@ -16,7 +16,9 @@ func _physics_process(delta):
 	var dist: float = global_position.distance_to(GameState.player.global_position)
 	if dist < DETECTION_RANGE and not $CanSeePlayer.is_colliding():
 		Sfx.play(Sfx.Labels.ASPID_HOVER)
+		
 		$Anim.play("locked")
+		
 		# fighting
 		if $ShotTimer.is_stopped():
 			$ShotTimer.start()
@@ -41,11 +43,13 @@ func _physics_process(delta):
 func _on_shot_timer_timeout():
 	if global_position.distance_to(GameState.player.global_position) > DETECTION_RANGE:
 		return
+	$Indicator.visible = true
 	$Indicator.play("default")
 	Sfx.play(Sfx.Labels.ASPID_WARNING)
 
 
 func _on_indicator_animation_finished():
+	$Indicator.visible = false
 	if global_position.distance_to(GameState.player.global_position) > DETECTION_RANGE:
 		return
 	Sfx.play(Sfx.Labels.ASPID_FIRE)

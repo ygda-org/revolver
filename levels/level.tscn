@@ -2,12 +2,20 @@
 
 [ext_resource type="Script" uid="uid://dufmna485vpd1" path="res://levels/level.gd" id="1_80vhd"]
 [ext_resource type="PackedScene" uid="uid://cf2xk3uwq1pu3" path="res://levels/background.tscn" id="2_hjsbj"]
+[ext_resource type="Texture2D" uid="uid://dlbb2kg1nkspe" path="res://assets/icon.svg" id="3_cwqvt"]
+
+[sub_resource type="Environment" id="Environment_377x3"]
+glow_enabled = true
 
 [node name="Level" type="Node2D" unique_id=2114628824]
 z_index = -10
 script = ExtResource("1_80vhd")
 
-[node name="Background" parent="." unique_id=2076974054 instance=ExtResource("2_hjsbj")]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=396011254]
+layer = -2
+follow_viewport_enabled = true
+
+[node name="Background" parent="CanvasLayer" unique_id=2076974054 instance=ExtResource("2_hjsbj")]
 z_index = -9
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=2133948050]
@@ -18,3 +26,17 @@ offset_top = -8760.0
 offset_right = 15661.0
 offset_bottom = 6786.0
 color = Color(0.09411765, 0.11764706, 0.1882353, 1)
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=469701792]
+color = Color(0.62806123, 0.62806123, 0.62806123, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1749039889]
+visible = false
+position = Vector2(617, 452)
+texture = ExtResource("3_cwqvt")
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="." unique_id=194623568]
+visible = false
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1651219217]
+environment = SubResource("Environment_377x3")

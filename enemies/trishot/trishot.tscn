@@ -6,11 +6,14 @@
 [ext_resource type="PackedScene" uid="uid://d3jnp7vef3gti" path="res://enemies/enemy_component.tscn" id="3_gicyq"]
 [ext_resource type="Texture2D" uid="uid://bcspnr7q7w4li" path="res://assets/enemies/trishot/aspid_locked.png" id="3_nq6l0"]
 [ext_resource type="Texture2D" uid="uid://0bl7q2q1826s" path="res://assets/enemies/trishot/aspid_indicator.png" id="5_abcbd"]
+[ext_resource type="Shader" uid="uid://bj3f2c0rxb4wh" path="res://levels/start_end_rooms/color_emmisive.gdshader" id="6_w4h3w"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_abcbd"]
 resource_local_to_scene = true
 shader = ExtResource("2_abcbd")
 shader_parameter/flash_modulate = 0.0
+shader_parameter/old_color = Color(0.827451, 0.14901961, 0.14901961, 1)
+shader_parameter/new_color = Color(1.5169408, 0.30551618, 0.30551618, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ju4to"]
 atlas = ExtResource("2_gicyq")
@@ -200,8 +203,25 @@ animations = [{
 "speed": 24.0
 }]
 
+[sub_resource type="Gradient" id="Gradient_w4h3w"]
+offsets = PackedFloat32Array(0, 0.6838982, 0.90988696)
+colors = PackedColorArray(1, 0, 0, 0.432, 1, 0, 0, 0.18300001, 1, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_55d6i"]
+gradient = SubResource("Gradient_w4h3w")
+width = 96
+height = 96
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_3v7li"]
 radius = 13.038404
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3rqhh"]
+shader = ExtResource("6_w4h3w")
+shader_parameter/old_color = Color(0.827451, 0.14901961, 0.14901961, 1)
+shader_parameter/new_color = Color(1.5169408, 0.30551618, 0.30551618, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rcb2s"]
 atlas = ExtResource("5_abcbd")
@@ -284,7 +304,11 @@ material = SubResource("ShaderMaterial_abcbd")
 sprite_frames = SubResource("SpriteFrames_3v7li")
 animation = &"fly"
 autoplay = "fly"
-frame_progress = 0.6602085
+
+[node name="PointLight2D" type="PointLight2D" parent="Anim" unique_id=285280518]
+position = Vector2(0, -1)
+energy = 3.0
+texture = SubResource("GradientTexture2D_55d6i")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1446767536]
 visible = false
@@ -300,6 +324,8 @@ wait_time = 2.0
 one_shot = true
 
 [node name="Indicator" type="AnimatedSprite2D" parent="." unique_id=1788836596]
+visible = false
+material = SubResource("ShaderMaterial_3rqhh")
 sprite_frames = SubResource("SpriteFrames_5kg8m")
 frame = 8
 frame_progress = 1.0

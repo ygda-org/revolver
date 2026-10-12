@@ -9,6 +9,16 @@
 resource_local_to_scene = true
 shader = ExtResource("1_kpk0w")
 shader_parameter/flash_modulate = 0.0
+shader_parameter/old_color = Color(0.827451, 0.14901961, 0.14901961, 1)
+shader_parameter/new_color = Color(1.5169408, 0.30551618, 0.30551618, 1)
+shader_parameter/old_color2 = Color(0.047058824, 0.9019608, 0.9490196, 1)
+shader_parameter/new_color2 = Color(0.13335153, 1.6498427, 1.7340242, 1)
+shader_parameter/old_color3 = Color(0, 0.59607846, 0.85882354, 1)
+shader_parameter/new_color3 = Color(0, 1.1051073, 1.5728885, 1)
+shader_parameter/old_color4 = Color(0.11764706, 0.34117648, 0.6117647, 1)
+shader_parameter/new_color4 = Color(0.25278953, 0.64995646, 1.1323671, 1)
+shader_parameter/old_color5 = Color(0.047058824, 0.9019608, 0.9529412, 1)
+shader_parameter/new_color5 = Color(0.13335153, 1.6498427, 1.7407221, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kpk0w"]
 atlas = ExtResource("2_evcgt")
@@ -63,6 +73,27 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_5kg8m"]
 radius = 15.0
 
+[sub_resource type="Gradient" id="Gradient_kpk0w"]
+offsets = PackedFloat32Array(0, 0.90706205)
+colors = PackedColorArray(1, 0, 0, 0.577, 1, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_55d6i"]
+gradient = SubResource("Gradient_kpk0w")
+width = 72
+height = 72
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
+[sub_resource type="Gradient" id="Gradient_x0dui"]
+offsets = PackedFloat32Array(0.03700558, 0.07090388, 0.5144067, 1)
+colors = PackedColorArray(0.07846785, 0.83116233, 0.87455684, 0, 0.078431375, 0.83137256, 0.8745098, 1, 0.07846694, 0.83116764, 0.87455565, 0.025141299, 0.07846785, 0.83116233, 0.87455684, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_kpk0w"]
+gradient = SubResource("Gradient_x0dui")
+fill_from = Vector2(1, 0)
+fill_to = Vector2(0, 1)
+
 [node name="Volcano" type="CharacterBody2D" unique_id=1430583517]
 collision_layer = 3
 collision_mask = 5
@@ -72,7 +103,6 @@ script = ExtResource("1_wpd0l")
 material = SubResource("ShaderMaterial_lt5em")
 sprite_frames = SubResource("SpriteFrames_wpd0l")
 autoplay = "default"
-frame_progress = 0.9286495
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=975602961]
 visible = false
@@ -97,5 +127,20 @@ collision_mask = 8
 position = Vector2(0, -13)
 target_position = Vector2(0, -20)
 collision_mask = 8
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=2086732983]
+position = Vector2(-12, 10)
+texture = SubResource("GradientTexture2D_55d6i")
+
+[node name="PointLight2D2" type="PointLight2D" parent="." unique_id=1861427451]
+position = Vector2(12, 10)
+texture = SubResource("GradientTexture2D_55d6i")
+
+[node name="PointLight2D3" type="PointLight2D" parent="." unique_id=1926600187]
+visible = false
+position = Vector2(0, 45)
+rotation = -0.7853982
+scale = Vector2(0.99999994, 0.99999994)
+texture = SubResource("GradientTexture2D_kpk0w")
 
 [connection signal="timeout" from="ShotTimer" to="." method="_on_shot_timer_timeout"]

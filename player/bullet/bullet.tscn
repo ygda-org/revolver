@@ -47,7 +47,8 @@ collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_k2a0t")
 
-[node name="Light" type="Sprite2D" parent="." unique_id=1996294037]
+[node name="Light" type="PointLight2D" parent="." unique_id=1427513303]
+energy = 5.0
 texture = SubResource("GradientTexture2D_e8pb5")
 
 [node name="Anim" type="AnimatedSprite2D" parent="." unique_id=866038578]

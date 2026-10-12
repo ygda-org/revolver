@@ -10,6 +10,8 @@
 resource_local_to_scene = true
 shader = ExtResource("2_jr066")
 shader_parameter/flash_modulate = 0.0
+shader_parameter/old_color = Color(0.827451, 0.14901961, 0.14901961, 1)
+shader_parameter/new_color = Color(1.5169408, 0.30551618, 0.30551618, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h4jjm"]
 atlas = ExtResource("3_62xip")
@@ -116,6 +118,16 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sgxws"]
 size = Vector2(26, 44)
 
+[sub_resource type="Gradient" id="Gradient_jr066"]
+offsets = PackedFloat32Array(0, 0.7460451)
+colors = PackedColorArray(1, 0, 0, 0.577, 1, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_5fofi"]
+gradient = SubResource("Gradient_jr066")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
 [node name="WallEnemy" type="CharacterBody2D" unique_id=967547360]
 collision_layer = 3
 collision_mask = 37
@@ -145,6 +157,10 @@ wait_time = 4.0
 one_shot = true
 
 [node name="RayCastPivot" type="Node2D" parent="." unique_id=125983907]
+
+[node name="PointLight2D" type="PointLight2D" parent="RayCastPivot" unique_id=14303683]
+position = Vector2(11, 0)
+texture = SubResource("GradientTexture2D_5fofi")
 
 [node name="WalkoffDetector" type="RayCast2D" parent="RayCastPivot" unique_id=651601387]
 position = Vector2(30, 22)

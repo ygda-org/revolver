@@ -10,6 +10,8 @@
 resource_local_to_scene = true
 shader = ExtResource("2_lt5em")
 shader_parameter/flash_modulate = 0.0
+shader_parameter/old_color = Color(1, 0, 0.08235294, 1)
+shader_parameter/new_color = Color(4.008322, 0, 0.4590501, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5gxxa"]
 atlas = ExtResource("2_5gxxa")
@@ -97,6 +99,16 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sesbg"]
 size = Vector2(27, 9)
 
+[sub_resource type="Gradient" id="Gradient_lt5em"]
+offsets = PackedFloat32Array(0, 0.83926547)
+colors = PackedColorArray(0.8559276, 0, 0, 0.56600004, 1, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_55d6i"]
+gradient = SubResource("Gradient_lt5em")
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0.5, 0.5)
+metadata/_snap_enabled = true
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5gxxa"]
 size = Vector2(14, 12)
 
@@ -109,6 +121,8 @@ script = ExtResource("1_5gxxa")
 material = SubResource("ShaderMaterial_lt5em")
 sprite_frames = SubResource("SpriteFrames_mbm62")
 autoplay = "default"
+frame = 1
+frame_progress = 0.0060424847
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1821245678]
 visible = false
@@ -131,6 +145,11 @@ collision_mask = 33
 position = Vector2(0, 9)
 target_position = Vector2(250, 0)
 collision_mask = 4
+
+[node name="Light" type="PointLight2D" parent="RaycastPivot" unique_id=341777148]
+position = Vector2(49, 8)
+rotation = 0.7853982
+texture = SubResource("GradientTexture2D_55d6i")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=1900050380]
 visible = false

@@ -20,12 +20,14 @@ func _physics_process(delta):
 	if $RaycastPivot/PlayerDetector.is_colliding():
 		if player_not_seen:
 			Sfx.play(Sfx.Labels.SCORPION_DETECTION)
+		$RaycastPivot/Light.energy = lerp($RaycastPivot/Light.energy, 4.0, delta * 5)
 		player_not_seen = false
 		$Anim.play("run")
 		velocity.x *= 2
 	else:
 		$Anim.play("default")
 		player_not_seen = true
+		$RaycastPivot/Light.energy = lerp($RaycastPivot/Light.energy, 1.0, delta * 5)
 	if velocity.x > 0:
 		$Anim.flip_h = true
 	elif velocity.x < 0:

@@ -4,6 +4,15 @@
 [ext_resource type="Texture2D" uid="uid://cuhcpw661xpjv" path="res://assets/enemies/volcano/evil_pomelo_projectile.png" id="2_8serf"]
 [ext_resource type="PackedScene" uid="uid://b0jky4c7011ds" path="res://player/bullet/trail.tscn" id="3_gbidc"]
 
+[sub_resource type="Gradient" id="Gradient_3rqhh"]
+colors = PackedColorArray(0.7604822, 0, 0.07846785, 0.634, 0.91582435, 0.57825565, 0.5818069, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_55d6i"]
+gradient = SubResource("Gradient_3rqhh")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 1)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_gbidc"]
 atlas = ExtResource("2_8serf")
 region = Rect2(0, 0, 5, 12)
@@ -47,6 +56,9 @@ radius = 3.0
 collision_layer = 16
 collision_mask = 20
 script = ExtResource("1_8serf")
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1446025449]
+texture = SubResource("GradientTexture2D_55d6i")
 
 [node name="Anim" type="AnimatedSprite2D" parent="." unique_id=772820243]
 sprite_frames = SubResource("SpriteFrames_el4uh")

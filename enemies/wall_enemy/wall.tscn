@@ -2,6 +2,12 @@
 
 [ext_resource type="Script" uid="uid://b256iwr7h2hf4" path="res://enemies/wall_enemy/wall.gd" id="1_3xvwh"]
 [ext_resource type="Texture2D" uid="uid://5jv3ags0bstf" path="res://assets/enemies/wall/evil_go_dot_wall_12fps.png" id="2_3xvwh"]
+[ext_resource type="Shader" uid="uid://dl18dp0dp3ep1" path="res://enemies/wall_enemy/wall.gdshader" id="2_x5ufx"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jr066"]
+shader = ExtResource("2_x5ufx")
+shader_parameter/old_color = PackedColorArray(0, 0.59607846, 0.85882354, 1, 0.11764706, 0.34117648, 0.6117647, 1, 0.047058824, 0.9019608, 0.9490196, 1, 1, 1, 1, 1)
+shader_parameter/new_color = PackedColorArray(0, 1.1051073, 1.5728885, 1, 1.1815963, 1.7970974, 1.8247963, 1, 0.13335153, 1.6498427, 1.7340242, 1, 1.8247963, 1.8247963, 1.8247963, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x5ufx"]
 atlas = ExtResource("2_3xvwh")
@@ -193,6 +199,7 @@ collision_mask = 5
 script = ExtResource("1_3xvwh")
 
 [node name="Anim" type="AnimatedSprite2D" parent="." unique_id=1897745704]
+material = SubResource("ShaderMaterial_jr066")
 sprite_frames = SubResource("SpriteFrames_rjwtc")
 animation = &"end"
 autoplay = "default"
@@ -200,6 +207,7 @@ frame = 11
 frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1594396064]
+visible = false
 position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_5kg8m")
 disabled = true
