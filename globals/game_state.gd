@@ -32,6 +32,8 @@ var inventory : Dictionary[BulletResource, int] = {
 
 const NORMAL_RES : BulletResource = preload("res://player/bullet/bullet_resources/normal.tres")
 
+var cleared_levels: int = 0
+
 func _ready():
 	for i in range(barrel_size):
 		active_barrel.append(EMPTY_RES)
