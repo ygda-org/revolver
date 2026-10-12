@@ -10,22 +10,27 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kn6rb"]
 shader = ExtResource("4_j30cm")
 shader_parameter/outline_color = Color(0, 0, 0, 1)
+shader_parameter/invisible = false
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_w04jx"]
 shader = ExtResource("4_j30cm")
 shader_parameter/outline_color = Color(0, 0, 0, 1)
+shader_parameter/invisible = false
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_b5hk6"]
 shader = ExtResource("4_j30cm")
 shader_parameter/outline_color = Color(0, 0, 0, 1)
+shader_parameter/invisible = false
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_806uc"]
 shader = ExtResource("4_j30cm")
 shader_parameter/outline_color = Color(0, 0, 0, 1)
+shader_parameter/invisible = false
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6pexp"]
 shader = ExtResource("4_j30cm")
 shader_parameter/outline_color = Color(0, 0, 0, 1)
+shader_parameter/invisible = false
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_5fofi"]
 a = Vector2(1.5, -15.5)
@@ -46,6 +51,75 @@ b = Vector2(152, -7)
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_lq1ig"]
 a = Vector2(200, -39)
 b = Vector2(200, -8)
+
+[sub_resource type="FontFile" id="FontFile_j30cm"]
+cache/0/variation_coordinates = {}
+cache/0/face_index = 0
+cache/0/embolden = 0.0
+cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
+cache/0/spacing_top = 0
+cache/0/spacing_bottom = 0
+cache/0/spacing_space = 0
+cache/0/spacing_glyph = 0
+cache/0/baseline_offset = 0.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/7/0/ascent = 0.0
+cache/0/7/0/descent = 0.0
+cache/0/7/0/underline_position = 0.0
+cache/0/7/0/underline_thickness = 0.0
+cache/0/7/0/scale = 1.0
+cache/0/8/0/ascent = 0.0
+cache/0/8/0/descent = 0.0
+cache/0/8/0/underline_position = 0.0
+cache/0/8/0/underline_thickness = 0.0
+cache/0/8/0/scale = 1.0
+cache/0/9/0/ascent = 0.0
+cache/0/9/0/descent = 0.0
+cache/0/9/0/underline_position = 0.0
+cache/0/9/0/underline_thickness = 0.0
+cache/0/9/0/scale = 1.0
+cache/0/10/0/ascent = 0.0
+cache/0/10/0/descent = 0.0
+cache/0/10/0/underline_position = 0.0
+cache/0/10/0/underline_thickness = 0.0
+cache/0/10/0/scale = 1.0
+cache/0/11/0/ascent = 0.0
+cache/0/11/0/descent = 0.0
+cache/0/11/0/underline_position = 0.0
+cache/0/11/0/underline_thickness = 0.0
+cache/0/11/0/scale = 1.0
+cache/0/12/0/ascent = 0.0
+cache/0/12/0/descent = 0.0
+cache/0/12/0/underline_position = 0.0
+cache/0/12/0/underline_thickness = 0.0
+cache/0/12/0/scale = 1.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_riqys"]
+font = SubResource("FontFile_j30cm")
+font_size = 7
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_j30cm"]
+shader = ExtResource("4_j30cm")
+shader_parameter/outline_color = Color(0, 0, 0, 1)
+shader_parameter/invisible = false
+
+[sub_resource type="LabelSettings" id="LabelSettings_j30cm"]
+font = SubResource("FontFile_j30cm")
+font_size = 12
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_xrrek"]
+font = SubResource("FontFile_j30cm")
+font_size = 10
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
 
 [node name="TRoomEnd" type="Node2D" unique_id=850289066]
 script = ExtResource("1_ujw0c")
@@ -115,6 +189,40 @@ texture = ExtResource("5_ujw0c")
 position = Vector2(200, -16)
 texture = ExtResource("5_ujw0c")
 
+[node name="Hovers" type="Node2D" parent="." unique_id=530360086]
+position = Vector2(176, 242)
+
+[node name="Area2D" type="Area2D" parent="Hovers" unique_id=756609662]
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hovers/Area2D" unique_id=1611383922]
+position = Vector2(6.5, -24.5)
+shape = SubResource("SegmentShape2D_5fofi")
+
+[node name="Area2D2" type="Area2D" parent="Hovers" unique_id=1335536758]
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hovers/Area2D2" unique_id=91415673]
+shape = SubResource("SegmentShape2D_377x3")
+
+[node name="Area2D3" type="Area2D" parent="Hovers" unique_id=596230601]
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hovers/Area2D3" unique_id=1373525705]
+shape = SubResource("SegmentShape2D_vluf6")
+
+[node name="Area2D4" type="Area2D" parent="Hovers" unique_id=332306686]
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hovers/Area2D4" unique_id=299282076]
+shape = SubResource("SegmentShape2D_p5txo")
+
+[node name="Area2D5" type="Area2D" parent="Hovers" unique_id=287287741]
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hovers/Area2D5" unique_id=418686895]
+shape = SubResource("SegmentShape2D_lq1ig")
+
 [node name="Areas" type="Node2D" parent="." unique_id=82468741]
 position = Vector2(176, 200)
 
@@ -148,3 +256,101 @@ collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Area2D5" unique_id=1525609739]
 shape = SubResource("SegmentShape2D_lq1ig")
+
+[node name="BulletNames" type="Node2D" parent="." unique_id=763328978]
+
+[node name="Label" type="Label" parent="BulletNames" unique_id=124990769]
+offset_left = 160.0
+offset_top = 150.0
+offset_right = 208.0
+offset_bottom = 161.0
+text = "Bullet1"
+label_settings = SubResource("LabelSettings_riqys")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="BulletNames" unique_id=440055246]
+offset_left = 208.0
+offset_top = 150.0
+offset_right = 256.0
+offset_bottom = 161.0
+text = "Bullet2"
+label_settings = SubResource("LabelSettings_riqys")
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="BulletNames" unique_id=1001998658]
+offset_left = 256.0
+offset_top = 150.0
+offset_right = 304.0
+offset_bottom = 161.0
+text = "Bullet3"
+label_settings = SubResource("LabelSettings_riqys")
+horizontal_alignment = 1
+
+[node name="Label4" type="Label" parent="BulletNames" unique_id=125864980]
+offset_left = 304.0
+offset_top = 150.0
+offset_right = 352.0
+offset_bottom = 161.0
+text = "Bullet4"
+label_settings = SubResource("LabelSettings_riqys")
+horizontal_alignment = 1
+
+[node name="Label5" type="Label" parent="BulletNames" unique_id=251328912]
+offset_left = 352.0
+offset_top = 150.0
+offset_right = 400.0
+offset_bottom = 161.0
+text = "Bullet5"
+label_settings = SubResource("LabelSettings_riqys")
+horizontal_alignment = 1
+
+[node name="Screen" type="Node2D" parent="." unique_id=2110414792]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Screen" unique_id=61129642]
+offset_left = 202.0
+offset_top = 44.0
+offset_right = 347.0
+offset_bottom = 127.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Screen/VBoxContainer" unique_id=1794658692]
+layout_mode = 2
+size_flags_vertical = 0
+alignment = 1
+
+[node name="BulletTexture" type="TextureRect" parent="Screen/VBoxContainer/HBoxContainer" unique_id=1750536756]
+material = SubResource("ShaderMaterial_j30cm")
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = ExtResource("4_wwl7g")
+stretch_mode = 2
+
+[node name="Name" type="Label" parent="Screen/VBoxContainer/HBoxContainer" unique_id=1066647068]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+text = "BulletName"
+label_settings = SubResource("LabelSettings_j30cm")
+horizontal_alignment = 1
+
+[node name="Description" type="Label" parent="Screen/VBoxContainer" unique_id=1944369203]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Dash forward and automatically fire your next shot with its effects multiplied"
+label_settings = SubResource("LabelSettings_xrrek")
+autowrap_mode = 3
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Screen/VBoxContainer" unique_id=1259233080]
+layout_mode = 2
+
+[node name="Damage" type="Label" parent="Screen/VBoxContainer/HBoxContainer2" unique_id=1882358409]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Damage: 10"
+label_settings = SubResource("LabelSettings_riqys")
+
+[node name="Speed" type="Label" parent="Screen/VBoxContainer/HBoxContainer2" unique_id=812665995]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Speed: 10"
+label_settings = SubResource("LabelSettings_riqys")

@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://ea2dg67f42j8" path="res://ui/inventory/inventory.gd" id="1_qrt2q"]
 [ext_resource type="Texture2D" uid="uid://bl8jxwdbu3isr" path="res://assets/ui/revolver_single.png" id="1_t68fq"]
+[ext_resource type="Shader" uid="uid://b4pewokr7fm1b" path="res://player/bullet/bullet.gdshader" id="3_lep46"]
+[ext_resource type="Texture2D" uid="uid://cmybf5a4eu7xx" path="res://assets/temp_art/shell_back.png" id="4_ucnnj"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_55d6i"]
 radius = 21.0
@@ -20,6 +22,75 @@ radius = 21.095022
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lq1ig"]
 radius = 21.213203
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_u411f"]
+shader = ExtResource("3_lep46")
+shader_parameter/outline_color = Color(0, 0, 0, 1)
+shader_parameter/invisible = false
+
+[sub_resource type="FontFile" id="FontFile_j30cm"]
+cache/0/variation_coordinates = {}
+cache/0/face_index = 0
+cache/0/embolden = 0.0
+cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
+cache/0/spacing_top = 0
+cache/0/spacing_bottom = 0
+cache/0/spacing_space = 0
+cache/0/spacing_glyph = 0
+cache/0/baseline_offset = 0.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/7/0/ascent = 0.0
+cache/0/7/0/descent = 0.0
+cache/0/7/0/underline_position = 0.0
+cache/0/7/0/underline_thickness = 0.0
+cache/0/7/0/scale = 1.0
+cache/0/8/0/ascent = 0.0
+cache/0/8/0/descent = 0.0
+cache/0/8/0/underline_position = 0.0
+cache/0/8/0/underline_thickness = 0.0
+cache/0/8/0/scale = 1.0
+cache/0/9/0/ascent = 0.0
+cache/0/9/0/descent = 0.0
+cache/0/9/0/underline_position = 0.0
+cache/0/9/0/underline_thickness = 0.0
+cache/0/9/0/scale = 1.0
+cache/0/10/0/ascent = 0.0
+cache/0/10/0/descent = 0.0
+cache/0/10/0/underline_position = 0.0
+cache/0/10/0/underline_thickness = 0.0
+cache/0/10/0/scale = 1.0
+cache/0/11/0/ascent = 0.0
+cache/0/11/0/descent = 0.0
+cache/0/11/0/underline_position = 0.0
+cache/0/11/0/underline_thickness = 0.0
+cache/0/11/0/scale = 1.0
+cache/0/12/0/ascent = 0.0
+cache/0/12/0/descent = 0.0
+cache/0/12/0/underline_position = 0.0
+cache/0/12/0/underline_thickness = 0.0
+cache/0/12/0/scale = 1.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_138qw"]
+font = SubResource("FontFile_j30cm")
+font_size = 12
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_8dyvk"]
+font = SubResource("FontFile_j30cm")
+font_size = 10
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_galwr"]
+font = SubResource("FontFile_j30cm")
+font_size = 7
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
 
 [node name="Inventory" type="Control" unique_id=1702912330]
 layout_mode = 3
@@ -128,5 +199,57 @@ offset_top = 430.0
 offset_right = 847.0
 offset_bottom = 476.0
 text = "EXIT"
+
+[node name="Screen" type="Node2D" parent="." unique_id=408079578]
+position = Vector2(500, 4)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Screen" unique_id=26108419]
+offset_left = 202.0
+offset_top = 44.0
+offset_right = 347.0
+offset_bottom = 127.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Screen/VBoxContainer" unique_id=529044131]
+layout_mode = 2
+size_flags_vertical = 0
+alignment = 1
+
+[node name="BulletTexture" type="TextureRect" parent="Screen/VBoxContainer/HBoxContainer" unique_id=1471442098]
+material = SubResource("ShaderMaterial_u411f")
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = ExtResource("4_ucnnj")
+stretch_mode = 2
+
+[node name="Name" type="Label" parent="Screen/VBoxContainer/HBoxContainer" unique_id=1612216506]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+text = "BulletName"
+label_settings = SubResource("LabelSettings_138qw")
+horizontal_alignment = 1
+
+[node name="Description" type="Label" parent="Screen/VBoxContainer" unique_id=2130485584]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Dash forward and automatically fire your next shot with its effects multiplied"
+label_settings = SubResource("LabelSettings_8dyvk")
+autowrap_mode = 3
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Screen/VBoxContainer" unique_id=551703072]
+layout_mode = 2
+
+[node name="Damage" type="Label" parent="Screen/VBoxContainer/HBoxContainer2" unique_id=671508454]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Damage: 10"
+label_settings = SubResource("LabelSettings_galwr")
+
+[node name="Speed" type="Label" parent="Screen/VBoxContainer/HBoxContainer2" unique_id=1816160524]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Speed: 10"
+label_settings = SubResource("LabelSettings_galwr")
 
 [connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]

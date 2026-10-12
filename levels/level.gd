@@ -5,7 +5,7 @@ var pool : Array[PackedScene] = []
 var start_room : PackedScene = preload("res://levels/start_end_rooms/t_room_start.tscn")
 var end_room : PackedScene = preload("res://levels/start_end_rooms/t_room_end.tscn")
 
-var level_length : int = 16
+var level_length : int = 0
 
 const ROOMS_PATH : String = "res://levels/finalized_levels/"
 
