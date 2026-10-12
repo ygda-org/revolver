@@ -80,6 +80,11 @@ func generate_inven_markers(rows : int, columns : int):
 			marker.position.y += y_vec * r_percent
 			$InvenMarkers.add_child(marker)
 
+func update_tooltip(bullet_resource : BulletResource):
+	$Screen/VBoxContainer/HBoxContainer/Name.text = bullet_resource.bullet_name
+	$Screen/VBoxContainer/Description.text = bullet_resource.description
+	$Screen/VBoxContainer/HBoxContainer2/Damage.text = "Damage: " + str(bullet_resource.damage)
+	$Screen/VBoxContainer/HBoxContainer2/Speed.text = "Speed: " + str(bullet_resource.speed)
 
 func _on_exit_pressed() -> void:
 	for i in range(6):

@@ -69,3 +69,7 @@ func _on_area_2d_area_exited(area: Area2D) -> void:
 		intersecting_areas.remove_at(intersecting_areas.find(area))
 	if len(intersecting_areas) == 0:
 		set_is_full(true)
+
+
+func _on_button_mouse_entered() -> void:
+	parent.update_tooltip(bullet_resource)

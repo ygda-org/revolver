@@ -289,7 +289,6 @@ stretch_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 0
-text = "BulletName"
 label_settings = SubResource("LabelSettings_j30cm")
 horizontal_alignment = 1
 
@@ -297,7 +296,7 @@ horizontal_alignment = 1
 custom_minimum_size = Vector2(10, 10)
 layout_mode = 2
 size_flags_vertical = 3
-text = "Dash forward and automatically fire your next shot with its effects multiplied"
+text = "STAND UNDER A BULLET TO SEE ITS EFFECTS"
 label_settings = SubResource("LabelSettings_xrrek")
 autowrap_mode = 3
 
@@ -307,13 +306,13 @@ layout_mode = 2
 [node name="Damage" type="Label" parent="Screen/VBoxContainer/HBoxContainer2" unique_id=1882358409]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Damage: 10"
+text = "Damage: --"
 label_settings = SubResource("LabelSettings_riqys")
 
 [node name="Speed" type="Label" parent="Screen/VBoxContainer/HBoxContainer2" unique_id=812665995]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Speed: 10"
+text = "Speed: --"
 label_settings = SubResource("LabelSettings_riqys")
 
 [node name="RoomEntryTrigger" type="Area2D" parent="." unique_id=1041710827]
