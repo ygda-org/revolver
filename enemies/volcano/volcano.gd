@@ -6,7 +6,7 @@ const SPEED = 40
 const ACCELERATION = 60
 
 const DETECTION_RANGE = 200
-const DESIRED_HEIGHT = 100
+const DESIRED_HEIGHT = 80
 
 func _ready():
 	$EnemyComponent.got_hit.connect(hit)
@@ -34,7 +34,7 @@ func _physics_process(delta):
 
 
 func _on_shot_timer_timeout():
-	var shot_dir: Vector2 = Vector2(0,-1).rotated(randf_range(-PI/6, PI/6))
+	var shot_dir: Vector2 = Vector2(0,-1).rotated(randf_range(-PI/5, PI/5))
 	var pellet = PELLET.instantiate()
 	pellet.velocity = shot_dir * 70
 	get_parent().add_child(pellet)
