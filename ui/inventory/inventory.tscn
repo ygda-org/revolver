@@ -186,6 +186,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Description" type="Label" parent="Screen/VBoxContainer" unique_id=2130485584]
+custom_minimum_size = Vector2(10, 10)
 layout_mode = 2
 size_flags_vertical = 3
 text = "HOVER OVER A BULLET TO SEE ITS EFFECTS"

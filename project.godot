@@ -19,6 +19,7 @@ config/icon="uid://cvqcx4b2q2k21"
 
 GameState="*uid://detm7ccbjbhs3"
 Sfx="*uid://d1mff478o3ug3"
+MusicPlayer="*uid://chmwk6sakdq8c"
 
 [display]
 
