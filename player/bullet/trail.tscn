@@ -19,7 +19,7 @@ gradient = SubResource("Gradient_dp4o3")
 fill_to = Vector2(0, 1)
 
 [node name="Trail" type="Line2D" unique_id=786189251]
-top_level = true
+show_behind_parent = true
 z_index = -1
 width = 5.0
 width_curve = SubResource("Curve_dp4o3")

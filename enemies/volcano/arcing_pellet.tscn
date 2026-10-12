@@ -61,6 +61,7 @@ shape = SubResource("CircleShape2D_5kg8m")
 rect = Rect2(-1, -4, 2, 1)
 
 [node name="Trail" parent="." unique_id=786189251 instance=ExtResource("3_gbidc")]
+z_index = 0
 default_color = Color(0.9422043, 0.76919216, 0.7473762, 1)
 length = 10
 lighting_length = 15
