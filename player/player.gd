@@ -63,6 +63,7 @@ func _physics_process(delta):
 			was_in_air_last_frame = false
 			Sfx.play(Sfx.Labels.LAND_METAL)
 			$GroundParticles.emitting = true;
+			$Anim.play("land")
 		if velocity.x and $FootstepTimer.is_stopped():
 			_on_footstep_timer_timeout()
 	if Input.is_action_just_pressed("jump"):
@@ -74,6 +75,7 @@ func _physics_process(delta):
 		$JumpBuffer.stop()
 		velocity.y -= JUMP_FORCE
 		Sfx.play(Sfx.Labels.JUMP_METAL)
+	
 	
 	# left right movement
 	if $DashDur.is_stopped() and $RecoilLock.is_stopped():
@@ -87,7 +89,14 @@ func _physics_process(delta):
 			velocity.x = move_toward(velocity.x, 0, DECELERATION * decel_curve.sample(abs(velocity.x/MAX_SPEED)) * delta)
 		velocity.x = clampf(velocity.x, -MAX_SPEED, MAX_SPEED)
 	set_collision_mask_value(6, not Input.is_action_pressed("drop"))
-		
+	
+	#Jump Anim
+	if not is_on_floor():
+		if velocity.y < -30:
+			$Anim.play("jump")
+		else:
+			$Anim.play("fall")
+	
 	# shooting
 	var mouse_offset: Vector2 = (get_global_mouse_position() - global_position)/6
 	mouse_offset.y /= 2
@@ -135,6 +144,7 @@ func _physics_process(delta):
 			tween.tween_property(arm, "rotation", arm.rotation + PI/3, PARRY_WINDOW-PREPARRY_WINDOW)
 			$ParryAnimDur.start()
 	if not $HitStun.is_stopped():
+		$Anim.play("hurt")
 		print(hit_stun_velocity)
 		velocity = hit_stun_velocity
 		hit_stun_velocity -= hit_stun_velocity * 10 * delta

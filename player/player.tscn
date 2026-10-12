@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cljm30xslmloh" path="res://assets/player/astro jump.png" id="2_boad6"]
 [ext_resource type="Texture2D" uid="uid://uqf1yheu0n3g" path="res://assets/player/astronaut body.png" id="2_g1dw6"]
 [ext_resource type="Script" uid="uid://bjhjk6cxhvbry" path="res://player/camera_2d.gd" id="3_g1dw6"]
+[ext_resource type="Texture2D" uid="uid://c3h7b304mudvd" path="res://assets/player/damage.png" id="3_rgyib"]
 [ext_resource type="Texture2D" uid="uid://csmp37xwnpqoq" path="res://assets/player/astronaut arm.png" id="3_yw30f"]
 [ext_resource type="Texture2D" uid="uid://ir74qqfgncpb" path="res://assets/player/gun 1.png" id="4_qjkh3"]
 [ext_resource type="Texture2D" uid="uid://dmjods571d8vx" path="res://assets/player/astrowalk.png" id="4_rgyib"]
@@ -31,6 +32,10 @@ region = Rect2(32, 33, 32, 33)
 [sub_resource type="AtlasTexture" id="AtlasTexture_8t03j"]
 atlas = ExtResource("2_boad6")
 region = Rect2(64, 33, 32, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g4c7l"]
+atlas = ExtResource("3_rgyib")
+region = Rect2(0, 33, 32, 33)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2ieo8"]
 atlas = ExtResource("2_boad6")
@@ -93,8 +98,16 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_8t03j")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"fall",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g4c7l")
+}],
+"loop": 0,
+"name": &"hurt",
 "speed": 5.0
 }, {
 "frames": [{
@@ -132,7 +145,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_tqiix")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"land",
 "speed": 5.0
 }, {
@@ -199,7 +212,7 @@ grav_curve_dec = SubResource("Curve_qjkh3")
 
 [node name="Anim" type="AnimatedSprite2D" parent="." unique_id=1995355500]
 sprite_frames = SubResource("SpriteFrames_5kg8m")
-animation = &"walk"
+animation = &"hurt"
 offset = Vector2(0, -0.5)
 
 [node name="CenterArmPivot" type="Node2D" parent="." unique_id=187030314]
