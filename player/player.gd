@@ -79,7 +79,10 @@ func _physics_process(delta):
 	if $DashDur.is_stopped() and $RecoilLock.is_stopped():
 		var dir: float = Input.get_axis("left", "right")
 		if dir:
+			$Anim.play("walk")
 			velocity.x += dir * ACCELERATION * accel_curve.sample(abs(velocity.x/MAX_SPEED)) * delta
+		else:
+			$Anim.play("idle")
 		if dir * velocity.x <= 0 and $RecoilLock.is_stopped():
 			velocity.x = move_toward(velocity.x, 0, DECELERATION * decel_curve.sample(abs(velocity.x/MAX_SPEED)) * delta)
 		velocity.x = clampf(velocity.x, -MAX_SPEED, MAX_SPEED)
