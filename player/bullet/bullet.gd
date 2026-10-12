@@ -103,9 +103,6 @@ func _on_body_entered(body: Object):
 	if pierces <= 0:
 		call_deferred("queue_free")
 
-func _on_visible_on_screen_notifier_2d_screen_exited():
-	queue_free()
-
 # effect methods
 
 func freeze():
@@ -167,7 +164,7 @@ func slam():
 	queue_free()
 
 func tp_shot():
-	player.global_position = global_position
+	player.global_position = global_position - direction * 20
 
 func revolver():
 	GameState.player.next_bullet_twice = true

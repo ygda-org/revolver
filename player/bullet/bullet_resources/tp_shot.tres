@@ -8,6 +8,7 @@ damage = 2
 effect = 10
 shake_trauma = 0.3
 can_call_on_walls = true
+disable_offscreen_deletion = true
 override_hit_sfx = 2
 outline_color = Color(0.5448244, 0.14352274, 0.76347786, 1)
 bullet_name = "Teleport"

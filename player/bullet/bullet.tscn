@@ -58,9 +58,6 @@ autoplay = "default"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1498002629]
 shape = SubResource("CircleShape2D_5kg8m")
 
-[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=175631859]
-rect = Rect2(-1, -1, 2, 2)
-
 [node name="LifeTime" type="Timer" parent="." unique_id=1338532539]
 one_shot = true
 
@@ -71,5 +68,4 @@ lighting_length = 12
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
-[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
 [connection signal="timeout" from="LifeTime" to="." method="_on_life_time_timeout"]
