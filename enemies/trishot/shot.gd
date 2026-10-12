@@ -1,6 +1,6 @@
 extends Area2D
 
-var SPEED = 115
+var speed = 115
 var parried: bool = false
 
 var direction: Vector2
@@ -8,10 +8,10 @@ var direction: Vector2
 
 func _process(delta):
 	rotation = direction.angle()
-	position += direction * SPEED * delta
+	position += direction * speed * delta
 
 func _on_body_entered(body):
-	if body is Player:
+	if body is Player and not parried:
 		body.hit(self)
 	var enemy_component = body.find_child("EnemyComponent")
 	if enemy_component and parried:

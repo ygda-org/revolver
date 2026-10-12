@@ -11,7 +11,7 @@ func _process(delta):
 
 
 func _on_body_entered(body):
-	if body is Player:
+	if body is Player and not parried:
 		body.hit(self)
 	var enemy_component = body.find_child("EnemyComponent")
 	if enemy_component and parried:

@@ -206,10 +206,12 @@ func _on_parry_hitbox_area_entered(area):
 	if "velocity" in area:
 		area.parried = true
 		area.set_collision_mask_value(2, true)
-		area.velocity = 200 * global_position.direction_to(GameState.get_closest_enemy_to_position(global_position).global_position)
+		area.velocity = 500 * global_position.direction_to(GameState.get_closest_enemy_to_position(global_position).global_position)
 	if not "direction" in area:
 		return
 	area.direction = global_position.direction_to(GameState.get_closest_enemy_to_position(global_position).global_position)
+	if "speed" in area:
+		area.speed = 500
 	if not "parried" in area:
 		return
 	area.parried = true
