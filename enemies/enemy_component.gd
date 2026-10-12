@@ -8,6 +8,8 @@ signal got_hit
 
 var burn_dur: int = 0
 
+@onready var anim = get_parent().get_node_or_null("Anim")
+
 func _ready():
 	GameState.active_enemies.append(self)
 	var room = get_parent()
@@ -15,12 +17,23 @@ func _ready():
 		room = room.get_parent()
 	room.enemies.append(self)
 
+func _process(delta):
+	if not anim:
+		print("Animations not found!")
+		return
+	if $FlashTimer.is_stopped():
+		anim.material.set_shader_parameter("flash_modulate", clampf(anim.material.get_shader_parameter("flash_modulate")-(1/$FlashTimer.wait_time)*delta, 0, 1))
+	else:
+		anim.material.set_shader_parameter("flash_modulate", clampf(anim.material.get_shader_parameter("flash_modulate")+(1/$FlashTimer.wait_time)*delta, 0, 1))
+
 func hit(dmg: int):
 	got_hit.emit()
 	health -= dmg
 	if health <= 0:
 		die()
 		return
+	if anim:
+		$FlashTimer.start()
 
 func die():
 	# repair

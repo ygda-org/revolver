@@ -1,10 +1,16 @@
 [gd_scene format=3 uid="uid://bjxissut13r5b"]
 
 [ext_resource type="Script" uid="uid://c6va2crrhqppx" path="res://enemies/trishot/trishot.gd" id="1_x23fc"]
+[ext_resource type="Shader" uid="uid://ra287w232gl2" path="res://enemies/enemy.gdshader" id="2_abcbd"]
 [ext_resource type="Texture2D" uid="uid://b0xkdqfrvg7k1" path="res://assets/enemies/trishot/aspid.png" id="2_gicyq"]
 [ext_resource type="PackedScene" uid="uid://d3jnp7vef3gti" path="res://enemies/enemy_component.tscn" id="3_gicyq"]
 [ext_resource type="Texture2D" uid="uid://bcspnr7q7w4li" path="res://assets/enemies/trishot/aspid_locked.png" id="3_nq6l0"]
 [ext_resource type="Texture2D" uid="uid://0bl7q2q1826s" path="res://assets/enemies/trishot/aspid_indicator.png" id="5_abcbd"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_abcbd"]
+resource_local_to_scene = true
+shader = ExtResource("2_abcbd")
+shader_parameter/flash_modulate = 0.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ju4to"]
 atlas = ExtResource("2_gicyq")
@@ -274,6 +280,7 @@ collision_mask = 5
 script = ExtResource("1_x23fc")
 
 [node name="Anim" type="AnimatedSprite2D" parent="." unique_id=1429592331]
+material = SubResource("ShaderMaterial_abcbd")
 sprite_frames = SubResource("SpriteFrames_3v7li")
 animation = &"fly"
 autoplay = "fly"

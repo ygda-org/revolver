@@ -2,11 +2,17 @@
 
 [ext_resource type="Texture2D" uid="uid://dlbb2kg1nkspe" path="res://assets/icon.svg" id="1_kegvi"]
 [ext_resource type="Script" uid="uid://blolgf5fr0hee" path="res://enemies/bouncy_enemy/bouncy_enemy.gd" id="1_l6h5x"]
+[ext_resource type="Shader" uid="uid://ra287w232gl2" path="res://enemies/enemy.gdshader" id="2_8xfwr"]
 [ext_resource type="PackedScene" uid="uid://d3jnp7vef3gti" path="res://enemies/enemy_component.tscn" id="3_yw5vr"]
 
 [sub_resource type="Curve" id="Curve_l6h5x"]
 _data = [Vector2(0, 0.41954023), 0.0, 1.8061508, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8xfwr"]
+resource_local_to_scene = true
+shader = ExtResource("2_8xfwr")
+shader_parameter/flash_modulate = 0.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kegvi"]
 size = Vector2(12, 38)
@@ -17,7 +23,8 @@ collision_mask = 37
 script = ExtResource("1_l6h5x")
 gravity_curve = SubResource("Curve_l6h5x")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=738989018]
+[node name="Anim" type="Sprite2D" parent="." unique_id=738989018]
+material = SubResource("ShaderMaterial_8xfwr")
 scale = Vector2(0.1, 0.3)
 texture = ExtResource("1_kegvi")
 

@@ -14,6 +14,9 @@ const MAX_FALL_SPEED = 300
 const DETECTION_RANGE = 200
 var saw_player_from_air: bool = false
 
+func _ready():
+	$EnemyComponent.got_hit.connect(hit)
+
 func _physics_process(delta):
 	$LineOfSight.target_position = GameState.player.global_position - global_position
 	if not is_on_floor():
@@ -41,3 +44,6 @@ func _on_jump_windup_timer_timeout():
 	if not is_on_floor():
 		return
 	velocity.y -= JUMP_FORCE
+
+func hit():
+	pass

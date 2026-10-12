@@ -1,22 +1,22 @@
 [gd_resource type="SpriteFrames" format=3 uid="uid://dnofs8ub7au7f"]
 
-[ext_resource type="Texture2D" uid="uid://tqky88jqm7cp" path="res://assets/enemies/swarm/swarm variant 1.png" id="1_v5c3q"]
+[ext_resource type="Texture2D" uid="uid://dcar24jiuwn84" path="res://assets/enemies/swarm/bigger_swarm_1.png" id="1_v5c3q"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3ity4"]
 atlas = ExtResource("1_v5c3q")
-region = Rect2(0, 0, 6, 6)
+region = Rect2(0, 0, 12, 12)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_meodq"]
 atlas = ExtResource("1_v5c3q")
-region = Rect2(6, 0, 6, 6)
+region = Rect2(12, 0, 12, 12)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yidfi"]
 atlas = ExtResource("1_v5c3q")
-region = Rect2(12, 0, 6, 6)
+region = Rect2(0, 12, 12, 12)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yblll"]
 atlas = ExtResource("1_v5c3q")
-region = Rect2(18, 0, 6, 6)
+region = Rect2(12, 12, 12, 12)
 
 [resource]
 animations = [{

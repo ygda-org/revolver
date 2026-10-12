@@ -1,9 +1,15 @@
 [gd_scene format=3 uid="uid://cqkgsr8jgrndt"]
 
 [ext_resource type="Script" uid="uid://dpwxvwdsbvg7h" path="res://enemies/wall_enemy/wall_enemy.gd" id="1_5vqqi"]
+[ext_resource type="Shader" uid="uid://ra287w232gl2" path="res://enemies/enemy.gdshader" id="2_jr066"]
 [ext_resource type="Texture2D" uid="uid://dd6f7n1vquq3l" path="res://assets/enemies/wall/evil_go_dot_walk.png" id="2_sgxws"]
 [ext_resource type="Texture2D" uid="uid://2xxh7uipe24l" path="res://assets/enemies/wall/evil_go_dot_attack_8fps.png" id="3_62xip"]
 [ext_resource type="PackedScene" uid="uid://d3jnp7vef3gti" path="res://enemies/enemy_component.tscn" id="3_sgxws"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_x0dui"]
+resource_local_to_scene = true
+shader = ExtResource("2_jr066")
+shader_parameter/flash_modulate = 0.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h4jjm"]
 atlas = ExtResource("3_62xip")
@@ -116,6 +122,7 @@ collision_mask = 37
 script = ExtResource("1_5vqqi")
 
 [node name="Anim" type="AnimatedSprite2D" parent="." unique_id=612185197]
+material = SubResource("ShaderMaterial_x0dui")
 sprite_frames = SubResource("SpriteFrames_5vqqi")
 animation = &"attack"
 autoplay = "idle"

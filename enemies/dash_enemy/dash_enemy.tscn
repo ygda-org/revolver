@@ -2,8 +2,14 @@
 
 [ext_resource type="Script" uid="uid://bh8exyhorpbtd" path="res://enemies/dash_enemy/dash_enemy.gd" id="1_5gxxa"]
 [ext_resource type="Texture2D" uid="uid://bpku74iw63wwo" path="res://assets/enemies/dash/scorpion.png" id="2_5gxxa"]
+[ext_resource type="Shader" uid="uid://ra287w232gl2" path="res://enemies/enemy.gdshader" id="2_lt5em"]
 [ext_resource type="PackedScene" uid="uid://d3jnp7vef3gti" path="res://enemies/enemy_component.tscn" id="2_mbm62"]
 [ext_resource type="Texture2D" uid="uid://cyup4eimau0f" path="res://assets/enemies/dash/scorpion_run.png" id="3_nkw6e"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lt5em"]
+resource_local_to_scene = true
+shader = ExtResource("2_lt5em")
+shader_parameter/flash_modulate = 0.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5gxxa"]
 atlas = ExtResource("2_5gxxa")
@@ -100,6 +106,7 @@ collision_mask = 39
 script = ExtResource("1_5gxxa")
 
 [node name="Anim" type="AnimatedSprite2D" parent="." unique_id=365090220]
+material = SubResource("ShaderMaterial_lt5em")
 sprite_frames = SubResource("SpriteFrames_mbm62")
 autoplay = "default"
 
