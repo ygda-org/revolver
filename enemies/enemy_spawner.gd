@@ -1,5 +1,5 @@
 extends Node2D
-
+class_name EnemySpawner
 ## if flying, spawns flying enemies. Else does grounded ones
 @export var flying: bool = false
 
@@ -14,6 +14,7 @@ preload("uid://cx5ec1o3ypbvs")]
 var active_array
 
 func _ready():
+	await get_parent().difficulty_decided
 	if flying:
 		active_array = FLYING
 	else:

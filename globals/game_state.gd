@@ -95,3 +95,9 @@ func enemy_death(enemy: EnemyComponent):
 		repair_amount = 0.0
 		player.health = 2
 		Sfx.play(Sfx.Labels.REPAIR)
+
+## called by enemy spawner to tell it whether or not to spawn
+func do_i_spawn():
+	var random = randf()
+	var threshold = (1/(1+pow(1.5, -cleared_levels))) + 0.15
+	return random < threshold
