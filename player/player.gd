@@ -13,9 +13,9 @@ const JUMP_FORCE: float = 280.0
 const MAX_FALL_SPEED: float = 250.0
 const GRAVITY: float = 700
 
-const PREPARRY_WINDOW = 0.18
+const PREPARRY_WINDOW = 0.05
 ## actualy window is this minus preparry window
-const PARRY_WINDOW = 0.25
+const PARRY_WINDOW = 0.15
 const PARRY_DAMAGE = 20
 
 @export var accel_curve: Curve
