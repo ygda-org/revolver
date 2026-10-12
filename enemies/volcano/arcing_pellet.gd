@@ -8,6 +8,8 @@ func _process(delta):
 	if not parried:
 		velocity.y += GRAVITY * delta
 	position += velocity * delta
+	$Anim.rotation = velocity.angle()
+	$Anim.rotation += PI/2
 
 
 func _on_body_entered(body):

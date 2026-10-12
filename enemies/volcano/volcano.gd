@@ -6,7 +6,7 @@ const SPEED = 40
 const ACCELERATION = 60
 
 const DETECTION_RANGE = 200
-const DESIRED_HEIGHT = 80
+const DESIRED_HEIGHT = 100
 
 func _ready():
 	$EnemyComponent.got_hit.connect(hit)
