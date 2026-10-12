@@ -11,7 +11,6 @@ offsets = PackedFloat32Array(0, 0.16304348, 1)
 colors = PackedColorArray(0.804816, 0, 0.04194711, 1, 0.2382622, 0.2382622, 0.23826218, 1, 0.60933006, 0.6093301, 0.60933006, 1)
 
 [node name="HitParticles" type="CPUParticles2D" unique_id=4053749]
-z_index = -1
 emitting = false
 amount = 64
 lifetime = 0.4

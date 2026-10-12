@@ -10,7 +10,6 @@ point_count = 3
 colors = PackedColorArray(0.32915837, 0.3291584, 0.3291584, 1, 1, 1, 1, 1)
 
 [node name="HitParticles" type="CPUParticles2D" unique_id=4053749]
-z_index = -1
 emitting = false
 amount = 16
 lifetime = 0.4

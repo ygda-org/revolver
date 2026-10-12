@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://cx5ec1o3ypbvs"]
 
-[ext_resource type="Texture2D" uid="uid://dlbb2kg1nkspe" path="res://assets/icon.svg" id="1_kegvi"]
 [ext_resource type="Script" uid="uid://blolgf5fr0hee" path="res://enemies/bouncy_enemy/bouncy_enemy.gd" id="1_l6h5x"]
 [ext_resource type="Shader" uid="uid://ra287w232gl2" path="res://enemies/enemy.gdshader" id="2_8xfwr"]
+[ext_resource type="Texture2D" uid="uid://bn55wu63x786e" path="res://assets/enemies/bouncy/floor_stomper_go_dot_6fps.png" id="3_8xfwr"]
 [ext_resource type="PackedScene" uid="uid://d3jnp7vef3gti" path="res://enemies/enemy_component.tscn" id="3_yw5vr"]
 
 [sub_resource type="Curve" id="Curve_l6h5x"]
@@ -13,9 +13,67 @@ point_count = 2
 resource_local_to_scene = true
 shader = ExtResource("2_8xfwr")
 shader_parameter/flash_modulate = 0.0
+shader_parameter/old_color = Color(0, 0, 0, 1)
+shader_parameter/new_color = Color(0, 0, 0, 1)
+shader_parameter/old_color2 = Color(0, 0, 0, 1)
+shader_parameter/new_color2 = Color(0, 0, 0, 1)
+shader_parameter/old_color3 = Color(0, 0, 0, 1)
+shader_parameter/new_color3 = Color(0, 0, 0, 1)
+shader_parameter/old_color4 = Color(0, 0, 0, 1)
+shader_parameter/new_color4 = Color(0, 0, 0, 1)
+shader_parameter/old_color5 = Color(0, 0, 0, 1)
+shader_parameter/new_color5 = Color(0, 0, 0, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4e0q4"]
+atlas = ExtResource("3_8xfwr")
+region = Rect2(0, 0, 26, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uel47"]
+atlas = ExtResource("3_8xfwr")
+region = Rect2(26, 0, 26, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bfrko"]
+atlas = ExtResource("3_8xfwr")
+region = Rect2(0, 32, 26, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8xfwr"]
+atlas = ExtResource("3_8xfwr")
+region = Rect2(0, 0, 26, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yw5vr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4e0q4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uel47")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bfrko")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8xfwr")
+}],
+"loop": 0,
+"name": &"extended",
+"speed": 0.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kegvi"]
-size = Vector2(12, 38)
+size = Vector2(24, 31)
+
+[sub_resource type="Curve" id="Curve_8xfwr"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.21712536, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.0553007, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_4e0q4"]
+colors = PackedColorArray(0.31431612, 0.31431612, 0.3143161, 1, 1, 1, 1, 1)
 
 [node name="BouncyEnemy" type="CharacterBody2D" unique_id=1806752779]
 collision_layer = 3
@@ -23,17 +81,14 @@ collision_mask = 37
 script = ExtResource("1_l6h5x")
 gravity_curve = SubResource("Curve_l6h5x")
 
-[node name="Anim" type="Sprite2D" parent="." unique_id=738989018]
+[node name="Anim" type="AnimatedSprite2D" parent="." unique_id=748545839]
 material = SubResource("ShaderMaterial_8xfwr")
-scale = Vector2(0.1, 0.3)
-texture = ExtResource("1_kegvi")
+sprite_frames = SubResource("SpriteFrames_yw5vr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1411210638]
+visible = false
+position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_kegvi")
-
-[node name="JumpWindupTimer" type="Timer" parent="." unique_id=1871435803]
-wait_time = 1.1
-one_shot = true
 
 [node name="EnemyComponent" parent="." unique_id=920270805 instance=ExtResource("3_yw5vr")]
 health = 30
@@ -41,7 +96,29 @@ repair_add_amount = 0.3
 death_sfx = 20
 
 [node name="LineOfSight" type="RayCast2D" parent="." unique_id=1800087248]
-position = Vector2(0, -19)
+position = Vector2(0, -6)
 collision_mask = 8
 
-[connection signal="timeout" from="JumpWindupTimer" to="." method="_on_jump_windup_timer_timeout"]
+[node name="GroundParticles" type="CPUParticles2D" parent="." unique_id=173550391]
+position = Vector2(0, 16)
+emitting = false
+amount = 32
+lifetime = 0.49
+one_shot = true
+explosiveness = 1.0
+emission_shape = 3
+emission_rect_extents = Vector2(14, 1)
+direction = Vector2(0, -1)
+spread = 60.0
+gravity = Vector2(0, 500)
+initial_velocity_min = 70.0
+initial_velocity_max = 150.0
+angular_velocity_min = 15.0
+angular_velocity_max = 500.0
+angle_max = 90.0
+scale_amount_max = 3.0
+scale_amount_curve = SubResource("Curve_8xfwr")
+color = Color(0.7638937, 0.7997733, 0.9104551, 1)
+color_initial_ramp = SubResource("Gradient_4e0q4")
+
+[connection signal="animation_finished" from="Anim" to="." method="_on_anim_animation_finished"]
