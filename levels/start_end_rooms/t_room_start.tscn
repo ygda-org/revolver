@@ -8,6 +8,10 @@
 shader = ExtResource("3_n4t7v")
 shader_parameter/old_color = Color(0, 0.59607846, 0.85882354, 1)
 shader_parameter/new_color = Color(0, 2.37074, 3.3488522, 1)
+shader_parameter/old_color2 = Color(0, 0, 0, 1)
+shader_parameter/new_color2 = Color(0, 0, 0, 1)
+shader_parameter/old_color3 = Color(0, 0, 0, 1)
+shader_parameter/new_color3 = Color(0, 0, 0, 1)
 
 [node name="TRoomStart" type="Node2D" unique_id=1606440875 node_paths=PackedStringArray("right_gate")]
 script = ExtResource("1_q1wst")

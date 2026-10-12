@@ -18,6 +18,13 @@ signal difficulty_decided
 var has_enemies : bool = true
 
 func _ready():
+	var tilemap = get_node_or_null("TileMapLayer")
+	if tilemap and tilemap is TileMapLayer:
+		var mat = ShaderMaterial.new()
+		mat.shader = load("uid://bj3f2c0rxb4wh")
+		mat.set_shader_parameter("old_color", Color(0.0, 0.596, 0.859))
+		mat.set_shader_parameter("new_color", Color(0.0, 2.371, 3.349))
+		tilemap.material = mat
 	var spawners = []
 	for node in get_children():
 		if node is EnemySpawner:
