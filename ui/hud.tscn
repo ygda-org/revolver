@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dutwhqupk2lem" path="res://ui/bullet_ui.tscn" id="4_en2x2"]
 [ext_resource type="Texture2D" uid="uid://cgjv1euc42oxn" path="res://assets/temp_art/marker.png" id="5_en2x2"]
 [ext_resource type="Shader" uid="uid://c8yaabuks5t8i" path="res://ui/hud.gdshader" id="6_1v5rv"]
+[ext_resource type="PackedScene" uid="uid://dkvcobb0pb2fb" path="res://ui/pause_menu.tscn" id="9_spcu4"]
 
 [sub_resource type="Gradient" id="Gradient_546lt"]
 offsets = PackedFloat32Array(0, 0.30602008, 0.74749166)
@@ -206,5 +207,9 @@ color = Color(0, 0, 0, 1)
 [node name="DeathTimer" type="Timer" parent="." unique_id=1972471522]
 wait_time = 1.5
 one_shot = true
+
+[node name="PauseMenu" parent="." unique_id=660923217 instance=ExtResource("9_spcu4")]
+visible = false
+layout_mode = 1
 
 [connection signal="timeout" from="DeathTimer" to="." method="_on_death_timer_timeout"]

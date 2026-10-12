@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://dkvcobb0pb2fb"]
+
+[ext_resource type="Script" uid="uid://brogcvhnw2gn6" path="res://ui/pause_menu.gd" id="1_50142"]
+
+[sub_resource type="SystemFont" id="SystemFont_fob5h"]
+font_names = PackedStringArray("Lucida Console")
+
+[sub_resource type="FontVariation" id="FontVariation_ejwgg"]
+base_font = SubResource("SystemFont_fob5h")
+spacing_glyph = 16
+
+[sub_resource type="LabelSettings" id="LabelSettings_50142"]
+font = SubResource("FontVariation_ejwgg")
+font_size = 80
+outline_size = 20
+outline_color = Color(0, 0, 0, 1)
+
+[node name="PauseMenu" type="Control" unique_id=660923217]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_50142")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1947306329]
+custom_minimum_size = Vector2(960, 540)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer" unique_id=1174664085]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/CenterContainer" unique_id=1417251106]
+layout_mode = 2
+text = "PAUSED"
+label_settings = SubResource("LabelSettings_50142")
+horizontal_alignment = 1
