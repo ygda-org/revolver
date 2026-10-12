@@ -256,22 +256,19 @@ func shift(dir, dist):
 func slam():
 	slam_velocity = Vector2(0, 350)
 	$SlamHitbox.monitoring = true
+	$SlamHitbox.monitorable = true
 
 
 func _on_slam_hitbox_body_entered(body):
-	
+	print("it works?")	
 	var comp = body.find_child("EnemyComponent")
 	$Camera2D.add_trauma(0.6)
+	slam_velocity = Vector2.ZERO
+	$SlamHitbox.monitoring = false
+	$SlamHitbox.monitorable = false
+	$InvicibilityFrames.start()
 	if comp:
 		comp.hit(load("uid://dof6lvg6wev5k").damage)
-		$InvicibilityFrames.start()
-		if comp.health > 0:
-			slam_velocity = Vector2.ZERO
-			$SlamHitbox.monitoring = false
-	else:
-		slam_velocity = Vector2.ZERO
-		$SlamHitbox.monitoring = false
-		$InvicibilityFrames.start()
 
 
 func _on_footstep_timer_timeout():
