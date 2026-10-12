@@ -139,7 +139,7 @@ one_shot = true
 [node name="RayCastPivot" type="Node2D" parent="." unique_id=125983907]
 
 [node name="WalkoffDetector" type="RayCast2D" parent="RayCastPivot" unique_id=651601387]
-position = Vector2(14, 22)
+position = Vector2(30, 22)
 target_position = Vector2(0, 3)
 collision_mask = 33
 

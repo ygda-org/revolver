@@ -207,7 +207,7 @@ disabled = true
 [node name="RaycastPivot" type="Node2D" parent="." unique_id=672226677]
 
 [node name="GroundCast" type="RayCast2D" parent="RaycastPivot" unique_id=1835691898]
-position = Vector2(6, 31)
+position = Vector2(13, 31)
 target_position = Vector2(0, 5)
 collision_mask = 33
 
