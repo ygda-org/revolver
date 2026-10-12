@@ -193,6 +193,14 @@ point_count = 4
 offsets = PackedFloat32Array(0.02014652, 0.3791209, 0.8003663, 1)
 colors = PackedColorArray(0.7372549, 0.28627452, 0, 0.78039217, 0.93333334, 0.6666667, 0, 0.6745098, 0.12941177, 0.101960786, 0, 0.70980394, 0.0627451, 0.0627451, 0.0627451, 0.28627452)
 
+[sub_resource type="Curve" id="Curve_rgyib"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.06741573, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -5.3400016, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_2mkda"]
+offsets = PackedFloat32Array(0, 0.16025642, 0.29273504, 0.7970086, 1)
+colors = PackedColorArray(0.7603504, 0.6721839, 0.24265066, 1, 0.9531948, 0.8912984, 0, 1, 1, 0.6676119, 0.18530932, 1, 0.2468484, 0.20943984, 0.1555528, 1, 0.12278964, 0.08386008, 0, 1)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5kg8m"]
 size = Vector2(8, 29)
 
@@ -316,6 +324,25 @@ scale_amount_min = 0.9
 scale_amount_max = 1.7
 scale_amount_curve = SubResource("Curve_boad6")
 color_ramp = SubResource("Gradient_qjkh3")
+
+[node name="ParryParticles" type="CPUParticles2D" parent="CenterArmPivot/Arm/BarrelPosition" unique_id=36111761]
+emitting = false
+amount = 16
+lifetime = 0.6
+one_shot = true
+explosiveness = 1.0
+direction = Vector2(0, 1)
+spread = 90.0
+gravity = Vector2(0, 20)
+initial_velocity_min = 15.0
+initial_velocity_max = 30.0
+angular_velocity_min = -100.0
+angular_velocity_max = 100.0
+angle_max = 90.0
+scale_amount_min = 1.5
+scale_amount_max = 3.2
+scale_amount_curve = SubResource("Curve_rgyib")
+color_ramp = SubResource("Gradient_2mkda")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1183259583]
 visible = false

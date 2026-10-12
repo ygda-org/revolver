@@ -220,6 +220,7 @@ func _on_parry_hitbox_body_entered(body):
 
 # hit enemy bullet
 func _on_parry_hitbox_area_entered(area):
+	$CenterArmPivot/Arm/BarrelPosition/ParryParticles.emitting = true
 	$ParryIFrames.start()
 	$Camera2D.add_trauma(1.2)
 	$Camera2D.add_zoom_trauma(-0.2)
