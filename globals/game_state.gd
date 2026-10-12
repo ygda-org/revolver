@@ -9,6 +9,7 @@ signal stop_reload
 
 const REPAIR_DISTANCE_THRESHOLD = 70
 const BULLET_PARRY_DAMAGE = 25
+var repair_amount_reducer = 1
 
 var player: Player
 var camera: Camera2D
@@ -35,6 +36,7 @@ const NORMAL_RES : BulletResource = preload("res://player/bullet/bullet_resource
 var cleared_levels: int = 0
 
 func _ready():
+	level_started.connect(level_start)
 	for i in range(barrel_size):
 		active_barrel.append(EMPTY_RES)
 		chosen_barrel.append(EMPTY_RES)
@@ -90,7 +92,7 @@ func enemy_death(enemy: EnemyComponent):
 	if player.health != 1:
 		return
 	if enemy.global_position.distance_to(player.global_position) < REPAIR_DISTANCE_THRESHOLD:
-		repair_amount += enemy.repair_add_amount
+		repair_amount += enemy.repair_add_amount * repair_amount_reducer
 	if repair_amount >= 1.0 and player.health == 1:
 		repair_amount = 0.0
 		player.health = 2
@@ -101,3 +103,6 @@ func do_i_spawn():
 	var random = randf()
 	var threshold = (1/(1+pow(1.5, -cleared_levels))) + 0.15
 	return random < threshold
+
+func level_start():
+	repair_amount_reducer = (1.34/(1+pow(1.5, cleared_levels))) + 0.33
