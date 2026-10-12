@@ -9,6 +9,9 @@ const SPEED = 40
 
 func _ready():
 	$EnemyComponent.got_hit.connect(hit)
+	$TopPlatform.force_raycast_update()
+	if $TopPlatform.is_colliding():
+		position.y -= 30
 
 func _physics_process(delta):
 	$LineOfSight.target_position = GameState.player.global_position - global_position

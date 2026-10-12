@@ -163,4 +163,8 @@ offset_bottom = 40.0
 [node name="LineOfSight" type="RayCast2D" parent="." unique_id=46078149]
 collision_mask = 8
 
+[node name="TopPlatform" type="RayCast2D" parent="." unique_id=553212118]
+target_position = Vector2(0, -50)
+collision_mask = 32
+
 [connection signal="timeout" from="WallTimer" to="." method="_on_wall_timer_timeout"]
