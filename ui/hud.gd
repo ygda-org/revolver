@@ -54,4 +54,5 @@ func _on_death_timer_timeout():
 	await get_tree().create_timer(1.5).timeout
 	GameState.game_reset()
 	Sfx.paused = false
+	$HitStatic.material.set_shader_parameter("multiplier", 0.0)
 	get_tree().change_scene_to_file("uid://cnoahdbn2sxq3")
