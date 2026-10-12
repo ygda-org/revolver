@@ -1,9 +1,10 @@
 [gd_scene format=3 uid="uid://cidxef737ydfs"]
 
 [ext_resource type="Script" uid="uid://bgwkcmqw8xd37" path="res://enemies/trishot/shot.gd" id="1_3rqhh"]
+[ext_resource type="PackedScene" uid="uid://b0jky4c7011ds" path="res://player/bullet/trail.tscn" id="2_3rqhh"]
 
 [sub_resource type="Gradient" id="Gradient_3rqhh"]
-colors = PackedColorArray(0.7607843, 0, 0.08235294, 1, 1, 1, 1, 0)
+colors = PackedColorArray(0.7607843, 0, 0.08235294, 1, 0.91582435, 0.57825565, 0.5818069, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_55d6i"]
 gradient = SubResource("Gradient_3rqhh")
@@ -44,6 +45,14 @@ shape = SubResource("CircleShape2D_5kg8m")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=2042549042]
 rect = Rect2(-1, -1, 2, 2)
+
+[node name="Trail" parent="." unique_id=786189251 instance=ExtResource("2_3rqhh")]
+show_behind_parent = true
+top_level = false
+z_index = -2
+default_color = Color(0.73333335, 0.0627451, 0.13333334, 1)
+length = 16
+lighting_length = 23
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

@@ -283,11 +283,11 @@ script = ExtResource("3_g1dw6")
 noise = SubResource("FastNoiseLite_g1dw6")
 
 [node name="JumpBuffer" type="Timer" parent="." unique_id=1886932304]
-wait_time = 0.1
+wait_time = 0.13
 one_shot = true
 
 [node name="CoyoteTime" type="Timer" parent="." unique_id=901113100]
-wait_time = 0.11
+wait_time = 0.15
 one_shot = true
 
 [node name="RecoilLock" type="Timer" parent="." unique_id=1274171054]

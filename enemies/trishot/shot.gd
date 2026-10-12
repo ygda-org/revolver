@@ -5,9 +5,8 @@ var parried: bool = false
 
 var direction: Vector2
 
-
 func _process(delta):
-	rotation = direction.angle()
+	#rotation = direction.angle()
 	position += direction * speed * delta
 
 func _on_body_entered(body):

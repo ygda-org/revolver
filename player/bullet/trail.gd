@@ -14,6 +14,7 @@ func _ready():
 	
 
 func _process(delta):
+	global_position = Vector2.ZERO
 	point = get_parent().global_position
 	add_point(point)
 	while get_point_count()>length: 

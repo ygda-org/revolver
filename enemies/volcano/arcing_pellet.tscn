@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dlpi8ln7ga1y" path="res://enemies/volcano/arcing_pellet.gd" id="1_8serf"]
 [ext_resource type="Texture2D" uid="uid://cuhcpw661xpjv" path="res://assets/enemies/volcano/evil_pomelo_projectile.png" id="2_8serf"]
+[ext_resource type="PackedScene" uid="uid://b0jky4c7011ds" path="res://player/bullet/trail.tscn" id="3_gbidc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gbidc"]
 atlas = ExtResource("2_8serf")
@@ -58,6 +59,11 @@ shape = SubResource("CircleShape2D_5kg8m")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1045346820]
 rect = Rect2(-1, -4, 2, 1)
+
+[node name="Trail" parent="." unique_id=786189251 instance=ExtResource("3_gbidc")]
+default_color = Color(0.9422043, 0.76919216, 0.7473762, 1)
+length = 10
+lighting_length = 15
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
