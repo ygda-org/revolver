@@ -218,7 +218,7 @@ offset = Vector2(0, -0.5)
 [node name="CenterArmPivot" type="Node2D" parent="." unique_id=187030314]
 
 [node name="Arm" type="Node2D" parent="CenterArmPivot" unique_id=568042280]
-position = Vector2(-3, -4)
+position = Vector2(-2, -3)
 
 [node name="Gun" type="Sprite2D" parent="CenterArmPivot/Arm" unique_id=1305939085]
 position = Vector2(0, 14)
@@ -232,7 +232,7 @@ monitoring = false
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CenterArmPivot/Arm/ParryHitbox" unique_id=613055736]
-position = Vector2(-2, 10)
+position = Vector2(-2, 14)
 shape = SubResource("CircleShape2D_g1dw6")
 
 [node name="ArmSprite" type="Sprite2D" parent="CenterArmPivot/Arm" unique_id=1393085159]
