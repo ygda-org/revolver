@@ -1,10 +1,12 @@
 [gd_scene format=3 uid="uid://cnoahdbn2sxq3"]
 
+[ext_resource type="Script" uid="uid://dgltgp5nimltu" path="res://main/main.gd" id="1_c651c"]
 [ext_resource type="PackedScene" uid="uid://dhebim0i23kwq" path="res://player/player.tscn" id="2_pjrb6"]
 [ext_resource type="PackedScene" uid="uid://bpd0hdgh8yjwm" path="res://levels/level.tscn" id="3_xwkvk"]
 [ext_resource type="PackedScene" uid="uid://rcq8go31l55x" path="res://ui/hud.tscn" id="4_c651c"]
 
 [node name="Main" type="Node2D" unique_id=1213057778]
+script = ExtResource("1_c651c")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=338208126]
 
