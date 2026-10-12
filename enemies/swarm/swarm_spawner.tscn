@@ -8,6 +8,7 @@ script = ExtResource("1_0xjgr")
 [node name="Swarm" type="Node2D" parent="." unique_id=1839985317]
 
 [node name="Timer" type="Timer" parent="." unique_id=1615001399]
+wait_time = 0.3
 one_shot = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
