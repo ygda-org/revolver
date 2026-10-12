@@ -70,6 +70,11 @@ func _process(delta):
 		position += vel * delta
 	if resource.called_in_process:
 		effect_methods[resource.effect].call()
+	
+
+func _physics_process(delta):
+	for ray: RayCast2D in $RicoCasts.get_children():
+		ray.position = -vel * delta
 
 func _on_body_entered(body: Object):
 	if resource.invisible_and_no_collision:
@@ -92,8 +97,21 @@ func _on_body_entered(body: Object):
 			call_deferred("queue_free")
 			return
 		# ricochet
-		var maxis: int = global_position.direction_to(body.global_position).max_axis_index()
-		direction = direction.bounce([Vector2(1,0), Vector2(0,1)][maxis])
+		#for ray: RayCast2D in $RicoCasts.get_children():
+		#	ray.force_raycast_update()
+		var normal_vec: Vector2 = Vector2(0,0)
+		var vert: bool = $RicoCasts/DownCast.is_colliding() or $RicoCasts/UpCast.is_colliding()
+		var horiz: bool = $RicoCasts/LeftCast.is_colliding() or $RicoCasts/RightCast.is_colliding()
+		if vert:
+			normal_vec.y = 1
+		if horiz:
+			normal_vec.x = 1
+		normal_vec = normal_vec.normalized()
+		if vert and horiz:
+			direction *= -1
+		else:
+			direction = direction.bounce(normal_vec)
+			
 		vel = direction * resource.speed
 		return
 	enemy_component.hit(damage)

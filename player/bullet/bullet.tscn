@@ -66,6 +66,20 @@ one_shot = true
 [node name="Trail" parent="." unique_id=786189251 instance=ExtResource("3_3vq7f")]
 lighting_length = 12
 
+[node name="RicoCasts" type="Node2D" parent="." unique_id=1258624372]
+
+[node name="RightCast" type="RayCast2D" parent="RicoCasts" unique_id=64588311]
+target_position = Vector2(20, 0)
+
+[node name="LeftCast" type="RayCast2D" parent="RicoCasts" unique_id=1933852895]
+target_position = Vector2(-20, 0)
+
+[node name="DownCast" type="RayCast2D" parent="RicoCasts" unique_id=1009419072]
+target_position = Vector2(0, 20)
+
+[node name="UpCast" type="RayCast2D" parent="RicoCasts" unique_id=1834015421]
+target_position = Vector2(0, -20)
+
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="LifeTime" to="." method="_on_life_time_timeout"]
