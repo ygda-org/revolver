@@ -33,7 +33,11 @@ enum Labels {
 	VOLCANO_HOVER,
 	SWARM_DEATH,
 	MAKE_WALL,
-	WALL_DEFLECTION
+	WALL_DEFLECTION,
+	BULLET_HIT_ENEMY,
+	REPAIR_TICK,
+	FULL_REPAIR1, # this one better imo
+	FULL_REPAIR2
 }
 
 @export var label_to_setting: Dictionary[Labels, SfxSettings]

@@ -115,6 +115,7 @@ func _on_body_entered(body: Object):
 		vel = direction * resource.speed
 		return
 	enemy_component.hit(damage)
+	Sfx.play(Sfx.Labels.BULLET_HIT_ENEMY)
 	thing_i_hit = enemy_component
 	if not resource.effect_on_shot and resource.effect in effect_methods:
 		effect_methods[resource.effect].call()

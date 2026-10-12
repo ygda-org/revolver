@@ -93,10 +93,11 @@ func enemy_death(enemy: EnemyComponent):
 		return
 	if enemy.global_position.distance_to(player.global_position) < REPAIR_DISTANCE_THRESHOLD:
 		repair_amount += enemy.repair_add_amount * repair_amount_reducer
+		Sfx.play(Sfx.Labels.REPAIR_TICK)
 	if repair_amount >= 1.0 and player.health == 1:
 		repair_amount = 0.0
 		player.health = 2
-		Sfx.play(Sfx.Labels.REPAIR)
+		Sfx.play(Sfx.Labels.FULL_REPAIR1)
 
 ## called by enemy spawner to tell it whether or not to spawn
 func do_i_spawn():

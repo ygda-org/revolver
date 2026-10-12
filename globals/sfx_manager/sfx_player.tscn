@@ -33,6 +33,10 @@
 [ext_resource type="AudioStream" uid="uid://3tsj01yd2kbx" path="res://assets/sfx_round3/swarm_enemy_death.mp3" id="31_vphq8"]
 [ext_resource type="AudioStream" uid="uid://dbrruikfx711r" path="res://assets/sfx_round3/wall_enemy_makes_wall.mp3" id="32_kk43f"]
 [ext_resource type="AudioStream" uid="uid://booc11fb641co" path="res://assets/sfx_round3/wall_enemy_wall_deflects.mp3" id="33_lkqkv"]
+[ext_resource type="AudioStream" uid="uid://bvgs378vlo442" path="res://assets/sfx_round3/bullet_hits_enemy.mp3" id="34_bgn21"]
+[ext_resource type="AudioStream" uid="uid://camoaf5y4ps5o" path="res://assets/sfx_round3/healing_single_tick.mp3" id="35_b0qja"]
+[ext_resource type="AudioStream" uid="uid://cj7lrwq6is1m8" path="res://assets/sfx_round3/healing_bar_fills_choice1.mp3" id="36_erpj2"]
+[ext_resource type="AudioStream" uid="uid://bfxncptowr460" path="res://assets/sfx_round3/healing_bar_fills_choice2.mp3" id="37_b0qja"]
 
 [sub_resource type="Resource" id="Resource_kfcue"]
 script = ExtResource("2_0skdd")
@@ -121,6 +125,9 @@ metadata/_custom_type_script = "uid://ceepfr3v8cnmq"
 [sub_resource type="Resource" id="Resource_uspyc"]
 script = ExtResource("2_0skdd")
 stream = ExtResource("16_3s5uv")
+volume = -1.0
+volume_variance = 1.0
+pitch_variance = 0.2
 metadata/_custom_type_script = "uid://ceepfr3v8cnmq"
 
 [sub_resource type="Resource" id="Resource_aju7b"]
@@ -220,6 +227,32 @@ script = ExtResource("2_0skdd")
 stream = ExtResource("33_lkqkv")
 metadata/_custom_type_script = "uid://ceepfr3v8cnmq"
 
+[sub_resource type="Resource" id="Resource_md6hd"]
+script = ExtResource("2_0skdd")
+stream = ExtResource("34_bgn21")
+volume = 6.0
+volume_variance = 3.0
+pitch_variance = 0.1
+metadata/_custom_type_script = "uid://ceepfr3v8cnmq"
+
+[sub_resource type="Resource" id="Resource_uieua"]
+script = ExtResource("2_0skdd")
+stream = ExtResource("35_b0qja")
+volume = 7.0
+metadata/_custom_type_script = "uid://ceepfr3v8cnmq"
+
+[sub_resource type="Resource" id="Resource_vphq8"]
+script = ExtResource("2_0skdd")
+stream = ExtResource("36_erpj2")
+volume = 9.0
+pitch_variance = 0.02
+metadata/_custom_type_script = "uid://ceepfr3v8cnmq"
+
+[sub_resource type="Resource" id="Resource_bgn21"]
+script = ExtResource("2_0skdd")
+stream = ExtResource("37_b0qja")
+metadata/_custom_type_script = "uid://ceepfr3v8cnmq"
+
 [node name="SfxPlayer" type="Node" unique_id=1790965844]
 script = ExtResource("1_d6bbf")
 label_to_setting = Dictionary[int, ExtResource("2_0skdd")]({
@@ -253,5 +286,9 @@ label_to_setting = Dictionary[int, ExtResource("2_0skdd")]({
 27: SubResource("Resource_bhgf1"),
 28: SubResource("Resource_206oe"),
 29: SubResource("Resource_sgkev"),
-30: SubResource("Resource_4irqq")
+30: SubResource("Resource_4irqq"),
+31: SubResource("Resource_md6hd"),
+32: SubResource("Resource_uieua"),
+33: SubResource("Resource_vphq8"),
+34: SubResource("Resource_bgn21")
 })
