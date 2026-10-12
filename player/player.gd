@@ -203,7 +203,7 @@ func _on_parry_hitbox_area_entered(area):
 	$Camera2D.add_trauma(1.2)
 	Sfx.play(Sfx.Labels.PARRY)
 	if area is Wall:
-		area._on_timer_timeout()
+		area.call_deferred("_on_timer_timeout")
 		return
 	if area is PlayerBullet:
 		area.vel = 400 * global_position.direction_to(GameState.get_closest_enemy_to_position(global_position).global_position)
