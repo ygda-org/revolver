@@ -37,14 +37,17 @@ enum Labels {
 	BULLET_HIT_ENEMY,
 	REPAIR_TICK,
 	FULL_REPAIR1, # this one better imo
-	FULL_REPAIR2
+	FULL_REPAIR2,
+	TV_OFF
 }
 
 @export var label_to_setting: Dictionary[Labels, SfxSettings]
 
+var paused: bool = false
+
 ## play a sound effect, as defined by label. Intended should be SFX.play(SFX.Labels.NAME)
-func play(label: Labels):
-	if has_node(Labels.keys()[label]):
+func play(label: Labels, override_pause: bool = false):
+	if has_node(Labels.keys()[label]) or (paused and not override_pause):
 		return
 	var audio = AudioStreamPlayer.new()
 	var setting = label_to_setting[label]

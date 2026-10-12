@@ -1,5 +1,7 @@
 extends Node
 
+signal player_dead
+
 signal level_started
 signal bullet_is_cycled
 signal player_hit
@@ -34,6 +36,17 @@ var inventory : Dictionary[BulletResource, int] = {
 const NORMAL_RES : BulletResource = preload("res://player/bullet/bullet_resources/normal.tres")
 
 var cleared_levels: int = 0
+
+func game_reset():
+	cleared_levels = 0
+	inventory = {}
+	repair_amount = 0
+	barrel_size = 6
+	barrel_index = 0
+	chosen_barrel = []
+	active_barrel = []
+	active_enemies = []
+	_ready()
 
 func _ready():
 	level_started.connect(level_start)

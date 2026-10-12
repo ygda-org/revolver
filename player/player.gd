@@ -188,7 +188,7 @@ func hit(hitter: Node2D):
 		die()
 
 func die():
-	print("I'm dead!")
+	GameState.player_dead.emit()
 
 func dash(dir, speed):
 	velocity = dir * speed
