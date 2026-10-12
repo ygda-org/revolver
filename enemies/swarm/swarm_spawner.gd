@@ -31,5 +31,6 @@ func set_target(disable = false):
 func _on_timer_timeout():
 	if global_position.distance_to(GameState.player.global_position) < sight_distance:
 		$Timer.start()
+		set_target()
 	else:
 		set_target(true)
