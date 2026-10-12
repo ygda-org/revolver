@@ -196,6 +196,7 @@ func _on_parry_hitbox_body_entered(body):
 		$Camera2D.add_trauma(0.7)
 		return
 	$ParryIFrames.start()
+	$Camera2D.add_zoom_trauma(-0.15)
 	$Camera2D.add_trauma(1.0)
 	enemy_component.hit(PARRY_DAMAGE)
 
@@ -203,6 +204,7 @@ func _on_parry_hitbox_body_entered(body):
 func _on_parry_hitbox_area_entered(area):
 	$ParryIFrames.start()
 	$Camera2D.add_trauma(1.2)
+	$Camera2D.add_zoom_trauma(-0.2)
 	Sfx.play(Sfx.Labels.PARRY)
 	if area is Wall:
 		area.call_deferred("_on_timer_timeout")
