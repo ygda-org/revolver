@@ -15,7 +15,7 @@ const GRAVITY: float = 700
 
 const PREPARRY_WINDOW = 0.05
 ## actualy window is this minus preparry window
-const PARRY_WINDOW = 0.12
+const PARRY_WINDOW = 0.1
 const PARRY_DAMAGE = 20
 
 @export var accel_curve: Curve
