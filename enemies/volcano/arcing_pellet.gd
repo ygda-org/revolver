@@ -15,6 +15,7 @@ func _process(delta):
 
 
 func _on_body_entered(body):
+	Sfx.play(Sfx.Labels.VOLCANO_BULLET_LAND)
 	if body is Player and not parried:
 		body.hit(self)
 	var enemy_component = body.find_child("EnemyComponent")

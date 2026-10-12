@@ -15,6 +15,7 @@ func _physics_process(delta):
 	$LineOfSight.target_position = GameState.player.global_position - global_position
 	var dist: float = global_position.distance_to(GameState.player.global_position)
 	if dist < DETECTION_RANGE and not $LineOfSight.is_colliding():
+		Sfx.play(Sfx.Labels.VOLCANO_HOVER)
 		# fighting
 		if $ShotTimer.is_stopped():
 			$ShotTimer.start()
@@ -34,6 +35,7 @@ func _physics_process(delta):
 
 
 func _on_shot_timer_timeout():
+	Sfx.play(Sfx.Labels.VOLCANO_FIRE)
 	var shot_dir: Vector2 = Vector2(0,-1).rotated(randf_range(-PI/5, PI/5))
 	var pellet = PELLET.instantiate()
 	pellet.velocity = shot_dir * 70

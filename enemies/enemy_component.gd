@@ -6,6 +6,8 @@ signal got_hit
 @export var health: int = 50
 @export var repair_add_amount: float = 0.2
 
+@export var death_sfx: SFX.Labels
+
 var burn_dur: int = 0
 
 @onready var anim = get_parent().get_node_or_null("Anim")
@@ -30,6 +32,7 @@ func hit(dmg: int):
 	got_hit.emit()
 	health -= dmg
 	if health <= 0:
+		Sfx.play(death_sfx)
 		die()
 		return
 	if anim:

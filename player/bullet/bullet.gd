@@ -152,6 +152,7 @@ func _on_area_entered(area):
 		particles.direction = -vel.normalized()
 		particles.color = Color(0.185, 0.603, 0.794, 1.0)
 		particles.global_position = global_position
+		Sfx.play(Sfx.Labels.WALL_DEFLECTION)
 		get_parent().add_child(particles)
 		call_deferred("queue_free")
 

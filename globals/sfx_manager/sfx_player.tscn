@@ -19,6 +19,20 @@
 [ext_resource type="AudioStream" uid="uid://c3bs751et686w" path="res://assets/sfx_round2/dry_fire_fixed.mp3" id="16_rdjfg"]
 [ext_resource type="AudioStream" uid="uid://f6x3shq1hs2h" path="res://assets/sfx_round2/PARRYTHEBULLET.mp3" id="17_rdjfg"]
 [ext_resource type="AudioStream" uid="uid://bymhppakbexxm" path="res://assets/sfx_round2/power_shot.mp3" id="18_jn1sc"]
+[ext_resource type="AudioStream" uid="uid://6p2syfy0g1sq" path="res://assets/sfx_round3/aspid_fire.mp3" id="20_rdjfg"]
+[ext_resource type="AudioStream" uid="uid://c7imfarn0w0d5" path="res://assets/sfx_round3/aspid_hovering.mp3" id="21_h1dei"]
+[ext_resource type="AudioStream" uid="uid://cod1ratapg4a2" path="res://assets/sfx_round3/aspid_warning_beep.mp3" id="22_n5omx"]
+[ext_resource type="AudioStream" uid="uid://lviovkqcnkf3" path="res://assets/sfx_round3/big_enemy_death.mp3" id="23_206oe"]
+[ext_resource type="AudioStream" uid="uid://b7s4q78rx4t4x" path="res://assets/sfx_round3/evil_scorpion_notices_you.mp3" id="24_sgkev"]
+[ext_resource type="AudioStream" uid="uid://dbqe3bpjf3l38" path="res://assets/sfx_round3/flying_enemy_buzzing.mp3" id="25_4irqq"]
+[ext_resource type="AudioStream" uid="uid://cp6oegi2of6xg" path="res://assets/sfx_round3/healing_sound_idkhowthismechanicworks.mp3" id="26_bgn21"]
+[ext_resource type="AudioStream" uid="uid://sp8cyh1qcfe3" path="res://assets/sfx_round3/little_enemy_death.mp3" id="27_b0qja"]
+[ext_resource type="AudioStream" uid="uid://b0hqhfgsf071m" path="res://assets/sfx_round3/projectile_rainer_bullet_lands.mp3" id="28_erpj2"]
+[ext_resource type="AudioStream" uid="uid://cv8xin8dye6ha" path="res://assets/sfx_round3/projectile_rainer_fires.mp3" id="29_md6hd"]
+[ext_resource type="AudioStream" uid="uid://dvtpa767x1huf" path="res://assets/sfx_round3/projectile_rainer_hover.mp3" id="30_uieua"]
+[ext_resource type="AudioStream" uid="uid://3tsj01yd2kbx" path="res://assets/sfx_round3/swarm_enemy_death.mp3" id="31_vphq8"]
+[ext_resource type="AudioStream" uid="uid://dbrruikfx711r" path="res://assets/sfx_round3/wall_enemy_makes_wall.mp3" id="32_kk43f"]
+[ext_resource type="AudioStream" uid="uid://booc11fb641co" path="res://assets/sfx_round3/wall_enemy_wall_deflects.mp3" id="33_lkqkv"]
 
 [sub_resource type="Resource" id="Resource_kfcue"]
 script = ExtResource("2_0skdd")
@@ -119,6 +133,87 @@ script = ExtResource("2_0skdd")
 stream = ExtResource("18_jn1sc")
 metadata/_custom_type_script = "uid://ceepfr3v8cnmq"
 
+[sub_resource type="Resource" id="Resource_3s5uv"]
+script = ExtResource("2_0skdd")
+stream = ExtResource("20_rdjfg")
+metadata/_custom_type_script = "uid://ceepfr3v8cnmq"
+
+[sub_resource type="Resource" id="Resource_jn1sc"]
+script = ExtResource("2_0skdd")
+stream = ExtResource("21_h1dei")
+min_delay = 0.3
+metadata/_custom_type_script = "uid://ceepfr3v8cnmq"
+
+[sub_resource type="Resource" id="Resource_qg04d"]
+script = ExtResource("2_0skdd")
+stream = ExtResource("22_n5omx")
+metadata/_custom_type_script = "uid://ceepfr3v8cnmq"
+
+[sub_resource type="Resource" id="Resource_3wr7j"]
+script = ExtResource("2_0skdd")
+stream = ExtResource("23_206oe")
+metadata/_custom_type_script = "uid://ceepfr3v8cnmq"
+
+[sub_resource type="Resource" id="Resource_5851h"]
+script = ExtResource("2_0skdd")
+stream = ExtResource("24_sgkev")
+metadata/_custom_type_script = "uid://ceepfr3v8cnmq"
+
+[sub_resource type="Resource" id="Resource_vwfj1"]
+script = ExtResource("2_0skdd")
+stream = ExtResource("25_4irqq")
+min_delay = 0.24
+metadata/_custom_type_script = "uid://ceepfr3v8cnmq"
+
+[sub_resource type="Resource" id="Resource_4fx7e"]
+script = ExtResource("2_0skdd")
+stream = ExtResource("26_bgn21")
+metadata/_custom_type_script = "uid://ceepfr3v8cnmq"
+
+[sub_resource type="Resource" id="Resource_mc8eb"]
+script = ExtResource("2_0skdd")
+stream = ExtResource("27_b0qja")
+metadata/_custom_type_script = "uid://ceepfr3v8cnmq"
+
+[sub_resource type="Resource" id="Resource_wrw80"]
+script = ExtResource("2_0skdd")
+stream = ExtResource("28_erpj2")
+volume = 3.0
+volume_variance = 1.0
+pitch = 0.95
+pitch_variance = 0.05
+metadata/_custom_type_script = "uid://ceepfr3v8cnmq"
+
+[sub_resource type="Resource" id="Resource_nscsu"]
+script = ExtResource("2_0skdd")
+stream = ExtResource("29_md6hd")
+volume_variance = 2.0
+pitch_variance = 0.05
+metadata/_custom_type_script = "uid://ceepfr3v8cnmq"
+
+[sub_resource type="Resource" id="Resource_bhgf1"]
+script = ExtResource("2_0skdd")
+stream = ExtResource("30_uieua")
+volume_variance = 2.0
+pitch_variance = 0.02
+min_delay = 0.85
+metadata/_custom_type_script = "uid://ceepfr3v8cnmq"
+
+[sub_resource type="Resource" id="Resource_206oe"]
+script = ExtResource("2_0skdd")
+stream = ExtResource("31_vphq8")
+metadata/_custom_type_script = "uid://ceepfr3v8cnmq"
+
+[sub_resource type="Resource" id="Resource_sgkev"]
+script = ExtResource("2_0skdd")
+stream = ExtResource("32_kk43f")
+metadata/_custom_type_script = "uid://ceepfr3v8cnmq"
+
+[sub_resource type="Resource" id="Resource_4irqq"]
+script = ExtResource("2_0skdd")
+stream = ExtResource("33_lkqkv")
+metadata/_custom_type_script = "uid://ceepfr3v8cnmq"
+
 [node name="SfxPlayer" type="Node" unique_id=1790965844]
 script = ExtResource("1_d6bbf")
 label_to_setting = Dictionary[int, ExtResource("2_0skdd")]({
@@ -138,5 +233,19 @@ label_to_setting = Dictionary[int, ExtResource("2_0skdd")]({
 13: SubResource("Resource_nor0l"),
 14: SubResource("Resource_uspyc"),
 15: SubResource("Resource_aju7b"),
-16: SubResource("Resource_rdjfg")
+16: SubResource("Resource_rdjfg"),
+17: SubResource("Resource_3s5uv"),
+18: SubResource("Resource_jn1sc"),
+19: SubResource("Resource_qg04d"),
+20: SubResource("Resource_3wr7j"),
+21: SubResource("Resource_5851h"),
+22: SubResource("Resource_vwfj1"),
+23: SubResource("Resource_4fx7e"),
+24: SubResource("Resource_mc8eb"),
+25: SubResource("Resource_wrw80"),
+26: SubResource("Resource_nscsu"),
+27: SubResource("Resource_bhgf1"),
+28: SubResource("Resource_206oe"),
+29: SubResource("Resource_sgkev"),
+30: SubResource("Resource_4irqq")
 })

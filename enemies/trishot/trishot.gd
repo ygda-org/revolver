@@ -15,6 +15,7 @@ func _physics_process(delta):
 	$CanSeePlayer.target_position = GameState.player.global_position - global_position
 	var dist: float = global_position.distance_to(GameState.player.global_position)
 	if dist < DETECTION_RANGE and not $CanSeePlayer.is_colliding():
+		Sfx.play(Sfx.Labels.ASPID_HOVER)
 		$Anim.play("locked")
 		# fighting
 		if $ShotTimer.is_stopped():
@@ -41,11 +42,13 @@ func _on_shot_timer_timeout():
 	if global_position.distance_to(GameState.player.global_position) > DETECTION_RANGE:
 		return
 	$Indicator.play("default")
+	Sfx.play(Sfx.Labels.ASPID_WARNING)
 
 
 func _on_indicator_animation_finished():
 	if global_position.distance_to(GameState.player.global_position) > DETECTION_RANGE:
 		return
+	Sfx.play(Sfx.Labels.ASPID_FIRE)
 	var shots = [SHOT.instantiate(),SHOT.instantiate(),SHOT.instantiate()]
 	for i in range(3):
 		shots[i].direction = global_position.direction_to(GameState.player.global_position)

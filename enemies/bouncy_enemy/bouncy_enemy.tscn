@@ -38,6 +38,7 @@ one_shot = true
 [node name="EnemyComponent" parent="." unique_id=920270805 instance=ExtResource("3_yw5vr")]
 health = 30
 repair_add_amount = 0.3
+death_sfx = 20
 
 [node name="LineOfSight" type="RayCast2D" parent="." unique_id=1800087248]
 position = Vector2(0, -19)

@@ -7,6 +7,7 @@ var direction
 var initialized: bool = false
 
 func _ready():
+	Sfx.play(Sfx.Labels.MAKE_WALL)
 	$RaycastPivot.scale.x = direction
 
 func _process(delta):

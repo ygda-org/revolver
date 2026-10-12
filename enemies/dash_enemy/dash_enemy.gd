@@ -4,6 +4,8 @@ class_name DashEnemy
 @export var speed: float = 80.0
 @export var direction: int = -1
 
+var player_not_seen: bool = true
+
 func _ready():
 	$RaycastPivot.scale.x = direction
 	$EnemyComponent.got_hit.connect(hit)
@@ -16,10 +18,14 @@ func _physics_process(delta):
 	$RaycastPivot.scale.x = direction
 	velocity.x = direction * speed
 	if $RaycastPivot/PlayerDetector.is_colliding():
+		if player_not_seen:
+			Sfx.play(Sfx.Labels.SCORPION_DETECTION)
+		player_not_seen = false
 		$Anim.play("run")
 		velocity.x *= 2
 	else:
 		$Anim.play("default")
+		player_not_seen = true
 	if velocity.x > 0:
 		$Anim.flip_h = true
 	elif velocity.x < 0:

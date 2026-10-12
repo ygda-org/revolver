@@ -85,6 +85,7 @@ one_shot = true
 [node name="EnemyComponent" parent="." unique_id=920270805 instance=ExtResource("3_evcgt")]
 health = 35
 repair_add_amount = 0.3
+death_sfx = 24
 
 [node name="Marker2D" type="Marker2D" parent="." unique_id=1473949926]
 position = Vector2(0, -13)

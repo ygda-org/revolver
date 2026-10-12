@@ -20,6 +20,7 @@ func set_target_position(new_pos):
 func _physics_process(delta):
 	delta_since_set += delta
 	if targeting:
+		Sfx.play(Sfx.Labels.FLYING_BUZZING)
 		var dir: Vector2 = global_position.direction_to(target_position)
 		velocity = global_position.direction_to(target_position) * SPEED
 		velocity += dir * WAVE_AMPLITUDE * sin(delta_since_set)

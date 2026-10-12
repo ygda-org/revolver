@@ -92,3 +92,4 @@ func enemy_death(enemy: EnemyComponent):
 	if repair_amount >= 1.0 and player.health == 1:
 		repair_amount = 0.0
 		player.health = 2
+		Sfx.play(Sfx.Labels.REPAIR)
