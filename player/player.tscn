@@ -221,7 +221,7 @@ offset = Vector2(0, -0.5)
 position = Vector2(-2, -3)
 
 [node name="Gun" type="Sprite2D" parent="CenterArmPivot/Arm" unique_id=1305939085]
-position = Vector2(0, 14)
+position = Vector2(0.5, 14)
 texture = ExtResource("4_qjkh3")
 
 [node name="ParryHitbox" type="Area2D" parent="CenterArmPivot/Arm" unique_id=463376893]
