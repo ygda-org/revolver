@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://uqf1yheu0n3g" path="res://assets/player/astronaut body.png" id="2_g1dw6"]
 [ext_resource type="Script" uid="uid://bjhjk6cxhvbry" path="res://player/camera_2d.gd" id="3_g1dw6"]
 [ext_resource type="Texture2D" uid="uid://csmp37xwnpqoq" path="res://assets/player/astronaut arm.png" id="3_yw30f"]
+[ext_resource type="Texture2D" uid="uid://ir74qqfgncpb" path="res://assets/player/gun 1.png" id="4_qjkh3"]
 
 [sub_resource type="Curve" id="Curve_rkbax"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.5371901), -0.6620358, 0.0, 0, 0]
@@ -78,6 +79,10 @@ animation = &"idle"
 [node name="Arm" type="Node2D" parent="CenterArmPivot" unique_id=568042280]
 position = Vector2(-3, -4)
 
+[node name="Gun" type="Sprite2D" parent="CenterArmPivot/Arm" unique_id=1305939085]
+position = Vector2(1, 15)
+texture = ExtResource("4_qjkh3")
+
 [node name="ParryHitbox" type="Area2D" parent="CenterArmPivot/Arm" unique_id=463376893]
 position = Vector2(3, 5)
 collision_layer = 0
@@ -94,7 +99,7 @@ position = Vector2(3, 4)
 texture = ExtResource("3_yw30f")
 
 [node name="BarrelPosition" type="Marker2D" parent="CenterArmPivot/Arm" unique_id=890426585]
-position = Vector2(1, 12)
+position = Vector2(2.5, 19.5)
 
 [node name="FireParticles" type="CPUParticles2D" parent="CenterArmPivot/Arm/BarrelPosition" unique_id=782018873]
 emitting = false
