@@ -56,6 +56,7 @@ func _on_body_entered(body : Node2D, idx : int):
 	update_lights(0.1)
 	for option : Sprite2D in $BulletOps.get_children():
 		option.visible = false
+
 func _on_hovers_entered(body : Node2D, idx : int):
 	if not body is Player:
 		return
@@ -68,3 +69,12 @@ func _on_hovers_entered(body : Node2D, idx : int):
 	bullet_damage.text = "Damage: " + str(res.damage)
 	bullet_speed.text = "Speed: " + str(res.speed)
 	return
+
+
+func _on_room_entry_trigger_body_entered(body):
+	if body is Player:
+		var new_cam = load("uid://cgx6o1n5kloe4").instantiate()
+		new_cam.target_position = global_position + Vector2(280, 130)
+		add_child(new_cam)
+		new_cam.global_position = GameState.camera.get_screen_center_position()
+		GameState.camera.enabled = false

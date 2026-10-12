@@ -71,6 +71,9 @@ font = ExtResource("7_xrrek")
 font_size = 8
 outline_color = Color(0, 0, 0, 1)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5kg8m"]
+size = Vector2(20, 54)
+
 [node name="TRoomEnd" type="Node2D" unique_id=850289066]
 script = ExtResource("1_ujw0c")
 
@@ -312,3 +315,13 @@ layout_mode = 2
 size_flags_horizontal = 3
 text = "Speed: 10"
 label_settings = SubResource("LabelSettings_riqys")
+
+[node name="RoomEntryTrigger" type="Area2D" parent="." unique_id=1041710827]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RoomEntryTrigger" unique_id=206357639]
+position = Vector2(28, 216)
+shape = SubResource("RectangleShape2D_5kg8m")
+
+[connection signal="body_entered" from="RoomEntryTrigger" to="." method="_on_room_entry_trigger_body_entered"]

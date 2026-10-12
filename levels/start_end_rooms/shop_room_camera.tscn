@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://cgx6o1n5kloe4"]
+
+[ext_resource type="Script" uid="uid://cxufscwiv4xdc" path="res://levels/start_end_rooms/shop_room_camera.gd" id="1_j88bd"]
+
+[node name="ShopRoomCamera" type="Camera2D" unique_id=1336070040]
+zoom = Vector2(2, 2)
+script = ExtResource("1_j88bd")

@@ -11,7 +11,7 @@ const REPAIR_DISTANCE_THRESHOLD = 100
 const BULLET_PARRY_DAMAGE = 25
 
 var player: Player
-var camera
+var camera: Camera2D
 
 ## array of all active enemy components
 var active_enemies: Array[EnemyComponent]

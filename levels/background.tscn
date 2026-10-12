@@ -96,3 +96,4 @@ visible = false
 texture = ExtResource("2_10joj")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=538629294]
+enabled = false

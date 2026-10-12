@@ -154,7 +154,7 @@ func _physics_process(delta):
 		velocity = slam_velocity
 	
 	# animations
-	if $ParryAnimDur.is_stopped():
+	if $ParryAnimDur.is_stopped() and $HitStun.is_stopped():
 		if velocity.x > 0:
 			$Anim.flip_h = false
 			$CenterArmPivot.scale.x = 1
