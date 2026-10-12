@@ -15,7 +15,7 @@ const GRAVITY: float = 700
 
 const PREPARRY_WINDOW = 0.05
 ## actualy window is this minus preparry window
-const PARRY_WINDOW = 0.15
+const PARRY_WINDOW = 0.12
 const PARRY_DAMAGE = 20
 
 @export var accel_curve: Curve
@@ -155,6 +155,8 @@ func toggle_parry(b: bool):
 	parry_hitbox.monitoring = b
 
 func hit(hitter: Node2D):
+	if not $ParryIFrames.is_stopped():
+		return
 	if $InvicibilityFrames.is_stopped():
 		$InvicibilityFrames.start()
 	else:
@@ -193,13 +195,13 @@ func _on_parry_hitbox_body_entered(body):
 	if not enemy_component:
 		$Camera2D.add_trauma(0.7)
 		return
-	$InvicibilityFrames.start()
+	$ParryIFrames.start()
 	$Camera2D.add_trauma(1.0)
 	enemy_component.hit(PARRY_DAMAGE)
 
 # hit enemy bullet
 func _on_parry_hitbox_area_entered(area):
-	$InvicibilityFrames.start()
+	$ParryIFrames.start()
 	$Camera2D.add_trauma(1.2)
 	Sfx.play(Sfx.Labels.PARRY)
 	if area is Wall:

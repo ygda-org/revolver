@@ -129,7 +129,7 @@ position_smoothing_speed = 15.0
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
 drag_left_margin = 0.15
-drag_top_margin = 0.4
+drag_top_margin = 0.25
 drag_right_margin = 0.15
 drag_bottom_margin = 0.15
 editor_draw_drag_margin = true
@@ -211,6 +211,10 @@ scale_amount_max = 3.0
 scale_amount_curve = SubResource("Curve_g6k8r")
 color = Color(0.44705883, 0.50980395, 0.7254902, 1)
 color_initial_ramp = SubResource("Gradient_yw30f")
+
+[node name="ParryIFrames" type="Timer" parent="." unique_id=945698267]
+wait_time = 0.9
+one_shot = true
 
 [connection signal="area_entered" from="CenterArmPivot/Arm/ParryHitbox" to="." method="_on_parry_hitbox_area_entered"]
 [connection signal="body_entered" from="CenterArmPivot/Arm/ParryHitbox" to="." method="_on_parry_hitbox_body_entered"]
