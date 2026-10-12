@@ -193,6 +193,7 @@ func _on_parry_hitbox_body_entered(body):
 	if not enemy_component:
 		$Camera2D.add_trauma(0.7)
 		return
+	$InvicibilityFrames.start()
 	$Camera2D.add_trauma(1.0)
 	enemy_component.hit(PARRY_DAMAGE)
 
