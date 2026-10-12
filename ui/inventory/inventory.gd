@@ -27,8 +27,8 @@ func _ready() -> void:
 		generate_inven_markers(2, ceil(total_bullets/2))
 	else:
 		generate_inven_markers(3, ceil(total_bullets/3))
-	#The bullet in chosne bullet to check
-	var cur_chosen = 0
+	#Duplicate cur Barrel
+	var dup_chosen : Array[BulletResource] = GameState.chosen_barrel.duplicate()
 	#Current marker
 	var cur_marker = 0
 	#Bullets to place in inven normally; unused bullets
@@ -40,14 +40,12 @@ func _ready() -> void:
 			bullet_to_home[drag_bullet] = $InvenMarkers.get_child(cur_marker)
 			cur_marker += 1
 			#If it is a chosen bullet, snap there
-			if cur_chosen < 6 and b_res == GameState.chosen_barrel[cur_chosen]:
+			if b_res in dup_chosen:
+				var cur_chosen = dup_chosen.find(b_res)
+				dup_chosen[cur_chosen] = null
 				var loc : Marker2D = $ChosenBullets.get_child(cur_chosen)
 				drag_bullet.position = loc.global_position
 				drag_bullet.set_is_full(false)
-				cur_chosen += 1
-				#Iterate to the next not empty chosen, or just stop
-				while cur_chosen < 5 and GameState.chosen_barrel[cur_chosen] == GameState.EMPTY_RES:
-					cur_chosen += 1
 			#Else, lets move it to its spot
 			else:
 				drag_bullet.position = Vector2(-100,-100)

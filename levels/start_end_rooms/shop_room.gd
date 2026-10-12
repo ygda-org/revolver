@@ -22,6 +22,8 @@ func _ready() -> void:
 		hover.body_entered.connect(_on_hovers_entered.bind(i))
 	var temp : Array[BulletResource] = []
 	for room_file in ResourceLoader.list_directory("res://player/bullet/bullet_resources/"):
+		if room_file == "empty.tres":
+			continue
 		temp.append(load("res://player/bullet/bullet_resources/" + room_file))
 	temp.shuffle()
 	for i in range(5):
