@@ -1,0 +1,15 @@
+[gd_resource type="LabelSettings" format=3 uid="uid://cn2tcxhvc01vi"]
+
+[sub_resource type="SystemFont" id="SystemFont_4frjw"]
+font_names = PackedStringArray("Lucida Console")
+
+[sub_resource type="FontVariation" id="FontVariation_dvx2m"]
+base_font = SubResource("SystemFont_4frjw")
+spacing_glyph = 2
+
+[resource]
+line_spacing = 5.0
+font = SubResource("FontVariation_dvx2m")
+font_size = 15
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)

@@ -38,7 +38,9 @@ enum Labels {
 	REPAIR_TICK,
 	FULL_REPAIR1, # this one better imo
 	FULL_REPAIR2,
-	TV_OFF
+	TV_OFF,
+	BUTTON_HOVER,
+	BUTTON_CLICK
 }
 
 @export var label_to_setting: Dictionary[Labels, SfxSettings]

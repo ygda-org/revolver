@@ -38,6 +38,8 @@
 [ext_resource type="AudioStream" uid="uid://cj7lrwq6is1m8" path="res://assets/sfx_round3/healing_bar_fills_choice1.mp3" id="36_erpj2"]
 [ext_resource type="AudioStream" uid="uid://bfxncptowr460" path="res://assets/sfx_round3/healing_bar_fills_choice2.mp3" id="37_b0qja"]
 [ext_resource type="AudioStream" uid="uid://bbq2jfmwpm2yx" path="res://assets/sfx_round3/tvturnoff-deltarune.mp3" id="38_erpj2"]
+[ext_resource type="AudioStream" uid="uid://dgc1ii11nfmah" path="res://assets/sfx_round3/button_hover.wav" id="39_md6hd"]
+[ext_resource type="AudioStream" uid="uid://087oi8dkck6m" path="res://assets/sfx_round3/button_click.mp3" id="40_uieua"]
 
 [sub_resource type="Resource" id="Resource_kfcue"]
 script = ExtResource("2_0skdd")
@@ -261,6 +263,19 @@ script = ExtResource("2_0skdd")
 stream = ExtResource("38_erpj2")
 metadata/_custom_type_script = "uid://ceepfr3v8cnmq"
 
+[sub_resource type="Resource" id="Resource_kk43f"]
+script = ExtResource("2_0skdd")
+stream = ExtResource("39_md6hd")
+volume = 2.0
+pitch_variance = 0.05
+metadata/_custom_type_script = "uid://ceepfr3v8cnmq"
+
+[sub_resource type="Resource" id="Resource_lkqkv"]
+script = ExtResource("2_0skdd")
+stream = ExtResource("40_uieua")
+volume = 2.0
+metadata/_custom_type_script = "uid://ceepfr3v8cnmq"
+
 [node name="SfxPlayer" type="Node" unique_id=1790965844]
 script = ExtResource("1_d6bbf")
 label_to_setting = Dictionary[int, ExtResource("2_0skdd")]({
@@ -299,5 +314,7 @@ label_to_setting = Dictionary[int, ExtResource("2_0skdd")]({
 32: SubResource("Resource_uieua"),
 33: SubResource("Resource_vphq8"),
 34: SubResource("Resource_bgn21"),
-35: SubResource("Resource_erpj2")
+35: SubResource("Resource_erpj2"),
+36: SubResource("Resource_kk43f"),
+37: SubResource("Resource_lkqkv")
 })
