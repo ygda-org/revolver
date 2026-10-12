@@ -4,7 +4,7 @@ const WALL = preload("uid://dmr8fval5mhwj")
 
 const DETECTION_RANGE = 180
 
-const SPEED = 40
+var speed = 40
 @onready var direction = randi_range(0,1) * 2 - 1
 
 func _ready():
@@ -34,7 +34,7 @@ func _physics_process(delta):
 		if is_on_wall() or not $RayCastPivot/WalkoffDetector.is_colliding():
 			direction *= -1
 		$RayCastPivot.scale.x = direction
-		velocity.x = direction * SPEED
+		velocity.x = direction * speed
 		if velocity.x > 0:
 			$Anim.flip_h = true
 		elif velocity.x < 0:

@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const SPEED = 70
+var speed = 70
 const WAVE_AMPLITUDE = 3
 
 var targeting = false
@@ -22,11 +22,11 @@ func _physics_process(delta):
 	if targeting:
 		Sfx.play(Sfx.Labels.FLYING_BUZZING)
 		var dir: Vector2 = global_position.direction_to(target_position)
-		velocity = global_position.direction_to(target_position) * SPEED
+		velocity = global_position.direction_to(target_position) * speed
 		velocity += dir * WAVE_AMPLITUDE * sin(delta_since_set)
 		$Anim.flip_h = bool(clampf(velocity.x, 0, 1))
 	else:
-		velocity += (-position.normalized() * SPEED/30) + Vector2(randf_range(-5, 5), randf_range(-5,5))
+		velocity += (-position.normalized() * speed/30) + Vector2(randf_range(-5, 5), randf_range(-5,5))
 	
 	for i in range(get_slide_collision_count()):
 		var col = get_slide_collision(i).get_collider()

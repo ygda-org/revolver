@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 const SHOT = preload("uid://cidxef737ydfs")
 
-const SPEED = 60
+var speed = 60
 const ACCELERATION = 80
 
 const DETECTION_RANGE = 200
@@ -22,9 +22,9 @@ func _physics_process(delta):
 			$ShotTimer.start()
 		var direction: Vector2 = global_position.direction_to(GameState.player.global_position)
 		if dist > DESIRED_DISTANCE:
-			velocity = velocity.move_toward(direction*SPEED, ACCELERATION*delta)
+			velocity = velocity.move_toward(direction*speed, ACCELERATION*delta)
 		else:
-			velocity = velocity.move_toward(-direction*SPEED, ACCELERATION*delta)
+			velocity = velocity.move_toward(-direction*speed, ACCELERATION*delta)
 		$Anim.flip_h = direction.x > 0
 		$Indicator.flip_h = direction.x > 0
 	else:

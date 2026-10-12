@@ -6,6 +6,7 @@
 script = ExtResource("1_exhe8")
 
 [node name="FreezeTimer" type="Timer" parent="." unique_id=91166298]
+wait_time = 3.0
 one_shot = true
 
 [node name="BurnTimer" type="Timer" parent="." unique_id=1690637868]

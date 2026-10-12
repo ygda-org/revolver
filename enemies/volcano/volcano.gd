@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 const PELLET = preload("uid://ddtan3gghk3bx")
 
-const SPEED = 40
+var speed = 40
 const ACCELERATION = 60
 
 const DETECTION_RANGE = 200
@@ -20,7 +20,7 @@ func _physics_process(delta):
 		if $ShotTimer.is_stopped():
 			$ShotTimer.start()
 		var target_pos: Vector2 = GameState.player.global_position + Vector2(0, -DESIRED_HEIGHT)
-		velocity = velocity.move_toward(SPEED * global_position.direction_to(target_pos), delta*ACCELERATION)
+		velocity = velocity.move_toward(speed * global_position.direction_to(target_pos), delta*ACCELERATION)
 	else:
 		# wandering
 		velocity = velocity.move_toward(Vector2.ZERO, ACCELERATION*delta)

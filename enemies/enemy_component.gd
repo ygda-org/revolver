@@ -46,10 +46,12 @@ func die():
 func freeze(duration: float):
 	$FreezeTimer.wait_time = duration
 	$FreezeTimer.start()
-	# need to reduce speed
+	if "speed" in get_parent():
+		get_parent().speed /= 2
 
 func _on_freeze_timer_timeout():
-	pass # Replace with function body.
+	if "speed" in get_parent():
+		get_parent().speed *= 2
 
 func burn(amount):
 	burn_dur += amount
