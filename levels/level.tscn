@@ -1,11 +1,17 @@
 [gd_scene format=3 uid="uid://bpd0hdgh8yjwm"]
 
 [ext_resource type="Script" uid="uid://dufmna485vpd1" path="res://levels/level.gd" id="1_80vhd"]
+[ext_resource type="PackedScene" uid="uid://cf2xk3uwq1pu3" path="res://levels/background.tscn" id="2_hjsbj"]
 
 [node name="Level" type="Node2D" unique_id=2114628824]
+z_index = -10
 script = ExtResource("1_80vhd")
 
+[node name="Background" parent="." unique_id=2076974054 instance=ExtResource("2_hjsbj")]
+z_index = -9
+
 [node name="ColorRect" type="ColorRect" parent="." unique_id=2133948050]
+visible = false
 z_index = -1000
 offset_left = -9406.0
 offset_top = -8760.0

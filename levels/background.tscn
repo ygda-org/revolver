@@ -1,0 +1,98 @@
+[gd_scene format=3 uid="uid://cf2xk3uwq1pu3"]
+
+[ext_resource type="Script" uid="uid://be8epiy3r88tv" path="res://levels/background.gd" id="1_nltu7"]
+[ext_resource type="Texture2D" uid="uid://dlbb2kg1nkspe" path="res://assets/icon.svg" id="2_10joj"]
+
+[sub_resource type="Gradient" id="Gradient_10joj"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_10joj"]
+gradient = SubResource("Gradient_10joj")
+width = 2
+height = 2
+
+[sub_resource type="Gradient" id="Gradient_5fofi"]
+offsets = PackedFloat32Array(0, 0.15390421, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[node name="Background" type="Node2D" unique_id=2076974054]
+script = ExtResource("1_nltu7")
+
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=431201085]
+scroll_scale = Vector2(0.9, 0.9)
+repeat_size = Vector2(960, 540)
+
+[node name="ColorRect" type="ColorRect" parent="Parallax2D" unique_id=451419655]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 960.0
+offset_bottom = 540.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Parallax2D" unique_id=424625793]
+position = Vector2(480, 270)
+amount = 150
+texture = SubResource("GradientTexture2D_10joj")
+lifetime = 6.029999999999999
+preprocess = 20.0
+local_coords = true
+emission_shape = 3
+emission_rect_extents = Vector2(480, 270)
+gravity = Vector2(0, 0)
+scale_amount_min = 0.4
+scale_amount_max = 0.8
+color_ramp = SubResource("Gradient_5fofi")
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D" unique_id=1781030066]
+visible = false
+texture = ExtResource("2_10joj")
+
+[node name="Parallax2D2" type="Parallax2D" parent="." unique_id=248456825]
+scroll_scale = Vector2(0.4, 0.4)
+repeat_size = Vector2(960, 540)
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Parallax2D2" unique_id=2125137944]
+position = Vector2(480, 270)
+amount = 150
+texture = SubResource("GradientTexture2D_10joj")
+lifetime = 6.029999999999999
+preprocess = 20.0
+local_coords = true
+emission_shape = 3
+emission_rect_extents = Vector2(480, 270)
+gravity = Vector2(0, 0)
+scale_amount_min = 0.4
+scale_amount_max = 0.8
+color_ramp = SubResource("Gradient_5fofi")
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D2" unique_id=141670855]
+visible = false
+texture = ExtResource("2_10joj")
+
+[node name="Parallax2D3" type="Parallax2D" parent="." unique_id=2061587850]
+scroll_scale = Vector2(0.1, 0.1)
+repeat_size = Vector2(960, 540)
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Parallax2D3" unique_id=2007968375]
+position = Vector2(480, 270)
+amount = 150
+texture = SubResource("GradientTexture2D_10joj")
+lifetime = 6.029999999999999
+preprocess = 20.0
+local_coords = true
+emission_shape = 3
+emission_rect_extents = Vector2(480, 270)
+gravity = Vector2(0, 0)
+scale_amount_min = 0.4
+scale_amount_max = 0.8
+color_ramp = SubResource("Gradient_5fofi")
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D3" unique_id=799350942]
+visible = false
+texture = ExtResource("2_10joj")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=538629294]

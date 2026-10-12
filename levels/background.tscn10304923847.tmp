@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://cf2xk3uwq1pu3"]
+
+[ext_resource type="Script" uid="uid://be8epiy3r88tv" path="res://levels/background.gd" id="1_nltu7"]
+
+[sub_resource type="Gradient" id="Gradient_08jjq"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_55d6i"]
+gradient = SubResource("Gradient_08jjq")
+width = 1
+height = 1
+
+[sub_resource type="Gradient" id="Gradient_5fofi"]
+offsets = PackedFloat32Array(0, 0.15390421, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[node name="Background" type="Node2D" unique_id=2076974054]
+script = ExtResource("1_nltu7")
+
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=431201085]
+repeat_size = Vector2(960, 540)
+
+[node name="ColorRect" type="ColorRect" parent="Parallax2D" unique_id=451419655]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 960.0
+offset_bottom = 540.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Parallax2D" unique_id=424625793]
+position = Vector2(480, 270)
+amount = 100
+texture = SubResource("GradientTexture2D_55d6i")
+lifetime = 6.029999999999999
+emission_shape = 3
+emission_rect_extents = Vector2(480, 270)
+gravity = Vector2(0, 0)
+scale_amount_max = 2.0
+color_ramp = SubResource("Gradient_5fofi")
+
+[node name="Parallax2D2" type="Parallax2D" parent="." unique_id=248456825]
+scroll_scale = Vector2(0.5, 0.5)
+repeat_size = Vector2(960, 540)
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Parallax2D2" unique_id=2125137944]
+position = Vector2(480, 270)
+amount = 100
+texture = SubResource("GradientTexture2D_55d6i")
+lifetime = 6.029999999999999
+emission_shape = 3
+emission_rect_extents = Vector2(480, 270)
+gravity = Vector2(0, 0)
+scale_amount_max = 2.0
+color_ramp = SubResource("Gradient_5fofi")
+
+[node name="Parallax2D3" type="Parallax2D" parent="." unique_id=2061587850]
+scroll_scale = Vector2(0.25, 0.25)
+repeat_size = Vector2(960, 540)
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Parallax2D3" unique_id=2007968375]
+position = Vector2(480, 270)
+amount = 100
+texture = SubResource("GradientTexture2D_55d6i")
+lifetime = 6.029999999999999
+emission_shape = 3
+emission_rect_extents = Vector2(480, 270)
+gravity = Vector2(0, 0)
+scale_amount_max = 2.0
+color_ramp = SubResource("Gradient_5fofi")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=538629294]
