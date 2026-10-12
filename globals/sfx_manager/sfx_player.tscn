@@ -108,6 +108,8 @@ metadata/_custom_type_script = "uid://ceepfr3v8cnmq"
 [sub_resource type="Resource" id="Resource_0skdd"]
 script = ExtResource("2_0skdd")
 stream = ExtResource("14_b0qja")
+volume = 4.0
+pitch_variance = 0.1
 metadata/_custom_type_script = "uid://ceepfr3v8cnmq"
 
 [sub_resource type="Resource" id="Resource_2juvr"]
