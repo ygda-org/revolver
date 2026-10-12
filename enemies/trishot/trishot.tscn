@@ -14,6 +14,14 @@ shader = ExtResource("2_abcbd")
 shader_parameter/flash_modulate = 0.0
 shader_parameter/old_color = Color(0.827451, 0.14901961, 0.14901961, 1)
 shader_parameter/new_color = Color(1.5169408, 0.30551618, 0.30551618, 1)
+shader_parameter/old_color2 = Color(0, 0, 0, 1)
+shader_parameter/new_color2 = Color(0, 0, 0, 1)
+shader_parameter/old_color3 = Color(0, 0, 0, 1)
+shader_parameter/new_color3 = Color(0, 0, 0, 1)
+shader_parameter/old_color4 = Color(0, 0, 0, 1)
+shader_parameter/new_color4 = Color(0, 0, 0, 1)
+shader_parameter/old_color5 = Color(0, 0, 0, 1)
+shader_parameter/new_color5 = Color(0, 0, 0, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ju4to"]
 atlas = ExtResource("2_gicyq")
@@ -222,6 +230,10 @@ radius = 13.038404
 shader = ExtResource("6_w4h3w")
 shader_parameter/old_color = Color(0.827451, 0.14901961, 0.14901961, 1)
 shader_parameter/new_color = Color(1.5169408, 0.30551618, 0.30551618, 1)
+shader_parameter/old_color2 = Color(0, 0, 0, 1)
+shader_parameter/new_color2 = Color(0, 0, 0, 1)
+shader_parameter/old_color3 = Color(0, 0, 0, 1)
+shader_parameter/new_color3 = Color(0, 0, 0, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rcb2s"]
 atlas = ExtResource("5_abcbd")
@@ -324,7 +336,6 @@ wait_time = 2.0
 one_shot = true
 
 [node name="Indicator" type="AnimatedSprite2D" parent="." unique_id=1788836596]
-visible = false
 material = SubResource("ShaderMaterial_3rqhh")
 sprite_frames = SubResource("SpriteFrames_5kg8m")
 frame = 8

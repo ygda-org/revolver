@@ -14,7 +14,7 @@ void vertex() {
 }
 
 void fragment() {
-	if (COLOR.r-old_color.r < 0.01 && COLOR.b-old_color.b < 0.01 && COLOR.g-old_color.g < 0.01){
+	if (COLOR.r-old_color.r < 0.01 && COLOR.b-old_color.b < 0.01 && COLOR.g-old_color.g < 0.01 && COLOR.a > 0.0){
 		COLOR = new_color;
 	}
 	if (COLOR == old_color2){
