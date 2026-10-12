@@ -212,7 +212,7 @@ grav_curve_dec = SubResource("Curve_qjkh3")
 
 [node name="Anim" type="AnimatedSprite2D" parent="." unique_id=1995355500]
 sprite_frames = SubResource("SpriteFrames_5kg8m")
-animation = &"hurt"
+animation = &"idle"
 offset = Vector2(0, -0.5)
 
 [node name="CenterArmPivot" type="Node2D" parent="." unique_id=187030314]
@@ -221,7 +221,7 @@ offset = Vector2(0, -0.5)
 position = Vector2(-3, -4)
 
 [node name="Gun" type="Sprite2D" parent="CenterArmPivot/Arm" unique_id=1305939085]
-position = Vector2(1, 15)
+position = Vector2(1, 14)
 texture = ExtResource("4_qjkh3")
 
 [node name="ParryHitbox" type="Area2D" parent="CenterArmPivot/Arm" unique_id=463376893]
@@ -240,7 +240,7 @@ position = Vector2(2, 3)
 texture = ExtResource("3_yw30f")
 
 [node name="BarrelPosition" type="Marker2D" parent="CenterArmPivot/Arm" unique_id=890426585]
-position = Vector2(2.5, 19.5)
+position = Vector2(2.5, 18.5)
 
 [node name="FireParticles" type="CPUParticles2D" parent="CenterArmPivot/Arm/BarrelPosition" unique_id=782018873]
 emitting = false
