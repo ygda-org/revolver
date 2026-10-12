@@ -4,9 +4,11 @@ var velocity: Vector2
 const GRAVITY = 300
 var parried: bool = false
 
+const MAX_FALL_SPEED: float = 350
+
 func _process(delta):
 	if not parried:
-		velocity.y += GRAVITY * delta
+		velocity.y = clampf(velocity.y + GRAVITY * delta, -MAX_FALL_SPEED, MAX_FALL_SPEED)
 	position += velocity * delta
 	$Anim.rotation = velocity.angle()
 	$Anim.rotation += PI/2
