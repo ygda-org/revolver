@@ -1,4 +1,6 @@
 extends Area2D
+class_name Wall
+
 
 const SPEED = 50
 var direction
