@@ -161,7 +161,7 @@ func _physics_process(delta):
 		elif velocity.x < 0:
 			$Anim.flip_h = true
 			$CenterArmPivot.scale.x = -1
-		$CenterArmPivot/Arm/Gun.flip_h = abs(fmod($CenterArmPivot/Arm.rotation, 2*PI)) > PI
+		$CenterArmPivot/Arm/Gun.flip_h = abs(fposmod($CenterArmPivot/Arm.rotation, 2*PI)) < PI
 	
 	move_and_slide()
 
