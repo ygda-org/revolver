@@ -191,7 +191,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5kg8m"]
-size = Vector2(8, 63)
+size = Vector2(8, 8)
 
 [node name="Wall" type="Area2D" unique_id=469954843]
 collision_layer = 2
@@ -201,16 +201,11 @@ script = ExtResource("1_3xvwh")
 [node name="Anim" type="AnimatedSprite2D" parent="." unique_id=1897745704]
 material = SubResource("ShaderMaterial_jr066")
 sprite_frames = SubResource("SpriteFrames_rjwtc")
-animation = &"end"
 autoplay = "default"
-frame = 11
-frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1594396064]
-visible = false
-position = Vector2(0, -0.5)
+position = Vector2(0, 28)
 shape = SubResource("RectangleShape2D_5kg8m")
-disabled = true
 
 [node name="RaycastPivot" type="Node2D" parent="." unique_id=672226677]
 

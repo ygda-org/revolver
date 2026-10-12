@@ -226,7 +226,9 @@ func _on_parry_hitbox_area_entered(area):
 	$Camera2D.add_zoom_trauma(-0.2)
 	Sfx.play(Sfx.Labels.PARRY)
 	if area is Wall:
+		area.get_node("CollisionShape2D").disabled = true
 		area.call_deferred("_on_timer_timeout")
+		area.parried = true
 		return
 	if area is PlayerBullet and not area.resource.can_not_be_parried:
 		area.vel = 400 * global_position.direction_to(GameState.get_closest_enemy_to_position(global_position).global_position)

@@ -232,7 +232,7 @@ texture = SubResource("GradientTexture2D_55d6i")
 
 [node name="Anim" type="AnimatedSprite2D" parent="." unique_id=1995355500]
 sprite_frames = SubResource("SpriteFrames_5kg8m")
-animation = &"idle"
+animation = &"jump"
 offset = Vector2(0, -0.5)
 
 [node name="CenterArmPivot" type="Node2D" parent="." unique_id=187030314]
