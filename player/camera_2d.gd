@@ -11,7 +11,7 @@ var zoom_trauma: float = 1.0
 var zoom_trauma_decay: float = 1.5
 const MAX_ZOOM_TRAUMA_DIFF = 0.5
 
-const MULTIPLIER = 1.5
+const MULTIPLIER = 1.9
 
 func _ready():
 	noise.seed = 1042314
@@ -29,18 +29,18 @@ func _process(delta):
 
 func add_trauma(amount):
 	if trauma:
-		trauma += amount * (1/(1+amount)) * 0.8
+		trauma += amount * (1/(1+2*(amount+trauma)))
 	else:
 		trauma += amount
 
 func shake():
 	var strength = pow(trauma, 2.5)
 	noise_height += 1
-	offset.x = MULTIPLIER * target_offset.x + max_shake.x * strength * noise.get_noise_2d(noise.seed*2,noise_height)
-	offset.y = MULTIPLIER * target_offset.y + max_shake.y * strength * noise.get_noise_2d(noise.seed*3,noise_height)
+	offset.x = target_offset.x + MULTIPLIER * max_shake.x * strength * noise.get_noise_2d(noise.seed*2,noise_height)
+	offset.y = target_offset.y + MULTIPLIER * max_shake.y * strength * noise.get_noise_2d(noise.seed*3,noise_height)
 
 func add_zoom_trauma(amount):
 	if zoom_trauma:
-		zoom_trauma += amount * (1/(1+abs(amount*5))) * 0.5
+		zoom_trauma += amount * (1/(1+abs(amount*8+zoom_trauma))) * 0.5
 	else:
 		zoom_trauma += amount

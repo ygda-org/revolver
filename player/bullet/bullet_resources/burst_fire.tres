@@ -11,6 +11,7 @@ effect_strength = 3.0
 effect_on_shot = true
 shake_trauma = 0.0
 invisible_and_no_collision = true
+can_not_be_parried = true
 outline_color = Color(0.8015306, 0, 0.7958053, 1)
 bullet_name = "Burst fire"
 description = "Shoots 3 smaller shots at once"

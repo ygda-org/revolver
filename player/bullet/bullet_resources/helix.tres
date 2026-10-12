@@ -11,6 +11,7 @@ effect = 12
 effect_on_shot = true
 shake_trauma = 0.7
 invisible_and_no_collision = true
+can_not_be_parried = true
 outline_color = Color(0.2079894, 0.22248787, 1, 1)
 sprite_frames_ovveride = SubResource("SpriteFrames_ulucf")
 bullet_name = "Helix"

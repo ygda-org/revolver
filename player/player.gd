@@ -228,7 +228,7 @@ func _on_parry_hitbox_area_entered(area):
 	if area is Wall:
 		area.call_deferred("_on_timer_timeout")
 		return
-	if area is PlayerBullet:
+	if area is PlayerBullet and not area.resource.can_not_be_parried:
 		area.vel = 400 * global_position.direction_to(GameState.get_closest_enemy_to_position(global_position).global_position)
 		area.damage *= 2.5
 	if "velocity" in area:

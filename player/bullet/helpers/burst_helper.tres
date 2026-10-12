@@ -5,6 +5,6 @@
 [resource]
 script = ExtResource("1_fm0te")
 damage = 6
-shake_trauma = 0.25
+shake_trauma = 0.4
 outline_color = Color(0.63409686, 0.5600573, 0.30089393, 1)
 metadata/_custom_type_script = "uid://cmear8uu7c65f"

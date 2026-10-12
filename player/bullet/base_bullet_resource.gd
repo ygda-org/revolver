@@ -13,6 +13,7 @@ class_name BulletResource
 @export var shake_trauma: float = 0.5
 @export var can_call_on_walls: bool = false
 @export var invisible_and_no_collision: bool = false
+@export var can_not_be_parried: bool = false
 
 
 enum OverrideSettings {
