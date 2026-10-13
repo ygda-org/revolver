@@ -2,6 +2,9 @@ extends Control
 
 var in_animation: bool = false
 
+func _ready():
+	MusicPlayer.start(MusicPlayer.Labels.MENU)
+
 func _on_play_button_pressed():
 	in_animation = true
 	$PlayButton.disabled = true

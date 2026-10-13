@@ -8,7 +8,8 @@ var current_player: AudioStreamPlayer
 @export var label_to_settings: Dictionary[Labels, MusicSettings]
 
 enum Labels {
-	BATTLE_1
+	BATTLE_1,
+	MENU
 }
 
 ## start track, fadeout is if the current song will decrease in volume before stopping
