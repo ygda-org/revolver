@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cum3b52ur7pon"
+path="res://.godot/imported/jazzin it up for the shop.mp3-a3bebbc437c40a085512a4bf786884c8.mp3str"
+
+[deps]
+
+source_file="res://assets/music/jazzin it up for the shop.mp3"
+dest_files=["res://.godot/imported/jazzin it up for the shop.mp3-a3bebbc437c40a085512a4bf786884c8.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
