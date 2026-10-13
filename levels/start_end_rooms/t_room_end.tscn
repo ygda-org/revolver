@@ -71,7 +71,7 @@ outline_color = Color(0, 0, 0, 1)
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hw33r"]
 shader = ExtResource("3_hw33r")
 shader_parameter/old_color = Color(1, 1, 1, 1)
-shader_parameter/new_color = Color(1.4369954, 1.4369954, 1.4369954, 1)
+shader_parameter/new_color = Color(1, 1, 1, 1)
 shader_parameter/old_color2 = Color(0, 0, 0, 1)
 shader_parameter/new_color2 = Color(0, 0, 0, 1)
 shader_parameter/old_color3 = Color(0, 0, 0, 1)
@@ -85,10 +85,13 @@ shader_parameter/invisible = false
 [sub_resource type="LabelSettings" id="LabelSettings_j30cm"]
 font = ExtResource("7_xrrek")
 
+[sub_resource type="FontVariation" id="FontVariation_p8vn4"]
+base_font = ExtResource("7_xrrek")
+spacing_glyph = 1
+
 [sub_resource type="LabelSettings" id="LabelSettings_xrrek"]
-font = ExtResource("7_xrrek")
-font_size = 8
-outline_color = Color(0, 0, 0, 1)
+font = SubResource("FontVariation_p8vn4")
+font_size = 10
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5kg8m"]
 size = Vector2(20, 54)
@@ -236,6 +239,7 @@ collision_mask = 5
 shape = SubResource("SegmentShape2D_lq1ig")
 
 [node name="BulletNames" type="Node2D" parent="." unique_id=763328978]
+visible = false
 
 [node name="Label" type="Label" parent="BulletNames" unique_id=124990769]
 offset_left = 160.0
