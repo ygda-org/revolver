@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="revolver"
-run/main_scene="uid://cnoahdbn2sxq3"
+run/main_scene="uid://kohovxvodk0v"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="uid://cvqcx4b2q2k21"
 
