@@ -34,7 +34,8 @@ func _physics_process(delta):
 		velocity.x = speed * direction
 	else:
 		if was_in_air:
-			Sfx.play(Sfx.Labels.LAND_METAL)
+			if global_position.distance_to(GameState.player.global_position) < DETECTION_RANGE:
+				Sfx.play(Sfx.Labels.LAND_METAL)
 			$Anim.play("default")
 			$GroundParticles.emitting = true
 		was_in_air = false
