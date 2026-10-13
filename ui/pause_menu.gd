@@ -7,6 +7,7 @@ func _process(_delta):
 		if visible:
 			visible = false
 			$Start.stop()
+			$Stop.play(0.0)
 			$AudioStreamPlayer.stop()
 			get_tree().paused = false
 		else:

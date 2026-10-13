@@ -4,6 +4,7 @@
 [ext_resource type="Shader" uid="uid://bac0cysbry057" path="res://ui/pause_menu.gdshader" id="2_ejwgg"]
 [ext_resource type="AudioStream" uid="uid://cfkyb180qdwqt" path="res://assets/pause_sfx/pause_start.mp3" id="3_fob5h"]
 [ext_resource type="AudioStream" uid="uid://uutm3dkhb62n" path="res://assets/pause_sfx/pause_theme.mp3" id="4_avurv"]
+[ext_resource type="AudioStream" uid="uid://2jyuw542fwqo" path="res://assets/pause_sfx/pause_stop.mp3" id="5_npydk"]
 
 [sub_resource type="SystemFont" id="SystemFont_fob5h"]
 font_names = PackedStringArray("Lucida Console")
@@ -68,6 +69,9 @@ stream = ExtResource("3_fob5h")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1947011356]
 stream = ExtResource("4_avurv")
+
+[node name="Stop" type="AudioStreamPlayer" parent="." unique_id=1951503071]
+stream = ExtResource("5_npydk")
 
 [connection signal="finished" from="Start" to="." method="_on_start_finished"]
 [connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]
