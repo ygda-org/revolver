@@ -9,7 +9,8 @@ var current_player: AudioStreamPlayer
 
 enum Labels {
 	BATTLE_1,
-	MENU
+	MENU,
+	BATTLE_2
 }
 
 ## start track, fadeout is if the current song will decrease in volume before stopping

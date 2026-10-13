@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://sy1ixyycss1j" path="res://globals/music_player/music_settings.gd" id="2_2fyio"]
 [ext_resource type="AudioStream" uid="uid://crimpgxogwmt7" path="res://assets/music/battle 1.mp3" id="3_emc4l"]
 [ext_resource type="AudioStream" uid="uid://dflhyw1ci18x1" path="res://assets/music/spaceMainMenu.mp3" id="4_emc4l"]
+[ext_resource type="AudioStream" uid="uid://m6ykcn2klo1h" path="res://assets/music/evilMiami.mp3" id="5_xqwue"]
 
 [sub_resource type="Resource" id="Resource_gldfg"]
 script = ExtResource("2_2fyio")
@@ -14,11 +15,19 @@ metadata/_custom_type_script = "uid://sy1ixyycss1j"
 [sub_resource type="Resource" id="Resource_88bax"]
 script = ExtResource("2_2fyio")
 loop_stream = ExtResource("4_emc4l")
+volume = 3.0
+metadata/_custom_type_script = "uid://sy1ixyycss1j"
+
+[sub_resource type="Resource" id="Resource_emc4l"]
+script = ExtResource("2_2fyio")
+loop_stream = ExtResource("5_xqwue")
+volume = 3.0
 metadata/_custom_type_script = "uid://sy1ixyycss1j"
 
 [node name="MusicPlayer" type="Node" unique_id=1900023536]
 script = ExtResource("1_hupx2")
 label_to_settings = Dictionary[int, ExtResource("2_2fyio")]({
 0: SubResource("Resource_gldfg"),
-1: SubResource("Resource_88bax")
+1: SubResource("Resource_88bax"),
+2: SubResource("Resource_emc4l")
 })
