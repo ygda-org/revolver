@@ -179,7 +179,7 @@ func hit(hitter: Node2D):
 		$InvicibilityFrames.start()
 	else:
 		return
-	Sfx.play(Sfx.Labels.PLAYER_DAMAGE)
+	Sfx.play(Sfx.Labels.PLAYER_DAMAGE, true)
 	health -= 1
 	$HitStun.start()
 	hit_stun_velocity = 150 * hitter.global_position.direction_to(global_position)
