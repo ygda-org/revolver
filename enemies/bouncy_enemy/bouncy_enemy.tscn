@@ -54,7 +54,7 @@ animations = [{
 }],
 "loop": 0,
 "name": &"default",
-"speed": 6.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -74,6 +74,16 @@ point_count = 3
 
 [sub_resource type="Gradient" id="Gradient_4e0q4"]
 colors = PackedColorArray(0.31431612, 0.31431612, 0.3143161, 1, 1, 1, 1, 1)
+
+[sub_resource type="Gradient" id="Gradient_uel47"]
+offsets = PackedFloat32Array(0, 0.98039764)
+colors = PackedColorArray(1, 0, 0, 1, 1, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_55d6i"]
+gradient = SubResource("Gradient_uel47")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
 
 [node name="BouncyEnemy" type="CharacterBody2D" unique_id=1806752779]
 collision_layer = 3
@@ -120,5 +130,11 @@ scale_amount_max = 3.0
 scale_amount_curve = SubResource("Curve_8xfwr")
 color = Color(0.7638937, 0.7997733, 0.9104551, 1)
 color_initial_ramp = SubResource("Gradient_4e0q4")
+
+[node name="LightFlip" type="Node2D" parent="." unique_id=888251865]
+
+[node name="PointLight2D" type="PointLight2D" parent="LightFlip" unique_id=1722158952]
+position = Vector2(-5, -8)
+texture = SubResource("GradientTexture2D_55d6i")
 
 [connection signal="animation_finished" from="Anim" to="." method="_on_anim_animation_finished"]

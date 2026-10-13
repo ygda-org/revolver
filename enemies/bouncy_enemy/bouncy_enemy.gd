@@ -23,8 +23,10 @@ func _physics_process(delta):
 	if not is_on_floor():
 		if direction > 0:
 			$Anim.flip_h = true
+			$LightFlip.scale.x = -1
 		elif direction < 0:
 			$Anim.flip_h = false
+			$LightFlip.scale.x = 1
 		was_in_air = true
 		if not saw_player_from_air:
 			saw_player_from_air = not $LineOfSight.is_colliding()
