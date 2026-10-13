@@ -18,6 +18,7 @@ func _ready():
 	while not room is Room:
 		room = room.get_parent()
 	room.enemies.append(self)
+	health *= -(0.5/(1+0.6*GameState.cleared_levels))+1.5
 
 func _process(delta):
 	if not anim:
