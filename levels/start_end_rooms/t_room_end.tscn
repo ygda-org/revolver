@@ -2,11 +2,21 @@
 
 [ext_resource type="Script" uid="uid://wbh48b0jb4p6" path="res://levels/start_end_rooms/shop_room.gd" id="1_ujw0c"]
 [ext_resource type="TileSet" uid="uid://dikhrktubmn1u" path="res://assets/tileset.tres" id="2_xr8nl"]
+[ext_resource type="Shader" uid="uid://bj3f2c0rxb4wh" path="res://levels/start_end_rooms/color_emmisive.gdshader" id="3_hw33r"]
 [ext_resource type="PackedScene" uid="uid://bp107wqu8a62j" path="res://levels/end_door.tscn" id="3_xr8nl"]
 [ext_resource type="Shader" uid="uid://b4pewokr7fm1b" path="res://player/bullet/bullet.gdshader" id="4_j30cm"]
 [ext_resource type="Texture2D" uid="uid://cmybf5a4eu7xx" path="res://assets/temp_art/shell_back.png" id="4_wwl7g"]
 [ext_resource type="Texture2D" uid="uid://c5ruog6cmcd75" path="res://ui/light_grad.tres" id="5_ujw0c"]
 [ext_resource type="FontFile" uid="uid://y2uxh1l2otr6" path="res://assets/ui/After Burner Neue.ttf" id="7_xrrek"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rodl6"]
+shader = ExtResource("3_hw33r")
+shader_parameter/old_color = Color(0, 0.59607846, 0.85882354, 1)
+shader_parameter/new_color = Color(0, 2.371, 3.349, 1)
+shader_parameter/old_color2 = Color(0, 0, 0, 1)
+shader_parameter/new_color2 = Color(0, 0, 0, 1)
+shader_parameter/old_color3 = Color(0, 0, 0, 1)
+shader_parameter/new_color3 = Color(0, 0, 0, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kn6rb"]
 shader = ExtResource("4_j30cm")
@@ -58,6 +68,15 @@ font = ExtResource("7_xrrek")
 font_size = 7
 outline_color = Color(0, 0, 0, 1)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hw33r"]
+shader = ExtResource("3_hw33r")
+shader_parameter/old_color = Color(1, 1, 1, 1)
+shader_parameter/new_color = Color(1.4369954, 1.4369954, 1.4369954, 1)
+shader_parameter/old_color2 = Color(0, 0, 0, 1)
+shader_parameter/new_color2 = Color(0, 0, 0, 1)
+shader_parameter/old_color3 = Color(0, 0, 0, 1)
+shader_parameter/new_color3 = Color(0, 0, 0, 1)
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_j30cm"]
 shader = ExtResource("4_j30cm")
 shader_parameter/outline_color = Color(0, 0, 0, 1)
@@ -82,6 +101,7 @@ tile_map_data = PackedByteArray("AAAAAAEAAQAAAAMAAAAAAAIAAQAAAAMAAAAAAAMAAQAAAAM
 tile_set = ExtResource("2_xr8nl")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1033563836]
+material = SubResource("ShaderMaterial_rodl6")
 tile_map_data = PackedByteArray("AAAAAA8AAQABAAIAAAABAA8AAQABAAIAAAACAAAAAQABAAIAADACAA8AAQABAAIAAAADAAAAAQABAAIAADADAA8AAQABAAIAAAAEAAAAAQABAAIAADAEAA8AAQABAAIAAAAFAAAAAQABAAIAADAFAA8AAQABAAIAAAAGAAAAAQABAAIAADAGAA8AAQABAAIAAAAHAAAAAQABAAIAADAHAA8AAQABAAIAAAAIAAAAAQABAAIAADAIAA8AAQABAAIAAAAJAAAAAQABAAIAADAJAA8AAQABAAIAAAAKAAAAAQABAAIAADAKAA8AAQABAAIAAAALAAAAAQABAAIAADALAA8AAQABAAIAAAAMAAAAAQABAAIAADAMAA8AAQABAAIAAAANAAAAAQABAAIAADANAA8AAQABAAIAAAAOAAAAAQABAAIAADAOAA8AAQABAAIAAAAAAAsAAQABAAIAADABAAsAAQACAAAAADABAAoAAQACAAEAADABAAkAAQACAAEAADABAAgAAQACAAEAADABAAcAAQACAAEAADABAAYAAQACAAEAADABAAUAAQACAAEAADABAAQAAQACAAEAADABAAMAAQACAAEAADABAAIAAQACAAEAADABAAEAAQACAAEAADABAAAAAQACAAIAADAPAAAAAQABAAIAADAPAA8AAQABAAIAAAAQAAAAAQABAAIAADAQAA8AAQABAAIAAAARAAAAAQABAAIAADARAA8AAQABAAIAAAASAAAAAQABAAIAADASAA8AAQABAAIAAAATAAAAAQABAAIAADATAA8AAQABAAIAAAAUAAAAAQABAAIAADAUAA8AAQABAAIAAAAVAAAAAQABAAIAADAVAA8AAQABAAIAAAAWAAAAAQABAAIAADAWAA8AAQABAAIAAAAXAAAAAQABAAIAADAXAA8AAQABAAIAAAAYAAAAAQABAAIAADAYAA8AAQABAAIAAAAZAAAAAQABAAIAADAZAA8AAQABAAIAAAAaAAAAAQABAAIAADAaAA8AAQABAAIAAAAbAAAAAQABAAIAADAbAA8AAQABAAIAAAAcAAAAAQABAAIAADAcAA8AAQABAAIAAAAdAAAAAQABAAIAADAdAA8AAQABAAIAAAAeAAAAAQABAAIAADAeAA8AAQABAAIAAAAfAAAAAQABAAIAADAfAA8AAQABAAIAAAAgAAAAAQABAAIAADAgAA8AAQABAAIAAAAhAAAAAQACAAIAAGAhAA8AAQACAAIAAAAhAAEAAQACAAEAAAAhAAIAAQACAAEAAAAhAAMAAQACAAEAAAAhAAQAAQACAAEAAAAhAAUAAQACAAEAAAAhAAYAAQACAAEAAAAhAAcAAQACAAEAAAAhAAgAAQACAAEAAAAhAAkAAQACAAEAAAAhAAoAAQACAAEAAAAhAAsAAQACAAEAAAAhAAwAAQACAAEAAAAhAA0AAQACAAEAAAAhAA4AAQACAAEAAAALAAwAAQABAAAAAAAOAAwAAQABAAAAAAARAAwAAQABAAAAAAAUAAwAAQABAAAAAAAXAAwAAQABAAAAAAABABAAAQABAAIAADAAABAAAQABAAIAADACABAAAQABAAIAADADABAAAQABAAIAADAEABAAAQABAAIAADAFABAAAQABAAIAADAGABAAAQABAAIAADAHABAAAQABAAIAADAIABAAAQABAAIAADAJABAAAQABAAIAADAKABAAAQABAAIAADALABAAAQABAAIAADAMABAAAQABAAIAADANABAAAQABAAIAADAOABAAAQABAAIAADAPABAAAQABAAIAADAQABAAAQABAAIAADARABAAAQABAAIAADASABAAAQABAAIAADATABAAAQABAAIAADAUABAAAQABAAIAADAVABAAAQABAAIAADAWABAAAQABAAIAADAXABAAAQABAAIAADAYABAAAQABAAIAADAZABAAAQABAAIAADAaABAAAQABAAIAADAbABAAAQABAAIAADAcABAAAQABAAIAADAdABAAAQABAAIAADAeABAAAQABAAIAADAfABAAAQABAAIAADAgABAAAQABAAIAADAhABAAAQABAAIAADAiAA8AAQABAAIAAFAiAA4AAQABAAIAAFAiAA0AAQABAAIAAFAiAAwAAQABAAIAAFAiAAsAAQABAAIAAFAiAAoAAQABAAIAAFAiAAkAAQABAAIAAFAiAAgAAQABAAIAAFAiAAcAAQABAAIAAFAiAAYAAQABAAIAAFAiAAUAAQABAAIAAFAiAAQAAQABAAIAAFAiAAMAAQABAAIAAFAiAAIAAQABAAIAAFAiAAEAAQABAAIAAFAiAAAAAQABAAIAAFAhAP//AQABAAIAAAAgAP//AQABAAIAAAAfAP//AQABAAIAAAAeAP//AQABAAIAAAAdAP//AQABAAIAAAAcAP//AQABAAIAAAAbAP//AQABAAIAAAAaAP//AQABAAIAAAAZAP//AQABAAIAAAAYAP//AQABAAIAAAAXAP//AQABAAIAAAAWAP//AQABAAIAAAAVAP//AQABAAIAAAAUAP//AQABAAIAAAATAP//AQABAAIAAAASAP//AQABAAIAAAARAP//AQABAAIAAAAQAP//AQABAAIAAAAPAP//AQABAAIAAAAOAP//AQABAAIAAAANAP//AQABAAIAAAAMAP//AQABAAIAAAALAP//AQABAAIAAAAKAP//AQABAAIAAAAJAP//AQABAAIAAAAIAP//AQABAAIAAAAHAP//AQABAAIAAAAGAP//AQABAAIAAAAFAP//AQABAAIAAAAEAP//AQABAAIAAAADAP//AQABAAIAAAACAP//AQABAAIAAAABAP//AQABAAIAAAAAAAAAAQABAAIAAGAAAAEAAQABAAIAAGAAAAIAAQABAAIAAGAAAAMAAQABAAIAAGAAAAQAAQABAAIAAGAAAAUAAQABAAIAAGAAAAYAAQABAAIAAGAAAAcAAQABAAIAAGAAAAgAAQABAAIAAGAAAAkAAQABAAIAAGAAAAoAAQACAAIAAAAAAP//AQACAAAAAAAiAP//AQACAAAAAFAiABAAAQACAAAAADAMAAEAAQACAAMAAAANAAEAAQACAAMAAAAOAAEAAQACAAMAAAAPAAEAAQACAAMAAAAQAAEAAQACAAMAAAARAAEAAQACAAMAAAASAAEAAQACAAMAAAATAAEAAQACAAMAAAAUAAEAAQACAAMAAAAVAAEAAQACAAMAAAAWAAEAAQACAAMAAAAXAAIAAQADAAQAAAAXAAMAAQADAAQAAAAXAAQAAQADAAQAAAAXAAUAAQADAAQAAAAXAAYAAQADAAQAAAAXAAcAAQADAAQAAAAWAAgAAQACAAUAAAAVAAgAAQACAAUAAAAUAAgAAQACAAUAAAATAAgAAQACAAUAAAASAAgAAQACAAUAAAARAAgAAQACAAUAAAAQAAgAAQACAAUAAAAPAAgAAQACAAUAAAAOAAgAAQACAAUAAAANAAgAAQACAAUAAAAMAAgAAQACAAUAAAALAAcAAQABAAQAAAALAAYAAQABAAQAAAALAAUAAQABAAQAAAALAAQAAQABAAQAAAALAAMAAQABAAQAAAALAAIAAQABAAQAAAALAAEAAQABAAMAAAAXAAEAAQADAAMAAAAXAAgAAQADAAUAAAALAAgAAQABAAUAAAA=")
 tile_set = ExtResource("2_xr8nl")
 
@@ -122,24 +142,29 @@ texture = ExtResource("4_wwl7g")
 [node name="Lights" type="Node2D" parent="." unique_id=1832063963]
 position = Vector2(176, 192)
 
-[node name="Light1" type="Sprite2D" parent="Lights" unique_id=296167829]
+[node name="Light1" type="PointLight2D" parent="Lights" unique_id=1148332056]
 position = Vector2(8, -16)
+energy = 2.0
 texture = ExtResource("5_ujw0c")
 
-[node name="Light2" type="Sprite2D" parent="Lights" unique_id=2079129086]
+[node name="Light2" type="PointLight2D" parent="Lights" unique_id=2011438015]
 position = Vector2(56, -16)
+energy = 2.0
 texture = ExtResource("5_ujw0c")
 
-[node name="Light3" type="Sprite2D" parent="Lights" unique_id=875461338]
+[node name="Light3" type="PointLight2D" parent="Lights" unique_id=1272806911]
 position = Vector2(104, -16)
+energy = 2.0
 texture = ExtResource("5_ujw0c")
 
-[node name="Light4" type="Sprite2D" parent="Lights" unique_id=1555029033]
+[node name="Light4" type="PointLight2D" parent="Lights" unique_id=348668831]
 position = Vector2(152, -15)
+energy = 2.0
 texture = ExtResource("5_ujw0c")
 
-[node name="Light5" type="Sprite2D" parent="Lights" unique_id=1140368675]
+[node name="Light5" type="PointLight2D" parent="Lights" unique_id=627700716]
 position = Vector2(200, -16)
+energy = 2.0
 texture = ExtResource("5_ujw0c")
 
 [node name="Hovers" type="Node2D" parent="." unique_id=530360086]
@@ -267,6 +292,7 @@ offset_bottom = 128.0
 color = Color(0, 0, 0, 1)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Screen" unique_id=61129642]
+material = SubResource("ShaderMaterial_hw33r")
 offset_left = 195.0
 offset_top = 35.0
 offset_right = 365.0
@@ -286,6 +312,7 @@ texture = ExtResource("4_wwl7g")
 stretch_mode = 2
 
 [node name="Name" type="Label" parent="Screen/VBoxContainer/HBoxContainer" unique_id=1066647068]
+use_parent_material = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 0
@@ -293,6 +320,7 @@ label_settings = SubResource("LabelSettings_j30cm")
 horizontal_alignment = 1
 
 [node name="Description" type="Label" parent="Screen/VBoxContainer" unique_id=1944369203]
+use_parent_material = true
 custom_minimum_size = Vector2(10, 10)
 layout_mode = 2
 size_flags_vertical = 3
@@ -304,12 +332,14 @@ autowrap_mode = 3
 layout_mode = 2
 
 [node name="Damage" type="Label" parent="Screen/VBoxContainer/HBoxContainer2" unique_id=1882358409]
+use_parent_material = true
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Damage: --"
 label_settings = SubResource("LabelSettings_riqys")
 
 [node name="Speed" type="Label" parent="Screen/VBoxContainer/HBoxContainer2" unique_id=812665995]
+use_parent_material = true
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Speed: --"
