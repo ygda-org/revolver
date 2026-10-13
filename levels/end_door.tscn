@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bp107wqu8a62j"]
 
 [ext_resource type="Script" uid="uid://bfjs28vt5rgeo" path="res://levels/end_door.gd" id="1_injav"]
-[ext_resource type="Texture2D" uid="uid://vdo84neoivwj" path="res://assets/exit_door.png" id="2_injav"]
+[ext_resource type="Texture2D" uid="uid://dtlywm3b0eomn" path="res://assets/exit_door_1.png" id="2_injav"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_55d6i"]
 size = Vector2(32, 32)

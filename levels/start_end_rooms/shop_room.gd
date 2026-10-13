@@ -75,6 +75,7 @@ func _on_hovers_entered(body : Node2D, idx : int):
 
 func _on_room_entry_trigger_body_entered(body):
 	if body is Player:
+		MusicPlayer.start(MusicPlayer.Labels.SHOP)
 		var new_cam = load("uid://cgx6o1n5kloe4").instantiate()
 		new_cam.target_position = global_position + Vector2(280, 130)
 		add_child(new_cam)

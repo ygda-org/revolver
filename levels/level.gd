@@ -6,7 +6,7 @@ var start_room : PackedScene = preload("res://levels/start_end_rooms/t_room_star
 var end_room : PackedScene = preload("res://levels/start_end_rooms/t_room_end.tscn")
 
 # intended 16
-var level_length : int = 11#3#11
+var level_length : int = 11
 
 const ROOMS_PATH : String = "res://levels/finalized_levels/"
 
