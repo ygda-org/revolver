@@ -16,8 +16,12 @@ height = 2
 offsets = PackedFloat32Array(0, 0.15390421, 1)
 colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0)
 
+[sub_resource type="Gradient" id="Gradient_i7suw"]
+offsets = PackedFloat32Array(0, 0.10085837, 0.19098713, 1)
+colors = PackedColorArray(1, 0.46399468, 0.32871875, 1, 0.039267953, 0.8143333, 0.9166182, 1, 1, 1, 1, 1, 1, 1, 1, 1)
+
 [sub_resource type="Gradient" id="Gradient_avurv"]
-offsets = PackedFloat32Array(0, 0.38412017, 0.73175967, 1)
+offsets = PackedFloat32Array(0, 0.2553648, 0.46995708, 1)
 colors = PackedColorArray(1, 0.46399468, 0.32871875, 1, 0.039267953, 0.8143333, 0.9166182, 1, 1, 1, 1, 1, 1, 1, 1, 1)
 
 [node name="Background" type="Node2D" unique_id=2076974054]
@@ -50,7 +54,7 @@ gravity = Vector2(0, 0)
 scale_amount_min = 0.4
 scale_amount_max = 0.8
 color_ramp = SubResource("Gradient_5fofi")
-color_initial_ramp = SubResource("Gradient_avurv")
+color_initial_ramp = SubResource("Gradient_i7suw")
 
 [node name="Sprite2D" type="Sprite2D" parent="Parallax2D" unique_id=1781030066]
 visible = false
