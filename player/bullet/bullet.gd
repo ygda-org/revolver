@@ -229,12 +229,12 @@ func backwards():
 func tri_shot_setup():
 	var bullet1 = load("uid://k308fsvc3jvh").instantiate()
 	bullet1.resource = load("uid://cllwws72eb4kk")
-	bullet1.direction = direction.rotated(PI/6)
+	bullet1.direction = direction.rotated(PI/9)
 	get_parent().add_child(bullet1)
 	bullet1.global_position = global_position
 	var bullet2 = load("uid://k308fsvc3jvh").instantiate()
 	bullet2.resource = load("uid://cllwws72eb4kk")
-	bullet2.direction = direction.rotated(-PI/6)
+	bullet2.direction = direction.rotated(-PI/9)
 	get_parent().add_child(bullet2)
 	bullet2.global_position = global_position
 
