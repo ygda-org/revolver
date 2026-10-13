@@ -29,6 +29,8 @@ MusicPlayer="*uid://chmwk6sakdq8c"
 window/size/viewport_width=960
 window/size/viewport_height=540
 window/stretch/mode="canvas_items"
+mouse_cursor/custom_image="uid://c202g07gx5d5s"
+mouse_cursor/custom_image_hotspot=Vector2(16, 16)
 
 [input]
 
