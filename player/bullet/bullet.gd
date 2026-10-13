@@ -283,7 +283,7 @@ func install():
 			if next_resource.recoil:
 				player.velocity.y /= 3
 				player.velocity += new_resource.recoil * -shot_dir * resource.damage
-				player.get_node("$RecoilLock").start()
+				player.get_node("RecoilLock").start()
 			await get_tree().create_timer(0.1).timeout
 		queue_free()
 	var bullet = load("uid://k308fsvc3jvh").instantiate()
