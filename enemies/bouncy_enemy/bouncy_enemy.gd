@@ -53,6 +53,8 @@ func _physics_process(delta):
 func _on_jump_windup_timer_timeout():
 	if not is_on_floor():
 		return
+	if global_position.distance_to(GameState.player.global_position) < DETECTION_RANGE:
+		Sfx.play(Sfx.Labels.LEGGY)
 	$Anim.play("extended")
 	velocity.y -= JUMP_FORCE
 
