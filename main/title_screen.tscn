@@ -1,12 +1,16 @@
 [gd_scene format=3 uid="uid://kohovxvodk0v"]
 
 [ext_resource type="Script" uid="uid://b1s771lwxqhb5" path="res://main/title_screen.gd" id="1_e5l7q"]
+[ext_resource type="Texture2D" uid="uid://bep5n0q2aups8" path="res://assets/ui/main_menu/pixil-layer-0.png" id="2_2qso5"]
 [ext_resource type="LabelSettings" uid="uid://cn2tcxhvc01vi" path="res://ui/credits_labels.tres" id="2_c311y"]
 [ext_resource type="Texture2D" uid="uid://bfg4ditjggrkh" path="res://assets/ui/main_menu/play.png" id="2_do73k"]
+[ext_resource type="Texture2D" uid="uid://d3d0wtwvgcdjl" path="res://assets/ui/main_menu/pixil-layer-1.png" id="3_5xs6l"]
 [ext_resource type="Texture2D" uid="uid://bebfjvod0yusd" path="res://assets/ui/main_menu/play-pressed.png" id="3_mpetn"]
 [ext_resource type="Texture2D" uid="uid://dckfsnhewiybr" path="res://assets/ui/main_menu/play-hovered.png" id="4_11ee2"]
+[ext_resource type="Texture2D" uid="uid://8cao2bxcn2y7" path="res://assets/ui/main_menu/pixil-layer-2.png" id="4_rung2"]
 [ext_resource type="Texture2D" uid="uid://cligj8dy075pb" path="res://assets/ui/main_menu/credits.png" id="4_utlxw"]
 [ext_resource type="Texture2D" uid="uid://buiwdbljnt2h8" path="res://assets/ui/main_menu/credits-pressed.png" id="5_11ee2"]
+[ext_resource type="Texture2D" uid="uid://cjdadds71u8lf" path="res://assets/ui/main_menu/pixil-layer-4.png" id="5_o7jnr"]
 [ext_resource type="Texture2D" uid="uid://dg65qlmt2r4pp" path="res://assets/ui/main_menu/credits-hovered.png" id="7_aibwo"]
 [ext_resource type="PackedScene" uid="uid://jhisqgci3ix0" path="res://main/intro.tscn" id="9_fl2ri"]
 
@@ -20,9 +24,32 @@ grow_vertical = 2
 script = ExtResource("1_e5l7q")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=2048856813]
+custom_minimum_size = Vector2(960, 540)
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
+texture = ExtResource("2_2qso5")
+
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=1857776876]
+custom_minimum_size = Vector2(960, 540)
+layout_mode = 0
+offset_right = 960.0
+offset_bottom = 540.0
+texture = ExtResource("3_5xs6l")
+
+[node name="TextureRect3" type="TextureRect" parent="." unique_id=1901431289]
+custom_minimum_size = Vector2(960, 540)
+layout_mode = 0
+offset_right = 960.0
+offset_bottom = 540.0
+texture = ExtResource("4_rung2")
+
+[node name="TextureRect4" type="TextureRect" parent="." unique_id=1756828664]
+custom_minimum_size = Vector2(960, 540)
+layout_mode = 0
+offset_right = 960.0
+offset_bottom = 540.0
+texture = ExtResource("5_o7jnr")
 
 [node name="PlayButton" type="TextureButton" parent="." unique_id=440423721]
 layout_mode = 1

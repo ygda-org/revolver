@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bp107wqu8a62j"]
 
-[ext_resource type="Texture2D" uid="uid://dlbb2kg1nkspe" path="res://assets/icon.svg" id="1_gl2cx"]
 [ext_resource type="Script" uid="uid://bfjs28vt5rgeo" path="res://levels/end_door.gd" id="1_injav"]
+[ext_resource type="Texture2D" uid="uid://vdo84neoivwj" path="res://assets/exit_door.png" id="2_injav"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_55d6i"]
 size = Vector2(32, 32)
@@ -10,8 +10,7 @@ size = Vector2(32, 32)
 script = ExtResource("1_injav")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1484776916]
-texture = ExtResource("1_gl2cx")
-region_enabled = true
+texture = ExtResource("2_injav")
 region_rect = Rect2(22, 15, 32, 32)
 
 [node name="Area2D" type="Area2D" parent="." unique_id=137198142]
