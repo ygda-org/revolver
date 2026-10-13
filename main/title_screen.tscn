@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cligj8dy075pb" path="res://assets/ui/main_menu/credits.png" id="4_utlxw"]
 [ext_resource type="Texture2D" uid="uid://buiwdbljnt2h8" path="res://assets/ui/main_menu/credits-pressed.png" id="5_11ee2"]
 [ext_resource type="Texture2D" uid="uid://dg65qlmt2r4pp" path="res://assets/ui/main_menu/credits-hovered.png" id="7_aibwo"]
+[ext_resource type="PackedScene" uid="uid://jhisqgci3ix0" path="res://main/intro.tscn" id="9_fl2ri"]
 
 [node name="TitleScreen" type="Control" unique_id=645484899]
 layout_mode = 3
@@ -119,6 +120,9 @@ offset_top = 540.0
 offset_right = 1054.0
 offset_bottom = 794.0
 color = Color(0, 0, 0, 1)
+
+[node name="Intro" parent="." unique_id=595546292 instance=ExtResource("9_fl2ri")]
+layout_mode = 1
 
 [connection signal="mouse_entered" from="PlayButton" to="." method="_on_play_button_mouse_entered"]
 [connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
