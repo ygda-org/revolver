@@ -189,6 +189,7 @@ func hit(hitter: Node2D):
 
 func die():
 	GameState.player_dead.emit()
+	Sfx.play(Sfx.Labels.DEATH, true)
 
 func dash(dir, speed):
 	velocity = dir * speed

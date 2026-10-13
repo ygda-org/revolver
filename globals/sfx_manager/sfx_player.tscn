@@ -41,6 +41,7 @@
 [ext_resource type="AudioStream" uid="uid://cgeshejqxi434" path="res://assets/sfx_round3/menu_button_hover.mp3" id="39_uieua"]
 [ext_resource type="AudioStream" uid="uid://dwd1i0753bp2v" path="res://assets/sfx_round3/menu_button_select.mp3" id="40_vphq8"]
 [ext_resource type="AudioStream" uid="uid://dfkhtuhrmx3wv" path="res://assets/sfx_round3/jumper_enemy_gets_leggy_with_it.mp3" id="41_vphq8"]
+[ext_resource type="AudioStream" uid="uid://cqo27bt2407ib" path="res://assets/sfx_round3/death.mp3" id="42_kk43f"]
 
 [sub_resource type="Resource" id="Resource_kfcue"]
 script = ExtResource("2_0skdd")
@@ -288,8 +289,12 @@ metadata/_custom_type_script = "uid://ceepfr3v8cnmq"
 [sub_resource type="Resource" id="Resource_dvx2m"]
 script = ExtResource("2_0skdd")
 stream = ExtResource("41_vphq8")
-volume = 5.0
 pitch_variance = 0.1
+metadata/_custom_type_script = "uid://ceepfr3v8cnmq"
+
+[sub_resource type="Resource" id="Resource_wfpi1"]
+script = ExtResource("2_0skdd")
+stream = ExtResource("42_kk43f")
 metadata/_custom_type_script = "uid://ceepfr3v8cnmq"
 
 [node name="SfxPlayer" type="Node" unique_id=1790965844]
@@ -333,5 +338,6 @@ label_to_setting = Dictionary[int, ExtResource("2_0skdd")]({
 35: SubResource("Resource_erpj2"),
 36: SubResource("Resource_kk43f"),
 37: SubResource("Resource_lkqkv"),
-38: SubResource("Resource_dvx2m")
+38: SubResource("Resource_dvx2m"),
+39: SubResource("Resource_wfpi1")
 })

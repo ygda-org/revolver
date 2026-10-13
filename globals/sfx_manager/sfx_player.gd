@@ -41,7 +41,8 @@ enum Labels {
 	TV_OFF,
 	BUTTON_HOVER,
 	BUTTON_CLICK,
-	LEGGY
+	LEGGY,
+	DEATH
 }
 
 @export var label_to_setting: Dictionary[Labels, SfxSettings]
