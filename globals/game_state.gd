@@ -102,7 +102,9 @@ func get_closest_enemy_to_position(pos: Vector2):
 			closest = enemy
 	if not closest:
 		var dumb_node = Node2D.new()
-		get_tree().current_scene.add_child(dumb_node)
+		var dumb_node_parent = Node2D.new()
+		get_tree().current_scene.add_child(dumb_node_parent)
+		dumb_node_parent.add_child(dumb_node)
 		return dumb_node
 	return closest
 

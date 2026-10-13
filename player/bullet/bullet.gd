@@ -216,7 +216,7 @@ func homing():
 	vel += perp * resource.effect_strength * delta_time_save
 
 func blackhole():
-	var enemy: EnemyComponent = GameState.get_closest_enemy_to_position(global_position)
+	var enemy = GameState.get_closest_enemy_to_position(global_position)
 	if not enemy:
 		return
 	var dir = enemy.get_parent().global_position.direction_to(global_position)
