@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://brogcvhnw2gn6" path="res://ui/pause_menu.gd" id="1_50142"]
 [ext_resource type="Shader" uid="uid://bac0cysbry057" path="res://ui/pause_menu.gdshader" id="2_ejwgg"]
+[ext_resource type="AudioStream" uid="uid://cfkyb180qdwqt" path="res://assets/pause_sfx/pause_start.mp3" id="3_fob5h"]
+[ext_resource type="AudioStream" uid="uid://uutm3dkhb62n" path="res://assets/pause_sfx/pause_theme.mp3" id="4_avurv"]
 
 [sub_resource type="SystemFont" id="SystemFont_fob5h"]
 font_names = PackedStringArray("Lucida Console")
@@ -20,7 +22,7 @@ outline_color = Color(0, 0, 0, 1)
 shader = ExtResource("2_ejwgg")
 shader_parameter/color_offset_multiplier = 0.00800000038
 shader_parameter/black_offset_multiplier = 0.1
-shader_parameter/color_offset = 0.009000003687379993
+shader_parameter/color_offset = 0.00900000368737999
 shader_parameter/blur_amount = 0.5000000074506
 
 [node name="PauseMenu" type="Control" unique_id=660923217]
@@ -60,3 +62,12 @@ horizontal_alignment = 1
 [node name="ColorRect" type="ColorRect" parent="MarginContainer" unique_id=131681798]
 material = SubResource("ShaderMaterial_50142")
 layout_mode = 2
+
+[node name="Start" type="AudioStreamPlayer" parent="." unique_id=814561495]
+stream = ExtResource("3_fob5h")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1947011356]
+stream = ExtResource("4_avurv")
+
+[connection signal="finished" from="Start" to="." method="_on_start_finished"]
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]
