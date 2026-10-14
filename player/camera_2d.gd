@@ -26,6 +26,7 @@ func _process(delta):
 	offset = offset.clamp(-max_shake, max_shake)
 	zoom_trauma = clampf(move_toward(zoom_trauma, 1, delta*zoom_trauma_decay), 1-MAX_ZOOM_TRAUMA_DIFF, 1+MAX_ZOOM_TRAUMA_DIFF)
 	zoom = zoom.lerp(Vector2(2,2)*zoom_trauma, delta * 20)
+	do_centered_target_position(delta)
 
 func add_trauma(amount):
 	if trauma:
@@ -44,3 +45,13 @@ func add_zoom_trauma(amount):
 		zoom_trauma += amount * (1/(1+abs(amount*8+zoom_trauma))) * 0.5
 	else:
 		zoom_trauma += amount
+
+func do_centered_target_position(delta):
+	var avg: Vector2 = get_parent().global_position * 4
+	var count: int = 4
+	for enemy in GameState.active_enemies:
+		if enemy and enemy.active:
+			avg += enemy.global_position
+			count += 1
+	avg /= count
+	global_position = global_position.lerp(avg, 0.5*delta)

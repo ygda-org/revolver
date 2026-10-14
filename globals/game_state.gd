@@ -102,7 +102,9 @@ func get_closest_enemy_to_position(pos: Vector2):
 			closest = enemy
 	if not closest:
 		var dumb_node = Node2D.new()
-		get_tree().current_scene.add_child(dumb_node)
+		var dumb_node_parent = Node2D.new()
+		get_tree().current_scene.add_child(dumb_node_parent)
+		dumb_node_parent.add_child(dumb_node)
 		return dumb_node
 	return closest
 
@@ -121,8 +123,8 @@ func enemy_death(enemy: EnemyComponent):
 ## called by enemy spawner to tell it whether or not to spawn
 func do_i_spawn():
 	var random = randf()
-	var threshold = (1/(1+pow(1.5, -cleared_levels))) + 0.15
+	var threshold = (1/(1+pow(1.25, -cleared_levels))) + 0.15
 	return random < threshold
 
 func level_start():
-	repair_amount_reducer = (1.34/(1+pow(1.5, cleared_levels))) + 0.33
+	repair_amount_reducer = (1/(1+pow(1.5, cleared_levels))) + 0.5

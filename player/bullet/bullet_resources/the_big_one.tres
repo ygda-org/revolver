@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_oasx7")
-damage = 30
+damage = 24
 speed = 200.0
 recoil = 10.0
 override_shot_sfx = 2

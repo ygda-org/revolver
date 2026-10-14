@@ -11,8 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://dkvcobb0pb2fb" path="res://ui/pause_menu.tscn" id="9_spcu4"]
 
 [sub_resource type="Gradient" id="Gradient_546lt"]
-offsets = PackedFloat32Array(0, 0.30602008, 0.74749166)
-colors = PackedColorArray(1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1)
+offsets = PackedFloat32Array(0, 0.30602008, 0.9639423)
+colors = PackedColorArray(1, 1, 1, 0, 0, 0, 0, 0.16078432, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_546lt"]
 gradient = SubResource("Gradient_546lt")
@@ -145,7 +145,6 @@ offset_right = 480.0
 offset_bottom = 270.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(3, 3)
 pivot_offset = Vector2(480, 270)
 texture = SubResource("GradientTexture2D_546lt")
 expand_mode = 5

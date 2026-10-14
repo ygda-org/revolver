@@ -12,6 +12,7 @@ const DECELERATION: float = 1500.0
 const JUMP_FORCE: float = 280.0
 const MAX_FALL_SPEED: float = 250.0
 const GRAVITY: float = 700
+const DROP_GRAVITY_BONUS: float = 700
 
 const PREPARRY_WINDOW = 0.05
 ## actualy window is this minus preparry window
@@ -88,6 +89,8 @@ func _physics_process(delta):
 		if dir * velocity.x <= 0 and $RecoilLock.is_stopped():
 			velocity.x = move_toward(velocity.x, 0, DECELERATION * decel_curve.sample(abs(velocity.x/MAX_SPEED)) * delta)
 		velocity.x = clampf(velocity.x, -MAX_SPEED, MAX_SPEED)
+	if Input.is_action_pressed("drop"):
+		velocity.y += DROP_GRAVITY_BONUS*delta
 	set_collision_mask_value(6, not Input.is_action_pressed("drop"))
 	
 	#Jump Anim

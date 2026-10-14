@@ -216,7 +216,7 @@ func homing():
 	vel += perp * resource.effect_strength * delta_time_save
 
 func blackhole():
-	var enemy: EnemyComponent = GameState.get_closest_enemy_to_position(global_position)
+	var enemy = GameState.get_closest_enemy_to_position(global_position)
 	if not enemy:
 		return
 	var dir = enemy.get_parent().global_position.direction_to(global_position)
@@ -229,12 +229,12 @@ func backwards():
 func tri_shot_setup():
 	var bullet1 = load("uid://k308fsvc3jvh").instantiate()
 	bullet1.resource = load("uid://cllwws72eb4kk")
-	bullet1.direction = direction.rotated(PI/6)
+	bullet1.direction = direction.rotated(PI/9)
 	get_parent().add_child(bullet1)
 	bullet1.global_position = global_position
 	var bullet2 = load("uid://k308fsvc3jvh").instantiate()
 	bullet2.resource = load("uid://cllwws72eb4kk")
-	bullet2.direction = direction.rotated(-PI/6)
+	bullet2.direction = direction.rotated(-PI/9)
 	get_parent().add_child(bullet2)
 	bullet2.global_position = global_position
 
