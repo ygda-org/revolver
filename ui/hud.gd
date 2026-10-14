@@ -1,5 +1,6 @@
 extends Control
 
+
 func _ready() -> void:
 	GameState.bullet_is_cycled.connect(_on_bullet_is_cycled)
 	GameState.start_reload.connect(_on_start_reload)
