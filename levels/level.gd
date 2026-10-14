@@ -12,6 +12,7 @@ const ROOMS_PATH : String = "res://levels/finalized_levels/"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	GameState.level_started.emit()
 	for room_file in ResourceLoader.list_directory(ROOMS_PATH):
 		pool.append(load(ROOMS_PATH + room_file))
 	#pool.sort_custom(func(a,b): return a.length > b.length)
